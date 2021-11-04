@@ -2,34 +2,19 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this site",
-      "description": "Some additional details about the website",
+      "title": "About this blog",
+      "description": "Some additional details about the blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-03T20:27:00-03:00"
+      "last_modified": "2021-11-04T19:39:56-03:00"
     },
     {
       "path": "index.html",
       "title": "My blog",
-      "description": "Welcome to the website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-03T20:27:01-03:00"
-    },
-    {
-      "path": "publications.html",
-      "title": "Publication",
-      "description": "A new article created using the Distill format.\n",
-      "author": [
-        {
-          "name": "Nora Jones",
-          "url": "https://example.com/norajones"
-        }
-      ],
-      "date": "`r Sys.Date()`",
-      "contents": "\r\nhere is a list of my publications\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill for R Markdown at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-03T20:27:02-03:00"
+      "last_modified": "2021-11-04T19:39:57-03:00"
     }
   ],
-  "collections": []
+  "collections": ["posts/posts.json"]
 }
