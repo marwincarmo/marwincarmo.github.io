@@ -4,10 +4,21 @@
     <title>Marwin Carmo</title>
     <link>marwincarmo.github.io</link>
     <atom:link href="marwincarmo.github.io/index.xml" rel="self" type="application/rss+xml"/>
-    <description>Posts
+    <description>Marwin's posts
 </description>
     <generator>Distill</generator>
     <lastBuildDate>Thu, 04 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Regression Artifact - Re-running Farmus et. al (2019)</title>
+      <dc:creator>Marwin Carmo</dc:creator>
+      <link>marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</link>
+      <description>A short description of the post.</description>
+      <category>simulation</category>
+      <category>regression</category>
+      <guid>marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</guid>
+      <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
+      <media:content url="marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/img/de1.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Welcome to My blog</title>
       <dc:creator>Nora Jones</dc:creator>
