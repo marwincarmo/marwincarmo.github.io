@@ -1,9 +1,44 @@
 ---
-title: "About this blog"
-description: |
-  Some additional details about the blog
+title: "Marwin Carmo"
+image: "me3.png"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/marwin-carmo/"
+  - label: Scholar
+    url: "https://scholar.google.com.br/citations?user=dlwgiroAAAAJ&hl=pt-BR"
+  - label: Twitter
+    url: "https://twitter.com/marwincarmo"
+  - label: GitHub
+    url: "https://github.com/marwincarmo"
+  - label: Email
+    url: "mailto:marwin@usp.br"
+    
+output:
+  postcards::trestles
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+## Bio
+
+I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying with psychometric models to evaluate sleep-related cognition scales with a Brazilian sample.
+
+## Education
+
+**University of São Paulo** | São Paulo, SP, Brazil
+
+M.Sc. in Psychiatry | June 2021 - Present
+
+**Rio de Janeiro State University** | Rio de Janeiro, RJ, Brazil
+
+B.S. in Psychology | 2014 - 2019
+
+**Federal Institute of Education, Science and Technology** | Rio de Janeiro, RJ, Brazil
+
+B.Tech. in Chemical Processes | 2008 - 2013
+
+## Experience
+
+**Psychology of Human Development Laboratory - UERJ** | Research Assistant | August 2019 - August 2020
+
+**Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ** | Undergraduate Research Project | July 2017 - July 2019
+
+**Biodegradable Polymer Research Laboratory - UFRJ** | Undergraduate Research Project | June 2011 - March 2013

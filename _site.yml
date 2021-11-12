@@ -3,6 +3,10 @@ title: "Marwin Carmo"
 description: |
   Marwin's posts
 base_url: marwincarmo.github.io
+repository_url: https://github.com/marwincarmo/marwincarmo.github.io
+creative_commons: CC BY
+twitter:
+  site: "@marwincarmo"
 output_dir: "docs"
 navbar:
   right:

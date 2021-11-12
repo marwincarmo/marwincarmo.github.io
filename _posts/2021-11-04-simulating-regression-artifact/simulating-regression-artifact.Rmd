@@ -22,6 +22,7 @@ output:
     self_contained: false
     toc: true
     toc_depth: 2
+creative_commons: CC BY
 draft: false
 ---
 
