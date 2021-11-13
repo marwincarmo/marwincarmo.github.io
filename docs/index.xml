@@ -2,8 +2,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title>Marwin Carmo</title>
-    <link>marwincarmo.github.io</link>
-    <atom:link href="marwincarmo.github.io/index.xml" rel="self" type="application/rss+xml"/>
+    <link>https://marwincarmo.github.io/</link>
+    <atom:link href="https://marwincarmo.github.io/index.xml" rel="self" type="application/rss+xml"/>
     <description>Marwin's posts
 </description>
     <generator>Distill</generator>
@@ -11,21 +11,21 @@
     <item>
       <title>Regression Artifact - Re-running Farmus et. al (2019)</title>
       <dc:creator>Marwin Carmo</dc:creator>
-      <link>marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</link>
+      <link>https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</link>
       <description>A short description of the post.</description>
       <category>simulation</category>
       <category>regression</category>
-      <guid>marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</guid>
+      <guid>https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</guid>
       <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
-      <media:content url="marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/simulating-regression-artifact_files/figure-html5/sim-plot-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <media:content url="https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/simulating-regression-artifact_files/figure-html5/sim-plot-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Welcome to My blog</title>
       <dc:creator>Nora Jones</dc:creator>
-      <link>marwincarmo.github.io/posts/welcome</link>
+      <link>https://marwincarmo.github.io/posts/welcome</link>
       <description>Welcome to our new blog, My blog. We hope you enjoy 
 reading what we have to say!</description>
-      <guid>marwincarmo.github.io/posts/welcome</guid>
+      <guid>https://marwincarmo.github.io/posts/welcome</guid>
       <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>

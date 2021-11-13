@@ -2,7 +2,7 @@ name: "marwincarmo.github.io"
 title: "Marwin Carmo"
 description: |
   Marwin's posts
-base_url: marwincarmo.github.io
+base_url: https://marwincarmo.github.io/
 repository_url: https://github.com/marwincarmo/marwincarmo.github.io
 creative_commons: CC BY
 twitter:
@@ -10,10 +10,19 @@ twitter:
 output_dir: "docs"
 navbar:
   right:
-    - text: "Home"
+    - text: "Blog"
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Projects"
+      menu:
+        - text: "Model Selection App"
+          href: https://marwin.shinyapps.io/model-selection-app/
     - icon: fa fa-rss
       href: index.xml
+  source_url: true
+collections:
+  posts:
+    disqus: marwincarmo.github.io
+    share: [twitter, linkedin]
 output: distill::distill_article
