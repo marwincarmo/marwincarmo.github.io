@@ -12,7 +12,6 @@ links:
     url: "https://github.com/marwincarmo"
   - label: Email
     url: "mailto:marwin@usp.br"
-    
 output:
   postcards::trestles
 ---

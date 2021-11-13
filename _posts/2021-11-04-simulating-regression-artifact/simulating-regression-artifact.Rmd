@@ -14,7 +14,6 @@ date: 2021-11-04
 categories:
   - simulation
   - regression
-preview: img/de1.jpg
 output:
   distill::distill_article:
     code_folding: true
@@ -138,7 +137,7 @@ sim.df <- data.frame("post" =  post,
 
 (ref:sim-plot-1) Scatterplot for the average gain from pre to post treatment. Blue line is the slope for group A and the red line is the slope for group B. The black dashed line is the slope for average gain taking both groups together
 
-```{r sim-plot-1, fig.cap='(ref:sim-plot-1)', message=FALSE, warning=FALSE, fig.align='center'}
+```{r sim-plot-1, fig.cap='(ref:sim-plot-1)', message=FALSE, warning=FALSE, fig.align='center', preview = TRUE}
 
 pre_post <- ggplot(sim.df) +
   geom_point(aes(x= pre, y = post, color=group),size = 2.5) +
