@@ -12,13 +12,19 @@ links:
     url: "https://github.com/marwincarmo"
   - label: Email
     url: "mailto:marwin@usp.br"
+  - label: OSF
+    url: "osf.io/tm6d3"
 output:
   postcards::trestles
 ---
 
 ## Bio
 
-I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying with psychometric models to evaluate sleep-related cognition scales with a Brazilian sample.
+I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying psychometric models to evaluate sleep-related cognition scales with a Brazilian sample.
+
+My interests are mostly Measurement, Quantitative Methods, Open Science, Computational Psychiatry and #rstats programming.
+
+I have plans to apply to PhD programs in Quantitative Psychology or related areas on the 2022 cycle. If you believe I could be a good fit for your lab or anyone's you know, please feel free to reach out. Contact for collaboration on research or just chatting are also very welcome (preferrably via twitter or email).
 
 ## Education
 
