@@ -1,0 +1,24 @@
+---
+title: "Projects"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+library(htmltools)
+source("R/create_proj_card.R")
+```
+
+```{r}
+create_proj_card(
+  img_src = "img/plots.png",
+  url = "https://marwin.shinyapps.io/model-selection-app/",
+  title = "Model Selection Bias App",
+  text = "This Shiny app is designed for performing simulations of statistical inferences after model selection procedures. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set.",
+  text2 = "Authors: Carmo, M. M. I. B., & Williams, D. R."
+)
+
+```

@@ -1,7 +1,7 @@
 ---
 title: "Regression Artifact - Re-running Farmus et. al (2019)"
 description: |
-  A short description of the post.
+  In this post I'll how false positives can emerge if a model not fit to the research question is chosen. I also provide code for a simple Monte Carlo simulation of the frequency of these false positive results. 
 author:
   - first_name: Marwin
     last_name: Carmo
@@ -171,7 +171,7 @@ Notice that when subjects from groups A and B fall on the same range of pretest 
 
 It can also help to visualize the difference between the two models using diagrams. As shown by @pearl2016, we can represent Lord's paradox as a mediation model,
 
-```{r, echo=FALSE, code_folding = FALSE, show_code = FALSE, out.width="50%", fig.align='center',fig.cap="Linear version of the model showing pretest scores (Pre) as a mediator between Group (G) and posttest scores (Post). Adapted from @pearl2016"}
+```{r, echo=FALSE, show_code = FALSE, out.width="45%", fig.align='center',fig.cap="Linear version of the model showing pretest scores (Pre) as a mediator between Group (G) and posttest scores (Post). Adapted from @pearl2016"}
 knitr::include_graphics("img/dag2.jpg")
 ```
 
@@ -378,4 +378,4 @@ We have covered a definition of Lord's Paradox and argued that choosing a model 
 
 Following recent calls to reproduce simulation studies [@lohmann2021] we have worked to reproduce simulations performed by two papers discussing Lord's Paradox with continuous predictors. Monte Carlo simulations are not needed to demonstrate the regression artifact and no major recommendations are being proposed by the original studies based on the simulation results. Even so, a minor discrepancy from @eriksson2014 was found, highlighting that computer code is not error free. Reproducing simulation analysis proved to be fruitful not only in finding divergent results but also as a coding exercise.
 
-Lord's Paradox have been and continues to be widely debated in the quantitative methods literature. Many of the papers referenced in the text broaden the discussion investigating this topic in different and more complex scenarios. Hopefully this post has reached its instructive purpose of teaching a few things about simulating data in R. If you have any comments or questions, feel free to reach me via email or twitter.
+Lord's Paradox have been and continues to be widely debated in the quantitative methods literature. Many of the papers referenced in the text broaden the discussion investigating this topic in different and more complex scenarios. Hopefully this post has reached its instructive purpose of teaching a few things about simulating data in R. If you have any comments or questions, feel free to drop a comment below or reach me via [email](mailto:marwin@usp.br) or [twitter](https://twitter.com/marwincarmo).

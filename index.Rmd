@@ -1,6 +1,6 @@
 ---
 title: "Marwin Carmo"
-image: "me3.png"
+image: "img/me3.png"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/marwin-carmo/"
@@ -21,7 +21,7 @@ site: distill::distill_website
 
 I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying psychometric models to evaluate sleep-related cognition scales with a Brazilian sample.
 
-My interests are mostly Measurement, Quantitative Methods, Data Science, Open Science, Computational Psychiatry and #rstats programming.
+My interests are mostly Measurement, Quantitative Methods, Data Science, Open Science, and R programming.
 
 I have plans to apply to PhD programs in Quantitative Psychology or related areas on the 2022 cycle. If you believe I could be a good fit for your lab or anyone's you know, please feel free to reach out. Contact for collaboration on research or just chatting are also very welcome (preferrably via twitter or email).
 
