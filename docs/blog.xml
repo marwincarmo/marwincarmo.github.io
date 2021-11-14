@@ -12,7 +12,7 @@
       <title>Regression Artifact - Re-running Farmus et. al (2019)</title>
       <dc:creator>Marwin Carmo</dc:creator>
       <link>https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</link>
-      <description>A short description of the post.</description>
+      <description>In this post I'll how false positives can emerge if a model not fit to the research question is chosen. I also provide code for a simple Monte Carlo simulation of the frequency of these false positive results.</description>
       <category>simulation</category>
       <category>regression</category>
       <guid>https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</guid>
