@@ -3,7 +3,7 @@
   <channel>
     <title>Marwin Carmo</title>
     <link>https://marwincarmo.github.io/</link>
-    <atom:link href="https://marwincarmo.github.io/index.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://marwincarmo.github.io/blog.xml" rel="self" type="application/rss+xml"/>
     <description>Marwin's posts
 </description>
     <generator>Distill</generator>

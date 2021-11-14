@@ -10,10 +10,10 @@ twitter:
 output_dir: "docs"
 navbar:
   right:
-    - text: "Blog"
-      href: index.html
     - text: "About"
-      href: about.html
+      href: index.html
+    - text: "Blog"
+      href: blog.html
     - text: "Projects"
       menu:
         - text: "Model Selection App"
