@@ -292,9 +292,9 @@ sim.reg.artifact <- function(n.sims, sample.size, beta) {
   n <- sample.size
   beta <- beta
   b0 <- 0
-  X.sd <- sigma_error <- var_error <-  1
+  P.sd <- sigma_error <- var_error <-  1
   pval <- NULL
-  r <- (beta*(X.sd)^2)/(sqrt((beta^2)*((X.sd)^2) + (sigma_error^2) + (var_error^2)))
+  r <- (beta*(P.sd)^2)/(sqrt((beta^2)*((P.sd)^2) + (sigma_error^2) + (var_error^2)))
   K <- (beta*sigma_error)/(sigma_error + var_error) # the regression artifact
 
   for (i in seq(1, reps)) {
