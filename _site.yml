@@ -4,6 +4,7 @@ theme: theme.css
 description: |
   Marwin's posts
 base_url: https://marwincarmo.github.io/
+google_analytics: "G-F6HLBQTD1Q"
 repository_url: https://github.com/marwincarmo/marwincarmo.github.io
 creative_commons: CC BY
 twitter:
