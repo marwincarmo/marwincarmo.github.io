@@ -2,15 +2,17 @@
 title: "Marwin Carmo"
 image: "img/me3.png"
 links:
-  - label: LinkedIn
+  - label: '<i class="fab fa-linkedin fa-3x"></i>'
     url: "https://www.linkedin.com/in/marwin-carmo/"
-  - label: Scholar
+  - label: '<i class="ai ai-google-scholar ai-3x"></i>'
     url: "https://scholar.google.com.br/citations?user=dlwgiroAAAAJ&hl=pt-BR"
-  - label: Twitter
+  - label: '<i class="fab fa-twitter fa-3x"></i>'
     url: "https://twitter.com/marwincarmo"
-  - label: GitHub
+  - label: '<i class="fab fa-github fa-3x"></i>'
     url: "https://github.com/marwincarmo"
-  - label: Email
+  - label: '<i class="ai ai-osf ai-3x"></i>'
+    url: "https://osf.io/tm6d3"
+  - label: '<i class="fas fa-envelope-open fa-3x"></i>'
     url: "mailto:marwin@usp.br"
 output:
   postcards::trestles
@@ -19,7 +21,7 @@ site: distill::distill_website
 
 ## Bio
 
-I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying psychometric models to evaluate sleep-related cognition scales with a Brazilian sample.
+I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying psychometric models to validate and investigate sleep-related cognition scales with a Brazilian sample.
 
 My interests are mostly Measurement, Quantitative Methods, Data Science, Open Science, and R programming.
 
