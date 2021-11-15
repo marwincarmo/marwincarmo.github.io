@@ -22,3 +22,14 @@ create_proj_card(
 )
 
 ```
+
+```{r}
+create_proj_card(
+  img_src = "img/py.jpg",
+  url = "https://github.com/marwincarmo/dataquest-projects",
+  title = "Data Science projects in Python",
+  text = "This is a repository of my work on guided projects from Data Analyst in Python path from Dataquest",
+  text2 = ""
+)
+
+```
