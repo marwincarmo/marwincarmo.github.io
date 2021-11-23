@@ -33,3 +33,15 @@ create_proj_card(
 )
 
 ```
+
+```{r}
+create_proj_card(
+  img_src = "img/cnpq.jpg",
+  url = "https://marwin.shinyapps.io/bolsas-cnpq/",
+  title = "Brazilian Research Funding App",
+  text = "In this app I explore the open database of the National Council for Scientific and Technological Development (CNPq),
+  a Brazilian Governmnet research funding agency. The user is able to analyze data from 18 years of funding destined to undergraduate, masters, PhD and postdoctoral students as well as  funding for a range of other research projects.",
+  text2 = "Note: the app is in portuguese (english version coming soon)."
+)
+
+```
