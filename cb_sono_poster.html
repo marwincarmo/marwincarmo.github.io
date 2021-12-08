@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms</title>
+
+<script src="cb_sono_poster_files/header-attrs-2.11/header-attrs.js"></script>
+
+<script src="cb_sono_poster_files/kePrint-0.0.1/kePrint.js"></script>
+<link href="cb_sono_poster_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=PT Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 80cm 150cm;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 80cm;
+height: 150cm;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #C0000024;
+color: #024F84;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #C0000020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 32px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 80cm;
+height: calc(150cm *  (1 - 0.15 - 0.07 - 0.01) );
+-webkit-column-count: 2; /* Chrome, Safari, Opera */
+-moz-column-count: 2; /* Firefox */
+column-count: 2;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(150cm *  0.15 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #C00000;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #C00000;
+}
+#title {
+font-size: 125pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #024F84;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #C00000;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #024F8475 33%,
+      #024F84 50%,
+      #024F8475 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 80cm;
+height: calc(150cm * 0.15);
+position: absolute;
+background-color: #024F84;
+color: #ffffff90;
+font-family: PT Sans;
+background-image: linear-gradient(#024F84 50%,#C00000);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(80cm * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 150px;
+font-family: PT Sans;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 80cm;
+height: 150cm;
+padding: 0cm;
+}
+.main_bottom {
+width: 80cm;
+height: calc(150cm * 0.07);
+margin-top: calc(150cm * (1 - 0.07));
+position: absolute;
+background-color: #024F84;
+background-image: linear-gradient(#C00000 10%, #024F84);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms</strong></h1><br>
+<h3 id="author" class="author">
+
+<strong>Marwin M. I. B. Carmo</strong><sup> 1</sup><br>
+<a class="twitter" href="https://mobile.twitter.com/marwincarmo"><i class="fab fa-twitter"></i>&nbsp;&nbsp;@marwincarmo</a><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:marwin@usp.br" class="email">marwin@usp.br</a> <br>
+ Renatha El Rafihi Ferreira<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:rerafihi@usp.br" class="email">rerafihi@usp.br</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+ </h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> Department of Psychiatry, University of São Paulo
+</p>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The <strong>cognitive-behavioral model</strong> of insomnia proposes that arousal, cognitions, behaviors, and perceived consequences play an important role in maintaining insomnia symptoms. The metacognitive model of insomnia expands this idea by defining cognitive activity as primary arousal and how one interprets those thoughts as a secondary arousal. Because primary and secondary processes mutually influence each other, the content of maladaptive sleep-related thoughts can impact the maintenance of insomnia disorder more strongly if one is rigidly attached to them.</p>
+<div id="objective" class="section level2">
+<h2>Objective</h2>
+<p>To investigate if psychological inflexibility moderates the relationship between dysfunctional beliefs about sleep and insomnia severity.</p>
+</div>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<p>Data were collected from online surveys responded by 629 adults, aged 18 to 59 years, who reported experiencing insomnia symptoms. Participants completed self-report questionnaires, including:</p>
+<ol style="list-style-type: decimal">
+<li>Hospital Anxiety and Depression Scale (HADS);</li>
+<li>Insomnia Severity Scale (ISI);</li>
+<li>Dysfunctional Beliefs and Attitudes about Sleep Scale (DBAS-16);</li>
+<li>Acceptance and Action Questionnaire (AAQ-II).</li>
+</ol>
+<p>All continuous parameters were standardized prior to data analysis. A linear model (estimated using OLS) was fitted to predict ISI scores from DBAS-16 and AAQ-II with age, sex and HADS subscales as covariates:</p>
+<p><span class="math display">\[
+IGI \sim Age + Sex + HADSA + HADSD + DBAS\times AAQII
+\]</span></p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<table style="width:100%;">
+<caption>
+<span id="tab:table1">Table 1: </span>Participant characteristics
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;background-color: #CCCCCC !important;">
+</th>
+<th style="text-align:center;background-color: #CCCCCC !important;">
+N/Mean (%/SD)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 60%; ">
+Age (years)
+</td>
+<td style="text-align:center;width: 100%; ">
+38 (10.1)
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="2" style="border-bottom: 1px solid;">
+<strong>Gender</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Female
+</td>
+<td style="text-align:center;width: 100%; ">
+492 (78.2)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Male
+</td>
+<td style="text-align:center;width: 100%; ">
+137 (21.8)
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="2" style="border-bottom: 1px solid;">
+<strong>Race/ethnicity</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Asian
+</td>
+<td style="text-align:center;width: 100%; ">
+31 (4.93)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Black
+</td>
+<td style="text-align:center;width: 100%; ">
+154 (24.5)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Other/Not informed
+</td>
+<td style="text-align:center;width: 100%; ">
+5 (0.795)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+White
+</td>
+<td style="text-align:center;width: 100%; ">
+439 (69.8)
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="2" style="border-bottom: 1px solid;">
+<strong>Education</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+<span class="math inline">\(\le\)</span> 12th grade
+</td>
+<td style="text-align:center;width: 100%; ">
+62 (9.86)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+College degree or higher
+</td>
+<td style="text-align:center;width: 100%; ">
+462 (73.4)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Some college
+</td>
+<td style="text-align:center;width: 100%; ">
+105 (16.7)
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="2" style="border-bottom: 1px solid;">
+<strong>Region of origin</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Central-West
+</td>
+<td style="text-align:center;width: 100%; ">
+28 (4.45)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+North
+</td>
+<td style="text-align:center;width: 100%; ">
+11 (1.75)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Northeast
+</td>
+<td style="text-align:center;width: 100%; ">
+43 (6.84)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+South
+</td>
+<td style="text-align:center;width: 100%; ">
+53 (8.43)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Southeast
+</td>
+<td style="text-align:center;width: 100%; ">
+494 (78.5)
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="2" style="border-bottom: 1px solid;">
+<strong>Sleep Medication</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+1-5 days a week
+</td>
+<td style="text-align:center;width: 100%; ">
+141 (22.4)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+6-7 days a week
+</td>
+<td style="text-align:center;width: 100%; ">
+234 (37.2)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 60%; padding-left: 2em;" indentlevel="1">
+Don’t use
+</td>
+<td style="text-align:center;width: 100%; ">
+254 (40.4)
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:descriptive"></span>
+<img src="cb_sono_poster_files/figure-html/descriptive-1.png" alt="Distribution of continuous variables in the model." width="100%" />
+<p class="caption">
+Figure 1: Distribution of continuous variables in the model.
+</p>
+</div>
+<p>The results of the regression indicated that the model significantly predicted ISI scores (F(621, 7) = 42), <em>p</em> &lt; 0.001, <span class="math inline">\(R^2_{adj}\)</span> = 0.31), accounting for 31% of the variance.</p>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="tab:table2">
+<caption style="caption-side: top; text-align: center;">Table 2: A modelsummary table customized with kableExtra</caption><col><col><col><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: bold;"> </th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: bold;">Coef.</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: bold;">Std.Error</th></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Age</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.003 [-0.003, 0.010]</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.003</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Sex</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.027 [-0.131, 0.185]</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.080</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">HADS-A</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.149 [0.057, 0.241]**</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.047</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">HADS-D</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.071 [-0.023, 0.165]</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.048</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">DBAS-16</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.393 [0.317, 0.469]***</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.039</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">AAQ-II</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.107 [0.006, 0.208]*</td><td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.051</td></tr>
+<tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">DBAS-16 x AAQ-II</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.068 [0.009, 0.127]*</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.030</td></tr>
+<tr>
+<td colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr>
+</table>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:myprettycode"></span>
+<img src="cb_sono_poster_files/figure-html/myprettycode-1.png" alt="Boxplots, so hot right now!" width="100%" />
+<p class="caption">
+Figure 2: Boxplots, so hot right now!
+</p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>Insomnia severity scores were influenced by higher scores on anxiety, dysfunctional beliefs about sleep and psychological inflexibility. Although very small, the significant interaction effect indicates that the prediction effect of dysfunctional beliefs about sleep may become more positive for additional levels of psychological inflexibility.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-rmarkdown" class="csl-entry">
+Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2021. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.
+</div>
+<div id="ref-R-posterdown" class="csl-entry">
+Thorne, Brent. 2019. <em>Posterdown: Generate PDF Conference Posters Using r Markdown</em>. <a href="https://github.com/brentthorne/posterdown">https://github.com/brentthorne/posterdown</a>.
+</div>
+<div id="ref-rmarkdown2018" class="csl-entry">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.
+</div>
+<div id="ref-rmarkdown2020" class="csl-entry">
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
+</div>
+<div id="ref-R-pagedown" class="csl-entry">
+Xie, Yihui, Romain Lesur, Brent Thorne, and Xianying Tan. 2021. <em>Pagedown: Paginate the HTML Output of r Markdown with CSS for Print</em>. <a href="https://github.com/rstudio/pagedown">https://github.com/rstudio/pagedown</a>.
+</div>
+</div>
+</div>
+
+</div>
+<div class="main">
+<p>Lower levels of psychological flexibility may enhance the effects of dysfunctional beliefs on insomnia symptoms.</p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=img/fapesp2.png>
+<img id="main-img-center" src=>
+<img id="main-img-right" src=img/ipq_2.png>
+</div>
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+
+
+</body>
+</html>
