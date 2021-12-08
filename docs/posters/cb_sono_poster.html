@@ -18,7 +18,6 @@
 
 
 
-<link rel="stylesheet" href="custom.css" type="text/css" />
 
 <!--
 Font-awesome icons ie github or twitter
@@ -63,17 +62,23 @@ margin-bottom: 2cm;
 position: sticky;
 width: 100%;
 }
-pre.sourceCode.r {
-background-color: #dddddd40;
-border-radius: 4mm;
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #C00000 1mm;
+border-radius: 0.5em;
 padding: 4mm;
-width: 75%;
 margin: auto;
 margin-top: 1em;
 margin-bottom: 1em;
 /* align-items: center; */
 }
-code.sourceCode.r{
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
 background-color: transparent;
 font-size: 20pt;
 border-radius: 2mm;
@@ -82,20 +87,21 @@ code {
 font-size: 25pt;
 font-family: monospace;
 background-color: #C0000024;
-color: #024F84;
+color: #C00000;
 padding: 1.2mm;
 line-height: 1;
 border-radius: 2mm;
 }
 caption {
 margin-bottom: 10px;
-font-size: 20pt;
+font-size: 32px;
 font-style: italic;
 }
 
 tbody tr:nth-child(odd) {
     background-color: #C0000020;
 }
+
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
   border-spacing: 0;
   font-size: 40%;
@@ -114,12 +120,12 @@ th {
   padding-right: 5mm;
 }
 .caption {
-font-size: 20pt;
+font-size: 32px;
 font-style: italic;
 padding-top: 0;
 }
 .references {
-font-size: 32px;
+font-size: 28px;
 line-height: 90%;
 }
 /* Create three unequal columns that floats next to each other */
@@ -129,7 +135,7 @@ padding: 0px;
 }
 .outer {
 width: 80cm;
-height: calc(150cm *  (1 - 0.15 - 0.07 - 0.01) );
+height: calc(150cm *  (1 - 0.13 - 0.07 - 0.01) );
 -webkit-column-count: 2; /* Chrome, Safari, Opera */
 -moz-column-count: 2; /* Firefox */
 column-count: 2;
@@ -150,7 +156,7 @@ column-rule-style: none;
 column-rule-color: black;
 background-color: #ffffff;
 font-family: Rasa;
-margin-top: calc(150cm *  0.15 );
+margin-top: calc(150cm *  0.13 );
 padding-top: 1em;
 padding-bottom: 1em;
 }
@@ -172,7 +178,7 @@ font-weight: normal;
 background: 0;
 }
 #author {
-color: #024F84;
+color:#024F84;
 margin: 0;
 line-height: 85%;
 font-size: 1.17em;
@@ -181,7 +187,7 @@ font-size: 1.17em;
 padding-top: 0.1em;
 color: ;
 font-style: italic;
-font-size: 25px;
+font-size: 32px;
 margin: 0;
 }
 sup {
@@ -243,12 +249,12 @@ text-align: left;
 }
 .main {
 width: 80cm;
-height: calc(150cm * 0.15);
+height: calc(150cm * 0.13);
 position: absolute;
 background-color: #024F84;
-color: #ffffff90;
+color: #ffffff99;
 font-family: PT Sans;
-background-image: linear-gradient(#024F84 50%,#C00000);
+/*background-image: linear-gradient(#024F84 50%,#C00000); */
 }
 .main strong {
 color: #ffffff;
@@ -257,10 +263,10 @@ color: #ffffff;
 color: #ffffff;
 }
 .main sup {
-color: #ffffff90;
+color: #ffffff99;
 }
 #main-img-left {
-width: 10%;
+width: 25%;
 left: 0.5in;
 bottom: 0.2in;
 position: absolute;
@@ -272,39 +278,49 @@ bottom: 0.5in;
 position: absolute;
 }
 #main-img-right {
-width: 10%;
+width: 15%;
 right: 0.5in;
-bottom: 0.2in;
+bottom: 0.4in;
 position: absolute;
 }
 .main p {
-font-size: 150px;
+font-size: 160px;
 font-family: PT Sans;
-text-align: center;
+text-align: left;
 margin: 0;
 position: absolute;
 top: 50%;
 -ms-transform: translateY(-50%);
 transform: translateY(-50%);
-margin-left: 1em;
+margin-left: 0.8em;
 }
 .fab {
-color: #00000030;
+color: #00000060;
 font-size: 25px;
 }
 .twitter, i {
-color: #00000030;
+color: #00000060;
 font-size: 35px;
 text-decoration: none;
 }
 a.email {
 text-decoration: none;
-color: #00000030;
+color: #00000060;
 font-size: 35px;
 }
 .envelope {
-color: #00000030;
+color: #00000060;
 font-size: 5px;
+text-decoration: none;
+}
+.globe {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globetext {
+color: #00000060;
+font-size: 35px;
 text-decoration: none;
 }
 .poster_wrap {
@@ -318,7 +334,7 @@ height: calc(150cm * 0.07);
 margin-top: calc(150cm * (1 - 0.07));
 position: absolute;
 background-color: #024F84;
-background-image: linear-gradient(#C00000 10%, #024F84);
+/*background-image: linear-gradient(#C00000 10%, #024F84);*/
 }
 .section {
   padding-left: 10mm;
@@ -392,7 +408,7 @@ span > #tab:mytable {
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>The <strong>cognitive-behavioral model</strong> of insomnia proposes that arousal, cognitions, behaviors, and perceived consequences play an important role in maintaining insomnia symptoms. The metacognitive model of insomnia expands this idea by defining cognitive activity as primary arousal and how one interprets those thoughts as a secondary arousal. Because primary and secondary processes mutually influence each other, the content of maladaptive sleep-related thoughts can impact the maintenance of insomnia disorder more strongly if one is rigidly attached to them.</p>
+<p>The cognitive-behavioral model of insomnia proposes that arousal, cognitions, behaviors, and perceived consequences play an important role in maintaining insomnia symptoms. The <b><span style="color: #C00000;">metacognitive model of insomnia</b></span> expands this idea by defining cognitive activity as primary arousal and how one interprets those thoughts as a secondary arousal. Because <b><span style="color: #C00000;">primary and secondary processes mutually influence each other</b></span>, the content of maladaptive sleep-related thoughts can impact the maintenance of insomnia disorder more strongly if one is rigidly attached to them.</p>
 <div id="objective" class="section level2">
 <h2>Objective</h2>
 <p>To investigate if psychological inflexibility moderates the relationship between dysfunctional beliefs about sleep and insomnia severity.</p>
@@ -407,22 +423,22 @@ span > #tab:mytable {
 <li>Dysfunctional Beliefs and Attitudes about Sleep Scale (DBAS-16);</li>
 <li>Acceptance and Action Questionnaire (AAQ-II).</li>
 </ol>
-<p>All continuous parameters were standardized prior to data analysis. A linear model (estimated using OLS) was fitted to predict ISI scores from DBAS-16 and AAQ-II with age, sex and HADS subscales as covariates:</p>
+<p>All continuous predictors were standardized prior to data analysis. A linear model (estimated using OLS) was fitted to predict ISI scores from DBAS-16 and AAQ-II with age, sex and HADS subscales as covariates:</p>
 <p><span class="math display">\[
 IGI \sim Age + Sex + HADSA + HADSD + DBAS\times AAQII
 \]</span></p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<table style="width:100%;">
+<table style="width:100%; font-family: Rasa; margin-left: auto; margin-right: auto;" class=" lightable-minimal">
 <caption>
 <span id="tab:table1">Table 1: </span>Participant characteristics
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;background-color: #CCCCCC !important;">
+<th style="text-align:left;">
 </th>
-<th style="text-align:center;background-color: #CCCCCC !important;">
+<th style="text-align:center;">
 N/Mean (%/SD)
 </th>
 </tr>
@@ -608,7 +624,7 @@ Figure 1: Distribution of continuous variables in the model.
 <p>The results of the regression indicated that the model significantly predicted ISI scores (F(621, 7) = 42), <em>p</em> &lt; 0.001, <span class="math inline">\(R^2_{adj}\)</span> = 0.31), accounting for 31% of the variance.</p>
 <table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; width: 100%; margin-left: auto; margin-right: auto;  " id="tab:table2">
 <caption style="caption-side: top; text-align: center;">Table 2: A modelsummary table customized with kableExtra</caption><col><col><col><tr>
-<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: bold;"> </th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: bold;">Coef.</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(242, 242, 242); font-weight: bold;">Std.Error</th></tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(255, 255, 255); font-weight: bold;"> </th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(255, 255, 255); font-weight: bold;">Coef.</th><th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(255, 255, 255); font-weight: bold;">Std.Error</th></tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Age</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.003 [-0.003, 0.010]</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 1pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.003</td></tr>
 <tr>
@@ -624,7 +640,7 @@ Figure 1: Distribution of continuous variables in the model.
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">DBAS-16 x AAQ-II</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.068 [0.009, 0.127]*</td><td style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.030</td></tr>
 <tr>
-<td colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 1pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr>
+<td colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; background-color: rgb(255, 255, 255); font-weight: normal;">* p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr>
 </table>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:myprettycode"></span>
@@ -636,37 +652,43 @@ Figure 2: Boxplots, so hot right now!
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>Insomnia severity scores were influenced by higher scores on anxiety, dysfunctional beliefs about sleep and psychological inflexibility. Although very small, the significant interaction effect indicates that the prediction effect of dysfunctional beliefs about sleep may become more positive for additional levels of psychological inflexibility.</p>
+<p>Insomnia severity scores were influenced by higher scores on anxiety, dysfunctional beliefs about sleep and psychological inflexibility. The <b><span style="color: #C00000;">significant interaction effect</b></span> indicates that the prediction effect of dysfunctional beliefs about sleep may become more positive for additional levels of psychological inflexibility.</p>
+<div id="remarks" class="section level2">
+<h2>Remarks</h2>
+<p><span style="text-align: left;">
+This poster was created using <code>posterdown</code> package <span class="citation">(<a href="#ref-R-posterdown" role="doc-biblioref">Thorne, 2019</a>)</span>. Full reproducible code available at <a href="https://bit.ly/postercbs" class="uri">https://bit.ly/postercbs</a>
+</span></p>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-R-rmarkdown" class="csl-entry">
-Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2021. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-harvey2002" class="csl-entry">
+Harvey, A. G. (2002). A cognitive model of insomnia. <em>Behaviour Research and Therapy</em>, <em>40</em>(8), 869–893. <a href="https://doi.org/fwxq35">https://doi.org/fwxq35</a>
+</div>
+<div id="ref-morin2007" class="csl-entry">
+Morin, C. M., Vallières, A., &amp; Ivers, H. (2007). Dysfunctional <span>Beliefs</span> and <span>Attitudes</span> about <span>Sleep</span> (<span>DBAS</span>): <span>Validation</span> of a <span>Brief Version</span> (<span>DBAS-16</span>). <em>Sleep</em>, <em>30</em>(11), 1547–1554. <a href="https://doi.org/10.1093/sleep/30.11.1547">https://doi.org/10.1093/sleep/30.11.1547</a>
+</div>
+<div id="ref-ong2012" class="csl-entry">
+Ong, J. C., Ulmer, C. S., &amp; Manber, R. (2012). Improving sleep with mindfulness and acceptance: <span>A</span> metacognitive model of insomnia. <em>Behaviour Research and Therapy</em>, <em>50</em>(11), 651–660. <a href="https://doi.org/f4fczt">https://doi.org/f4fczt</a>
 </div>
 <div id="ref-R-posterdown" class="csl-entry">
-Thorne, Brent. 2019. <em>Posterdown: Generate PDF Conference Posters Using r Markdown</em>. <a href="https://github.com/brentthorne/posterdown">https://github.com/brentthorne/posterdown</a>.
-</div>
-<div id="ref-rmarkdown2018" class="csl-entry">
-Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.
-</div>
-<div id="ref-rmarkdown2020" class="csl-entry">
-Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
+Thorne, B. (2019). <em>Posterdown: Generate PDF conference posters using r markdown</em>. <a href="https://github.com/brentthorne/posterdown">https://github.com/brentthorne/posterdown</a>
 </div>
 <div id="ref-R-pagedown" class="csl-entry">
-Xie, Yihui, Romain Lesur, Brent Thorne, and Xianying Tan. 2021. <em>Pagedown: Paginate the HTML Output of r Markdown with CSS for Print</em>. <a href="https://github.com/rstudio/pagedown">https://github.com/rstudio/pagedown</a>.
+Xie, Y., Lesur, R., Thorne, B., &amp; Tan, X. (2021). <em>Pagedown: Paginate the HTML output of r markdown with CSS for print</em>. <a href="https://github.com/rstudio/pagedown">https://github.com/rstudio/pagedown</a>
 </div>
 </div>
 </div>
 
 </div>
 <div class="main">
-<p>Lower levels of psychological flexibility may enhance the effects of dysfunctional beliefs on insomnia symptoms.</p>
+<p>Lower psychological flexibility can enhance the effects of dysfunctional beliefs on insomnia severity.</p>
 </div>
 <div class="main_bottom">
-<img id="main-img-left" src=img/fapesp2.png>
-<img id="main-img-center" src=>
-<img id="main-img-right" src=img/ipq_2.png>
+<img id="main-img-left" src=img/fapesp-white.png>
+<img id="main-img-center" src=img/qrcode.png>
+<img id="main-img-right" src=img/ipq-white3.png>
 </div>
 </div>
 
