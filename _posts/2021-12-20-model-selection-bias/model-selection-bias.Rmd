@@ -1,0 +1,35 @@
+---
+title: "model selection bias"
+description: |
+  A short description of the post.
+author:
+  - name: Marwin Carmo
+    url: https://github.com/marwincarmo
+date: 2021-12-20
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Berk (2010)
+
+Statistical inference assumes that a correct model exists and it is known except for parameter values before data analysis. This correct model is an accurate representation of the data generating process. Therefore, arriving at different models with model selection is problematic. 
+
+## Framing the problem
+
+When the correct model is unknown prior to data analysis, four steps are usually taken:
+
+1. Construct a set of models  
+2. Examine the data and select a "final" model  
+3. Estimate model parameters  
+4. Perform statistical inferences to parameter estimates
+
+These steps are not problematic in themselves. What can cause problems is that the selection rule is dependent on the regression parameters.
+
+Model selection undertaken via nested testing produces the same difficulties as when it is done by data exploration.
