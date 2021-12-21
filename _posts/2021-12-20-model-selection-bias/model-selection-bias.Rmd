@@ -33,3 +33,22 @@ When the correct model is unknown prior to data analysis, four steps are usually
 These steps are not problematic in themselves. What can cause problems is that the selection rule is dependent on the regression parameters.
 
 Model selection undertaken via nested testing produces the same difficulties as when it is done by data exploration.
+
+## A more formal treatment
+
+With different models, the object of estimation assumes different definitions. Without a model it is not possible to define what's been estimated.
+
+For a response variable $Y$, say we have two regressors $X$ and $Z$. To estimate the relationship between $Y$ and $X$ holding $Z$ constant we use the following linear regression model:
+
+$$
+\beta_{yx.z} = \frac{\rho_{xy}-\rho_{xz}\rho_{yz}}{(1-\rho^2_{xz})} \times \frac{\sigma_y}{\sigma_x}
+$$
+If $Z$ is not present in the model, the correlations involving this predictor are equivalent to zero, and $\beta_{yx} = \rho_{yx}(\sigma_y/\sigma_x)$. This is a different estimate from $\beta_{yx.z}$. This example illustrates how a regression parameter depends on the model in which it is placed. Without a clear model pre-defined prior the analysis, the population parameter under study is unclear.
+
+If the model is defined through model selection and the parameter estimated from a different random sample, it poses no problem to the analysis. However, usually this process is carried on the same random sample, and there is were things go south.
+
+We add a new source of uncertainty when performing model selection. As we just saw, the regression parameter depends not only on the realized random sample but also on which model they are placed. Additionally, the model selected isn't the same across samples, so there is another uncertainty to the estimates.
+
+In a population, we have a theoretical infinite number of possible random samples. If a correct model exists, we expect that it will be represented by the realized sample more frequently than their competitors. This illustrates how the model selection procedure is sample dependent. In this way, it is an estimate of the correct model.
+
+Note that I've said that the random sample process chooses the correct model *more frequently than* than the competitors. It doesn't mean that this model is chosen at the majority of the time (Think about 6 models realized in 9 random samples. say that the correct model is chosen 3 times and all the others no more than 2. Even though it is chosen with a greater frequency than the others, if we take a random sample from these 9 models we are more likely to draw an incorrect model).
