@@ -17,6 +17,12 @@ draft: true
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r, include=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+
 # Berk (2010)
 
 Statistical inference assumes that a correct model exists and it is known except for parameter values before data analysis. This correct model is an accurate representation of the data generating process. Therefore, arriving at different models with model selection is problematic. 
@@ -52,3 +58,59 @@ We add a new source of uncertainty when performing model selection. As we just s
 In a population, we have a theoretical infinite number of possible random samples. If a correct model exists, we expect that it will be represented by the realized sample more frequently than their competitors. This illustrates how the model selection procedure is sample dependent. In this way, it is an estimate of the correct model.
 
 Note that I've said that the random sample process chooses the correct model *more frequently than* than the competitors. It doesn't mean that this model is chosen at the majority of the time (Think about 6 models realized in 9 random samples. say that the correct model is chosen 3 times and all the others no more than 2. Even though it is chosen with a greater frequency than the others, if we take a random sample from these 9 models we are more likely to draw an incorrect model).
+
+Summarizing:
+
+- The estimated regression parameter depends on the model selected and the realized sample
+
+- Its sampling distribution may be composed from estimates made from correct and incorrect models
+
+- The model selection process must be taken into account in the regression estimation
+
+### Simulating figure 2
+
+The mean squared errors for both regression models are assumed to be approximately 1.0. Then, the sampling distribution for $\beta_1$, conditional on $M_1$ being selected, is taken to be normal with a mean of 12.0 and a standard deviation of 2.0. The sampling distribution for b1, conditional on $M_2$ being selected, is taken to be normal with a mean of 4.0 and a standard deviation of 1. To minimize the complications, an ancilliary selection procedure is applied such that $P(\hat{M_1}) = .2$ and $P(\hat{M_2}) = .8$; the model selection procedure chooses $M_2$ four times more often than $M_1$. Figure 2 is constructed by making 10,000 draws from the first normal distribution and 40,000 draws from the second normal distribution.
+
+```{r}
+b1.m1 <- rnorm(10000, mean = 12, sd = 2)
+b1.m2 <- rnorm(40000, mean = 4, sd = 1)
+
+combined_dist <- data.frame(
+  model = c(rep("m1", 10000), rep("m2", 40000)),
+  b1 = c(b1.m1, b1.m2)
+)
+```
+
+The combined distribution has a mean of approximately `r round(mean(combined_dist$b1),1)` and a standard deviation of approximately `r round(sd(combined_dist$b1),1)`.
+
+We don't know which model is correct. Either way, the estimate will be far from its true value and its standard error, larger.
+
+```{r}
+fig2 <- combined_dist %>% 
+  ggplot(aes(x = b1))+
+  geom_histogram( aes(y=..density..), color="#e9ecef", alpha=0.6, position = 'identity', bins = 80, fill = "#69b3a2") +
+  geom_density(alpha=.2) +
+  stat_function(fun = dnorm, args = list(mean = mean((combined_dist$b1)),
+                                   sd = sd(combined_dist$b1)),
+                col = "red") +
+  theme_classic() +
+  xlab("Regression Coefficient Values") +
+  ylab("Density")
+fig2
+```
+
+The estimation process is biased before statistical tests are performed.
+
+## Underlying mechanisms
+
+In model selection regressors with coefficients close to zero are dropped from the model. This may create gaps near the 0.0 region on the x-axis.
+
+A regressors excluded from a model affects the performance of others that remained. Recall from Eq. 1, where if $Z$ is dropped from the model, we are no longer estimating $\beta_{yx.z}$, but a bivariate correlation beween $Y$ and $X$ and the ratio of their two standard deviations.
+
+When $r_{yz}$ and $r_{xz}$ are large, the value of $\beta_{yx.z}$ can change a great deal when $Z$ is dropped.
+
+Due to correlations between predictors, the sampling distribution variance can also be affected by model selection (colocar no app essa parte falando do SE, pag 225 do artigo).
+
+## Simulations of model-selection
+
+Colocar o range do R2 no app
