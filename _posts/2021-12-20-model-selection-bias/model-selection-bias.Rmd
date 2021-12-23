@@ -71,7 +71,7 @@ Summarizing:
 
 The mean squared errors for both regression models are assumed to be approximately 1.0. Then, the sampling distribution for $\beta_1$, conditional on $M_1$ being selected, is taken to be normal with a mean of 12.0 and a standard deviation of 2.0. The sampling distribution for b1, conditional on $M_2$ being selected, is taken to be normal with a mean of 4.0 and a standard deviation of 1. To minimize the complications, an ancilliary selection procedure is applied such that $P(\hat{M_1}) = .2$ and $P(\hat{M_2}) = .8$; the model selection procedure chooses $M_2$ four times more often than $M_1$. Figure 2 is constructed by making 10,000 draws from the first normal distribution and 40,000 draws from the second normal distribution.
 
-```{r}
+```{r sim1}
 b1.m1 <- rnorm(10000, mean = 12, sd = 2)
 b1.m2 <- rnorm(40000, mean = 4, sd = 1)
 
@@ -114,3 +114,105 @@ Due to correlations between predictors, the sampling distribution variance can a
 ## Simulations of model-selection
 
 Colocar o range do R2 no app
+
+Even when the preferred model is selected there is no guarantee about gettind sound regression coefficient estimates.
+
+For an initial simulation, selection is
+implemented through forward stepwise regression using the AIC as a fit criterion. At each step, the term is added that leads to the model with the smallest AIC. The procedure stops when no remaining regressor improves the AIC.
+
+For this simulation, the full regression model takes the form of
+
+$$
+y_i = \beta_0 + \beta_1w_i + \beta_2x_i + \beta_3z_i + \varepsilon_i
+$$
+
+where $\beta_0$ = 3.0, $\beta_1$ = 0.0, $\beta_2$ = 1.0, and $\beta_3$ = 2.0. The variances and covariance are set as follows: $\sigma^2_\varepsilon$ = 10.0, $\sigma^2_w$ = 5.0, $\sigma^2_x$ = 6.0, $\sigma^2_z$ = 7.0, $\sigma_{w,x}$ = 4.0, $\sigma_{w,z}$ = 5.0, and $\sigma_{x,z}$ = 5.0. The sample size is 200.
+
+```{r sim2-model-selection}
+reps = 10000
+p <- 3
+Sigma <- matrix(c(5,4,5,
+                  4,6,5, 
+                  5,5,7), p, p)
+n = 200
+betas <- c(3, 0, 1, 2)
+rsq <- NULL
+coefs <- cover <- matrix(NA, nrow = reps, ncol = 3)
+colnames(coefs) <- c("w", "x", "z")
+colnames(cover) <- c("w", "x", "z")
+
+for (i in seq(reps)) {
+  #print(i)
+  X <-  MASS::mvrnorm(n = n, rep(0, 3) , Sigma)
+  y <- as.numeric(cbind(1, X) %*% betas + rnorm(n, 0, 10))
+  Xy <- as.data.frame( cbind(X, y))
+  colnames(Xy) <- c(c("w", "x", "z"), "y")
+  fit <- lm(y ~., data = Xy)
+  sel <- step(fit, k = 2, trace = FALSE)
+  s <- summary(sel)
+  tvals <- s$coefficients[,3][-1]
+  coefs[i, names(tvals)] <-  tvals
+  rsq[i] <- s$r.squared
+}
+```
+
+
+```{r sim2-wo-selection}
+
+reps = 10000
+p <- 3
+Sigma <- matrix(c(5,4,5,
+                  4,6,5, 
+                  5,5,7), p, p)
+n = 200
+betas <- c(3, 0, 1, 2)
+rsq_pref <- NULL
+coefs_pref <- cover_pref <- matrix(NA, nrow = reps, ncol = 3)
+colnames(coefs_pref) <- c("w", "x", "z")
+colnames(cover_pref) <- c("w", "x", "z")
+
+for (i in seq(reps)) {
+  #print(i)
+  X <-  MASS::mvrnorm(n = n, rep(0, 3) , Sigma)
+  y <- as.numeric(cbind(1, X) %*% betas + rnorm(n, 0, 10))
+  Xy <- as.data.frame( cbind(X, y))
+  colnames(Xy) <- c(c("w", "x", "z"), "y")
+  fit <- lm(y ~., data = Xy)
+  s <- summary(fit)
+  tvals <- s$coefficients[,3][-1]
+  coefs_pref[i, names(tvals)] <-  tvals
+  rsq_pref[i] <- s$r.squared
+}
+```
+
+```{r plot}
+x_included <- as_tibble(coefs[!is.na(coefs[,"x"]),])
+x_included_pref <- as_tibble(coefs_pref[!is.na(coefs_pref[,"x"]),])
+
+z_included <- as_tibble(coefs[!is.na(coefs[,"z"]),])
+z_included_pref <- as_tibble(coefs_pref[!is.na(coefs_pref[,"z"]),])
+
+x_df <- bind_rows("select"=x_included,"pref"= x_included_pref,.id="sim")
+z_df <- bind_rows("select"=z_included,"pref"= z_included_pref,.id="sim")
+```
+
+```{r fig3}
+x_df %>% 
+  ggplot(aes(x, color = sim)) +
+  geom_density(adjust = 2) +
+  theme_bw(12) +
+  scale_x_continuous() +
+  labs(x = "t-values for Regressor X", y = "Density")
+```
+
+
+```{r fig4}
+z_df %>% 
+  ggplot(aes(z, color = sim)) +
+  geom_density(adjust = 2) +
+  theme_bw(12) +
+  scale_x_continuous() +
+  labs(x = "t-values for Regressor Z", y = "Density")
+```
+
+These plots illustrate how 
