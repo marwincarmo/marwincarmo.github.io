@@ -113,8 +113,6 @@ Due to correlations between predictors, the sampling distribution variance can a
 
 ## Simulations of model-selection
 
-Colocar o range do R2 no app
-
 Even when the preferred model is selected there is no guarantee about gettind sound regression coefficient estimates.
 
 For an initial simulation, selection is
@@ -215,4 +213,10 @@ z_df %>%
   labs(x = "t-values for Regressor Z", y = "Density")
 ```
 
-These plots illustrate how 
+These plots illustrate how post-model-selection sampling distribution is not guaranteed to reflect the "correct" model distribution even when it is the one selected.
+
+## Potential solutions
+
+Have two random samples from the population of interest: a training and a test sample. It also can be done with a split-sample approach in cases where there is one sample, although the results depends on the sample sizes.
+
+
