@@ -219,4 +219,117 @@ These plots illustrate how post-model-selection sampling distribution is not gua
 
 Have two random samples from the population of interest: a training and a test sample. It also can be done with a split-sample approach in cases where there is one sample, although the results depends on the sample sizes.
 
+# Lukacs (2009)
+
+Freedman's paradox: methods of variable selection may include variables with no relation with the response that spuriously inflate $R^2$.
+
+Model selection bias also occurs when there exists a weak relationship between explanatory and response variables. The model selection process misses this small effect often. It is more likely that it is included when the effect is overestimated, rendering poorly estimated parameters.
+
+## Model averaging vs Stepwise selection
+
+Model selection makes inferences based on a single best model. Variables not included are discarded from the analysis and not given importance.
+
+Model averaging makes inferences from multiple models, admitting the uncertainty of which model is best and which variables are important.
+
+One thousand matrices of 40 rows and 21 columns were generated using normally distributed random numbers with mean zero and variance one.
+
+```{r}
+
+set.seed(963)
+
+reps <- 1
+n <-  40
+p <- 5
+beta <- rep(0, (p-1))
+names(beta) <- paste0("x", 1:(p-1))
+coefs <- cover <- tvals <- matrix(0, nrow = reps, ncol = p-1)
+colnames(coefs) <- paste0("x", 1:(p-1))
+colnames(cover) <- paste0("x", 1:(p-1))
+colnames(tvals) <- paste0("x", 1:(p-1))
+
+for (i in seq(reps)) {
+  data <- as.data.frame(matrix(rnorm(n*p), nrow = n, ncol = p))
+  colnames(data) <- c("y", paste0("x", 1:(p-1)))
+  fit <- lm(y ~., data = data, na.action = "na.fail")
+  model_dredge <- MuMIn::dredge(fit, beta = FALSE, evaluate = TRUE, rank = "AICc")
+  avg.mod <- MuMIn::model.avg(model_dredge)
+  s <- summary(avg.mod)
+  tval <- s$coefmat.full[,4][-1]
+  tvals[i, names(tval)] <- tval
+  coefs[i, names(tval)] <- s$coefmat.full[,1][-1]
+  cis <- confint(avg.mod)[-1,]
+  
+}
+
+```
+
+
+```{r}
+
+data <- as.data.frame(matrix(rnorm(40*5), nrow = 40, ncol = 5))
+colnames(data) <- c("y", paste0("x", 1:4))
+
+fit <- lm(y ~., data = data, na.action = "na.fail")
+model_dredge <- MuMIn::dredge(fit, beta = FALSE, evaluate = TRUE, rank = "AICc")
+sel <- MuMIn::get.models(model_dredge, subset = 1)[[1]]
+s <- summary(sel)
+```
+
+```{r weight}
+exp((-1/2)*model_dredge[1]$delta)/sum(exp((-1/2)*model_dredge$delta))
+
+
+```
+```{r}
+avg.mod <- MuMIn::model.avg(model_dredge)
+summary(avg.mod)
+```
+
+```{r}
+
+sum(model_dredge$weight * ifelse(is.na(model_dredge$x1), 0, model_dredge$x1))
+
+mean(model_dredge$x1, na.rm=TRUE)
+
+```
+```{r}
+(s$coefmat.full[,3]^2)*n
+```
+
+```{r}
+models <- MuMIn::get.models(model_dredge, subset = TRUE)
+mapped <- purrr::map_dfr(models, broom::tidy, .id = "model")
+
+arruma_coluna <- function(.x) {
+  tidyr::replace_na(.x, 0)
+}
+
+mapped_with_zeros <- mapped |> 
+  #dplyr::filter(term != "(Intercept)") |> 
+  tidyr::pivot_longer(cols = 3:6, names_to = "statistic", values_to = "value") |> 
+  tidyr::pivot_wider(names_from = "term", values_from = "value") |> 
+  dplyr::mutate(dplyr::across(is.double, arruma_coluna)) |> 
+  tidyr::pivot_longer(cols = 3:7, names_to = "term", values_to = "value") |> 
+  tidyr::pivot_wider(names_from = "statistic", values_from = "value")
+
+```
+
+```{r term x1}
+
+se_x1 <- mapped_with_zeros |> 
+  dplyr::filter(term == "x1") |> 
+  dplyr::pull(std.error)
+
+vars_x1 <- (se_x1^2)*n
+b_chapeu_x1 <- mapped_with_zeros |> 
+  dplyr::filter(term == "x1") |> 
+  dplyr::pull(estimate)
+b_full_x1 <- avg.mod$coefficients[1,2]
+
+var_b_til_x1 <- sum(model_dredge$weight*(vars_x1 + (b_chapeu_x1 - b_full_x1)^2))
+
+cis_x1 <- c('low' = b_full_x1 - 2.03*sqrt(var_b_til_x1),
+            'high' = b_full_x1 + 2.03*sqrt(var_b_til_x1))
+
+```
 
