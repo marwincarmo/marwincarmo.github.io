@@ -1,5 +1,5 @@
 ---
-title: "model selection bias"
+title: "Simulating post selection inference"
 description: |
   A short description of the post.
 author:
@@ -9,6 +9,8 @@ date: 2021-12-20
 output:
   distill::distill_article:
     self_contained: false
+bibliography: references.bib
+csl: apa.csl
 draft: true
 ---
 
@@ -23,6 +25,24 @@ library(ggplot2)
 ```
 
 
+# What is model selection
+
+Much of the current research questions in the behavioral and social sciences are investigated using statistical models [@flora2017statistical]. A statistical model is a simplified translation of a certain reality to mathematical expressions that are thought to express its most important features. Regression analysis are vastly employed in empirical research and in many cases they are employed as causal modeling [@berk2010]. 
+
+
+Resumir em 1 ou 2 parágrafos o que é
+
+# Why is it an issue
+
+Elencar os problemas de inferência e seleção de modelo na mesma amostra
+
+# Illustration
+
+Exemplificar com simulação (passos utilizados no app)
+
+# Possible solutions
+
+Soluções (berk 2010 e buscar mais)
 # Berk (2010)
 
 Statistical inference assumes that a correct model exists and it is known except for parameter values before data analysis. This correct model is an accurate representation of the data generating process. Therefore, arriving at different models with model selection is problematic. 
@@ -127,7 +147,7 @@ $$
 where $\beta_0$ = 3.0, $\beta_1$ = 0.0, $\beta_2$ = 1.0, and $\beta_3$ = 2.0. The variances and covariance are set as follows: $\sigma^2_\varepsilon$ = 10.0, $\sigma^2_w$ = 5.0, $\sigma^2_x$ = 6.0, $\sigma^2_z$ = 7.0, $\sigma_{w,x}$ = 4.0, $\sigma_{w,z}$ = 5.0, and $\sigma_{x,z}$ = 5.0. The sample size is 200.
 
 ```{r sim2-model-selection}
-reps = 10000
+reps = 100
 p <- 3
 Sigma <- matrix(c(5,4,5,
                   4,6,5, 
@@ -157,7 +177,7 @@ for (i in seq(reps)) {
 
 ```{r sim2-wo-selection}
 
-reps = 10000
+reps = 100
 p <- 3
 Sigma <- matrix(c(5,4,5,
                   4,6,5, 
@@ -233,12 +253,12 @@ Model averaging makes inferences from multiple models, admitting the uncertainty
 
 One thousand matrices of 40 rows and 21 columns were generated using normally distributed random numbers with mean zero and variance one.
 
-```{r}
+```{r include=FALSE}
 
 set.seed(963)
 
-reps <- 1
-n <-  40
+reps <- 100
+n <-  20
 p <- 5
 beta <- rep(0, (p-1))
 names(beta) <- paste0("x", 1:(p-1))
@@ -258,6 +278,20 @@ for (i in seq(reps)) {
   tvals[i, names(tval)] <- tval
   coefs[i, names(tval)] <- s$coefmat.full[,1][-1]
   cis <- confint(avg.mod)[-1,]
+  cover[i,names(tval)] <- ifelse(cis[names(tval),1] < beta[names(tval)] & cis[names(tval),2] > beta[names(tval)], 1, 0)
+
+# #progress bar  
+# nn <- 100
+# for (ii in 1:nn) {
+#   extra <- nchar('||100%')
+#   width <- options()$width
+#   step <- round(ii / nn * (width - extra))
+#   text <- sprintf('|%s%s|% 3s%%', strrep('=', step),
+#                   strrep(' ', width - step - extra), round(ii / nn * 100))
+#   cat(text)
+#   #Sys.sleep(0.05)
+#   cat(if (ii == nn) '\n' else '\014')
+# }
   
 }
 
@@ -265,71 +299,44 @@ for (i in seq(reps)) {
 
 
 ```{r}
+library(ggplot2)
 
-data <- as.data.frame(matrix(rnorm(40*5), nrow = 40, ncol = 5))
-colnames(data) <- c("y", paste0("x", 1:4))
-
-fit <- lm(y ~., data = data, na.action = "na.fail")
-model_dredge <- MuMIn::dredge(fit, beta = FALSE, evaluate = TRUE, rank = "AICc")
-sel <- MuMIn::get.models(model_dredge, subset = 1)[[1]]
-s <- summary(sel)
-```
-
-```{r weight}
-exp((-1/2)*model_dredge[1]$delta)/sum(exp((-1/2)*model_dredge$delta))
-
+as.data.frame(coefs) |> 
+  ggplot(aes(x = x1)) +
+  geom_histogram(bins = 30)
 
 ```
-```{r}
-avg.mod <- MuMIn::model.avg(model_dredge)
-summary(avg.mod)
-```
+
+
+
 
 ```{r}
 
-sum(model_dredge$weight * ifelse(is.na(model_dredge$x1), 0, model_dredge$x1))
-
-mean(model_dredge$x1, na.rm=TRUE)
-
-```
-```{r}
-(s$coefmat.full[,3]^2)*n
-```
-
-```{r}
-models <- MuMIn::get.models(model_dredge, subset = TRUE)
-mapped <- purrr::map_dfr(models, broom::tidy, .id = "model")
-
-arruma_coluna <- function(.x) {
-  tidyr::replace_na(.x, 0)
-}
-
-mapped_with_zeros <- mapped |> 
-  #dplyr::filter(term != "(Intercept)") |> 
-  tidyr::pivot_longer(cols = 3:6, names_to = "statistic", values_to = "value") |> 
-  tidyr::pivot_wider(names_from = "term", values_from = "value") |> 
-  dplyr::mutate(dplyr::across(is.double, arruma_coluna)) |> 
-  tidyr::pivot_longer(cols = 3:7, names_to = "term", values_to = "value") |> 
-  tidyr::pivot_wider(names_from = "statistic", values_from = "value")
-
+# Mean R squared
+#mean(rsq)
+# Frequency of the true coefficient value captured by the 95% CI
+colMeans(cover)
+# Mean value for the coefficients
+colMeans(coefs)
+# Bias for each coefficient
+colMeans((coefs - beta)^2)
+# Frequency variable selection
+colSums(tvals != 0)/reps
+# Mean t-value
+colMeans(tvals)
 ```
 
-```{r term x1}
 
-se_x1 <- mapped_with_zeros |> 
-  dplyr::filter(term == "x1") |> 
-  dplyr::pull(std.error)
+# Berk et al. (2013)
 
-vars_x1 <- (se_x1^2)*n
-b_chapeu_x1 <- mapped_with_zeros |> 
-  dplyr::filter(term == "x1") |> 
-  dplyr::pull(estimate)
-b_full_x1 <- avg.mod$coefficients[1,2]
+The model produced by data-driven variable selection is itself stochastic. The stochastic component of the data is involved in the selection process. We can think, for example, of a model selected in relation to the outcome, that is a stochastic component.
 
-var_b_til_x1 <- sum(model_dredge$weight*(vars_x1 + (b_chapeu_x1 - b_full_x1)^2))
+Once predictor variables are selected, all others are eliminated from the analysis. This implies that the statistical inference will be performed in a context where only the selected variables exist. We then are restricted to an inference tied to the model selected and the variables included.
 
-cis_x1 <- c('low' = b_full_x1 - 2.03*sqrt(var_b_til_x1),
-            'high' = b_full_x1 + 2.03*sqrt(var_b_til_x1))
+With the growing number of predictors, we can expect more type I errors. Model selection tends to favor highly significant predictors.
 
-```
+The text adopts a view in which the the excluded predictors are non-existent in the submodels. They're not constrained to zero, they're simply not defined. The interpretation given to a predictor's coefficient is directly related to which other predictors are included in the model. That is, of course, if the predictors are not orthogonal, which implies that the coefficient value would not change across submodels.
 
+Valid statistical inference after model selection is not the same as assuming that the selected models are correct.
+
+The model $\hat{M}$ produced by model selection is a random model. Whichever the section method used, if the response Y is evolved, then the model is a random object because the stochastic nature (?) of the random vector Y. The same random nature applies to the parameter vector of coefficients. It changes randomly as the adjuster covariates in $\hat{M}$ vary randomly.
