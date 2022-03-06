@@ -27,10 +27,10 @@ library(ggplot2)
 
 # What is model selection
 
-Much of the current research questions in the behavioral and social sciences are investigated using statistical models [@flora2017statistical]. A statistical model is a simplified translation of a certain reality to mathematical expressions that are thought to express its most important features. Regression analysis are vastly employed in empirical research and in many cases they are employed as causal modeling [@berk2010]. 
+Much of the current research questions on the behavioral and social sciences are investigated using statistical models [@flora2017statistical]. Models are simplified translations of a reality to mathematical expressions; it's aim is express how the data were generated. Regression based models are vastly employed on empirical research and often used to estimate causal effects [@berk2010]. However, to be able to perform causal modeling, researchers must specify a "correct" model (i.e. an accurate model of the data generating process) prior do data collection and use the obtained data only to estimate regression coefficients (see @berk2010 for a further discussion). In practice however, researchers usually have only a vague idea of the right model to answer their research questions or even if such model can be estimated. Often, what is framed as statistical inference or causal modeling is in fact a descriptive analysis; what @berk2010 calls *Level I Regression Analysis*.
 
+To overcome uncertainties related to which variables should be included in the model, a common solution is to resort to model selection algorithms. These variable selection procedures are not restricted to statistical methods -- like stepwise regression, backward elimination, allsubsets regression, cross-validation etc. -- it can be of the form of regression diagnostics or post-hoc considerations too [@berkValidPostselectionInference2013].
 
-Resumir em 1 ou 2 parágrafos o que é
 
 # Why is it an issue
 

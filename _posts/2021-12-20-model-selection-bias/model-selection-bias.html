@@ -133,6 +133,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   
   <meta name="citation_reference" content="citation_title=What you can and can’t properly do with regression;citation_publication_date=2010;citation_volume=26;citation_doi=10.1007/s10940-010-9116-4;citation_issn=1573-7799;citation_author=Richard Berk"/>
   <meta name="citation_reference" content="citation_title=Statistical methods for the social and behavioural sciences: A model-based approach;citation_publication_date=2017;citation_publisher=SAGE Publications;citation_author=D. B. Flora"/>
+  <meta name="citation_reference" content="citation_title=Valid post-selection inference;citation_publication_date=2013;citation_publisher=Institute of Mathematical Statistics;citation_volume=41;citation_doi=10.1214/12-AOS1077;citation_issn=0090-5364, 2168-8966;citation_author=Richard Berk;citation_author=Lawrence Brown;citation_author=Andreas Buja;citation_author=Kai Zhang;citation_author=Linda Zhao"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -1508,17 +1509,37 @@ class="uri">https://github.com/marwincarmo</a>
 
 <div class="d-article">
 <h1 id="what-is-model-selection">What is model selection</h1>
-<p>Much of the current research questions in the behavioral and social
+<p>Much of the current research questions on the behavioral and social
 sciences are investigated using statistical models <span
 class="citation" data-cites="flora2017statistical">(<a
 href="#ref-flora2017statistical" role="doc-biblioref">Flora,
-2017</a>)</span>. A statistical model is a simplified translation of a
-certain reality to mathematical expressions that are thought to express
-its most important features. Regression analysis are vastly employed in
-empirical research and in many cases they are employed as causal
-modeling <span class="citation" data-cites="berk2010">(<a
-href="#ref-berk2010" role="doc-biblioref">Berk, 2010</a>)</span></p>
-<p>Resumir em 1 ou 2 parágrafos o que é</p>
+2017</a>)</span>. Models are simplified translations of a reality to
+mathematical expressions; it’s aim is express how the data were
+generated. Regression based models are vastly employed on empirical
+research and often used to estimate causal effects <span
+class="citation" data-cites="berk2010">(<a href="#ref-berk2010"
+role="doc-biblioref">Berk, 2010</a>)</span>. However, to be able to
+perform causal modeling, researchers must specify a “correct” model
+(i.e. an accurate model of the data generating process) prior do data
+collection and use the obtained data only to estimate regression
+coefficients (see <span class="citation" data-cites="berk2010">Berk (<a
+href="#ref-berk2010" role="doc-biblioref">2010</a>)</span> for a further
+discussion). In practice however, researchers usually have only a vague
+idea of the right model to answer their research questions or even if
+such model can be estimated. Often, what is framed as statistical
+inference or causal modeling is in fact a descriptive analysis; what
+<span class="citation" data-cites="berk2010">Berk (<a
+href="#ref-berk2010" role="doc-biblioref">2010</a>)</span> calls
+<em>Level I Regression Analysis</em>.</p>
+<p>To overcome uncertainties related to which variables should be
+included in the model, a common solution is to resort to model selection
+algorithms. These variable selection procedures are not restricted to
+statistical methods – like stepwise regression, backward elimination,
+allsubsets regression, cross-validation etc. – it can be of the form of
+regression diagnostics or post-hoc considerations too <span
+class="citation" data-cites="berkValidPostselectionInference2013">(<a
+href="#ref-berkValidPostselectionInference2013"
+role="doc-biblioref">Berk et al., 2013</a>)</span>.</p>
 <h1 id="why-is-it-an-issue">Why is it an issue</h1>
 <p>Elencar os problemas de inferência e seleção de modelo na mesma
 amostra</p>
@@ -1768,6 +1789,13 @@ Berk, R. (2010). What you can and can’t properly do with regression.
 <em>Journal of Quantitative Criminology</em>, <em>26</em>(4), 481–487.
 <a
 href="https://doi.org/10.1007/s10940-010-9116-4">https://doi.org/10.1007/s10940-010-9116-4</a>
+</div>
+<div id="ref-berkValidPostselectionInference2013" class="csl-entry"
+role="doc-biblioentry">
+Berk, R., Brown, L., Buja, A., Zhang, K., &amp; Zhao, L. (2013). Valid
+post-selection inference. <em>The Annals of Statistics</em>,
+<em>41</em>(2), 802–837. <a
+href="https://doi.org/10.1214/12-AOS1077">https://doi.org/10.1214/12-AOS1077</a>
 </div>
 <div id="ref-flora2017statistical" class="csl-entry"
 role="doc-biblioentry">
