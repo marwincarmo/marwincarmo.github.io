@@ -27,14 +27,24 @@ library(ggplot2)
 
 # What is model selection
 
-Much of the current research questions on the behavioral and social sciences are investigated using statistical models [@flora2017statistical]. Models are simplified translations of a reality to mathematical expressions; it's aim is express how the data were generated. Regression based models are vastly employed on empirical research and often used to estimate causal effects [@berk2010]. However, to be able to perform causal modeling, researchers must specify a "correct" model (i.e. an accurate model of the data generating process) prior do data collection and use the obtained data only to estimate regression coefficients (see @berk2010 for a further discussion). In practice however, researchers usually have only a vague idea of the right model to answer their research questions or even if such model can be estimated. Often, what is framed as statistical inference or causal modeling is in fact a descriptive analysis; what @berk2010 calls *Level I Regression Analysis*.
+Much of the current research questions on the behavioral and social sciences are investigated using statistical models [@flora2017statistical]. Models are simplified translations of a reality to mathematical expressions; it's aim is express how the data were generated. Regression based models are vastly employed on empirical research and often used to estimate causal effects [@berk2010]. However, to perform causal modeling, researchers must specify a "correct" model (i.e. an accurate model of the data generating process) prior do data collection and use the obtained data only to estimate regression coefficients (see @berk2010 for a further discussion). In practice, researchers usually have only a vague idea of the right model to answer their research questions or even if such model can be estimated. Often, what is framed as statistical inference or causal modeling is in fact a descriptive analysis; what @berk2010 name as *Level I Regression Analysis*.
 
-To overcome uncertainties related to which variables should be included in the model, a common solution is to resort to model selection algorithms. These variable selection procedures are not restricted to statistical methods -- like stepwise regression, backward elimination, allsubsets regression, cross-validation etc. -- it can be of the form of regression diagnostics or post-hoc considerations too [@berkValidPostselectionInference2013].
+To determine which variables should be included in the model, a common solution is to resort to variable selection algorithms. However, whenever data driven variable selection procedures are employed, classical inference guarantees are invalidated due to the model itself becoming [stochastic](https://en.wikipedia.org/wiki/Stochastic). It means that if the model selection method evaluates the stochastic component of the data, the model is also considered stochastic [@berkValidPostselectionInference2013].
 
+# Why is it a problem?
 
-# Why is it an issue
+Variable selection procedures aren't in themselves problematic. When the correct model is unknown prior to data analysis and the *same* dataset is used for variable selection, parameter estimation and statistical inferences, the estimated results can be highly biased [@berkStatisticalInferenceModel2010]. 
 
-Elencar os problemas de inferência e seleção de modelo na mesma amostra
+To see why, let's consider a well defined population with it's unknown parameter values. Our level 1 source of uncertainty lies on the randomness of the sample drawn. The "best" model found via variable selection is sample specific and isn't guarantee to be the correct model (if we assume that one such model in fact exists).
+
+Now, imagine that we draw 9 samples from this population and select a model, $\hat{M}_i$ in each one. Then, parameter estimation is performed and a set $\hat{\Omega}_i$ of coefficient values is found. For $i$ = 1, ..., 6, assume that $\hat{M}_2$ is the correct model
+
+```{r}
+models <- paste0("M", 1:6)
+
+table(sample(models, 9, replace = TRUE, prob = c(1/9,1/3,1/9,1/9,1/9,1/9)))
+```
+
 
 # Illustration
 
