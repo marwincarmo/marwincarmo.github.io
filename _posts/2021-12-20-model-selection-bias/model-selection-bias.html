@@ -135,6 +135,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="citation_reference" content="citation_title=What you can and can’t properly do with regression;citation_publication_date=2010;citation_volume=26;citation_doi=10.1007/s10940-010-9116-4;citation_issn=1573-7799;citation_author=Richard Berk"/>
   <meta name="citation_reference" content="citation_title=Statistical methods for the social and behavioural sciences: A model-based approach;citation_publication_date=2017;citation_publisher=SAGE Publications;citation_author=D. B. Flora"/>
   <meta name="citation_reference" content="citation_title=Valid post-selection inference;citation_publication_date=2013;citation_publisher=Institute of Mathematical Statistics;citation_volume=41;citation_doi=10.1214/12-AOS1077;citation_issn=0090-5364, 2168-8966;citation_author=Richard Berk;citation_author=Lawrence Brown;citation_author=Andreas Buja;citation_author=Kai Zhang;citation_author=Linda Zhao"/>
+  <meta name="citation_reference" content="citation_title=Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences;citation_publication_date=1983;citation_author=Jacob Cohen;citation_author=Patricia Cohen"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -143,7 +144,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["apa.csl","model-selection-bias_files/anchor-4.2.2/anchor.min.js","model-selection-bias_files/bowser-1.9.3/bowser.min.js","model-selection-bias_files/distill-2.2.21/template.v2.js","model-selection-bias_files/figure-html5/fig3-1.png","model-selection-bias_files/figure-html5/fig4-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-2-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-3-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-4-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-5-1.png","model-selection-bias_files/header-attrs-2.12/header-attrs.js","model-selection-bias_files/jquery-3.6.0/jquery-3.6.0.js","model-selection-bias_files/jquery-3.6.0/jquery-3.6.0.min.js","model-selection-bias_files/jquery-3.6.0/jquery-3.6.0.min.map","model-selection-bias_files/popper-2.6.0/popper.min.js","model-selection-bias_files/tippy-6.2.7/tippy-bundle.umd.min.js","model-selection-bias_files/tippy-6.2.7/tippy-light-border.css","model-selection-bias_files/tippy-6.2.7/tippy.css","model-selection-bias_files/tippy-6.2.7/tippy.umd.min.js","model-selection-bias_files/webcomponents-2.0.0/webcomponents.js","references.bib"]}
+  {"type":"character","attributes":{},"value":["apa.csl","model-selection-bias_files/anchor-4.2.2/anchor.min.js","model-selection-bias_files/bowser-1.9.3/bowser.min.js","model-selection-bias_files/distill-2.2.21/template.v2.js","model-selection-bias_files/figure-html5/fig3-1.png","model-selection-bias_files/figure-html5/fig4-1.png","model-selection-bias_files/figure-html5/plot-ex1-1.png","model-selection-bias_files/figure-html5/plot-ex1a-1.png","model-selection-bias_files/figure-html5/plot-ex1b-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-2-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-3-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-4-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-5-1.png","model-selection-bias_files/figure-html5/unnamed-chunk-6-1.png","model-selection-bias_files/header-attrs-2.12/header-attrs.js","model-selection-bias_files/jquery-3.6.0/jquery-3.6.0.js","model-selection-bias_files/jquery-3.6.0/jquery-3.6.0.min.js","model-selection-bias_files/jquery-3.6.0/jquery-3.6.0.min.map","model-selection-bias_files/popper-2.6.0/popper.min.js","model-selection-bias_files/tippy-6.2.7/tippy-bundle.umd.min.js","model-selection-bias_files/tippy-6.2.7/tippy-light-border.css","model-selection-bias_files/tippy-6.2.7/tippy.css","model-selection-bias_files/tippy-6.2.7/tippy.umd.min.js","model-selection-bias_files/webcomponents-2.0.0/webcomponents.js","references.bib"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1548,27 +1549,259 @@ role="doc-biblioref">Berk et al., 2013</a>)</span>.</p>
 the correct model is unknown prior to data analysis and the
 <em>same</em> dataset is used for variable selection, parameter
 estimation and statistical inferences, the estimated results can be
-highly biased <span class="citation"
+highly biased. We add a new source of uncertainty when performing model
+selection. The regression parameters depends not only on the realized
+random sample but also on which model they are placed. Additionally, the
+model selected isn’t the same across samples, so there is another source
+of uncertainty to the estimates. <span class="citation"
 data-cites="berkStatisticalInferenceModel2010">(<a
 href="#ref-berkStatisticalInferenceModel2010" role="doc-biblioref">Berk
 et al., 2010</a>)</span>.</p>
 <p>To see why, let’s consider a well defined population with it’s
 unknown parameter values. Our level 1 source of uncertainty lies on the
 randomness of the sample drawn. The “best” model found via variable
-selection is sample specific and isn’t guarantee to be the correct
-populational model (if we assume that one such model in fact
-exists).</p>
-<p>Now, imagine that we draw 9 samples from this population and select a
-model, <span class="math inline">\(\hat{M}_i\)</span> in each one, for
-<span class="math inline">\(i\)</span> = {1, 2, 3, 4} . Then, parameter
-estimation is performed and a set <span
-class="math inline">\(\hat{\Omega}_j\)</span> of coefficient values is
-found.</p>
+selection is sample specific and isn’t guarantee to be the correct model
+(if we assume that one such model in fact exists). Suppose we repeat the
+process of drawing a random sample and performing model selection
+countless times. As shown below, even when the correct model (in this
+example, <span class="math inline">\(\hat{M}_2\)</span>) is three times
+more likely to be selected than the competing models, it will be chosen
+more frequently but not at the majority of the time.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-M1 M2 M3 M5 M6 
- 1  1  3  1  3 </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">M1</td>
+<td style="text-align: right;">0.1225</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M2</td>
+<td style="text-align: right;">0.3812</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M3</td>
+<td style="text-align: right;">0.1217</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M4</td>
+<td style="text-align: right;">0.1246</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M5</td>
+<td style="text-align: right;">0.1299</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">M6</td>
+<td style="text-align: right;">0.1201</td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>To understand how the regression parameters estimates might be biased
+we need to remind that in a multiple regression we estimate <em>partial
+regression coefficients</em>: in a regression equation, the weight of
+independent variables are estimated in relation to the other independent
+variables in the model <span class="citation" data-cites="cohen1983">(<a
+href="#ref-cohen1983" role="doc-biblioref">Cohen &amp; Cohen,
+1983</a>)</span>. For a dependent variable, <span
+class="math inline">\(Y\)</span>, predicted by variables <span
+class="math inline">\(X_1\)</span> and <span
+class="math inline">\(X_2\)</span>, <span class="math inline">\(B_{Y1
+\cdot 2}\)</span> is the partial regression coefficient for <span
+class="math inline">\(Y\)</span> on <span
+class="math inline">\(X_1\)</span> hodling <span
+class="math inline">\(X_2\)</span> constant, and <span
+class="math inline">\(B_{Y2 \cdot 1}\)</span> is the partial regression
+coefficient for <span class="math inline">\(Y\)</span> on <span
+class="math inline">\(X_2\)</span> hodling <span
+class="math inline">\(X_1\)</span> constant. The regression equation is
+written as:</p>
+<p><span class="math display" id="eq:multreg">\[\begin{equation}
+\hat{Y} = B_{Y0 \cdot 12} + B_{Y1 \cdot 2}X_1 + B_{Y2 \cdot 1}X_2 +
+\varepsilon
+\tag{1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(B_{Y0 \cdot 12}\)</span> is the
+model intercept when <span class="math inline">\(X_1\)</span> and <span
+class="math inline">\(X_2\)</span> are held constant and <span
+class="math inline">\(\varepsilon\)</span> is the error term.</p>
+<p>To see how the regression coefficient for <span
+class="math inline">\(X_i\)</span> is model dependent, let’s take a look
+at the equations for the regression coefficients for <span
+class="math inline">\(X_1\)</span> and <span
+class="math inline">\(X_2\)</span></p>
+<p><span class="math display" id="eq:beta12">\[\begin{equation}
+B_{Y1 \cdot 2} = \frac{\rho_{Y1} - \rho_{Y2}\rho_{12}}{(1 -
+\rho_{12}^2)} \times \frac{\sigma_Y}{\sigma_1}
+\tag{2}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:beta21">\[\begin{equation}
+B_{Y2 \cdot 1} = \frac{\rho_{Y2} - \rho_{Y1}\rho_{21}}{(1 -
+\rho_{21}^2)} \times \frac{\sigma_Y}{\sigma_2}
+\tag{3}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\rho\)</span> stands for the
+populational correlation coefficient and <span
+class="math inline">\(\sigma\)</span> for the populational standard
+deviation. It then becomes clear that, unless we have uncorrelated
+predictors (i.e. <span class="math inline">\(\rho_{12}\)</span> = <span
+class="math inline">\(\rho_{21}\)</span> = 0), the value for any of the
+regression coefficients is determined by the presence of other
+predictors in the model. If either one is excluded from the model, a
+different regression coefficient will be estimated (i.e. <span
+class="math inline">\(B_{Y1}\)</span> or <span
+class="math inline">\(B_{Y2}\)</span>).</p>
+<p>It’s easier to see now that “model selection intervenes between the
+realized sample and estimates of the regression parameters” <span
+class="citation" data-cites="berkStatisticalInferenceModel2010">(<a
+href="#ref-berkStatisticalInferenceModel2010" role="doc-biblioref">Berk
+et al., 2010, p. 222</a>)</span>. <span class="citation"
+data-cites="berkStatisticalInferenceModel2010">Berk et al. (<a
+href="#ref-berkStatisticalInferenceModel2010"
+role="doc-biblioref">2010</a>)</span> warns that the sampling
+distribution of the estimated regression parameters is distorted because
+estimates made from incorrect models will also be included, resulting in
+a mixture of distributions. Therefore the model selection process must
+be taken into account in the regression estimation.</p>
+<h2 id="a-first-example">A first example</h2>
+<p>Consider a model for a response variable <span
+class="math inline">\(y\)</span> with two potential regressors, <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(z\)</span>. Say we’re interest in the relationship
+between <span class="math inline">\(y\)</span> and <span
+class="math inline">\(x\)</span> while holding <span
+class="math inline">\(z\)</span> constant. A linear regression model is
+imposed with the corresponding population regression coefficient of
+<span class="math inline">\(\beta_{yx\cdot z}\)</span>.</p>
+<p><span class="math display" id="eq:m1">\[\begin{equation}
+y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \varepsilon_i
+\tag{4}
+\end{equation}\]</span></p>
+<p>Let’s simulate a scenario where <span
+class="math inline">\(\rho_{xz}\)</span> = 0.5, both <span
+class="math inline">\(\beta_x\)</span> and <span
+class="math inline">\(\beta_y\)</span> are set to 1 and <span
+class="math inline">\(\varepsilon \sim N(0, 10)\)</span>. We’ll use a
+sample size of 250 subjects and 1000 random samples will be drawn from
+this population. We’ll calculate coverage and bias for each regressor.
+<em>Coverage</em> corresponds to the frequency in which the true
+coefficient value is covered by the estimation. The <em>bias</em> of the
+estimations is calculated as <span
+class="math inline">\(\frac{1}{R}\sum(\hat{\theta_r}-\theta)\)</span>,
+where <span class="math inline">\(R\)</span> is the number of
+repetitions, <span class="math inline">\(\theta\)</span> represents a
+population parameter, and <span
+class="math inline">\(\hat{\theta}_r\)</span> a sample estimate.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Predictor</th>
+<th style="text-align: right;">Coverage</th>
+<th style="text-align: right;">Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">0.952</td>
+<td style="text-align: right;">0.0044404</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">z</td>
+<td style="text-align: right;">0.945</td>
+<td style="text-align: right;">-0.0002455</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="model-selection-bias_files/figure-html5/plot-ex1a-1.png" width="624" /></p>
+</div>
+<p>In this first scenario <span class="math inline">\(\beta_{yx\cdot
+z}\)</span> is estimated assuming <span class="math inline">\(x\)</span>
+and <span class="math inline">\(z\)</span> are always included in the
+model.</p>
+<p>Now, lets simulate a scenario where <span
+class="math inline">\(z\)</span> is excluded. If <span
+class="math inline">\(z\)</span> is excluded, any correlation where
+<span class="math inline">\(z\)</span> is involved is equivalent to
+zero, and we’re left with</p>
+<p><span class="math display" id="eq:ex11">\[\begin{equation}
+\beta_{yx\cdot z} = \rho_{xy}(\frac{\sigma_y}{\sigma_x})
+\tag{5}
+\end{equation}\]</span></p>
+<p>Note that <span class="math inline">\(\beta_{yx}\)</span> is not the
+same as <span class="math inline">\(\beta_{yx\cdot z}\)</span>, so the
+definition of regression parameter for <span
+class="math inline">\(x\)</span> depends on the model in which it is
+placed.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] 0.355</code></pre>
+<pre><code>        x 
+0.2860769 </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Predictor</th>
+<th style="text-align: right;">Coverage</th>
+<th style="text-align: right;">Bias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">x</td>
+<td style="text-align: right;">0.355</td>
+<td style="text-align: right;">0.4952281</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">z</td>
+<td style="text-align: right;">0.355</td>
+<td style="text-align: right;">0.4952281</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="model-selection-bias_files/figure-html5/plot-ex1b-1.png" width="624" /></p>
+</div>
+<p>As shown by the plots of <span
+class="math inline">\(\beta_{yx}\)</span> and <span
+class="math inline">\(\beta_{yx\cdot z}\)</span>, the estimates for the
+regression parameter for <span class="math inline">\(x\)</span> are
+quite different. Thus, when a single model is not specified before the
+analysis begins, it is not clear what population parameter is the
+subject of study. And without this clarity, the reasoning behind
+statistical inference becomes obscure.</p>
+<p>Explicar os resultados, mostrar pouco viés e maior coverage no
+primeiro etc</p>
+<p>Now there is a good opportunity for a simulation exercise. To
+illustrate what we have been talking so far, <span class="citation"
+data-cites="berkStatisticalInferenceModel2010">Berk et al. (<a
+href="#ref-berkStatisticalInferenceModel2010"
+role="doc-biblioref">2010</a>)</span> proposes the following
+example:</p>
+<p>Consider two candidate regression models <span
+class="math inline">\(M_1\)</span> and <span
+class="math inline">\(M_2\)</span>. Define <span
+class="math inline">\(M_1\)</span> to be</p>
+<p><span class="math display" id="eq:m11">\[\begin{equation}
+y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \varepsilon_i
+\tag{6}
+\end{equation}\]</span></p>
+<p>and <span class="math inline">\(M_2\)</span> to be</p>
+<p><span class="math display" id="eq:m2">\[\begin{equation}
+y_i = \beta_0 + \beta_1x_i + \varepsilon_i
+\tag{7}
+\end{equation}\]</span></p>
+<p>Because in <span class="math inline">\(M_2\)</span> <span
+class="math inline">\(z_i\)</span> is absent,</p>
 <h1 id="illustration">Illustration</h1>
 <p>Exemplificar com simulação (passos utilizados no app)</p>
 <h1 id="possible-solutions">Possible solutions</h1>
@@ -1806,7 +2039,7 @@ stochastic nature (?) of the random vector Y. The same random nature
 applies to the parameter vector of coefficients. It changes randomly as
 the adjuster covariates in <span class="math inline">\(\hat{M}\)</span>
 vary randomly.</p>
-<div class="sourceCode" id="cb7"><pre
+<div class="sourceCode" id="cb8"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-line-spacing="2" role="doc-bibliography">
@@ -1829,6 +2062,11 @@ Berk, R., Brown, L., &amp; Zhao, L. (2010). Statistical <span>Inference
 After Model Selection</span>. <em>Journal of Quantitative
 Criminology</em>, <em>26</em>(2), 217–236. <a
 href="https://doi.org/10.1007/s10940-009-9077-7">https://doi.org/10.1007/s10940-009-9077-7</a>
+</div>
+<div id="ref-cohen1983" class="csl-entry" role="doc-biblioentry">
+Cohen, J., &amp; Cohen, P. (1983). <em>Applied <span>Multiple
+Regression</span>/<span>Correlation Analysis</span> for the
+<span>Behavioral Sciences</span></em> (2nd ed.).
 </div>
 <div id="ref-flora2017statistical" class="csl-entry"
 role="doc-biblioentry">
