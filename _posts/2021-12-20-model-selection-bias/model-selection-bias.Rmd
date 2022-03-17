@@ -9,6 +9,11 @@ date: 2021-12-20
 output:
   distill::distill_article:
     self_contained: false
+    code_folding: true
+    highlight: rstudio
+    toc: true
+    toc_depth: 2
+creative_commons: CC BY
 bibliography: references.bib
 csl: apa.csl
 draft: true
@@ -16,10 +21,10 @@ draft: true
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, show_code = TRUE)
 ```
 
-```{r, include=FALSE}
+```{r packages, include=FALSE}
 library(dplyr)
 library(ggplot2)
 ```
@@ -37,7 +42,7 @@ Variable selection procedures aren't in themselves problematic. When the correct
 
 To see why, let's consider a well defined population with it's unknown parameter values. Our level 1 source of uncertainty lies on the randomness of the sample drawn. The "best" model found via variable selection is sample specific and isn't guarantee to be the correct model (if we assume that one such model in fact exists). Suppose we repeat the process of drawing a random sample and performing model selection countless times. As shown below, even when the correct model (in this example, $\hat{M}_2$) is three times more likely to be selected than the competing models, it will be chosen more frequently but not at the majority of the time.
 
-```{r}
+```{r mod-freq, show_code = TRUE}
 models <- paste0("M", 1:6)
 
 tibble::enframe(
@@ -76,16 +81,15 @@ It's easier to see now that "model selection intervenes between the realized sam
 
 ## A first example
 
-Consider a model for a response variable $y$ with two potential regressors, $x$ and $z$. Say we're interest in the relationship between $y$ and $x$ while holding $z$ constant. A linear
-regression model is imposed with the corresponding population regression coefficient of $\beta_{yx\cdot z}$.
+To illustrate what we've just seen, let's expand an analytic example given by @berkStatisticalInferenceModel2010 with simulations: Consider a model for a response variable $y$ with two potential regressors, $x$ and $z$. Say we're interest in the relationship between $y$ and $x$ while holding $z$ constant. We'll run a linear
+regression model with the corresponding population regression coefficient of $\beta_{yx\cdot z}$.
 
 \begin{equation}
 y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \varepsilon_i
 (\#eq:m1)
 \end{equation}
 
-Let's simulate a scenario where $\rho_{xz}$ = 0.5, both $\beta_x$ and $\beta_y$ are set to 1 and $\varepsilon \sim N(0, 10)$. We'll use a sample size of 250 subjects and 1000 random samples will be drawn from this population. We'll calculate coverage and bias for each regressor. *Coverage* corresponds to the frequency in which the true coefficient value is covered by the estimation. The *bias* of the estimations is calculated as $\frac{1}{R}\sum(\hat{\theta_r}-\theta)$, where $R$ is the number of repetitions, $\theta$ represents a population parameter, and
-$\hat{\theta}_r$ a sample estimate.
+Now, suppose that we have the following scenario, where $\rho_{xz}$ = 0.5, both $\beta_x$ and $\beta_y$ are set to 1 and $\varepsilon \sim N(0, 10)$. We'll use a sample size of 250 subjects and 1000 random samples will be drawn from this population. We'll calculate coverage and bias for each regressor. *Coverage* corresponds to the frequency in which the true coefficient value is captured by the 95% CI of the estimate. The *bias* of the estimations is calculated as $\frac{1}{R}\sum(\hat{\theta_r}-\theta)$, where $R$ is the number of repetitions, $\theta$ represents a population parameter, and $\hat{\theta}_r$ a sample estimate.
 
 ```{r sim-ex1a}
 p <- 2 # number of predictors
@@ -138,14 +142,14 @@ ggplot(data = coefs, aes(x = x)) +
 
 In this first scenario $\beta_{yx\cdot z}$ is estimated assuming $x$ and $z$ are always included in the model.
 
-Now, lets simulate a scenario where $z$ is excluded. If $z$ is excluded, any correlation where $z$ is involved is equivalent to zero, and we're left with 
+What would happen if by model selection we arrive at a model where $z$ is excluded. If $z$ is excluded, any correlation where $z$ is involved is equivalent to zero, and we're left with, 
 
 \begin{equation}
-\beta_{yx\cdot z} = \rho_{xy}(\frac{\sigma_y}{\sigma_x})
+\beta_{yx} = \rho_{xy}(\frac{\sigma_y}{\sigma_x})
 (\#eq:ex11)
 \end{equation}
 
-Note that $\beta_{yx}$ is not the same as $\beta_{yx\cdot z}$, so the definition of regression parameter for $x$ depends on the model in which it is placed.
+Note that $\beta_{yx}$ is not the same as $\beta_{yx\cdot z}$. If we do not have a model specified prior to data collection and analysis, it is not clear which definition of regression parameter for $x$ we're trying to estimate, if $\beta_{yx\cdot z}$, exemplified on \@ref(eq:beta12) or if $\beta_{yx}$. Therefore, the definition of $x$ depends on the model in which it is placed.
 
 ```{r sim-ex1b}
 p <- 2
@@ -170,16 +174,16 @@ for (i in seq(reps)) {
 colnames(coefs) <- c("x", "z")
 coefs <- as.data.frame(coefs)
 # coverage
-colMeans(cover)[1]
+cover1b <- colMeans(cover)[1]
 # bias
-colMeans((coefs - betas)^2)[1]
+bias1b <- colMeans((coefs - betas)^2)[1]
 
-tibble::tibble(
-  Predictor = c("x", "z"),
-  Coverage = colMeans(cover),
-  Bias = colMeans(coefs - betas)
-) |> 
-  knitr::kable()
+# tibble::tibble(
+#   Predictor = c("x", "z"),
+#   Coverage = colMeans(cover),
+#   Bias = colMeans(coefs - betas)
+# ) |> 
+#   knitr::kable()
 
 ```
 
@@ -188,9 +192,6 @@ tibble::tibble(
 
 ggplot(data = coefs, aes(x = x)) +
   geom_histogram(color = "black", fill = "white", bins = 30) +
-  # geom_vline(xintercept = c(quantile(coefs$x, .975), quantile(coefs$x, .025)), 
-  #            color = "red", size = 1,
-  #            linetype = "dashed") +
   theme_classic() +
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(), 
@@ -199,9 +200,12 @@ ggplot(data = coefs, aes(x = x)) +
   xlab( expression(paste("Values of ", beta[yx])))
 ```
 
-As shown by the plots of $\beta_{yx}$ and $\beta_{yx\cdot z}$, the estimates for the regression parameter for $x$ are quite different. Thus, when a single model is not specified before the analysis begins, it is not clear what population parameter is the subject of study. And without this clarity, the reasoning behind statistical inference becomes obscure.
+Notice how far off the latter model estimates the coefficient for $x$. Under these conditions, we should expect a coverage of the true coefficient value of $x$ of `r round(cover1b, 3)` and a bias of `r round(bias1b, 3)`. Under the correct model, bias is negligible and coverage follows the Type I error rate of 5% that we've set for this exercise.
 
-Explicar os resultados, mostrar pouco viés e maior coverage no primeiro etc
+This simple example help us understand why estimate model parameters in the same single random sample used to find an appropriate model isn't a good idea (at least not without taking this process in account prior to making inferences). Discarding $z$ from our model has completely distorted the sampling distribution of $x$. Thus, as @berkStatisticalInferenceModel2010 puts it: "when a single model is not specified before the analysis begins, it is not clear what population parameter is the subject of study. And without this clarity, the reasoning behind statistical inference becomes obscure".
+
+Now is a good time to pause and ponder. We already know that if two predictors are moderately correlated and one is dropped from the model, our estimation will be biased. But what else?
+entrar em cada elemento que afeta a estimaçaõ
 
 Now there is a good opportunity for a simulation exercise. To illustrate what we have been talking so far, @berkStatisticalInferenceModel2010 proposes the following example:
 
