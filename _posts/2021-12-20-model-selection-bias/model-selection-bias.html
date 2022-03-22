@@ -1515,6 +1515,7 @@ class="uri">https://github.com/marwincarmo</a>
 <li><a href="#why-is-it-a-problem">Why is it a problem?</a>
 <ul>
 <li><a href="#a-first-example">A first example</a></li>
+<li><a href="#noise">Noise</a></li>
 </ul></li>
 <li><a href="#illustration">Illustration</a></li>
 <li><a href="#possible-solutions">Possible solutions</a>
@@ -1547,7 +1548,7 @@ research and often used to estimate causal effects <span
 class="citation" data-cites="berk2010">(<a href="#ref-berk2010"
 role="doc-biblioref">Berk, 2010</a>)</span>. However, to perform causal
 modeling, researchers must specify a “correct” model (i.e. an accurate
-model of the data generating process) prior do data collection and use
+model of the data generating process) prior to data collection and use
 the obtained data only to estimate regression coefficients (see <span
 class="citation" data-cites="berk2010">Berk (<a href="#ref-berk2010"
 role="doc-biblioref">2010</a>)</span> for a further discussion). In
@@ -1583,7 +1584,7 @@ data-cites="berkStatisticalInferenceModel2010">(<a
 href="#ref-berkStatisticalInferenceModel2010" role="doc-biblioref">Berk
 et al., 2010</a>)</span>.</p>
 <p>To see why, let’s consider a well defined population with it’s
-unknown parameter values. Our level 1 source of uncertainty lies on the
+unknown parameter values. One source of uncertainty lies on the
 randomness of the sample drawn. The “best” model found via variable
 selection is sample specific and isn’t guarantee to be the correct model
 (if we assume that one such model in fact exists). Suppose we repeat the
@@ -1620,40 +1621,40 @@ Show code
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">M1</td>
-<td style="text-align: right;">0.1228</td>
+<td style="text-align: right;">0.1235</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M2</td>
-<td style="text-align: right;">0.3757</td>
+<td style="text-align: right;">0.3900</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M3</td>
-<td style="text-align: right;">0.1281</td>
+<td style="text-align: right;">0.1185</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M4</td>
-<td style="text-align: right;">0.1258</td>
+<td style="text-align: right;">0.1203</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M5</td>
-<td style="text-align: right;">0.1270</td>
+<td style="text-align: right;">0.1245</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M6</td>
-<td style="text-align: right;">0.1206</td>
+<td style="text-align: right;">0.1232</td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>To understand how the regression parameters estimates might be biased
-we need to remind that in a multiple regression we estimate <em>partial
-regression coefficients</em>: in a regression equation, the weight of
-independent variables are estimated in relation to the other independent
-variables in the model <span class="citation" data-cites="cohen1983">(<a
-href="#ref-cohen1983" role="doc-biblioref">Cohen &amp; Cohen,
-1983</a>)</span>. For a dependent variable, <span
-class="math inline">\(Y\)</span>, predicted by variables <span
-class="math inline">\(X_1\)</span> and <span
+recall that in a multiple regression we estimate <em>partial regression
+coefficients</em>: in a regression equation, the weight of independent
+variables are estimated <strong>in relation to</strong> the other
+independent variables in the model <span class="citation"
+data-cites="cohen1983">(<a href="#ref-cohen1983"
+role="doc-biblioref">Cohen &amp; Cohen, 1983</a>)</span>. For a
+dependent variable, <span class="math inline">\(Y\)</span>, predicted by
+variables <span class="math inline">\(X_1\)</span> and <span
 class="math inline">\(X_2\)</span>, <span class="math inline">\(B_{Y1
 \cdot 2}\)</span> is the partial regression coefficient for <span
 class="math inline">\(Y\)</span> on <span
@@ -1729,10 +1730,10 @@ class="math inline">\(\beta_{yx\cdot z}\)</span>.</p>
 y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \varepsilon_i
 \tag{4}
 \end{equation}\]</span></p>
-<p>Now, suppose that we have the following scenario, where <span
+<p>Now, suppose that we’re in a scenario, where <span
 class="math inline">\(\rho_{xz}\)</span> = 0.5, both <span
-class="math inline">\(\beta_x\)</span> and <span
-class="math inline">\(\beta_y\)</span> are set to 1 and <span
+class="math inline">\(\beta_1\)</span> and <span
+class="math inline">\(\beta_2\)</span> are set to 1 and <span
 class="math inline">\(\varepsilon \sim N(0, 10)\)</span>. We’ll use a
 sample size of 250 subjects and 1000 random samples will be drawn from
 this population. We’ll calculate coverage and bias for each regressor.
@@ -1797,13 +1798,13 @@ Show code
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">x</td>
-<td style="text-align: right;">0.954</td>
-<td style="text-align: right;">0.0088752</td>
+<td style="text-align: right;">0.953</td>
+<td style="text-align: right;">0.0088806</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">z</td>
-<td style="text-align: right;">0.956</td>
-<td style="text-align: right;">0.0008830</td>
+<td style="text-align: right;">0.949</td>
+<td style="text-align: right;">-0.0071937</td>
 </tr>
 </tbody>
 </table>
@@ -1832,7 +1833,7 @@ z}\)</span> is estimated assuming <span class="math inline">\(x\)</span>
 and <span class="math inline">\(z\)</span> are always included in the
 model.</p>
 <p>What would happen if by model selection we arrive at a model where
-<span class="math inline">\(z\)</span> is excluded. If <span
+<span class="math inline">\(z\)</span> is excluded? If <span
 class="math inline">\(z\)</span> is excluded, any correlation where
 <span class="math inline">\(z\)</span> is involved is equivalent to
 zero, and we’re left with,</p>
@@ -1845,10 +1846,11 @@ same as <span class="math inline">\(\beta_{yx\cdot z}\)</span>. If we do
 not have a model specified prior to data collection and analysis, it is
 not clear which definition of regression parameter for <span
 class="math inline">\(x\)</span> we’re trying to estimate, if <span
-class="math inline">\(\beta_{yx\cdot z}\)</span>, exemplified on
-<a href="#eq:beta12">(2)</a> or if <span class="math inline">\(\beta_{yx}\)</span>.
-Therefore, the definition of <span class="math inline">\(x\)</span>
-depends on the model in which it is placed.</p>
+class="math inline">\(\beta_{yx\cdot z}\)</span>, as exemplified on
+equation <a href="#eq:beta12">(2)</a> or if <span
+class="math inline">\(\beta_{yx}\)</span>. Therefore, the definition of
+<span class="math inline">\(x\)</span> depends on the model in which it
+is placed.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -1866,7 +1868,7 @@ Show code
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='va'>reps</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
   <span class='co'>#print(i)</span>
   <span class='va'>X</span> <span class='op'>&lt;-</span>  <span class='fu'>MASS</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/mvrnorm.html'>mvrnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='va'>n</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span> , <span class='va'>Sigma</span><span class='op'>)</span>
-  <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='va'>X</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>b0</span>, <span class='va'>betas</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, <span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='va'>X</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>b0</span>, <span class='va'>betas</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, <span class='fl'>0</span>, <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
   <span class='va'>Xy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span>
   <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>Xy</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='st'>"z"</span><span class='op'>)</span>, <span class='st'>"y"</span><span class='op'>)</span>
   <span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>y</span> <span class='op'>~</span> <span class='va'>x</span>, data <span class='op'>=</span> <span class='va'>Xy</span><span class='op'>)</span>
@@ -1880,13 +1882,6 @@ Show code
 <span class='va'>cover1b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>cover</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 <span class='co'># bias</span>
 <span class='va'>bias1b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>betas</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
-
-<span class='co'># tibble::tibble(</span>
-<span class='co'>#   Predictor = c("x", "z"),</span>
-<span class='co'>#   Coverage = colMeans(cover),</span>
-<span class='co'>#   Bias = colMeans(coefs - betas)</span>
-<span class='co'># ) |&gt; </span>
-<span class='co'>#   knitr::kable()</span>
 </code></pre>
 </div>
 </details>
@@ -1913,22 +1908,59 @@ Show code
 <p>Notice how far off the latter model estimates the coefficient for
 <span class="math inline">\(x\)</span>. Under these conditions, we
 should expect a coverage of the true coefficient value of <span
-class="math inline">\(x\)</span> of 0 and a bias of 0.257. Under the
+class="math inline">\(x\)</span> of 0.33 and a bias of 0.289. Under the
 correct model, bias is negligible and coverage follows the Type I error
 rate of 5% that we’ve set for this exercise.</p>
 <p>This simple example help us understand why estimate model parameters
 in the same single random sample used to find an appropriate model isn’t
 a good idea (at least not without taking this process in account prior
 to making inferences). Discarding <span class="math inline">\(z\)</span>
-from our model has completely distorted the sampling distribution of
-<span class="math inline">\(x\)</span>. Thus, as <span class="citation"
+from our model has distorted the sampling distribution of <span
+class="math inline">\(x\)</span>. Thus, as <span class="citation"
 data-cites="berkStatisticalInferenceModel2010">Berk et al. (<a
 href="#ref-berkStatisticalInferenceModel2010"
 role="doc-biblioref">2010</a>)</span> puts it: “when a single model is
 not specified before the analysis begins, it is not clear what
 population parameter is the subject of study. And without this clarity,
 the reasoning behind statistical inference becomes obscure”.</p>
-<p>Now is a good time to pause and ponder. We already know that</p>
+<p>Now is a good time to pause and ponder. We already know that if two
+predictors are moderately correlated and one is dropped from the model,
+our estimation will be biased. But what else should we consider? If you
+are selecting the variable every time, then there is not issue. In the
+following sections we’ll consider what can make things “bad”. But before
+that, please consider the equation for the standard error of the
+regression coefficient estimated in our first example that hasn’t gone
+through model selection,</p>
+<p><span class="math display" id="eq:sebxy">\[\begin{equation}
+SE(\beta_{yx\cdot z}) = \frac{\hat{\sigma_{\varepsilon}}}{s_x
+\sqrt{n-1}}\sqrt{\frac{1}{1-r^2_{xy}}}
+\tag{6}
+\end{equation}\]</span></p>
+<p>We’ll use simulated data to aid our understanding. I have build a <a
+href="https://marwin.shinyapps.io/model-selection-app/">ShinyApp</a> for
+that end. Its purpose is to illustrate the problems that arise when
+model selection, parameters estimation and statistical inferences are
+undertaken with the same data set. Although I will be working with code
+in this post, everything can also be reproduced via this app.</p>
+<p>simular com um range de valores para cada elemento que traz
+problema</p>
+<h2 id="noise">Noise</h2>
+<p>To express the variability we can use the “signal-to-noise” ratio
+(SNR). This term is defined as:</p>
+<p><span class="math display">\[\frac{S}{N} =
+\textbf{b}\Sigma\textbf{b}\sigma^{-2}\]</span> where, <span
+class="math inline">\(\textbf{b}\)</span> is a (<em>p</em> + 1) <span
+class="math inline">\(\times\)</span> 1 vector of regression
+coefficients, <span class="math inline">\(\Sigma\)</span> is the
+covariance matrix of predictors and <span
+class="math inline">\(\sigma^2\)</span> is the error term variance.</p>
+<ul>
+<li>SNR</li>
+<li>Sample size</li>
+<li>predictors</li>
+<li>BIC/AIC</li>
+<li>correlacao</li>
+</ul>
 <p>Now there is a good opportunity for a simulation exercise. To
 illustrate what we have been talking so far, <span class="citation"
 data-cites="berkStatisticalInferenceModel2010">Berk et al. (<a
@@ -1941,12 +1973,12 @@ class="math inline">\(M_2\)</span>. Define <span
 class="math inline">\(M_1\)</span> to be</p>
 <p><span class="math display" id="eq:m11">\[\begin{equation}
 y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \varepsilon_i
-\tag{6}
+\tag{7}
 \end{equation}\]</span></p>
 <p>and <span class="math inline">\(M_2\)</span> to be</p>
 <p><span class="math display" id="eq:m2">\[\begin{equation}
 y_i = \beta_0 + \beta_1x_i + \varepsilon_i
-\tag{7}
+\tag{8}
 \end{equation}\]</span></p>
 <p>Because in <span class="math inline">\(M_2\)</span> <span
 class="math inline">\(z_i\)</span> is absent,</p>
