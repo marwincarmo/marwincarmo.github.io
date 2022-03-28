@@ -1463,6 +1463,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="model-selection-bias_files/header-attrs-2.12/header-attrs.js"></script>
+  <script src="model-selection-bias_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="model-selection-bias_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="model-selection-bias_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="model-selection-bias_files/popper-2.6.0/popper.min.js"></script>
   <link href="model-selection-bias_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1613,35 +1615,63 @@ Show code
 </details>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Model</th>
-<th style="text-align: right;">Frequency</th>
+<tr>
+<th style="text-align:left;">
+Model
+</th>
+<th style="text-align:right;">
+Frequency
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">M1</td>
-<td style="text-align: right;">0.1235</td>
+<tr>
+<td style="text-align:left;">
+M1
+</td>
+<td style="text-align:right;">
+0.1276
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">M2</td>
-<td style="text-align: right;">0.3900</td>
+<tr>
+<td style="text-align:left;">
+M2
+</td>
+<td style="text-align:right;">
+0.3730
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">M3</td>
-<td style="text-align: right;">0.1185</td>
+<tr>
+<td style="text-align:left;">
+M3
+</td>
+<td style="text-align:right;">
+0.1254
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">M4</td>
-<td style="text-align: right;">0.1203</td>
+<tr>
+<td style="text-align:left;">
+M4
+</td>
+<td style="text-align:right;">
+0.1272
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">M5</td>
-<td style="text-align: right;">0.1245</td>
+<tr>
+<td style="text-align:left;">
+M5
+</td>
+<td style="text-align:right;">
+0.1246
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">M6</td>
-<td style="text-align: right;">0.1232</td>
+<tr>
+<td style="text-align:left;">
+M6
+</td>
+<td style="text-align:right;">
+0.1222
+</td>
 </tr>
 </tbody>
 </table>
@@ -1789,22 +1819,40 @@ Show code
 </details>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Predictor</th>
-<th style="text-align: right;">Coverage</th>
-<th style="text-align: right;">Bias</th>
+<tr>
+<th style="text-align:left;">
+Predictor
+</th>
+<th style="text-align:right;">
+Coverage
+</th>
+<th style="text-align:right;">
+Bias
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: right;">0.953</td>
-<td style="text-align: right;">0.0088806</td>
+<tr>
+<td style="text-align:left;">
+x
+</td>
+<td style="text-align:right;">
+0.932
+</td>
+<td style="text-align:right;">
+0.0212080
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">z</td>
-<td style="text-align: right;">0.949</td>
-<td style="text-align: right;">-0.0071937</td>
+<tr>
+<td style="text-align:left;">
+z
+</td>
+<td style="text-align:right;">
+0.950
+</td>
+<td style="text-align:right;">
+-0.0136347
+</td>
 </tr>
 </tbody>
 </table>
@@ -1908,7 +1956,7 @@ Show code
 <p>Notice how far off the latter model estimates the coefficient for
 <span class="math inline">\(x\)</span>. Under these conditions, we
 should expect a coverage of the true coefficient value of <span
-class="math inline">\(x\)</span> of 0.33 and a bias of 0.289. Under the
+class="math inline">\(x\)</span> of 0.342 and a bias of 0.287. Under the
 correct model, bias is negligible and coverage follows the Type I error
 rate of 5% that we’ve set for this exercise.</p>
 <p>This simple example help us understand why estimate model parameters
@@ -1936,24 +1984,392 @@ SE(\beta_{yx\cdot z}) = \frac{\hat{\sigma_{\varepsilon}}}{s_x
 \sqrt{n-1}}\sqrt{\frac{1}{1-r^2_{xy}}}
 \tag{6}
 \end{equation}\]</span></p>
+<p>where <span class="math inline">\(\hat{\sigma_{\varepsilon}}\)</span>
+is an estimate of the residual standard deviation, <span
+class="math inline">\(s_x\)</span> is the sample standard deviation of
+<span class="math inline">\(x\)</span>, and <span
+class="math inline">\(r^2_{xy}\)</span> is the square of the sample
+correlation between <span class="math inline">\(x\)</span> and <span
+class="math inline">\(z\)</span>. If the standard error for a regression
+coefficient is large, it means that its distribution will be more
+dispersed. So, from this equation we identify as crucial parameters for
+wider sampling distribution: larger residual variance, less variance in
+<span class="math inline">\(x\)</span>, small sample size, and, stronger
+correlation between regressors.</p>
 <p>We’ll use simulated data to aid our understanding. I have build a <a
 href="https://marwin.shinyapps.io/model-selection-app/">ShinyApp</a> for
 that end. Its purpose is to illustrate the problems that arise when
 model selection, parameters estimation and statistical inferences are
 undertaken with the same data set. Although I will be working with code
 in this post, everything can also be reproduced via this app.</p>
-<p>simular com um range de valores para cada elemento que traz
-problema</p>
+<p>For convenience, I’ll use as model selection approach stepwise
+regression with AIC as fit criterion. Some penalties are harsher than
+others, but the concerns raised here are irrespective of the chosen
+model selection method <span class="citation"
+data-cites="berkStatisticalInferenceModel2010">(<a
+href="#ref-berkStatisticalInferenceModel2010" role="doc-biblioref">Berk
+et al., 2010</a>)</span>. In the app I provide a few other selection
+methods to be chosen from. In addition to bias and coverage, we’ll also
+estimate the average Mean Squared Error (MSE), calculated as <span
+class="math inline">\(\frac{1}{R}\sum[(\hat{\theta_r}-\theta)^2]\)</span>.</p>
 <h2 id="noise">Noise</h2>
-<p>To express the variability we can use the “signal-to-noise” ratio
-(SNR). This term is defined as:</p>
+<p>To express the variability we can use a signal-to-noise ratio (SNR).
+This term is defined here as:</p>
 <p><span class="math display">\[\frac{S}{N} =
 \textbf{b}\Sigma\textbf{b}\sigma^{-2}\]</span> where, <span
 class="math inline">\(\textbf{b}\)</span> is a (<em>p</em> + 1) <span
 class="math inline">\(\times\)</span> 1 vector of regression
 coefficients, <span class="math inline">\(\Sigma\)</span> is the
 covariance matrix of predictors and <span
-class="math inline">\(\sigma^2\)</span> is the error term variance.</p>
+class="math inline">\(\sigma^2\)</span> is the error term variance. As
+with the other following parameters, let’s experiment with a range of
+values for the <span class="math inline">\(SNR\)</span> to see how it
+affects the estimates. We’ll use most values set in our first simulation
+exercise and <span class="math inline">\(SNR\)</span> values raging from
+0.1 to 2. One thousand simulations will be run for each of those
+values.</p>
+<p>Because we’ll reuse the same code in other examples, t</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sim_bias</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>reps</span>, <span class='va'>p</span>, <span class='va'>n</span>, <span class='va'>SNR</span>, <span class='va'>b</span>, <span class='va'>corr</span><span class='op'>)</span> <span class='op'>{</span>
+  
+  
+  <span class='va'>Sigma</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='va'>corr</span>, <span class='va'>p</span>, <span class='va'>p</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span><span class='op'>(</span><span class='va'>Sigma</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+  <span class='va'>beta</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='va'>b</span>, <span class='va'>p</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>beta</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span><span class='op'>)</span>
+  <span class='va'>b0</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
+  <span class='va'>sigma_error</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/crossprod.html'>crossprod</a></span><span class='op'>(</span><span class='va'>beta</span>, <span class='va'>Sigma</span> <span class='op'><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></span> <span class='va'>beta</span><span class='op'>)</span> <span class='op'>/</span> <span class='va'>SNR</span><span class='op'>)</span><span class='op'>)</span>
+
+  <span class='va'>rsq</span> <span class='op'>&lt;-</span> <span class='cn'>NULL</span>
+  <span class='va'>coefs</span> <span class='op'>&lt;-</span> <span class='va'>tvals</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='cn'>NA</span>, nrow <span class='op'>=</span> <span class='va'>reps</span>, ncol <span class='op'>=</span> <span class='va'>p</span><span class='op'>)</span>
+  <span class='va'>cover</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>0</span>, nrow <span class='op'>=</span> <span class='va'>reps</span>, ncol <span class='op'>=</span> <span class='va'>p</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>coefs</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>cover</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>tvals</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span><span class='op'>)</span>
+
+<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='va'>reps</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  
+  <span class='va'>X</span> <span class='op'>&lt;-</span>  <span class='fu'>MASS</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/mvrnorm.html'>mvrnorm</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='va'>n</span>, <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='va'>p</span><span class='op'>)</span> , <span class='va'>Sigma</span><span class='op'>)</span>
+  <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='va'>X</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/r/base/matmult.html'>%*%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>b0</span>, <span class='va'>beta</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, <span class='fl'>0</span>, <span class='va'>sigma_error</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>Xy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>Xy</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span><span class='op'>)</span>, <span class='st'>"y"</span><span class='op'>)</span>
+  <span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>y</span> <span class='op'>~</span><span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>Xy</span><span class='op'>)</span>
+  <span class='va'>sel</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/step.html'>step</a></span><span class='op'>(</span><span class='va'>fit</span>, k <span class='op'>=</span> <span class='fl'>2</span>, trace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+  <span class='va'>s</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>sel</span><span class='op'>)</span>
+  <span class='va'>tval</span> <span class='op'>&lt;-</span> <span class='va'>s</span><span class='op'>$</span><span class='va'>coefficients</span><span class='op'>[</span>,<span class='fl'>3</span><span class='op'>]</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>
+  <span class='va'>tvals</span><span class='op'>[</span><span class='va'>i</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span>  <span class='va'>tval</span>
+  <span class='va'>coefs</span><span class='op'>[</span><span class='va'>i</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>sel</span><span class='op'>)</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>
+  <span class='va'>rsq</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>s</span><span class='op'>$</span><span class='va'>r.squared</span>
+  <span class='va'>cis</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>sel</span><span class='op'>)</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span>
+  <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>{</span>
+                <span class='va'>cover</span><span class='op'>[</span><span class='va'>i</span>,<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&amp;</span> <span class='va'>cis</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&gt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>
+            <span class='op'>}</span> <span class='kw'>else</span> <span class='op'>{</span>
+                <span class='va'>cover</span><span class='op'>[</span><span class='va'>i</span>,<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span>,<span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&amp;</span> <span class='va'>cis</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span>,<span class='fl'>2</span><span class='op'>]</span> <span class='op'>&gt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>
+            <span class='op'>}</span>
+  
+<span class='op'>}</span>
+
+<span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  SNR <span class='op'>=</span> <span class='va'>SNR</span>,
+  Predictor <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"x"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='va'>p</span><span class='op'>)</span>,
+  Estimate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>coefs</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+  Coverage <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>cover</span><span class='op'>)</span>,
+  Bias <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>beta</span><span class='op'>)</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+  MSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>beta</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>res</span>
+  
+<span class='op'>}</span>
+</code></pre>
+</div>
+</details>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sim_snr</span> <span class='op'>&lt;-</span> <span class='fu'>purrr</span><span class='fu'>::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/map2.html'>pmap_dfr</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>reps <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>2</span>, n <span class='op'>=</span> <span class='fl'>250</span>, SNR <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.01</span>, <span class='fl'>.1</span>, <span class='fl'>.5</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='fl'>1</span>, corr <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>, <span class='va'>sim_bias</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sim_snr</span> |&gt; 
+  <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/kbl.html'>kbl</a></span><span class='op'>(</span><span class='op'>)</span> |&gt; 
+  <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/collapse_rows.html'>collapse_rows</a></span><span class='op'>(</span>columns <span class='op'>=</span> <span class='fl'>2</span>, valign <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+SNR
+</th>
+<th style="text-align:left;">
+Predictor
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Coverage
+</th>
+<th style="text-align:right;">
+Bias
+</th>
+<th style="text-align:right;">
+MSE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+x1…1
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+2.4207057
+</td>
+<td style="text-align:right;">
+0.281
+</td>
+<td style="text-align:right;">
+1.4207057
+</td>
+<td style="text-align:right;">
+2.9442120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x2…2
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+2.3185227
+</td>
+<td style="text-align:right;">
+0.261
+</td>
+<td style="text-align:right;">
+1.3185227
+</td>
+<td style="text-align:right;">
+2.8503284
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x1…3
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+1.1256103
+</td>
+<td style="text-align:right;">
+0.809
+</td>
+<td style="text-align:right;">
+0.1256103
+</td>
+<td style="text-align:right;">
+0.1286597
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x2…4
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+1.1221461
+</td>
+<td style="text-align:right;">
+0.833
+</td>
+<td style="text-align:right;">
+0.1221461
+</td>
+<td style="text-align:right;">
+0.1369688
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x1…5
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+0.9980010
+</td>
+<td style="text-align:right;">
+0.942
+</td>
+<td style="text-align:right;">
+-0.0019990
+</td>
+<td style="text-align:right;">
+0.0346283
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x2…6
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+0.9989266
+</td>
+<td style="text-align:right;">
+0.958
+</td>
+<td style="text-align:right;">
+-0.0010734
+</td>
+<td style="text-align:right;">
+0.0337007
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x1…7
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+0.9983609
+</td>
+<td style="text-align:right;">
+0.949
+</td>
+<td style="text-align:right;">
+-0.0016391
+</td>
+<td style="text-align:right;">
+0.0162590
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x2…8
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+0.9997646
+</td>
+<td style="text-align:right;">
+0.953
+</td>
+<td style="text-align:right;">
+-0.0002354
+</td>
+<td style="text-align:right;">
+0.0162409
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x1…9
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:left;">
+x1
+</td>
+<td style="text-align:right;">
+0.9947605
+</td>
+<td style="text-align:right;">
+0.946
+</td>
+<td style="text-align:right;">
+-0.0052395
+</td>
+<td style="text-align:right;">
+0.0082021
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x2…10
+</td>
+<td style="text-align:right;">
+2.00
+</td>
+<td style="text-align:left;">
+x2
+</td>
+<td style="text-align:right;">
+1.0044339
+</td>
+<td style="text-align:right;">
+0.950
+</td>
+<td style="text-align:right;">
+0.0044339
+</td>
+<td style="text-align:right;">
+0.0079135
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
 <li>SNR</li>
 <li>Sample size</li>
@@ -2119,7 +2535,7 @@ Show code
 </code></pre>
 </div>
 </details>
-<p><img src="model-selection-bias_files/figure-html5/unnamed-chunk-1-1.png" width="624" /></p>
+<p><img src="model-selection-bias_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <p>The estimation process is biased before statistical tests are
 performed.</p>
@@ -2328,7 +2744,7 @@ Show code
 </code></pre>
 </div>
 </details>
-<p><img src="model-selection-bias_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<p><img src="model-selection-bias_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <details>

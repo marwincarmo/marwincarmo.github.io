@@ -27,6 +27,7 @@ knitr::opts_chunk$set(echo = FALSE, show_code = TRUE)
 ```{r packages, include=FALSE}
 library(dplyr)
 library(ggplot2)
+
 ```
 
 
@@ -209,11 +210,11 @@ where $\hat{\sigma_{\varepsilon}}$ is an estimate of the residual standard devia
 
 We'll use simulated data to aid our understanding. I have build a [ShinyApp](https://marwin.shinyapps.io/model-selection-app/) for that end. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set. Although I will be working with code in this post, everything can also be reproduced via this app.
 
-For convenience, I'll use as model selection approach stepwise regression with AIC as fit criterion. Some penalties are harsher than others, but the concerns raised here are irrespective of the chosen model selection method [@berkStatisticalInferenceModel2010]. In the app I provide a few other selection methods to be chosen from.
+For convenience, I'll use as model selection approach stepwise regression with AIC as fit criterion. Some penalties are harsher than others, but the concerns raised here are irrespective of the chosen model selection method [@berkStatisticalInferenceModel2010]. In the app I provide a few other selection methods to be chosen from. In addition to bias and coverage, we'll also estimate the average Mean Squared Error (MSE), calculated as $\frac{1}{R}\sum[(\hat{\theta_r}-\theta)^2]$.
 
 ## Noise
 
-To express the variability we can use the "signal-to-noise" ratio (SNR). This term is defined here as:
+To express the variability we can use a signal-to-noise ratio (SNR). This term is defined here as:
 
 $$\frac{S}{N} = \textbf{b}\Sigma\textbf{b}\sigma^{-2}$$
 where, $\textbf{b}$ is a (*p* + 1) $\times$ 1 vector of regression coefficients, $\Sigma$ is the covariance matrix of predictors and $\sigma^2$ is the error term variance. As with the other following parameters, let's experiment with a range of values for the $SNR$ to see how it affects the estimates. We'll use most values set in our first simulation exercise and $SNR$ values raging from 0.1 to 2. One thousand simulations will be run for each of those values.
@@ -222,10 +223,10 @@ Because we'll reuse the same code in other examples, t
 
 ```{r, warning=FALSE}
 
-sim_bias <- function(reps, p, n, SNR, b) {
+sim_bias <- function(reps, p, n, SNR, b, corr) {
   
   
-  Sigma <- matrix(0.5, p, p)
+  Sigma <- matrix(corr, p, p)
   diag(Sigma) <- 1
   beta <- rep(b, p)
   names(beta) <- paste0("x", 1:p)
@@ -233,7 +234,8 @@ sim_bias <- function(reps, p, n, SNR, b) {
   sigma_error <-  sqrt(as.numeric(crossprod(beta, Sigma %*% beta) / SNR))
 
   rsq <- NULL
-  coefs <- cover <- tvals <- matrix(0, nrow = reps, ncol = p)
+  coefs <- tvals <- matrix(NA, nrow = reps, ncol = p)
+  cover <- matrix(0, nrow = reps, ncol = p)
   colnames(coefs) <- paste0("x", 1:p)
   colnames(cover) <- paste0("x", 1:p)
   colnames(tvals) <- paste0("x", 1:p)
@@ -267,6 +269,7 @@ res <- data.frame(
   Coverage = colMeans(cover),
   Bias = colMeans((coefs - beta), na.rm = TRUE),
   MSE = colMeans((coefs - beta)^2, na.rm = TRUE))
+rownames(res) <- NULL
 res
   
 }
@@ -274,11 +277,23 @@ res
 
 ```
 
-```{r}
-purrr::pmap_dfr(list(1000, 2, 250, c(.1, .5, 1, 1.5, 2), 1), sim_bias)
+```{r sim-snr}
 
+sim_snr <- purrr::pmap_dfr(list(reps = 1000, p = 2, n = 250, SNR = c(.01, .1, .5, 1, 2), 1, corr = 0.5), sim_bias)
+knitr::kable(sim_snr)
 ```
 
+```{r}
+sim_snr |> 
+  kable()
+```
+
+## Sample size
+
+```{r sim-snr}
+sim_ss <- purrr::pmap_dfr(list(reps = 1000, p = 2, n = c(10, 50, 100, 200, 500), SNR = 1, b = 1, corr = 0.5), sim_bias)
+
+```
 
 - SNR
 - Sample size
