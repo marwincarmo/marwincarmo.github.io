@@ -1,0 +1,314 @@
+---
+title: "Untitled"
+author: "Marwin Carmo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Possible solutions
+
+Soluções (berk 2010 e buscar mais)
+# Berk (2010)
+
+Statistical inference assumes that a correct model exists and it is known except for parameter values before data analysis. This correct model is an accurate representation of the data generating process. Therefore, arriving at different models with model selection is problematic. 
+
+## Framing the problem
+
+When the correct model is unknown prior to data analysis, four steps are usually taken:
+
+1. Construct a set of models  
+2. Examine the data and select a "final" model  
+3. Estimate model parameters  
+4. Perform statistical inferences to parameter estimates
+
+These steps are not problematic in themselves. What can cause problems is that the selection rule is dependent on the regression parameters.
+
+Model selection undertaken via nested testing produces the same difficulties as when it is done by data exploration.
+
+## A more formal treatment
+
+With different models, the object of estimation assumes different definitions. Without a model it is not possible to define what's been estimated.
+
+For a response variable $Y$, say we have two regressors $X$ and $Z$. To estimate the relationship between $Y$ and $X$ holding $Z$ constant we use the following linear regression model:
+
+$$
+\beta_{yx.z} = \frac{\rho_{xy}-\rho_{xz}\rho_{yz}}{(1-\rho^2_{xz})} \times \frac{\sigma_y}{\sigma_x}
+$$
+If $Z$ is not present in the model, the correlations involving this predictor are equivalent to zero, and $\beta_{yx} = \rho_{yx}(\sigma_y/\sigma_x)$. This is a different estimate from $\beta_{yx.z}$. This example illustrates how a regression parameter depends on the model in which it is placed. Without a clear model pre-defined prior the analysis, the population parameter under study is unclear.
+
+If the model is defined through model selection and the parameter estimated from a different random sample, it poses no problem to the analysis. However, usually this process is carried on the same random sample, and there is were things go south.
+
+We add a new source of uncertainty when performing model selection. As we just saw, the regression parameter depends not only on the realized random sample but also on which model they are placed. Additionally, the model selected isn't the same across samples, so there is another uncertainty to the estimates.
+
+In a population, we have a theoretical infinite number of possible random samples. If a correct model exists, we expect that it will be represented by the realized sample more frequently than their competitors. This illustrates how the model selection procedure is sample dependent. In this way, it is an estimate of the correct model.
+
+Note that I've said that the random sample process chooses the correct model *more frequently than* than the competitors. It doesn't mean that this model is chosen at the majority of the time (Think about 6 models realized in 9 random samples. say that the correct model is chosen 3 times and all the others no more than 2. Even though it is chosen with a greater frequency than the others, if we take a random sample from these 9 models we are more likely to draw an incorrect model).
+
+Summarizing:
+
+- The estimated regression parameter depends on the model selected and the realized sample
+
+- Its sampling distribution may be composed from estimates made from correct and incorrect models
+
+- The model selection process must be taken into account in the regression estimation
+
+### Simulating figure 2
+
+The mean squared errors for both regression models are assumed to be approximately 1.0. Then, the sampling distribution for $\beta_1$, conditional on $M_1$ being selected, is taken to be normal with a mean of 12.0 and a standard deviation of 2.0. The sampling distribution for b1, conditional on $M_2$ being selected, is taken to be normal with a mean of 4.0 and a standard deviation of 1. To minimize the complications, an ancilliary selection procedure is applied such that $P(\hat{M_1}) = .2$ and $P(\hat{M_2}) = .8$; the model selection procedure chooses $M_2$ four times more often than $M_1$. Figure 2 is constructed by making 10,000 draws from the first normal distribution and 40,000 draws from the second normal distribution.
+
+```{r sim1}
+b1.m1 <- rnorm(10000, mean = 12, sd = 2)
+b1.m2 <- rnorm(40000, mean = 4, sd = 1)
+
+combined_dist <- data.frame(
+  model = c(rep("m1", 10000), rep("m2", 40000)),
+  b1 = c(b1.m1, b1.m2)
+)
+```
+
+The combined distribution has a mean of approximately `r round(mean(combined_dist$b1),1)` and a standard deviation of approximately `r round(sd(combined_dist$b1),1)`.
+
+We don't know which model is correct. Either way, the estimate will be far from its true value and its standard error, larger.
+
+```{r}
+fig2 <- combined_dist %>% 
+  ggplot(aes(x = b1))+
+  geom_histogram( aes(y=..density..), color="#e9ecef", alpha=0.6, position = 'identity', bins = 80, fill = "#69b3a2") +
+  geom_density(alpha=.2) +
+  stat_function(fun = dnorm, args = list(mean = mean((combined_dist$b1)),
+                                   sd = sd(combined_dist$b1)),
+                col = "red") +
+  theme_classic() +
+  xlab("Regression Coefficient Values") +
+  ylab("Density")
+fig2
+```
+
+The estimation process is biased before statistical tests are performed.
+
+## Underlying mechanisms
+
+In model selection regressors with coefficients close to zero are dropped from the model. This may create gaps near the 0.0 region on the x-axis.
+
+A regressors excluded from a model affects the performance of others that remained. Recall from Eq. 1, where if $Z$ is dropped from the model, we are no longer estimating $\beta_{yx.z}$, but a bivariate correlation beween $Y$ and $X$ and the ratio of their two standard deviations.
+
+When $r_{yz}$ and $r_{xz}$ are large, the value of $\beta_{yx.z}$ can change a great deal when $Z$ is dropped.
+
+Due to correlations between predictors, the sampling distribution variance can also be affected by model selection (colocar no app essa parte falando do SE, pag 225 do artigo).
+
+## Simulations of model-selection
+
+Even when the preferred model is selected there is no guarantee about gettind sound regression coefficient estimates.
+
+For an initial simulation, selection is
+implemented through forward stepwise regression using the AIC as a fit criterion. At each step, the term is added that leads to the model with the smallest AIC. The procedure stops when no remaining regressor improves the AIC.
+
+For this simulation, the full regression model takes the form of
+
+$$
+y_i = \beta_0 + \beta_1w_i + \beta_2x_i + \beta_3z_i + \varepsilon_i
+$$
+
+where $\beta_0$ = 3.0, $\beta_1$ = 0.0, $\beta_2$ = 1.0, and $\beta_3$ = 2.0. The variances and covariance are set as follows: $\sigma^2_\varepsilon$ = 10.0, $\sigma^2_w$ = 5.0, $\sigma^2_x$ = 6.0, $\sigma^2_z$ = 7.0, $\sigma_{w,x}$ = 4.0, $\sigma_{w,z}$ = 5.0, and $\sigma_{x,z}$ = 5.0. The sample size is 200.
+
+```{r sim2-model-selection}
+reps = 10000
+p <- 3
+Sigma <- matrix(c(5,4,5,
+                  4,6,5, 
+                  5,5,7), p, p)
+n = 200
+betas <- c(3, 0, .5, 2)
+rsq <- NULL
+coefs <- cover <- matrix(NA, nrow = reps, ncol = 3)
+colnames(coefs) <- c("w", "x", "z")
+colnames(cover) <- c("w", "x", "z")
+
+for (i in seq(reps)) {
+  #print(i)
+  X <-  MASS::mvrnorm(n = n, rep(0, 3) , Sigma)
+  y <- as.numeric(cbind(1, X) %*% betas + rnorm(n, 0, 10))
+  Xy <- as.data.frame( cbind(X, y))
+  colnames(Xy) <- c(c("w", "x", "z"), "y")
+  fit <- lm(y ~., data = Xy)
+  sel <- step(fit, k = 2, trace = FALSE)
+  s <- summary(sel)
+  tvals <- s$coefficients[,3][-1]
+  coefs[i, names(tvals)] <-  tvals
+  rsq[i] <- s$r.squared
+}
+```
+
+
+```{r sim2-w/o-selection}
+
+reps = 10000
+p <- 3
+Sigma <- matrix(c(5,4,5,
+                  4,6,5, 
+                  5,5,7), p, p)
+n = 200
+betas <- c(3, 0, .5, 2)
+rsq_pref <- NULL
+coefs_pref <- cover_pref <- matrix(NA, nrow = reps, ncol = 3)
+colnames(coefs_pref) <- c("w", "x", "z")
+colnames(cover_pref) <- c("w", "x", "z")
+
+for (i in seq(reps)) {
+  #print(i)
+  X <-  MASS::mvrnorm(n = n, rep(0, 3) , Sigma)
+  y <- as.numeric(cbind(1, X) %*% betas + rnorm(n, 0, 10))
+  Xy <- as.data.frame( cbind(X, y))
+  colnames(Xy) <- c(c("w", "x", "z"), "y")
+  fit <- lm(y ~., data = Xy)
+  s <- summary(fit)
+  tvals <- s$coefficients[,3][-1]
+  coefs_pref[i, names(tvals)] <-  tvals
+  rsq_pref[i] <- s$r.squared
+}
+```
+
+```{r plot}
+x_included <- as_tibble(coefs[!is.na(coefs[,"x"] & coefs[,"w"] & coefs[,"z"]),])
+#x_included <- as_tibble(coefs[!is.na(coefs[,"x"]),])
+x_included_pref <- as_tibble(coefs_pref[!is.na(coefs_pref[,"x"]),])
+
+z_included <- as_tibble(coefs[!is.na(coefs[,"z"]),])
+z_included_pref <- as_tibble(coefs_pref[!is.na(coefs_pref[,"z"]),])
+
+x_df <- bind_rows("select"=x_included,"pref"= x_included_pref,.id="sim")
+z_df <- bind_rows("select"=z_included,"pref"= z_included_pref,.id="sim")
+```
+
+
+
+```{r fig3}
+x_df %>% 
+  ggplot(aes(x, color = sim)) +
+  geom_density(adjust = 2) +
+  theme_bw(12) +
+  scale_x_continuous() +
+  labs(x = "t-values for Regressor X", y = "Density")
+```
+
+
+```{r fig4}
+z_df %>% 
+  ggplot(aes(z, color = sim)) +
+  geom_density(adjust = 2) +
+  theme_bw(12) +
+  scale_x_continuous() +
+  labs(x = "t-values for Regressor Z", y = "Density")
+```
+
+These plots illustrate how post-model-selection sampling distribution is not guaranteed to reflect the "correct" model distribution even when it is the one selected.
+
+## Potential solutions
+
+Have two random samples from the population of interest: a training and a test sample. It also can be done with a split-sample approach in cases where there is one sample, although the results depends on the sample sizes.
+
+# Lukacs (2009)
+
+Freedman's paradox: methods of variable selection may include variables with no relation with the response that spuriously inflate $R^2$.
+
+Model selection bias also occurs when there exists a weak relationship between explanatory and response variables. The model selection process misses this small effect often. It is more likely that it is included when the effect is overestimated, rendering poorly estimated parameters.
+
+## Model averaging vs Stepwise selection
+
+Model selection makes inferences based on a single best model. Variables not included are discarded from the analysis and not given importance.
+
+Model averaging makes inferences from multiple models, admitting the uncertainty of which model is best and which variables are important.
+
+One thousand matrices of 40 rows and 21 columns were generated using normally distributed random numbers with mean zero and variance one.
+
+```{r include=FALSE}
+
+set.seed(963)
+
+reps <- 100
+n <-  20
+p <- 5
+beta <- rep(0, (p-1))
+names(beta) <- paste0("x", 1:(p-1))
+coefs <- cover <- tvals <- matrix(0, nrow = reps, ncol = p-1)
+colnames(coefs) <- paste0("x", 1:(p-1))
+colnames(cover) <- paste0("x", 1:(p-1))
+colnames(tvals) <- paste0("x", 1:(p-1))
+
+for (i in seq(reps)) {
+  data <- as.data.frame(matrix(rnorm(n*p), nrow = n, ncol = p))
+  colnames(data) <- c("y", paste0("x", 1:(p-1)))
+  fit <- lm(y ~., data = data, na.action = "na.fail")
+  model_dredge <- MuMIn::dredge(fit, beta = FALSE, evaluate = TRUE, rank = "AICc")
+  avg.mod <- MuMIn::model.avg(model_dredge)
+  s <- summary(avg.mod)
+  tval <- s$coefmat.full[,4][-1]
+  tvals[i, names(tval)] <- tval
+  coefs[i, names(tval)] <- s$coefmat.full[,1][-1]
+  cis <- confint(avg.mod)[-1,]
+  cover[i,names(tval)] <- ifelse(cis[names(tval),1] < beta[names(tval)] & cis[names(tval),2] > beta[names(tval)], 1, 0)
+
+# #progress bar  
+# nn <- 100
+# for (ii in 1:nn) {
+#   extra <- nchar('||100%')
+#   width <- options()$width
+#   step <- round(ii / nn * (width - extra))
+#   text <- sprintf('|%s%s|% 3s%%', strrep('=', step),
+#                   strrep(' ', width - step - extra), round(ii / nn * 100))
+#   cat(text)
+#   #Sys.sleep(0.05)
+#   cat(if (ii == nn) '\n' else '\014')
+# }
+  
+}
+
+```
+
+
+```{r}
+library(ggplot2)
+
+as.data.frame(coefs) |> 
+  ggplot(aes(x = x1)) +
+  geom_histogram(bins = 30)
+
+```
+
+
+
+
+```{r}
+
+# Mean R squared
+#mean(rsq)
+# Frequency of the true coefficient value captured by the 95% CI
+colMeans(cover)
+# Mean value for the coefficients
+colMeans(coefs)
+# Bias for each coefficient
+colMeans((coefs - beta)^2)
+# Frequency variable selection
+colSums(tvals != 0)/reps
+# Mean t-value
+colMeans(tvals)
+```
+
+
+# Berk et al. (2013)
+
+The model produced by data-driven variable selection is itself stochastic. The stochastic component of the data is involved in the selection process. We can think, for example, of a model selected in relation to the outcome, that is a stochastic component.
+
+Once predictor variables are selected, all others are eliminated from the analysis. This implies that the statistical inference will be performed in a context where only the selected variables exist. We then are restricted to an inference tied to the model selected and the variables included.
+
+With the growing number of predictors, we can expect more type I errors. Model selection tends to favor highly significant predictors.
+
+The text adopts a view in which the the excluded predictors are non-existent in the submodels. They're not constrained to zero, they're simply not defined. The interpretation given to a predictor's coefficient is directly related to which other predictors are included in the model. That is, of course, if the predictors are not orthogonal, which implies that the coefficient value would not change across submodels.
+
+Valid statistical inference after model selection is not the same as assuming that the selected models are correct.
+
+The model $\hat{M}$ produced by model selection is a random model. Whichever the section method used, if the response Y is evolved, then the model is a random object because the stochastic nature (?) of the random vector Y. The same random nature applies to the parameter vector of coefficients. It changes randomly as the adjuster covariates in $\hat{M}$ vary randomly.
