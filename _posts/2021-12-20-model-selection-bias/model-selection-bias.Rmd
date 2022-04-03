@@ -297,8 +297,6 @@ sim_snr |>
 
 As expected, with greater amount of noise in relation to signal, the selected model includes the true coefficient at smaller frequencies. Because model selection interferes with the true model composition, coefficient estimates deviate from its true value. In this particular setting, with $SNR$ $\ge$ 0.5, coverage frequency approximates 95% and the estimates get closer to their true value. Measures of bias and MSE are also useful to display how our uncertainty gets smaller with less variability in the data.
 
- (lukacs)
-
 ## Sample size
 
 Once we know \@ref(eq:sebxy) it is not difficult to suppose that larger samples produce smaller standard errors for the regression coefficients. We can confirm that using our `sim_bias` function again, but this time varying sample sizes.
@@ -317,9 +315,7 @@ sim_ss|>
 
 OK, so far we've seen that with 2 predictors, each with true coefficient values of 1 and a correlation of 0.5, we get more precise estimates when $SNR \ge$ 0.5 and $n \ge$ 100. The number of predictors and its covariance matrix are two important aspects not addressed yet. To demonstrate their influence we can run simulations with varying values for each, where each case will have a different combination of number of predictors and correlation between them.
 
-For simplicity, all the off-diagonal elements the correlation matrix of predictors will be equal, meaning the that every predictor in the full model is correlated with the others by the same degree. The varying values for number of predictors and correlation is presented as a ratio $\frac{\rho}{p}$, where $\rho$ is the correlation coefficient and $p$ the number of predictors.
-
-We'll need to do a slight modification on our previous function so we can then apply a new function for each combination and build a dataframe summarising our results.
+For simplicity, all the off-diagonal elements the correlation matrix of predictors will be equal, meaning the that every predictor in the full model is correlated with the others by the same degree. We'll need to do a slight modification on our previous function so we can then apply a new function for each combination and build a dataframe summarising our results.
 
 ```{r multi-function}
 sim_bias_multi <- function(reps, p, n, SNR, b, corr) {
@@ -396,7 +392,7 @@ simdf <- purrr::map_dfr(sims, sim_summary)
 
 simdfplot <- simdf |> 
   dplyr::group_by(cor, npred) |> 
-  dplyr::summarise(ratio = mean(ratio),
+  dplyr::summarise(
                    coverage = mean(coverage),
                    estimate = mean(estimate),
                    bias = mean(bias),
@@ -425,7 +421,7 @@ simdfplot |>
   geom_tile() +
   scale_fill_viridis_c(direction = -1, option = "inferno", alpha = .9) +
   scale_y_continuous(breaks = c(2, 4, 6, 8, 10)) +
-  labs(x = NULL, y = NULL, fill = "SD") +
+  labs(x = latex2exp::TeX("$\\rho$"), y = p, fill = "SD") +
   theme_minimal(12) +
   facet_wrap(~measure, scales = "free", 
              labeller = label_parsed)
@@ -438,7 +434,6 @@ reactable(simdf, pageSizeOptions = c(5, 10, 15), defaultPageSize = 10, fullWidth
           columns = list(
     npred = colDef(name = "p", filterable = TRUE),
     cor = colDef(name = "Correlation", filterable = TRUE),
-    ratio = colDef(name = "Ratio", filterable = TRUE),
     predictor = colDef(name = "Predictor"),
     coverage = colDef(name = "Coverage"),
     estimate = colDef(name = "Estimate", format = colFormat(digits = 3)),
