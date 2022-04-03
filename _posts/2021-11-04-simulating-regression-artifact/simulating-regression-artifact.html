@@ -1467,7 +1467,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="simulating-regression-artifact_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="simulating-regression-artifact_files/header-attrs-2.12/header-attrs.js"></script>
   <script src="simulating-regression-artifact_files/kePrint-0.0.1/kePrint.js"></script>
   <link href="simulating-regression-artifact_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="simulating-regression-artifact_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -1507,7 +1507,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div class="dt=tag">regression</div>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>In this post I’ll how false positives can emerge if a model not fit to the research question is chosen. I also provide code for a simple Monte Carlo simulation of the frequency of these false positive results.</p></p>
+<p><p>In this post I’ll how false positives can emerge if a model not
+fit to the research question is chosen. I also provide code for a simple
+Monte Carlo simulation of the frequency of these false positive
+results.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1523,20 +1526,59 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <h3>Contents</h3>
 <ul>
 <li><a href="#motivation">Motivation</a></li>
-<li><a href="#lords-paradox-and-the-regression-artifact">Lord’s Paradox and the Regression Artifact</a></li>
-<li><a href="#re-running-farmus-et.-al-2019">Re-running Farmus et. al (2019)</a></li>
+<li><a href="#lords-paradox-and-the-regression-artifact">Lord’s Paradox
+and the Regression Artifact</a></li>
+<li><a href="#re-running-farmus-et.-al-2019">Re-running Farmus et. al
+(2019)</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 </nav>
 </div>
 <h2 id="motivation">Motivation</h2>
-<p>Recently I came across a publication <span class="citation" data-cites="farmus2019">(<a href="#ref-farmus2019" role="doc-biblioref">Farmus et al., 2019</a>)</span> where the authors outline a statistical artifact that may arise when researchers add continuous predictors correlated with baseline scores as covariates in regression models of pretest-posttest analysis. This effect is known widely as <a href="https://en.wikipedia.org/wiki/Lord%27s_paradox">Lord’s Paradox</a>.</p>
-<p>First I’ll briefly cover what is the regression artifact discussed in the first part of the paper. My main goal, however, is to rerun the simulation from part two of their study. This was motivated by the unavailability of the source code as well as an exercise on building a simple simulation study. Replicating simulation studies is a good practice not only to spot potential errors or biases in the results but also to learn and rehearse open research practices <span class="citation" data-cites="lohmann2021">(<a href="#ref-lohmann2021" role="doc-biblioref">Lohmann et al., 2021</a>)</span>.</p>
-<p>The code is pretty straightforward and there is nothing too fancy about the methods, but I hope you may learn something from this post that you can apply in your own studies. Having to think about how to translate words and equations into code also made me pause and think with more depth on what I was reading.</p>
-<p>I’ll be using R for the simulations. For pedagogical reasons I have opted to work with base R, limiting the use of external packages only to facilitate summarizing results and building plots. I’m saying that because there is the great <a href="https://debruine.github.io/faux/"><code>faux</code> package</a> developed by <a href="https://twitter.com/LisaDeBruine">Lisa DeBruine</a> for simulating factorial designs that could save us many lines of code.</p>
-<h2 id="lords-paradox-and-the-regression-artifact">Lord’s Paradox and the Regression Artifact</h2>
-<p>Say that we want to test a treatment in two preexisting groups, A and B. Given some prior knowledge about the nature of our hypothetical dependent variable, we have strong basis to suppose that a random subject from group B is higher on average on DV scores than a random subject from group A. Because those groups occur naturally it isn’t possible to perform random assignment of subjects to groups.</p>
-<p>We need to specify how we’re going to analyse the data. Given our research design and question there are two potential statistical models to be chosen from <span class="citation" data-cites="farmus2019">(<a href="#ref-farmus2019" role="doc-biblioref">Farmus et al., 2019</a>)</span>:</p>
+<p>Recently I came across a publication <span class="citation"
+data-cites="farmus2019">(<a href="#ref-farmus2019"
+role="doc-biblioref">Farmus et al., 2019</a>)</span> where the authors
+outline a statistical artifact that may arise when researchers add
+continuous predictors correlated with baseline scores as covariates in
+regression models of pretest-posttest analysis. This effect is known
+widely as <a
+href="https://en.wikipedia.org/wiki/Lord%27s_paradox">Lord’s
+Paradox</a>.</p>
+<p>First I’ll briefly cover what is the regression artifact discussed in
+the first part of the paper. My main goal, however, is to rerun the
+simulation from part two of their study. This was motivated by the
+unavailability of the source code as well as an exercise on building a
+simple simulation study. Replicating simulation studies is a good
+practice not only to spot potential errors or biases in the results but
+also to learn and rehearse open research practices <span
+class="citation" data-cites="lohmann2021">(<a href="#ref-lohmann2021"
+role="doc-biblioref">Lohmann et al., 2021</a>)</span>.</p>
+<p>The code is pretty straightforward and there is nothing too fancy
+about the methods, but I hope you may learn something from this post
+that you can apply in your own studies. Having to think about how to
+translate words and equations into code also made me pause and think
+with more depth on what I was reading.</p>
+<p>I’ll be using R for the simulations. For pedagogical reasons I have
+opted to work with base R, limiting the use of external packages only to
+facilitate summarizing results and building plots. I’m saying that
+because there is the great <a
+href="https://debruine.github.io/faux/"><code>faux</code> package</a>
+developed by <a href="https://twitter.com/LisaDeBruine">Lisa
+DeBruine</a> for simulating factorial designs that could save us many
+lines of code.</p>
+<h2 id="lords-paradox-and-the-regression-artifact">Lord’s Paradox and
+the Regression Artifact</h2>
+<p>Say that we want to test a treatment in two preexisting groups, A and
+B. Given some prior knowledge about the nature of our hypothetical
+dependent variable, we have strong basis to suppose that a random
+subject from group B is higher on average on DV scores than a random
+subject from group A. Because those groups occur naturally it isn’t
+possible to perform random assignment of subjects to groups.</p>
+<p>We need to specify how we’re going to analyse the data. Given our
+research design and question there are two potential statistical models
+to be chosen from <span class="citation" data-cites="farmus2019">(<a
+href="#ref-farmus2019" role="doc-biblioref">Farmus et al.,
+2019</a>)</span>:</p>
 <p>A change score model (<em>t</em> test)</p>
 <span class="math display" id="eq:change">\[\begin{equation}
 post_i = \beta_0 + \beta_1group_i + pre_i + e_i
@@ -1547,14 +1589,69 @@ post_i = \beta_0 + \beta_1group_i + pre_i + e_i
 post_i = \beta_0 + \beta_1group_i + \beta_2pre_i + e_i
 \tag{2}
 \end{equation}\]</span>
-<p>Here <span class="math inline">\(pre_i\)</span> and <span class="math inline">\(post_i\)</span> are the pretest and posttest scores of subject <span class="math inline">\(i\)</span>. In equation <a href="#eq:change">(1)</a>, <span class="math inline">\(\beta_1\)</span> is the main effect of group (or group mean differences) on gain scores and in equation <a href="#eq:ancova">(2)</a>, it is the partial regression coefficient of <span class="math inline">\(group\)</span> adjusted for pretest scores. The model intercept is <span class="math inline">\(\beta_0\)</span> and the model residuals is represented by <span class="math inline">\(e_i\)</span>.</p>
-<p>It should be noted that using <span class="math inline">\(post_i\)</span> or the change score (<span class="math inline">\(post_i - pre_i\)</span>) as the outcome variable yields the same results if <span class="math inline">\(pre_i\)</span> is a covariate in the model <span class="citation" data-cites="senn_2021">(<a href="#ref-senn_2021" role="doc-biblioref">Senn, 2021</a>)</span>.</p>
-<p>Though in practice we could choose any of these two models, we may reach different conclusions depending on which one we use. In fact, the choice of the model relies on the questions we’re asking.</p>
-<p>The ANCOVA model is preferred when we do not expect baseline differences between groups. This model estimates the difference in post treatment scores controlling for baseline variations <span class="citation" data-cites="walker">(<a href="#ref-walker" role="doc-biblioref">Walker, 2021</a>)</span>. Using pretest scores as covariate when groups are known to be different at baseline is a poor choice because we do not expect the initial differences to disappear when scores are averaged over the group <span class="citation" data-cites="pearl2016">(<a href="#ref-pearl2016" role="doc-biblioref">Pearl, 2016</a>)</span>. As we’ll see shortly, this is exactly why the paradox emerges.</p>
-<p>The change score model do not assume that groups are similar at baseline. It tests if groups differ on average on how much they change on the outcome variable from pretest to posttest. The effect of treatment is the difference of pre to post differences between the two groups <span class="citation" data-cites="walker">(<a href="#ref-walker" role="doc-biblioref">Walker, 2021</a>)</span>.</p>
-<p>What Lord <span class="citation" data-cites="lord1967">(<a href="#ref-lord1967" role="doc-biblioref">1967</a>)</span> observed is that given a treatment that produces <strong>no effect</strong> on the outcome, a researcher using the ANCOVA model would conclude that, assuming equal baseline scores, one subgroup appears to gain significantly more than the other. A second researcher analyzing the same dataset with the change score model would not reject the null hypothesis that <span class="math inline">\(\beta_1\)</span> = 0.</p>
-<p>Though we have used a categorical predictor <span class="math inline">\(group_i\)</span>, the emergence of the paradox is extended to continuous variables. To give rise to the artifact, there needs only to exists some correlation between this predictor and the pretest scores as well as random error in the assessment of change <span class="citation" data-cites="eriksson2014">(<a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström, 2014</a>)</span>. It can happen if, for example, participants are allocated into groups based on scores on some continuous predictor that happens to be associated with the parameter under investigation <span class="citation" data-cites="wright2006">(<a href="#ref-wright2006" role="doc-biblioref">Wright, 2006</a>)</span>.</p>
-<p>In most research settings (e.g. psychology), measurement is made with some degree of error. In the persence of random error of measurement, this variance is incorporated in the pre and posttest scores. If we let <span class="math inline">\(U_i\)</span> represent the “true score” (i.e. what we would get if there were no measurement error) of subject <span class="math inline">\(i\)</span>, we have:</p>
+<p>Here <span class="math inline">\(pre_i\)</span> and <span
+class="math inline">\(post_i\)</span> are the pretest and posttest
+scores of subject <span class="math inline">\(i\)</span>. In equation
+<a href="#eq:change">(1)</a>, <span class="math inline">\(\beta_1\)</span> is the
+main effect of group (or group mean differences) on gain scores and in
+equation <a href="#eq:ancova">(2)</a>, it is the partial regression coefficient of
+<span class="math inline">\(group\)</span> adjusted for pretest scores.
+The model intercept is <span class="math inline">\(\beta_0\)</span> and
+the model residuals is represented by <span
+class="math inline">\(e_i\)</span>.</p>
+<p>It should be noted that using <span
+class="math inline">\(post_i\)</span> or the change score (<span
+class="math inline">\(post_i - pre_i\)</span>) as the outcome variable
+yields the same results if <span class="math inline">\(pre_i\)</span> is
+a covariate in the model <span class="citation"
+data-cites="senn_2021">(<a href="#ref-senn_2021"
+role="doc-biblioref">Senn, 2021</a>)</span>.</p>
+<p>Though in practice we could choose any of these two models, we may
+reach different conclusions depending on which one we use. In fact, the
+choice of the model relies on the questions we’re asking.</p>
+<p>The ANCOVA model is preferred when we do not expect baseline
+differences between groups. This model estimates the difference in post
+treatment scores controlling for baseline variations <span
+class="citation" data-cites="walker">(<a href="#ref-walker"
+role="doc-biblioref">Walker, 2021</a>)</span>. Using pretest scores as
+covariate when groups are known to be different at baseline is a poor
+choice because we do not expect the initial differences to disappear
+when scores are averaged over the group <span class="citation"
+data-cites="pearl2016">(<a href="#ref-pearl2016"
+role="doc-biblioref">Pearl, 2016</a>)</span>. As we’ll see shortly, this
+is exactly why the paradox emerges.</p>
+<p>The change score model do not assume that groups are similar at
+baseline. It tests if groups differ on average on how much they change
+on the outcome variable from pretest to posttest. The effect of
+treatment is the difference of pre to post differences between the two
+groups <span class="citation" data-cites="walker">(<a href="#ref-walker"
+role="doc-biblioref">Walker, 2021</a>)</span>.</p>
+<p>What Lord <span class="citation" data-cites="lord1967">(<a
+href="#ref-lord1967" role="doc-biblioref">1967</a>)</span> observed is
+that given a treatment that produces <strong>no effect</strong> on the
+outcome, a researcher using the ANCOVA model would conclude that,
+assuming equal baseline scores, one subgroup appears to gain
+significantly more than the other. A second researcher analyzing the
+same dataset with the change score model would not reject the null
+hypothesis that <span class="math inline">\(\beta_1\)</span> = 0.</p>
+<p>Though we have used a categorical predictor <span
+class="math inline">\(group_i\)</span>, the emergence of the paradox is
+extended to continuous variables. To give rise to the artifact, there
+needs only to exists some correlation between this predictor and the
+pretest scores as well as random error in the assessment of change <span
+class="citation" data-cites="eriksson2014">(<a href="#ref-eriksson2014"
+role="doc-biblioref">Eriksson &amp; Häggström, 2014</a>)</span>. It can
+happen if, for example, participants are allocated into groups based on
+scores on some continuous predictor that happens to be associated with
+the parameter under investigation <span class="citation"
+data-cites="wright2006">(<a href="#ref-wright2006"
+role="doc-biblioref">Wright, 2006</a>)</span>.</p>
+<p>In most research settings (e.g. psychology), measurement is made with
+some degree of error. In the persence of random error of measurement,
+this variance is incorporated in the pre and posttest scores. If we let
+<span class="math inline">\(U_i\)</span> represent the “true score”
+(i.e. what we would get if there were no measurement error) of subject
+<span class="math inline">\(i\)</span>, we have:</p>
 <span class="math display" id="eq:pre">\[\begin{equation}
 pre_i = U_i^{pre} + e_i^{pre}
 \tag{3}
@@ -1563,15 +1660,44 @@ pre_i = U_i^{pre} + e_i^{pre}
 post_i = U_i^{post} + e_i^{post}
 \tag{4}
 \end{equation}\]</span>
-<p>Then, because the expected effect size of treatment is zero, <span class="math inline">\(U_i^{post} - U_i^{pre}\)</span> reflects only the difference between random errors <span class="citation" data-cites="eriksson2014">(<a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström, 2014</a>)</span>.</p>
-<p>To keep consistent with the terminology used in <span class="citation" data-cites="eriksson2014"><a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström</a> (<a href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span>, we use <span class="math inline">\(P_i\)</span> to denote the group variable for the <span class="math inline">\(i^{th}\)</span> subject, where <span class="math inline">\(P_i = 0\)</span> for Group A and <span class="math inline">\(P_i = 1\)</span> for Group B (keep in mind that there is no restriction on <span class="math inline">\(P\)</span> begin solely categorical). Because the “true” pretest scores is estimated from the grouping variable, we have:</p>
+<p>Then, because the expected effect size of treatment is zero, <span
+class="math inline">\(U_i^{post} - U_i^{pre}\)</span> reflects only the
+difference between random errors <span class="citation"
+data-cites="eriksson2014">(<a href="#ref-eriksson2014"
+role="doc-biblioref">Eriksson &amp; Häggström, 2014</a>)</span>.</p>
+<p>To keep consistent with the terminology used in <span
+class="citation" data-cites="eriksson2014">Eriksson &amp; Häggström (<a
+href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span>, we use
+<span class="math inline">\(P_i\)</span> to denote the group variable
+for the <span class="math inline">\(i^{th}\)</span> subject, where <span
+class="math inline">\(P_i = 0\)</span> for Group A and <span
+class="math inline">\(P_i = 1\)</span> for Group B (keep in mind that
+there is no restriction on <span class="math inline">\(P\)</span> begin
+solely categorical). Because the “true” pretest scores is estimated from
+the grouping variable, we have:</p>
 <span class="math display" id="eq:true">\[\begin{equation}
 U_i = a + bP_i + \epsilon_i
 \tag{5}
 \end{equation}\]</span>
-<p>where <span class="math inline">\(a\)</span> is the model intercept, <span class="math inline">\(b\)</span> the regression coefficient of <span class="math inline">\(P_i\)</span> on <span class="math inline">\(U_i\)</span> and <span class="math inline">\(\epsilon_i\)</span> is the between-individual variation in <span class="math inline">\(U\)</span>.</p>
-<p>Lets assume the error term in the measurement of pretest and posttest scores is drawn from a normal distribution with mean 0 and standard deviation, <span class="math inline">\(\sigma\)</span>. Likewise, the error term for the regression of property <span class="math inline">\(P\)</span> on true score <span class="math inline">\(U_i\)</span> is drawn from a normal distribution with mean 0 and standard deviation <span class="math inline">\(s\)</span>.</p>
-<p>For a sample of 200 subjects we set, <span class="math inline">\(a\)</span> = 0.5, <span class="math inline">\(b\)</span> = 0.4, <span class="math inline">\(s\)</span> = 0.1, <span class="math inline">\(\sigma\)</span> = 0.1.</p>
+<p>where <span class="math inline">\(a\)</span> is the model intercept,
+<span class="math inline">\(b\)</span> the regression coefficient of
+<span class="math inline">\(P_i\)</span> on <span
+class="math inline">\(U_i\)</span> and <span
+class="math inline">\(\epsilon_i\)</span> is the between-individual
+variation in <span class="math inline">\(U\)</span>.</p>
+<p>Lets assume the error term in the measurement of pretest and posttest
+scores is drawn from a normal distribution with mean 0 and standard
+deviation, <span class="math inline">\(\sigma\)</span>. Likewise, the
+error term for the regression of property <span
+class="math inline">\(P\)</span> on true score <span
+class="math inline">\(U_i\)</span> is drawn from a normal distribution
+with mean 0 and standard deviation <span
+class="math inline">\(s\)</span>.</p>
+<p>For a sample of 200 subjects we set, <span
+class="math inline">\(a\)</span> = 0.5, <span
+class="math inline">\(b\)</span> = 0.4, <span
+class="math inline">\(s\)</span> = 0.1, <span
+class="math inline">\(\sigma\)</span> = 0.1.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>7895</span><span class='op'>)</span> <span class='co'># set seed for reproducibility</span>
@@ -1595,7 +1721,10 @@ U_i = a + bP_i + \epsilon_i
 </code></pre>
 </div>
 </div>
-
+<p>(ref:sim-plot-1) Scatterplot for the average gain from pre to post
+treatment. Blue line is the slope for group A and the red line is the
+slope for group B. The black dashed line is the slope for average gain
+taking both groups together</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -1628,16 +1757,34 @@ Show code
 </div>
 </details>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sim-plot-1"></span>
-<img src="simulating-regression-artifact_files/figure-html5/sim-plot-1-1.png" alt="Scatterplot for the average gain from pre to post treatment. Blue line is the slope for group A and the red line is the slope for group B. The black dashed line is the slope for average gain taking both groups together" width="624" data-distill-preview=1 />
+<img src="simulating-regression-artifact_files/figure-html5/sim-plot-1-1.png" alt="(ref:sim-plot-1)" width="624" data-distill-preview=1 />
 <p class="caption">
-Figure 1: Scatterplot for the average gain from pre to post treatment. Blue line is the slope for group A and the red line is the slope for group B. The black dashed line is the slope for average gain taking both groups together
+Figure 1: (ref:sim-plot-1)
 </p>
 </div>
 </div>
-<p>So, what do we see? The black dashed line crossing both elipses is close to 45° which means that, taking both groups as a whole, looks like there is no evidence of average differences between groups. In this particular example the slopes for both groups behave as we should often expect when there is no change in scores between two time points. It is visually clear that both are very similar.</p>
-<p>Notice that when subjects from groups A and B fall on the same range of pretest scores we see more red dots on the upper half of the plot, suggesting higher posttest scores from subjects in group B. As noted by <span class="citation" data-cites="eriksson2014"><a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström</a> (<a href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> what is happening is simply an effect of regression to the mean. Because when subjects from group B (higher true score) score low on pretest, they are more likely to do better at posttest. A similar logic applies to high scorers from group A scoring poorer on the followup.</p>
+<p>So, what do we see? The black dashed line crossing both elipses is
+close to 45° which means that, taking both groups as a whole, looks like
+there is no evidence of average differences between groups. In this
+particular example the slopes for both groups behave as we should often
+expect when there is no change in scores between two time points. It is
+visually clear that both are very similar.</p>
+<p>Notice that when subjects from groups A and B fall on the same range
+of pretest scores we see more red dots on the upper half of the plot,
+suggesting higher posttest scores from subjects in group B. As noted by
+<span class="citation" data-cites="eriksson2014">Eriksson &amp;
+Häggström (<a href="#ref-eriksson2014"
+role="doc-biblioref">2014</a>)</span> what is happening is simply an
+effect of regression to the mean. Because when subjects from group B
+(higher true score) score low on pretest, they are more likely to do
+better at posttest. A similar logic applies to high scorers from group A
+scoring poorer on the followup.</p>
 <h3 id="a-mediational-perspective">A mediational perspective</h3>
-<p>It can also help to visualize the difference between the two models using diagrams. As shown by <span class="citation" data-cites="pearl2016"><a href="#ref-pearl2016" role="doc-biblioref">Pearl</a> (<a href="#ref-pearl2016" role="doc-biblioref">2016</a>)</span>, we can represent Lord’s paradox as a mediation model,</p>
+<p>It can also help to visualize the difference between the two models
+using diagrams. As shown by <span class="citation"
+data-cites="pearl2016">Pearl (<a href="#ref-pearl2016"
+role="doc-biblioref">2016</a>)</span>, we can represent Lord’s paradox
+as a mediation model,</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -1651,31 +1798,70 @@ Show code
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="img/dag2.jpg" alt="Linear version of the model showing pretest scores (Pre) as a mediator between Group (G) and posttest scores (Post). Adapted from @pearl2016" width="45%" />
 <p class="caption">
-Figure 2: Linear version of the model showing pretest scores (Pre) as a mediator between Group (G) and posttest scores (Post). Adapted from <span class="citation" data-cites="pearl2016"><a href="#ref-pearl2016" role="doc-biblioref">Pearl</a> (<a href="#ref-pearl2016" role="doc-biblioref">2016</a>)</span>
+Figure 2: Linear version of the model showing pretest scores
+(Pre) as a mediator between Group (G) and posttest scores (Post).
+Adapted from <span class="citation" data-cites="pearl2016">Pearl (<a
+href="#ref-pearl2016" role="doc-biblioref">2016</a>)</span>
 </p>
 </div>
 </div>
-<p>where <strong>G</strong> is the group variable, <strong>Pre</strong> the pretest scores, <strong>Post</strong> the posttest scores and <strong>Y</strong> stands for the difference Post - Pre. What differentiates the ANCOVA and the change score perspectives lies on which effect we wish to estimate. Assuming no confounding, the <em>total effect</em> is estimated as</p>
+<p>where <strong>G</strong> is the group variable, <strong>Pre</strong>
+the pretest scores, <strong>Post</strong> the posttest scores and
+<strong>Y</strong> stands for the difference Post - Pre. What
+differentiates the ANCOVA and the change score perspectives lies on
+which effect we wish to estimate. Assuming no confounding, the <em>total
+effect</em> is estimated as</p>
 <span class="math display" id="eq:te">\[\begin{equation}
 TE = (b + ac) - a
 \tag{6}
 \end{equation}\]</span>
-<p>Setting <span class="math inline">\(b = a(1-c)\)</span> all paths cancel out each other and we obtain the total effect of 0 observed in our made up experiment.</p>
-<p>If we opt for adjusting for pretest scores, the path <span class="math inline">\(ac\)</span> is blocked and only the <em>direct effect</em> is estimated, which is,</p>
+<p>Setting <span class="math inline">\(b = a(1-c)\)</span> all paths
+cancel out each other and we obtain the total effect of 0 observed in
+our made up experiment.</p>
+<p>If we opt for adjusting for pretest scores, the path <span
+class="math inline">\(ac\)</span> is blocked and only the <em>direct
+effect</em> is estimated, which is,</p>
 <span class="math display" id="eq:de">\[\begin{equation}
 DE = b
 \tag{7}
 \end{equation}\]</span>
-<p>Because the direct effect is positive, it becomes clear why the effect for the ANCOVA model is non-zero.</p>
+<p>Because the direct effect is positive, it becomes clear why the
+effect for the ANCOVA model is non-zero.</p>
 <h3 id="the-regression-artifact">The regression artifact</h3>
-<p>The issue raised in <span class="citation" data-cites="farmus2019"><a href="#ref-farmus2019" role="doc-biblioref">Farmus et al.</a> (<a href="#ref-farmus2019" role="doc-biblioref">2019</a>)</span> is that Lord’s Paradox isn’t restricted to categorical predictors. A similar effect can emerge if a continuous predictor of change is correlated with pretest scores and an ANCOVA model is used. Through a literature review, the authors confirm that studies meeting these conditions are not uncommon among papers published in top psychology journals.</p>
-<p>For simplicity I’ll not bother to show the mathematical derivation of the regression artifact here but the interested reader can refer to <span class="citation" data-cites="eriksson2014"><a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström</a> (<a href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> or <span class="citation" data-cites="kim2018"><a href="#ref-kim2018" role="doc-biblioref">Kim</a> (<a href="#ref-kim2018" role="doc-biblioref">2018</a>)</span>. What we need to have in mind is that the regression artifact is the coefficient <span class="math inline">\(\beta_1\)</span> from equation <a href="#eq:ancova">(2)</a>. Using <span class="citation" data-cites="eriksson2014"><a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström</a> (<a href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> notation, the estimate for the regression artifact is expressed as:</p>
+<p>The issue raised in <span class="citation"
+data-cites="farmus2019">Farmus et al. (<a href="#ref-farmus2019"
+role="doc-biblioref">2019</a>)</span> is that Lord’s Paradox isn’t
+restricted to categorical predictors. A similar effect can emerge if a
+continuous predictor of change is correlated with pretest scores and an
+ANCOVA model is used. Through a literature review, the authors confirm
+that studies meeting these conditions are not uncommon among papers
+published in top psychology journals.</p>
+<p>For simplicity I’ll not bother to show the mathematical derivation of
+the regression artifact here but the interested reader can refer to
+<span class="citation" data-cites="eriksson2014">Eriksson &amp;
+Häggström (<a href="#ref-eriksson2014"
+role="doc-biblioref">2014</a>)</span> or <span class="citation"
+data-cites="kim2018">Kim (<a href="#ref-kim2018"
+role="doc-biblioref">2018</a>)</span>. What we need to have in mind is
+that the regression artifact is the coefficient <span
+class="math inline">\(\beta_1\)</span> from equation <a href="#eq:ancova">(2)</a>.
+Using <span class="citation" data-cites="eriksson2014">Eriksson &amp;
+Häggström (<a href="#ref-eriksson2014"
+role="doc-biblioref">2014</a>)</span> notation, the estimate for the
+regression artifact is expressed as:</p>
 <span class="math display" id="eq:regart">\[\begin{equation}
 \hat{K} = \frac{b\sigma^2}{(s^2+\sigma^2)}
 \tag{8}
 \end{equation}\]</span>
-<p>If we input the parameters set to build figure <a href="#fig:sim-plot-1">1</a> and calculate the value of <span class="math inline">\(K\)</span>, assuming infinite samples, <span class="math inline">\(K\)</span> = 0.2.</p>
-<p>Surprisingly, re-running <span class="citation" data-cites="eriksson2014"><a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström</a> (<a href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> simulation of the regression artifact, we get a different estimate for its standard deviation.</p>
+<p>If we input the parameters set to build figure <a href="#fig:sim-plot-1">1</a>
+and calculate the value of <span class="math inline">\(K\)</span>,
+assuming infinite samples, <span class="math inline">\(K\)</span> =
+0.2.</p>
+<p>Surprisingly, re-running <span class="citation"
+data-cites="eriksson2014">Eriksson &amp; Häggström (<a
+href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span>
+simulation of the regression artifact, we get a different estimate for
+its standard deviation.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -1732,29 +1918,74 @@ Show code
 <div class="figure"><span style="display:block;" id="fig:hist-K"></span>
 <img src="simulating-regression-artifact_files/figure-html5/hist-K-1.png" alt="Distribution of the coefficients for predictor $P$ on the change score" width="624" />
 <p class="caption">
-Figure 3: Distribution of the coefficients for predictor <span class="math inline">\(P\)</span> on the change score
+Figure 3: Distribution of the coefficients for predictor <span
+class="math inline">\(P\)</span> on the change score
 </p>
 </div>
 </div>
-<p>As expected, the mean value for <span class="math inline">\(\hat{K}\)</span> is 0.2. Our estimate for the standard deviation of <span class="math inline">\(\hat{K}\)</span> is 0.04, close to half the value <span class="citation" data-cites="eriksson2014"><a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström</a> (<a href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> reported. In their study, they have found 98% of <span class="math inline">\(\hat{K}\)</span> values greater than zero. In 10,000 simulated datasets, we found the frequency of <span class="math inline">\(\hat{K}\)</span> &gt; 0 to be 100%<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<h2 id="re-running-farmus-et.-al-2019">Re-running Farmus et. al (2019)</h2>
-<p>We now return to <span class="citation" data-cites="farmus2019"><a href="#ref-farmus2019" role="doc-biblioref">Farmus et al.</a> (<a href="#ref-farmus2019" role="doc-biblioref">2019</a>)</span> study. Including the baseline scores as covariate in a pretest to posttest change model may lead us to falsely conclude a significant association if a non-negligible correlation exists between the predictor and the covariate. The authors use Monte Carlo simulations to estimate Type I error rate in scenarios like the one described, varying the size of <span class="math inline">\(b\)</span> (equation <a href="#eq:true">(5)</a>), and the sample size.</p>
-<p>Other parameters were fixed such that the standard deviation of <span class="math inline">\(e_i^{pre}\)</span>, <span class="math inline">\(e_i^{post}\)</span>, and <span class="math inline">\(\epsilon_i\)</span> were set to 1. The variance of <span class="math inline">\(P\)</span> (<span class="math inline">\(\sigma^2_P\)</span>) was also set to 1. Both <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(a\)</span> were set to 0. Coefficient <span class="math inline">\(b\)</span> ranged from -1 to 1 by 0.5 steps and sample sizes of 20, 50, 100, and 1,000 were used. To keep every condition exact as the original study, 5,000 simulations were run for each pair and the statistical significance level set at 0.05.</p>
-<p>The simulation will only estimate the Type I error rates because the size of parameters like the regression artifact (<span class="math inline">\(K\)</span>) and the correlation between the pretest scores and true score (<span class="math inline">\(\rho(pre,P)\)</span>) can be estimated from the parameters values fixed previously.</p>
+<p>As expected, the mean value for <span
+class="math inline">\(\hat{K}\)</span> is 0.2. Our estimate for the
+standard deviation of <span class="math inline">\(\hat{K}\)</span> is
+0.04, close to half the value <span class="citation"
+data-cites="eriksson2014">Eriksson &amp; Häggström (<a
+href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> reported.
+In their study, they have found 98% of <span
+class="math inline">\(\hat{K}\)</span> values greater than zero. In
+10,000 simulated datasets, we found the frequency of <span
+class="math inline">\(\hat{K}\)</span> &gt; 0 to be 100%<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>.</p>
+<h2 id="re-running-farmus-et.-al-2019">Re-running Farmus et. al
+(2019)</h2>
+<p>We now return to <span class="citation"
+data-cites="farmus2019">Farmus et al. (<a href="#ref-farmus2019"
+role="doc-biblioref">2019</a>)</span> study. Including the baseline
+scores as covariate in a pretest to posttest change model may lead us to
+falsely conclude a significant association if a non-negligible
+correlation exists between the predictor and the covariate. The authors
+use Monte Carlo simulations to estimate Type I error rate in scenarios
+like the one described, varying the size of <span
+class="math inline">\(b\)</span> (equation <a href="#eq:true">(5)</a>), and the
+sample size.</p>
+<p>Other parameters were fixed such that the standard deviation of <span
+class="math inline">\(e_i^{pre}\)</span>, <span
+class="math inline">\(e_i^{post}\)</span>, and <span
+class="math inline">\(\epsilon_i\)</span> were set to 1. The variance of
+<span class="math inline">\(P\)</span> (<span
+class="math inline">\(\sigma^2_P\)</span>) was also set to 1. Both <span
+class="math inline">\(\beta_0\)</span> and <span
+class="math inline">\(a\)</span> were set to 0. Coefficient <span
+class="math inline">\(b\)</span> ranged from -1 to 1 by 0.5 steps and
+sample sizes of 20, 50, 100, and 1,000 were used. To keep every
+condition exact as the original study, 5,000 simulations were run for
+each pair and the statistical significance level set at 0.05.</p>
+<p>The simulation will only estimate the Type I error rates because the
+size of parameters like the regression artifact (<span
+class="math inline">\(K\)</span>) and the correlation between the
+pretest scores and true score (<span
+class="math inline">\(\rho(pre,P)\)</span>) can be estimated from the
+parameters values fixed previously.</p>
 <p>Looking at equations <a href="#eq:pre">(3)</a> and <a href="#eq:true">(5)</a> we know that,</p>
 <span class="math display" id="eq:pre2">\[\begin{equation}
 pre_i = a + bP_i + \epsilon_i + e_i^{pre}
 \tag{9}
 \end{equation}\]</span>
-<p>then calculating <span class="math inline">\(\rho_{(pre,P)}\)</span> becomes straightforward</p>
+<p>then calculating <span class="math inline">\(\rho_{(pre,P)}\)</span>
+becomes straightforward</p>
 <span class="math display" id="eq:rho">\[\begin{align}
 \begin{split}
-  \rho_{pre,P} &amp; = \frac{\mathrm{Cov}(pre, P)}{\sigma_{pre}\sigma_{P}}\\
-  &amp; = \frac{b\sigma^2_P}{(\sqrt{b^2\sigma^2_P + s^2 + \sigma^2}) + \sigma^2_P}
+  \rho_{pre,P} &amp; = \frac{\mathrm{Cov}(pre,
+P)}{\sigma_{pre}\sigma_{P}}\\
+  &amp; = \frac{b\sigma^2_P}{(\sqrt{b^2\sigma^2_P + s^2 + \sigma^2}) +
+\sigma^2_P}
 \end{split}
   \tag{10}
 \end{align}\]</span>
-<p>Our first step is to create a function that takes as arguments the number of runs, sample size and the population value of coefficient <span class="math inline">\(b\)</span>. We can store the <em>p</em>-value of each analysis and count afterwards how many were less than the the alpha level.</p>
+<p>Our first step is to create a function that takes as arguments the
+number of runs, sample size and the population value of coefficient
+<span class="math inline">\(b\)</span>. We can store the
+<em>p</em>-value of each analysis and count afterwards how many were
+less than the the alpha level.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sim.reg.artifact</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n.sims</span>, <span class='va'>sample.size</span>, <span class='va'>beta</span><span class='op'>)</span> <span class='op'>{</span>
@@ -1799,7 +2030,9 @@ pre_i = a + bP_i + \epsilon_i + e_i^{pre}
 </code></pre>
 </div>
 </div>
-<p>Nesting for loops can easily become confusing, so I have opted to use the <code>purrr::map_dfr()</code> function, which I find to be a simpler and more elegant solution.</p>
+<p>Nesting for loops can easily become confusing, so I have opted to use
+the <code>purrr::map_dfr()</code> function, which I find to be a simpler
+and more elegant solution.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>samplesize</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fl'>20</span>, <span class='fl'>50</span>, <span class='fl'>100</span>, <span class='fl'>1000</span><span class='op'>)</span>
@@ -1985,8 +2218,17 @@ N = 1,000
 </tbody>
 </table>
 </div>
-<p>Great! Our results match pretty closely those reported by <span class="citation" data-cites="farmus2019"><a href="#ref-farmus2019" role="doc-biblioref">Farmus et al.</a> (<a href="#ref-farmus2019" role="doc-biblioref">2019</a>)</span>. Notice that in a world where <span class="math inline">\(\rho_{(pre,P)}\)</span> is zero, in the long run the Type I error rate stay within range of what was expected.</p>
-<p>To wrap up, we can use the function just created to also reproduce the simulations <span class="citation" data-cites="farmus2019"><a href="#ref-farmus2019" role="doc-biblioref">Farmus et al.</a> (<a href="#ref-farmus2019" role="doc-biblioref">2019</a>)</span> ran using median parameter values discovered in their literature review of experimental psychology studies.</p>
+<p>Great! Our results match pretty closely those reported by <span
+class="citation" data-cites="farmus2019">Farmus et al. (<a
+href="#ref-farmus2019" role="doc-biblioref">2019</a>)</span>. Notice
+that in a world where <span
+class="math inline">\(\rho_{(pre,P)}\)</span> is zero, in the long run
+the Type I error rate stay within range of what was expected.</p>
+<p>To wrap up, we can use the function just created to also reproduce
+the simulations <span class="citation" data-cites="farmus2019">Farmus et
+al. (<a href="#ref-farmus2019" role="doc-biblioref">2019</a>)</span> ran
+using median parameter values discovered in their literature review of
+experimental psychology studies.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2046,45 +2288,109 @@ Type I error rate
 </tbody>
 </table>
 </div>
-<p>Again we have a match of results with the original study. What makes those results alarming is the Type I error rate of 0.67! As the authors emphasize, common conditions in psychological research may elicit unacceptably high error rates which researchers may not be aware of if an inappropriate model is employed.</p>
+<p>Again we have a match of results with the original study. What makes
+those results alarming is the Type I error rate of 0.67! As the authors
+emphasize, common conditions in psychological research may elicit
+unacceptably high error rates which researchers may not be aware of if
+an inappropriate model is employed.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>We have covered a definition of Lord’s Paradox and argued that choosing a model that does not fit the research question can lead to biased conclusions. As <span class="citation" data-cites="farmus2019"><a href="#ref-farmus2019" role="doc-biblioref">Farmus et al.</a> (<a href="#ref-farmus2019" role="doc-biblioref">2019</a>)</span> outline, correlation between the predictor and the outcome and some amount of measurement error are necessary conditions for the emergence of a regression artifact. It is important that researchers take this into consideration before drawing conclusions about the data.</p>
-<p>Following recent calls to reproduce simulation studies <span class="citation" data-cites="lohmann2021">(<a href="#ref-lohmann2021" role="doc-biblioref">Lohmann et al., 2021</a>)</span> we have worked to reproduce simulations performed by two papers discussing Lord’s Paradox with continuous predictors. Monte Carlo simulations are not needed to demonstrate the regression artifact and no major recommendations are being proposed by the original studies based on the simulation results. Even so, a minor discrepancy from <span class="citation" data-cites="eriksson2014"><a href="#ref-eriksson2014" role="doc-biblioref">Eriksson &amp; Häggström</a> (<a href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> was found, highlighting that computer code is not error free. Reproducing simulation analysis proved to be fruitful not only in finding divergent results but also as a coding exercise.</p>
-<p>Lord’s Paradox have been and continues to be widely debated in the quantitative methods literature. Many of the papers referenced in the text broaden the discussion investigating this topic in different and more complex scenarios. Hopefully this post has reached its instructive purpose of teaching a few things about simulating data in R. If you have any comments or questions, feel free to drop a comment below or reach me via <a href="mailto:marwin@usp.br">email</a> or <a href="https://twitter.com/marwincarmo">twitter</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<p>We have covered a definition of Lord’s Paradox and argued that
+choosing a model that does not fit the research question can lead to
+biased conclusions. As <span class="citation"
+data-cites="farmus2019">Farmus et al. (<a href="#ref-farmus2019"
+role="doc-biblioref">2019</a>)</span> outline, correlation between the
+predictor and the outcome and some amount of measurement error are
+necessary conditions for the emergence of a regression artifact. It is
+important that researchers take this into consideration before drawing
+conclusions about the data.</p>
+<p>Following recent calls to reproduce simulation studies <span
+class="citation" data-cites="lohmann2021">(<a href="#ref-lohmann2021"
+role="doc-biblioref">Lohmann et al., 2021</a>)</span> we have worked to
+reproduce simulations performed by two papers discussing Lord’s Paradox
+with continuous predictors. Monte Carlo simulations are not needed to
+demonstrate the regression artifact and no major recommendations are
+being proposed by the original studies based on the simulation results.
+Even so, a minor discrepancy from <span class="citation"
+data-cites="eriksson2014">Eriksson &amp; Häggström (<a
+href="#ref-eriksson2014" role="doc-biblioref">2014</a>)</span> was
+found, highlighting that computer code is not error free. Reproducing
+simulation analysis proved to be fruitful not only in finding divergent
+results but also as a coding exercise.</p>
+<p>Lord’s Paradox have been and continues to be widely debated in the
+quantitative methods literature. Many of the papers referenced in the
+text broaden the discussion investigating this topic in different and
+more complex scenarios. Hopefully this post has reached its instructive
+purpose of teaching a few things about simulating data in R. If you have
+any comments or questions, feel free to drop a comment below or reach me
+via <a href="mailto:marwin@usp.br">email</a> or <a
+href="https://twitter.com/marwincarmo">twitter</a>.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-line-spacing="2" role="doc-bibliography">
 <div id="ref-eriksson2014" class="csl-entry" role="doc-biblioentry">
-Eriksson, K., &amp; Häggström, O. (2014). Lord’s <span>Paradox</span> in a <span>Continuous Setting</span> and a <span>Regression Artifact</span> in <span>Numerical Cognition Research</span>. <em>PLOS ONE</em>, <em>9</em>(4), e95949. <a href="https://doi.org/f2z5hc">https://doi.org/f2z5hc</a>
+Eriksson, K., &amp; Häggström, O. (2014). Lord’s <span>Paradox</span> in
+a <span>Continuous Setting</span> and a <span>Regression Artifact</span>
+in <span>Numerical Cognition Research</span>. <em>PLOS ONE</em>,
+<em>9</em>(4), e95949. <a
+href="https://doi.org/f2z5hc">https://doi.org/f2z5hc</a>
 </div>
 <div id="ref-farmus2019" class="csl-entry" role="doc-biblioentry">
-Farmus, L., Arpin-Cribbie, C. A., &amp; Cribbie, R. A. (2019). Continuous predictors of pretest-posttest change: Highlighting the impact of the regression artifact. <em>Frontiers in Applied Mathematics and Statistics</em>, <em>4</em>, 64. <a href="https://doi.org/gk92gx">https://doi.org/gk92gx</a>
+Farmus, L., Arpin-Cribbie, C. A., &amp; Cribbie, R. A. (2019).
+Continuous predictors of pretest-posttest change: Highlighting the
+impact of the regression artifact. <em>Frontiers in Applied Mathematics
+and Statistics</em>, <em>4</em>, 64. <a
+href="https://doi.org/gk92gx">https://doi.org/gk92gx</a>
 </div>
 <div id="ref-kim2018" class="csl-entry" role="doc-biblioentry">
-Kim, S. B. (2018). Explaining lord’s paradox in introductory statistical theory courses. <em>International Journal of Statistics and Probability</em>, <em>7</em>(4), 1. <a href="https://doi.org/10.5539/ijsp.v7n4p1">https://doi.org/10.5539/ijsp.v7n4p1</a>
+Kim, S. B. (2018). Explaining lord’s paradox in introductory statistical
+theory courses. <em>International Journal of Statistics and
+Probability</em>, <em>7</em>(4), 1. <a
+href="https://doi.org/10.5539/ijsp.v7n4p1">https://doi.org/10.5539/ijsp.v7n4p1</a>
 </div>
 <div id="ref-lohmann2021" class="csl-entry" role="doc-biblioentry">
-Lohmann, A., Astivia, O. L. O., Morris, T., &amp; Groenwold, R. H. H. (2021). <em>It’s time! 10 + 1 reasons we should start replicating simulation studies</em>. <a href="https://doi.org/10.31234/osf.io/agsnt">https://doi.org/10.31234/osf.io/agsnt</a>
+Lohmann, A., Astivia, O. L. O., Morris, T., &amp; Groenwold, R. H. H.
+(2021). <em>It’s time! 10 + 1 reasons we should start replicating
+simulation studies</em>. <a
+href="https://doi.org/10.31234/osf.io/agsnt">https://doi.org/10.31234/osf.io/agsnt</a>
 </div>
 <div id="ref-lord1967" class="csl-entry" role="doc-biblioentry">
-Lord, F. M. (1967). A paradox in the interpretation of group comparisons. <em>Psychological Bulletin</em>, <em>68</em>(5), 304–305. <a href="https://doi.org/10.1037/h0025105">https://doi.org/10.1037/h0025105</a>
+Lord, F. M. (1967). A paradox in the interpretation of group
+comparisons. <em>Psychological Bulletin</em>, <em>68</em>(5), 304–305.
+<a
+href="https://doi.org/10.1037/h0025105">https://doi.org/10.1037/h0025105</a>
 </div>
 <div id="ref-pearl2016" class="csl-entry" role="doc-biblioentry">
-Pearl, J. (2016). Lord<span>’</span>s Paradox Revisited <span><span></span></span> (Oh Lord! Kumbaya!). <em>Journal of Causal Inference</em>, <em>4</em>(2). <a href="https://doi.org/10.1515/jci-2016-0021">https://doi.org/10.1515/jci-2016-0021</a>
+Pearl, J. (2016). Lord<span>’</span>s Paradox Revisited <span></span>
+(Oh Lord! Kumbaya!). <em>Journal of Causal Inference</em>,
+<em>4</em>(2). <a
+href="https://doi.org/10.1515/jci-2016-0021">https://doi.org/10.1515/jci-2016-0021</a>
 </div>
 <div id="ref-senn_2021" class="csl-entry" role="doc-biblioentry">
-Senn, S. (2021). Cause for concern. In <em>LinkedIn</em>. LinkedIn. <a href="https://www.linkedin.com/pulse/cause-concern-stephen-senn/">https://www.linkedin.com/pulse/cause-concern-stephen-senn/</a>
+Senn, S. (2021). Cause for concern. In <em>LinkedIn</em>. LinkedIn. <a
+href="https://www.linkedin.com/pulse/cause-concern-stephen-senn/">https://www.linkedin.com/pulse/cause-concern-stephen-senn/</a>
 </div>
 <div id="ref-walker" class="csl-entry" role="doc-biblioentry">
-Walker, J. A. (2021). Models for longitudinal experiments – pre-post designs. In <em>Elements of statistical modeling for experimental biology</em>. <a href="https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/models-for-longitudinal-experiments-pre-post-designs.html">https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/models-for-longitudinal-experiments-pre-post-designs.html</a>
+Walker, J. A. (2021). Models for longitudinal experiments – pre-post
+designs. In <em>Elements of statistical modeling for experimental
+biology</em>. <a
+href="https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/models-for-longitudinal-experiments-pre-post-designs.html">https://www.middleprofessor.com/files/applied-biostatistics_bookdown/_book/models-for-longitudinal-experiments-pre-post-designs.html</a>
 </div>
 <div id="ref-wright2006" class="csl-entry" role="doc-biblioentry">
-Wright, D. B. (2006). Comparing groups in a before-after design: When t test and ANCOVA produce different results. <em>British Journal of Educational Psychology</em>, <em>76</em>(3), 663–675. <a href="https://doi.org/10.1348/000709905x52210">https://doi.org/10.1348/000709905x52210</a>
+Wright, D. B. (2006). Comparing groups in a before-after design: When t
+test and ANCOVA produce different results. <em>British Journal of
+Educational Psychology</em>, <em>76</em>(3), 663–675. <a
+href="https://doi.org/10.1348/000709905x52210">https://doi.org/10.1348/000709905x52210</a>
 </div>
 </div>
-<section class="footnotes" role="doc-endnotes">
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>I’m not excluding the possibility that it may have been me that got it wrong. If this is the case and you identify where I screwed up, please let me know!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>I’m not excluding the possibility
+that it may have been me that got it wrong. If this is the case and you
+identify where I screwed up, please let me know!<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <!--radix_placeholder_article_footer-->

@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
 ```
 
 # Possible solutions
@@ -70,7 +70,7 @@ combined_dist <- data.frame(
 )
 ```
 
-The combined distribution has a mean of approximately `r round(mean(combined_dist$b1),1)` and a standard deviation of approximately `r round(sd(combined_dist$b1),1)`.
+The combined distribution has a mean of approximately r round(mean(combined_distb1),1) and a standard deviation of approximately r round(sd(combined_distb1),1).
 
 We don't know which model is correct. Either way, the estimate will be far from its true value and its standard error, larger.
 
@@ -207,6 +207,11 @@ z_df %>%
 
 These plots illustrate how post-model-selection sampling distribution is not guaranteed to reflect the "correct" model distribution even when it is the one selected.
 
+Statistical inference assuming the solid black line would be very misleading insofar as the broken line captured what was really going on. Figure 5 shows that statistical inference remains problematic even when the statistical inference is conditional on arriving at the preferred model.
+
+
+The point is that the biases noted for Fig. 3 remain. Thus, for the preferred model the null hypothesis that b2 = 0 should be rejected at the .05 level with a probability of approximately .60. But after model selection, that probability is about .76. This represents an increase of about 27% driven substantially by bias in the estimated regression coefficient. It is not a legitimate increase in power. False power seems to be a common occurrence for post-model-selection sampling distributions.
+
 ## Potential solutions
 
 Have two random samples from the population of interest: a training and a test sample. It also can be done with a split-sample approach in cases where there is one sample, although the results depends on the sample sizes.
@@ -225,7 +230,7 @@ Model averaging makes inferences from multiple models, admitting the uncertainty
 
 One thousand matrices of 40 rows and 21 columns were generated using normally distributed random numbers with mean zero and variance one.
 
-```{r include=FALSE}
+```{r }
 
 set.seed(963)
 
@@ -312,3 +317,4 @@ The text adopts a view in which the the excluded predictors are non-existent in 
 Valid statistical inference after model selection is not the same as assuming that the selected models are correct.
 
 The model $\hat{M}$ produced by model selection is a random model. Whichever the section method used, if the response Y is evolved, then the model is a random object because the stochastic nature (?) of the random vector Y. The same random nature applies to the parameter vector of coefficients. It changes randomly as the adjuster covariates in $\hat{M}$ vary randomly.
+
