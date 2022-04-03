@@ -535,7 +535,7 @@ res_df <- dplyr::bind_rows("full" = full_model, "pref" = pref_selected,
 ```
 
 
-```{r predinc, fig.cap="Stepwise regression sampling distributions of the regression coefficient *t*-values for regressors X and Z. Red density plot is is conditional on the preferred model being known. The blue density plot is conditional on the regressor being included in a model", dpi=300}
+```{r predinc, fig.cap="Stepwise regression sampling distributions of the regression coefficient *t*-values for regressors X and Z. Red density plot is is conditional on the preferred model being known. The blue density plot is conditional on the regressor being included in a model", dpi=300, preview = TRUE}
 xplot <- res_df |> 
   dplyr::filter(sim %in% c("full", "x_included")) |> 
   ggplot(aes(x, fill = sim, color = sim)) +
