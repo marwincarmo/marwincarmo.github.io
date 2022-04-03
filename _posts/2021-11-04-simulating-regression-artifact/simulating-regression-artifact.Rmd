@@ -22,7 +22,6 @@ output:
     toc: true
     toc_depth: 2
 creative_commons: CC BY
-draft: false
 ---
 
 ```{r setup, include=FALSE}
@@ -54,20 +53,20 @@ We need to specify how we're going to analyse the data. Given our research desig
 
 A change score model (*t* test)
 
-```{=tex}
+
 \begin{equation}
 post_i = \beta_0 + \beta_1group_i + pre_i + e_i
 (\#eq:change)
 \end{equation}
-```
+
 A regression based model (ANCOVA)
 
-```{=tex}
+
 \begin{equation}
 post_i = \beta_0 + \beta_1group_i + \beta_2pre_i + e_i
 (\#eq:ancova)
 \end{equation}
-```
+
 
 Here $pre_i$ and $post_i$ are the pretest and posttest scores of subject $i$. In equation \@ref(eq:change), $\beta_1$ is the main effect of group (or group mean differences) on gain scores and in equation \@ref(eq:ancova), it is the partial regression coefficient of $group$ adjusted for pretest scores. The model intercept is $\beta_0$ and the model residuals is represented by $e_i$.
 
@@ -85,28 +84,27 @@ Though we have used a categorical predictor $group_i$, the emergence of the para
 
 In most research settings (e.g. psychology), measurement is made with some degree of error. In the persence of random error of measurement, this variance is incorporated in the pre and posttest scores. If we let $U_i$ represent the "true score" (i.e. what we would get if there were no measurement error) of subject $i$, we have:
 
-```{=tex}
+
 \begin{equation}
 pre_i = U_i^{pre} + e_i^{pre}
 (\#eq:pre)
 \end{equation}
-```
-```{=tex}
+
 \begin{equation}
 post_i = U_i^{post} + e_i^{post}
 (\#eq:post)
 \end{equation}
-```
+
 Then, because the expected effect size of treatment is zero, $U_i^{post} - U_i^{pre}$ reflects only the difference between random errors [@eriksson2014].
 
 To keep consistent with the terminology used in @eriksson2014, we use $P_i$ to denote the group variable for the $i^{th}$ subject, where $P_i = 0$ for Group A and $P_i = 1$ for Group B (keep in mind that there is no restriction on $P$ begin solely categorical). Because the "true" pretest scores is estimated from the grouping variable, we have:
 
-```{=tex}
+
 \begin{equation}
 U_i = a + bP_i + \epsilon_i
 (\#eq:true)
 \end{equation}
-```
+
 where $a$ is the model intercept, $b$ the regression coefficient of $P_i$ on $U_i$ and $\epsilon_i$ is the between-individual variation in $U$.
 
 Lets assume the error term in the measurement of pretest and posttest scores is drawn from a normal distribution with mean 0 and standard deviation, $\sigma$. Likewise, the error term for the regression of property $P$ on true score $U_i$ is drawn from a normal distribution with mean 0 and standard deviation $s$.
@@ -177,22 +175,22 @@ knitr::include_graphics("img/dag2.jpg")
 
 where **G** is the group variable, **Pre** the pretest scores, **Post** the posttest scores and **Y** stands for the difference Post - Pre. What differentiates the ANCOVA and the change score perspectives lies on which effect we wish to estimate. Assuming no confounding, the *total effect* is estimated as
 
-```{=tex}
+
 \begin{equation}
 TE = (b + ac) - a
 (\#eq:te)
 \end{equation}
-```
+
 Setting $b = a(1-c)$ all paths cancel out each other and we obtain the total effect of 0 observed in our made up experiment.
 
 If we opt for adjusting for pretest scores, the path $ac$ is blocked and only the *direct effect* is estimated, which is,
 
-```{=tex}
+
 \begin{equation}
 DE = b
 (\#eq:de)
 \end{equation}
-```
+
 Because the direct effect is positive, it becomes clear why the effect for the ANCOVA model is non-zero.
 
 ### The regression artifact
@@ -201,12 +199,12 @@ The issue raised in @farmus2019 is that Lord's Paradox isn't restricted to categ
 
 For simplicity I'll not bother to show the mathematical derivation of the regression artifact here but the interested reader can refer to @eriksson2014 or @kim2018. What we need to have in mind is that the regression artifact is the coefficient $\beta_1$ from equation \@ref(eq:ancova). Using @eriksson2014 notation, the estimate for the regression artifact is expressed as:
 
-```{=tex}
+
 \begin{equation}
 \hat{K} = \frac{b\sigma^2}{(s^2+\sigma^2)}
 (\#eq:regart)
 \end{equation}
-```
+
 If we input the parameters set to build figure \@ref(fig:sim-plot-1) and calculate the value of $K$, assuming infinite samples, $K$ = 0.2.
 
 Surprisingly, re-running @eriksson2014 simulation of the regression artifact, we get a different estimate for its standard deviation.
@@ -266,15 +264,15 @@ The simulation will only estimate the Type I error rates because the size of par
 
 Looking at equations \@ref(eq:pre) and \@ref(eq:true) we know that,
 
-```{=tex}
+
 \begin{equation}
 pre_i = a + bP_i + \epsilon_i + e_i^{pre}
 (\#eq:pre2)
 \end{equation}
-```
+
 then calculating $\rho_{(pre,P)}$ becomes straightforward
 
-```{=tex}
+
 \begin{align}
 \begin{split}
   \rho_{pre,P} & = \frac{\mathrm{Cov}(pre, P)}{\sigma_{pre}\sigma_{P}}\\
@@ -282,7 +280,7 @@ then calculating $\rho_{(pre,P)}$ becomes straightforward
 \end{split}
   (\#eq:rho)
 \end{align}
-```
+
 Our first step is to create a function that takes as arguments the number of runs, sample size and the population value of coefficient $b$. We can store the *p*-value of each analysis and count afterwards how many were less than the the alpha level.
 
 ```{r fun-sim, show_code = TRUE, code_folding = FALSE}
