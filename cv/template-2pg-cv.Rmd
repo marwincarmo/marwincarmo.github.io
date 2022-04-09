@@ -36,22 +36,11 @@ urlcolor: blue
 
 # EMPLOYMENT
 
-*United States Naval Reserve:*
+*PsicoDados:*
 
- > Naval Reserve Midshipmen's School \hfill 1943--1944
+ > Statistical Consulting \hfill 2022--
 
-*Bureau of Ships Computation Project (Harvard):*
-
- > Research Fellow \hfill 1945-1949
- > Lieutenant, Jr Grade \hfill 1944
- 
-*Eckert–Mauchly Computer Corporation:*
-
- >  Senior Mathematician \hfill 1949-–1967
-
-*Navy Programming Languages Group, Navy Office of Information Systems Planning:*
-
- > Director (and promoted to Captain) \hfill 1967--1977  
+# FELLOWSHIPS AND FUNDING
 
 # TEACHING
 
@@ -67,19 +56,32 @@ urlcolor: blue
 
 ## **Journal Articles**
 
-G. M. Hopper and O. Ore. 1934. "*New types of irreducibility criteria*." Bull. Amer. Math. Soc. 40 (216). 
+Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. 
+
+Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. 
+
+**Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. 
+
+Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. 
+
+# CONFERENCE PROCEEDINGS
+
+**Carmo, M. M. I. B.**, Quiterio, P. L. (2019). Grupo de Orientação Familiar: uma abordagem integrativa de psicoeducação. *Anais de Resumos da 29ª UERJ Sem Muros*.
+
+**Carmo, M. M. I. B.**, Andrade, C. T., & Ferreira, W. H. (2013). Obtenção e propriedades de materiais híbridos parcialmente biodegradáveis. *Livro de Resumos da XXXV Jornada Giulio Massarani de Iniciação Científica, Tecnológica, Artística e Cultural - Área das Ciências Exatas*.
+
+**Carmo, M. M. I. B.**, Figueira-Junior, M. J. M., Andrade, C. T., & Ferreira, W. H. (2012). Obtenção e Caracterização Estrutural e Viscosimétrica de Biocompósitos Baseados em Amido Termoplástico. *XXXIV Jornada Giulio Massarani de Iniciação Científica, Tecnológica, Artística e Cultural da UFRJ*.
+
+Silva, J. G., **Carmo, M. M. I. B.**, Porto, E. M., Souza, D. H. S., & Andrade, C. T. (2011). Obtenção e Caracterização de Soluções Filmogênicas para Recobrimento de Mirtilo. *9 SLACA - Simpósio Latino Americano de Ciência de Alimentos: 'Ciência de Alimentos e Qualidade de Vida: Saúde, Meio Ambiente e Sustentabilidade'*.
 
 
+# POSTER PRESENTATIONS
 
-## **Books**
+**Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2021). The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
 
-Beyer, Kurt W. 2009. *Grace Hopper and the Invention of the Information Age*. Cambridge, Massachusetts: MIT Press. ISBN 978-0-262-01310-9.
+Conway, B. A., **Carmo, M. M. I. B.**, Toscanini, A. C., Hasan, R., & Rafihi-Ferreira, R. (2021). Personality Traits in Adults with Chronic Insomnia. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
 
-Williams, Kathleen Broome. 2004. *Grace Hopper: Admiral of the Cyber Sea* (1st ed.). Annapolis, Maryland: Naval Institute Press. ISBN 978-1-55750-952-9.
-
-# PUBLIC MEDIA
-
-"Nano-seconds" lecture by Grace Hopper. https://www.youtube.com/watch?v=JEpsKnWZrJ8
+Silva, D. A., Souza, J. F., Carmo, M. M. I. B., Quiterio, P. L. (2021). Programas de orientação familiar: intervenções com populações clínicas e não clínicas. 51ª Reunião Anual da Sociedade Brasileira de Psicologia.
 
 
 # AWARDS
@@ -101,3 +103,11 @@ Williams, Kathleen Broome. 2004. *Grace Hopper: Admiral of the Cyber Sea* (1st e
 **2009**: The Department of Energy's National Energy Research Scientific Computing Center named its flagship system "Hopper"
 
 **2016**: Posthumously awarded a *Presidential Medal of Freedom* for her accomplishments in the field of computer science
+
+# SKILLS
+
+*Programming*: R (proficient), Python (familiar)
+
+*Tools*: Git, RStudio's Shiny, LaTeX (familiar), SPSS, JASP, JAMOVI, Zotero
+
+*Statistics Training*
