@@ -2416,36 +2416,33 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-   ```
-   <script>
-     document.addEventListener("DOMContentLoaded", function () {
-       if (!/posts/.test(location.pathname)) {
-         return;
-       }
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (!/posts/.test(location.pathname)) {
+        return;
+      }
 
-       var script = document.createElement("script");
-       script.src = "https://utteranc.es/client.js";
-       script.setAttribute("repo", "marwincarmo/marwincarmo.github.io");
-       script.setAttribute("issue-term", "title");
-       script.setAttribute("crossorigin", "anonymous");
-       script.setAttribute("label", "comments");
-       script.setAttribute("theme", "github-light");
+      var script = document.createElement("script");
+      script.src = "https://utteranc.es/client.js";
+      script.setAttribute("repo", "etiennebacher/personal_website_distill");
+      script.setAttribute("issue-term", "og:title");
+      script.setAttribute("crossorigin", "anonymous");
+      script.setAttribute("label", "comment_thread");
 
-       /* wait for article to load, append script to article element */
-       var observer = new MutationObserver(function (mutations, observer) {
-         var article = document.querySelector("d-article");
-         if (article) {
-           observer.disconnect();
-           /* HACK: article scroll */
-           article.setAttribute("style", "overflow-y: hidden");
-           article.appendChild(script);
-         }
-       });
+      /* wait for article to load, append script to article element */
+      var observer = new MutationObserver(function (mutations, observer) {
+        var article = document.querySelector("d-article");
+        if (article) {
+          observer.disconnect();
+          /* HACK: article scroll */
+          article.setAttribute("style", "overflow-y: hidden");
+          article.appendChild(script);
+        }
+      });
 
-       observer.observe(document.body, { childList: true });
-     });
-   </script>
-   ```
+      observer.observe(document.body, { childList: true });
+    });
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-F6HLBQTD1Q"></script>
   <script type="text/javascript" cookie-consent="tracking">
@@ -2477,6 +2474,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="nav-right">
 <a href="index.html">About</a>
+<a href="cv/cv-compact-v1.pdf">CV</a>
 <a href="blog.html">Blog</a>
 <a href="projects.html">Projects</a>
 <a href="https://twitter.com/marwincarmo">

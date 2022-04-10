@@ -23,28 +23,55 @@ site: distill::distill_website
 
 I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying psychometric models to validate and investigate sleep-related cognition scales with a Brazilian sample.
 
-My interests are mostly Measurement, Quantitative Methods, Data Science, Open Science, and R programming.
+I have plans to apply to PhD programs in Quantitative Psychology or related areas for Fall 2023. If you believe I could be a good fit for your lab or anyone's you know, please feel free to reach out. Contact for collaboration on research or just chatting are also very welcome (preferably via twitter or email).
 
-I have plans to apply to PhD programs in Quantitative Psychology or related areas on the 2022 cycle. If you believe I could be a good fit for your lab or anyone's you know, please feel free to reach out. Contact for collaboration on research or just chatting are also very welcome (preferrably via twitter or email).
+<br>
 
-## Education
+<!-- Source: https://github.com/etiennebacher/personal_website_distill/blob/master/index.Rmd -->
 
-**University of São Paulo** | São Paulo, SP, Brazil
+```{css, echo = FALSE}
+.columnname {
+  font-size: 1.4rem; 
+  font-weight: 600;
+}
+.grad-item {
+  list-style: none; 
+  background-image: url(graduation-cap-solid.png); 
+  background-repeat: no-repeat;  
+  background-size: 1.2rem; 
+  padding-left: 2rem;
+}
+.grad-location {
+  font-size: 0.8rem;
+  color: grey;
+}
+```
 
-M.Sc. in Psychiatry | June 2021 - Present
+:::: {style="display: grid; grid-template-columns: 40% 50%; grid-column-gap: 30px; line-height: 1.5rem;"}
 
-**Rio de Janeiro State University** | Rio de Janeiro, RJ, Brazil
+::: {}
+<span class = "columnname"> Interests </span>
 
-B.S. in Psychology | 2014 - 2019
+* Measurement
 
-**Federal Institute of Education, Science and Technology** | Rio de Janeiro, RJ, Brazil
+* Quantitative Methods
 
-B.Tech. in Chemical Processes | 2008 - 2013
+* Open Science
 
-## Experience
+* R programming
+:::
 
-**Psychology of Human Development Laboratory - UERJ** | Research Assistant | August 2019 - August 2020
+::: {}
+<span class = "columnname"> Education </span>
 
-**Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ** | Undergraduate Research Project | July 2017 - July 2019
+<ul>
+ 
+<li class = "grad-item">   M.Sc. student in Psychiatry, 2021 -- current <br> <p class = "grad-location"> University of São Paulo, Brazil </p> </li>
+<li class = "grad-item">   Bachelor's degree in in Psychology, 2014 -- 2019 <br>
+<p class = "grad-location"> Rio de Janeiro State University, Brazil </p> </li>
+<li class = "grad-item">   Bachelor of Technology's degree in Chemical Processes, 2008 -- 2013 <br> <p class = "grad-location"> Rio de Janeiro Federal Institute of Education, Science and Technology, Brazil </p> 
+</li>
 
-**Biodegradable Polymer Research Laboratory - UFRJ** | Undergraduate Research Project | June 2011 - March 2013
+</ul>
+:::
+::::

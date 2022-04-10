@@ -623,36 +623,33 @@
 
           <!--/radix_placeholder_navigation_in_header-->
           <!--radix_placeholder_site_in_header-->
-           ```
-           <script>
-             document.addEventListener("DOMContentLoaded", function () {
-               if (!/posts/.test(location.pathname)) {
-                 return;
-               }
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              if (!/posts/.test(location.pathname)) {
+                return;
+              }
 
-               var script = document.createElement("script");
-               script.src = "https://utteranc.es/client.js";
-               script.setAttribute("repo", "marwincarmo/marwincarmo.github.io");
-               script.setAttribute("issue-term", "title");
-               script.setAttribute("crossorigin", "anonymous");
-               script.setAttribute("label", "comments");
-               script.setAttribute("theme", "github-light");
+              var script = document.createElement("script");
+              script.src = "https://utteranc.es/client.js";
+              script.setAttribute("repo", "etiennebacher/personal_website_distill");
+              script.setAttribute("issue-term", "og:title");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("label", "comment_thread");
 
-               /* wait for article to load, append script to article element */
-               var observer = new MutationObserver(function (mutations, observer) {
-                 var article = document.querySelector("d-article");
-                 if (article) {
-                   observer.disconnect();
-                   /* HACK: article scroll */
-                   article.setAttribute("style", "overflow-y: hidden");
-                   article.appendChild(script);
-                 }
-               });
+              /* wait for article to load, append script to article element */
+              var observer = new MutationObserver(function (mutations, observer) {
+                var article = document.querySelector("d-article");
+                if (article) {
+                  observer.disconnect();
+                  /* HACK: article scroll */
+                  article.setAttribute("style", "overflow-y: hidden");
+                  article.appendChild(script);
+                }
+              });
 
-               observer.observe(document.body, { childList: true });
-             });
-           </script>
-           ```
+              observer.observe(document.body, { childList: true });
+            });
+          </script>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
           <script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-F6HLBQTD1Q"></script>
           <script type="text/javascript" cookie-consent="tracking">
@@ -1053,6 +1050,7 @@
           </div>
           <div class="nav-right">
           <a href="index.html">About</a>
+          <a href="cv/cv-compact-v1.pdf">CV</a>
           <a href="blog.html">Blog</a>
           <a href="projects.html">Projects</a>
           <a href="https://twitter.com/marwincarmo">
@@ -1140,38 +1138,68 @@
             facets of insomnia. For my thesis project I am applying
             psychometric models to validate and investigate
             sleep-related cognition scales with a Brazilian sample.</p>
-            <p>My interests are mostly Measurement, Quantitative
-            Methods, Data Science, Open Science, and R programming.</p>
             <p>I have plans to apply to PhD programs in Quantitative
-            Psychology or related areas on the 2022 cycle. If you
-            believe I could be a good fit for your lab or anyone’s you
-            know, please feel free to reach out. Contact for
-            collaboration on research or just chatting are also very
-            welcome (preferrably via twitter or email).</p>
+            Psychology or related areas for Fall 2023. If you believe I
+            could be a good fit for your lab or anyone’s you know,
+            please feel free to reach out. Contact for collaboration on
+            research or just chatting are also very welcome (preferably
+            via twitter or email).</p>
+            <p><br></p>
+            <!-- Source: https://github.com/etiennebacher/personal_website_distill/blob/master/index.Rmd -->
+            <style type="text/css">
+            .columnname {
+              font-size: 1.4rem; 
+              font-weight: 600;
+            }
+            .grad-item {
+              list-style: none; 
+              background-image: url(graduation-cap-solid.png); 
+              background-repeat: no-repeat;  
+              background-size: 1.2rem; 
+              padding-left: 2rem;
+            }
+            .grad-location {
+              font-size: 0.8rem;
+              color: grey;
+            }
+            </style>
+            <div
+            style="display: grid; grid-template-columns: 40% 50%; grid-column-gap: 30px; line-height: 1.5rem;">
+            <div>
+            <p><span class="columnname"> Interests </span></p>
+            <ul>
+            <li><p>Measurement</p></li>
+            <li><p>Quantitative Methods</p></li>
+            <li><p>Open Science</p></li>
+            <li><p>R programming</p></li>
+            </ul>
             </div>
-            <div id="education" class="section level2">
-            <h2>Education</h2>
-            <p><strong>University of São Paulo</strong> | São Paulo, SP,
-            Brazil</p>
-            <p>M.Sc. in Psychiatry | June 2021 - Present</p>
-            <p><strong>Rio de Janeiro State University</strong> | Rio de
-            Janeiro, RJ, Brazil</p>
-            <p>B.S. in Psychology | 2014 - 2019</p>
-            <p><strong>Federal Institute of Education, Science and
-            Technology</strong> | Rio de Janeiro, RJ, Brazil</p>
-            <p>B.Tech. in Chemical Processes | 2008 - 2013</p>
+            <div>
+            <p><span class="columnname"> Education </span></p>
+            <ul>
+            <li class="grad-item">
+            M.Sc. student in Psychiatry, 2021 – current <br>
+            <p class="grad-location">
+            University of São Paulo, Brazil
+            </p>
+            </li>
+            <li class="grad-item">
+            Bachelor’s degree in in Psychology, 2014 – 2019 <br>
+            <p class="grad-location">
+            Rio de Janeiro State University, Brazil
+            </p>
+            </li>
+            <li class="grad-item">
+            Bachelor of Technology’s degree in Chemical Processes, 2008
+            – 2013 <br>
+            <p class="grad-location">
+            Rio de Janeiro Federal Institute of Education, Science and
+            Technology, Brazil
+            </p>
+            </li>
+            </ul>
             </div>
-            <div id="experience" class="section level2">
-            <h2>Experience</h2>
-            <p><strong>Psychology of Human Development Laboratory -
-            UERJ</strong> | Research Assistant | August 2019 - August
-            2020</p>
-            <p><strong>Socio-Emotional Development, Inclusion and Social
-            Skills Laboratory - UERJ</strong> | Undergraduate Research
-            Project | July 2017 - July 2019</p>
-            <p><strong>Biodegradable Polymer Research Laboratory -
-            UFRJ</strong> | Undergraduate Research Project | June 2011 -
-            March 2013</p>
+            </div>
             </div>
           </div>
         </div>
@@ -1235,39 +1263,68 @@
               applying psychometric models to validate and investigate
               sleep-related cognition scales with a Brazilian
               sample.</p>
-              <p>My interests are mostly Measurement, Quantitative
-              Methods, Data Science, Open Science, and R
-              programming.</p>
               <p>I have plans to apply to PhD programs in Quantitative
-              Psychology or related areas on the 2022 cycle. If you
-              believe I could be a good fit for your lab or anyone’s you
-              know, please feel free to reach out. Contact for
-              collaboration on research or just chatting are also very
-              welcome (preferrably via twitter or email).</p>
+              Psychology or related areas for Fall 2023. If you believe
+              I could be a good fit for your lab or anyone’s you know,
+              please feel free to reach out. Contact for collaboration
+              on research or just chatting are also very welcome
+              (preferably via twitter or email).</p>
+              <p><br></p>
+              <!-- Source: https://github.com/etiennebacher/personal_website_distill/blob/master/index.Rmd -->
+              <style type="text/css">
+              .columnname {
+                font-size: 1.4rem; 
+                font-weight: 600;
+              }
+              .grad-item {
+                list-style: none; 
+                background-image: url(graduation-cap-solid.png); 
+                background-repeat: no-repeat;  
+                background-size: 1.2rem; 
+                padding-left: 2rem;
+              }
+              .grad-location {
+                font-size: 0.8rem;
+                color: grey;
+              }
+              </style>
+              <div
+              style="display: grid; grid-template-columns: 40% 50%; grid-column-gap: 30px; line-height: 1.5rem;">
+              <div>
+              <p><span class="columnname"> Interests </span></p>
+              <ul>
+              <li><p>Measurement</p></li>
+              <li><p>Quantitative Methods</p></li>
+              <li><p>Open Science</p></li>
+              <li><p>R programming</p></li>
+              </ul>
               </div>
-              <div id="education" class="section level2">
-              <h2>Education</h2>
-              <p><strong>University of São Paulo</strong> | São Paulo,
-              SP, Brazil</p>
-              <p>M.Sc. in Psychiatry | June 2021 - Present</p>
-              <p><strong>Rio de Janeiro State University</strong> | Rio
-              de Janeiro, RJ, Brazil</p>
-              <p>B.S. in Psychology | 2014 - 2019</p>
-              <p><strong>Federal Institute of Education, Science and
-              Technology</strong> | Rio de Janeiro, RJ, Brazil</p>
-              <p>B.Tech. in Chemical Processes | 2008 - 2013</p>
+              <div>
+              <p><span class="columnname"> Education </span></p>
+              <ul>
+              <li class="grad-item">
+              M.Sc. student in Psychiatry, 2021 – current <br>
+              <p class="grad-location">
+              University of São Paulo, Brazil
+              </p>
+              </li>
+              <li class="grad-item">
+              Bachelor’s degree in in Psychology, 2014 – 2019 <br>
+              <p class="grad-location">
+              Rio de Janeiro State University, Brazil
+              </p>
+              </li>
+              <li class="grad-item">
+              Bachelor of Technology’s degree in Chemical Processes,
+              2008 – 2013 <br>
+              <p class="grad-location">
+              Rio de Janeiro Federal Institute of Education, Science and
+              Technology, Brazil
+              </p>
+              </li>
+              </ul>
               </div>
-              <div id="experience" class="section level2">
-              <h2>Experience</h2>
-              <p><strong>Psychology of Human Development Laboratory -
-              UERJ</strong> | Research Assistant | August 2019 - August
-              2020</p>
-              <p><strong>Socio-Emotional Development, Inclusion and
-              Social Skills Laboratory - UERJ</strong> | Undergraduate
-              Research Project | July 2017 - July 2019</p>
-              <p><strong>Biodegradable Polymer Research Laboratory -
-              UFRJ</strong> | Undergraduate Research Project | June 2011
-              - March 2013</p>
+              </div>
               </div>
             </div>
         </div>

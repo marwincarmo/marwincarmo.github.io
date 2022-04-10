@@ -1,0 +1,131 @@
+---
+output: 
+  pdf_document:
+    latex_engine: pdflatex
+    template: rap-latex-cv.tex
+geometry: margin=1in
+
+title: "CV"
+author: Marwin Machay Indio do Brasil do Carmo
+#orcid: "orcid.org/0000-0002-9577-6885"
+#jobtitle: "Computer Scientist & United States Navy Rear Admiral"
+#address: "Address · Arlington · VA 22205"
+fontawesome: yes
+email: marwinbr@gmail.com
+github: marwincarmo
+#phone: "+55 21 96525 6044"
+web: 'marwincarmo.github.io'
+updated: yes
+
+keywords: RMarkdown, academic CV, template
+
+fontfamily: mathpazo
+fontfamilyoptions: sc, osf
+fontsize: 10pt
+linkcolor: blue
+urlcolor: blue
+---
+
+# EDUCATION
+
+*University of São Paulo*, M.Sc. Psychiatry \hfill 2021--
+  
+  > Funded by Sao Paulo Research Foundation (FAPESP)
+
+*Rio de Janeiro State University*, B.S. Psychology \hfill 2014--2019
+
+*Federal Institute of Education, Science and Technology*, B.Tech. Chemical Processes \hfill 2008--2013
+
+# EXPERIENCE
+
+*PsicoDados:*
+
+ > Statistical Consulting \hfill 2022--
+ 
+*Psychology of Human Development Laboratory - UERJ*
+
+ > Research Assistant \hfill August 2019--August 2020
+ 
+ > Funded by Rio de Janeiro Research Foundation (FAPERJ)
+ 
+*Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ*
+
+ > Undergraduate Student Project \hfill July 2017--July 2019
+ 
+ > Funded by Rio de Janeiro State University
+
+*Biodegradable Polymer Research Laboratory - UFRJ*
+
+ > Undergraduate Student Project \hfill June 2011--March 2013
+ 
+ > Funded by  National Council for Scientific and Technological Development (CNPq)
+
+# Honors Awards and Funding
+
+# RESEARCH FUNDING
+
+# PUBLICATIONS
+
+## **Journal Articles**
+
+Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. 
+
+Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. 
+
+**Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. 
+
+Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. 
+
+# POSTER PRESENTATIONS AND PRIZES
+
+**Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2021). The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. \underline{Recipient of Top Mark Award} [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)]
+
+Conway, B. A., **Carmo, M. M. I. B.**, Toscanini, A. C., Hasan, R., & Rafihi-Ferreira, R. (2021). Personality Traits in Adults with Chronic Insomnia. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. \underline{Recipient of Top Mark Award}
+
+Cunha, R. R. B. , Trigo, L. O., **Carmo, M. M. I. B.**, Rafihi-Ferreira, R., & Toscanini, A. C. (2021). Chronotype Influence on the Sleep Pattern and Physical/Academic Performance of Medical Students in the State of São Paulo, Brazil. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
+
+Trigo, L. O., Cunha, R. R. B. , **Carmo, M. M. I. B.**, Rafihi-Ferreira, R., & Toscanini, A. C. (2021). Sleep Pattern, Cellphone Use and Grade Point Average in São Paulo Medical Students. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
+
+Silva, D. A., Souza, J. F., **Carmo, M. M. I. B.**, Quiterio, P. L. (2021). Programas de orientação familiar: intervenções com populações clínicas e não clínicas. 51ª Reunião Anual da Sociedade Brasileira de Psicologia, Rio de Janeiro, Brazil.
+
+**Carmo, M. M. I. B.**, Quiterio, P. L., Silva, J. P., & Camelo, B. L. (2019) Efeitos de Uma Intervenção de Orientação Familiar em Contexto Preventivo e Remediativo. *VII Seminário Internacional de Habilidades Sociais*, Maranhão, Brazil. \underline{Recipient of 3rd place of the Almir Del Prette Award}
+
+Silva, J. P., Quiterio, P. L., **Carmo, M. M. I. B.**, & Souza, A. B. M. (2019) A Importância do Desenvolvimento de Competências Socioemocionais em Pais e Crianças. *VII Seminário Internacional de Habilidades Sociais*, Maranhão, Brazil.
+
+**Carmo, M. M. I. B.**, Quiterio, P. L. (2019). Grupo de Orientação Familiar: uma abordagem integrativa de psicoeducação. *29ª UERJ Sem Muros*, Rio de Janeiro, Brazil.
+
+**Carmo, M. M. I. B.**, & Quiterio, P. L. (2019). Avaliação Psicológica de um Adolescente com Deficiência Intelectual em uma Clínica-Escola. VIII Mostra Carioca de Neuropsicologia Clínica, Rio de Janeiro, Brazil.
+
+**Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2018). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. 12ª Mostra Regional de Práticas em Psicologia, Rio de Janeiro, Brazil.
+
+**Carmo, M. M. I. B.**, & Quiterio, P. L. (2018). Grupo de Orientação Familiar: Uma abordagem integrativa de psicoeducação. 17ª Semana de Graduação UERJ, Rio de Janeiro, Brazil.
+
+Camelo, B. L., Gilla, C. G., Paz, G. R. A., Silva, J. P., Oliveira, M. V., **Carmo, M. M. I. B.**, & Quiterio, P. L. (2018). Grupo de Orientação Familiar: Programa de Promoção de Habilidades Sociais Educativas Parentais. XII Semana de Psicologia UERJ, Rio de Janeiro, Brazil.
+
+Quiterio, P. L., & **Carmo, M. M. I. B.**. (2018). PPHS - Programa de Promoção das Habilidades Sociais de alunos sem fala articulada tendo graduandos em Psicologia como interlocutores. 21ª Mostra de Extensão UERJ, Rio de Janeiro, Brazil.
+
+Quiterio, P. L., **Carmo, M. M. I. B.**, Barbosa, H. S., Falcone, J. F., Campello, F., Dias, R. (2018). Desenvolvimento de um grupo de orientação familiar por estudantes de Psicologia. 48ª Reunião Anual da Sociedade Brasileira de Psicologia, Rio de Janeiro, Brazil.
+
+**Carmo, M. M. I. B.**, Camelo, B. L., Silva, J. P., & Quiterio, P. L. (2018). Avaliação de um Grupo de Orientação Familiar. VII Congresso Brasileiro de Terapia Cognitiva da Infância e Adolescência, Bahia, Brazil. \underline{Recipient of 3rd place in Best Posters Award}
+
+# SKILLS
+
+*Programming*: R (proficient), Python (familiar)
+
+*Tools*: Git, R Shiny, R markdown, LaTeX (familiar), SPSS, JASP, JAMOVI, Zotero
+
+*Statistics Training*
+
+# RELEVANT ACTIVITIES
+
+Organizer of [Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)
+
+# SOFTWARE DEVELOPMENT
+
+**Carmo, M. M. I. B.**, Williams, D. R. (2021). *Model selection app*. Retrievable from https://marwin.shinyapps.io/model-selection-app/
+
+# BLOGS
+
+**Carmo, M. M. I. B.** (2022). Simulating post selection inference. Retrievable from https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/
+
+**Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). Retrievable from https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/

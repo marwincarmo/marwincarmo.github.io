@@ -1,7 +1,7 @@
 ---
 title: "Simulating post selection inference"
 description: |
-  A short description of the post.
+  Draft version.
 author:
   - first_name: Marwin
     last_name: Carmo
