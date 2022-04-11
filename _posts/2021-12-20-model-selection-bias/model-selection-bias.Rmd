@@ -530,10 +530,10 @@ xplot <- res_df |>
   labs(x = "t-values for Regressor X", y = "Density") +
   scale_color_manual(name = "Conditional on",
                       labels = c("preferred model being known", "predictor being included in a model"),
-                      values = c("#2D5847", "#A14E70")) +
+                      values = c("red3", "dodgerblue3")) +
   scale_fill_manual(name = "Conditional on",
                       labels = c("preferred model being known", "predictor being included in a model"),
-                      values = c("#2D5847", "#A14E70"))
+                      values = c("red3", "dodgerblue3"))
 
 zplot <- res_df |> 
   dplyr::filter(sim %in% c("full", "z_included")) |> 
@@ -545,8 +545,8 @@ zplot <- res_df |>
         axis.text.y = element_blank()) +
   scale_y_continuous(limits = c(0, 0.5)) +
   labs(x = "t-values for Regressor Z", y = "Density") +
-  scale_color_manual(values = c("#2D5847", "#A14E70")) +
-  scale_fill_manual(values = c("#2D5847", "#A14E70")) +
+  scale_color_manual(values = c("red3", "dodgerblue3")) +
+  scale_fill_manual(values = c("red3", "dodgerblue3")) +
   guides(fill="none", color = "none")
 
 
@@ -566,10 +566,10 @@ xpref_plot <- res_df |>
   labs(x = "t-values for Regressor X", y = "Density") +
   scale_color_manual(name = "Conditional on",
                       labels = c("preferred model being known", "preferred model being selected"),
-                      values = c("#2D5847", "#A14E70")) +
+                      values = c("red3", "dodgerblue3")) +
   scale_fill_manual(name = "Conditional on",
                       labels = c("preferred model being known", "preferred model being selected"),
-                      values = c("#2D5847", "#A14E70"))
+                      values = c("red3", "dodgerblue3"))
 
 zpref_plot <- res_df |> 
   dplyr::filter(sim %in% c("full", "pref")) |> 
@@ -580,8 +580,8 @@ zpref_plot <- res_df |>
         axis.title.y = element_blank(),
         axis.text.y = element_blank()) +
   scale_y_continuous(limits = c(0, 0.5)) +
-  scale_color_manual(values = c("#2D5847", "#A14E70")) +
-  scale_fill_manual(values = c("#2D5847", "#A14E70")) +
+  scale_color_manual(values = c("red3", "dodgerblue3")) +
+  scale_fill_manual(values = c("red3", "dodgerblue3")) +
   labs(x = "t-values for Regressor Z") +
   guides(fill="none", color = "none")
 
@@ -589,9 +589,9 @@ xpref_plot + zpref_plot + plot_layout(guides = 'collect') &
   theme(legend.position='top')
 ```
 
-In both figures \@ref(fig:predinc) and \@ref(fig:prefcond) the red density plot represents the regression estimates *t*-values distribution when no model selection is performed. In \@ref(fig:predinc) the green density plot show the distributions when either $X$ or $Z$ are included in the model. For \@ref(fig:prefcond) the green distribution refers to distributions of either $X$ or $Z$ *t*-values when the preferred model is selected.
+In both figures \@ref(fig:predinc) and \@ref(fig:prefcond) the red density plot represents the regression estimates *t*-values distribution when no model selection is performed. In \@ref(fig:predinc) the blue density plot show the distributions when either $X$ or $Z$ are included in the model. For \@ref(fig:prefcond) the blue distribution refers to distributions of either $X$ or $Z$ *t*-values when the preferred model is selected.
 
-The contrast between red and green curves are apparent. Most striking are the difference in *t*-values distributions post-model-selection for regressor $Z$ when conditioned on the regressor being included in a model. This curve displays a bimodal distribution and highly biased mean and standard deviaton, as summarized below.
+The contrast between red and blue curves are apparent. Most striking are the difference in *t*-values distributions post-model-selection for regressor $Z$ when conditioned on the regressor being included in a model. This curve displays a bimodal distribution and highly biased mean and standard deviaton, as summarized below.
 
 
 ```{r}
