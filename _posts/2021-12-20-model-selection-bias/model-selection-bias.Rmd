@@ -9,6 +9,11 @@ author:
     affiliation: University of São Paulo
     affilitation_url: https://www3.fm.usp.br/en/portal/
 date: 2022-04-07
+categories:
+  - simulation
+  - regression
+  - bias
+  - model selection
 output:
   distill::distill_article:
     self_contained: false
@@ -38,13 +43,13 @@ library(reactable)
 
 Much of the current research questions on behavioral and social sciences are investigated using statistical models [@flora2017statistical]. Models are simplified translations of a reality to mathematical expressions; its' aim is to express how data were generated. Regression-based models are vastly employed in empirical research and often used to estimate causal effects [@berk2010]. However, to perform causal modeling, researchers must specify a "correct" model (i.e., an accurate model of the data generating process) prior to data collection and use the obtained data only to estimate regression coefficients (see @berk2010 for further discussion). In practice, researchers usually only have a vague idea of the right model to answer their research questions, or even if such model can be estimated. Often, what is framed as statistical inference or causal modeling is in fact a descriptive analysis; what @berk2010 name as *Level I Regression Analysis*.
 
-To determine which variables should be included in the model, a common solution is to resort to variable selection algorithms. The drawback is that whenever data-driven variable selection procedures are employed, classical inference guarantees are invalidated due to the model itself becoming [stochastic](https://en.wikipedia.org/wiki/Stochastic). It means that if the model selection method evaluates the stochastic component of the data, the model is also considered stochastic [@berkValidPostselectionInference2013].
+To determine which variables should be included in the model, a common solution is to resort to variable selection algorithms. The drawback is that whenever data-driven variable selection procedures are employed, classical inference guarantees are invalidated due to the model itself becoming [stochastic](https://en.wikipedia.org/wiki/Stochastic) [@berkValidPostselectionInference2013]. It means that if the model selection method evaluates the stochastic component of the data, the model is also considered stochastic.
 
 # Why is it a problem?
 
 Variable selection procedures aren't in themselves problematic. Nevertheless, when the correct model is unknown prior to data analysis, and the *same* dataset is used for I) variable selection, II) parameter estimation, and III) statistical inferences, the estimated results can be highly biased. This is because we add a new source of uncertainty when performing model selection. These procedures discards parameter estimates from the model, and, as we shall see, the sampling distribution of the remaining regression parameters estimates gets distorted. In addition, the selected model isn't the same across samples, so there is another source of uncertainty to the estimates. [@berkStatisticalInferenceModel2010]. 
 
-Consider a well defined population with its' unknown regression parameter values. We draw a random sample and apply a model selection procedure. The "best" model found by the variable selection is sample specific and isn't guarantee to be the correct model (if we assume that such model in fact exists). Suppose we repeat the process of drawing a random sample and performing model selection countless times. In this example there are six possible candidate models, and only one correct model. As shown in the following table, even if the correct model (in this case, $\hat{M}_2$) is three times more likely to be selected than the competing models, it will be chosen more frequently but not at the majority of the time.
+Consider a well defined population with its unknown regression parameter values. We draw a random sample and apply a model selection procedure. The "best" model found by the variable selection is sample specific and isn't guarantee to be the correct model (if we assume that such model in fact exists). Suppose we repeat the process of drawing a random sample and performing model selection 10,000 times. In this example there are six possible candidates, and only one correct model. We can simulate the expected frequency in which each of these models is chosen given a probability of 1/3 for the correct model and 1/9 otherwise. As shown in the following table, even if the correct model (in this case, $\hat{M}_2$) is three times more likely to be selected than the competing models, it is expected to be chosen more frequently but not at the majority of the time. Therefore, the expected selected model is an incorrect one.
 
 ```{r mod-freq, show_code = TRUE}
 models <- paste0("M", 1:6)
@@ -67,7 +72,7 @@ To understand why the regression parameters estimates might be biased, recall th
 
 where $B_{Y0 \cdot 12}$ is the model intercept when $X_1$ and $X_2$ are held constant and $\varepsilon$ is the error term.
 
-The regression coefficient for $X_i$ ($i = \{1, 2\}$) is model dependent. To see why, let's take a look at the equations for the regression coefficients for $X_1$ and $X_2$
+The regression coefficient for $X_i$, for $i = \{1, 2\}$, is model dependent. To see why, let's take a look at the equations for the regression coefficients for $X_1$ ($_{Y1 \cdot 2}$) and $X_2$ ($B_{Y2 \cdot 1}$)
 
 \begin{equation}
 B_{Y1 \cdot 2} = \frac{\rho_{Y1} - \rho_{Y2}\rho_{12}}{(1 - \rho_{12}^2)} \times \frac{\sigma_Y}{\sigma_1}
@@ -79,18 +84,18 @@ B_{Y2 \cdot 1} = \frac{\rho_{Y2} - \rho_{Y1}\rho_{21}}{(1 - \rho_{21}^2)} \times
 (\#eq:beta21)
 \end{equation}
 
-where $\rho$ stands for the populational correlation coefficient and $\sigma$ for the populational standard deviation. So, unless we have uncorrelated predictors (i.e. $\rho_{12}$ = 0 and/or $\rho_{21}$ = 0), the value for any of the regression coefficients is determined by which other predictors are in the model. If either one is excluded from the model, a different regression coefficient will be estimated: excluding $X_2$, for example, would zero all the correlations involving this predictor, leaving,
+Here $\rho$ stands for the populational correlation coefficient and $\sigma$ for the populational standard deviation. Unless we have uncorrelated predictors (i.e. $\rho_{12}$ = 0 and/or $\rho_{21}$ = 0), the value for any of the regression coefficients is determined by which other predictors are in the model. If either one is excluded from the model, a different regression coefficient will be estimated: excluding $X_2$, for example, would zero all the correlations involving this predictor, leaving,
 
 \begin{equation}
 B_{Y1 \cdot 2} = \frac{\rho_{Y1} - 0 \times 0}{(1 - 0^2)} \times \frac{\sigma_Y}{\sigma_1} = \rho_{Y1} \times \frac{\sigma_Y}{\sigma_1} = B_{Y1}
 (\#eq:beta12exc)
 \end{equation}
 
-@berkStatisticalInferenceModel2010 warns that the sampling distribution of the estimated regression parameters is distorted because estimates made from incorrect models will also be included, resulting in a mixture of distributions. Therefore the model selection process must be taken into account in the regression estimation whenever it is applied.
+@berkStatisticalInferenceModel2010 warns that the sampling distribution of the estimated regression parameters is distorted because estimates made from incorrect models will also be included, resulting in a mixture of distributions. Therefore, the model selection process must be taken into account in the regression estimation whenever it is applied.
 
 ## Illustration
 
-To illustrate what we've just saw, let's expand an analytic example given by @berkStatisticalInferenceModel2010 with simulations. Consider a model for a response variable $y$ with two potential regressors, $x$ and $z$. Say we are interested in the relationship between $y$ and $x$ while holding $z$ constant, that is, $\hat{\beta}_{yx\cdot z}$. Framing this as a linear
+We can illustrate the discussion above expanding an analytic example given by @berkStatisticalInferenceModel2010 with simulations. Consider a model for a response variable $y$ with two potential regressors, $x$ and $z$. Say we are interested in the relationship between $y$ and $x$ while holding $z$ constant, that is, $\hat{\beta}_{yx\cdot z}$. Framing this as a linear
 regression model we have
 
 \begin{equation}
@@ -98,9 +103,9 @@ y_i = \beta_0 + \beta_1x_i + \beta_2z_i + \varepsilon_i
 (\#eq:m1)
 \end{equation}
 
-Now, suppose that we're in a scenario where $\rho_{xz}$ = 0.5, both $\beta_1$ and $\beta_2$ are set to 1 and $\varepsilon \sim N(0, 10)$. We'll use a sample size of 250 subjects, and 1000 random samples will be drawn from this population. We'll calculate coverage and bias for each regressor. *Coverage* corresponds to the frequency in which the true coefficient value is captured by the 95% confidence interval (CI) of the estimate. The *bias* of the estimations is calculated as $\frac{1}{R}\sum(\hat{\theta_r}-\theta)$, where $R$ is the number of repetitions, $\theta$ represents a population parameter, and $\hat{\theta}_r$ a sample estimate in each simulation.
+Now, suppose that we're in a scenario where $\rho_{xz}$ = 0.5, both $\beta_1$ and $\beta_2$ are set to 1 and $\varepsilon \sim N(0, 10)$. We'll use a sample size of 250 subjects, and 1,000 random samples will be drawn from this population. We'll calculate *coverage* and *bias* for each regressor. Coverage informs the frequency in which the true coefficient value is captured by the 95% confidence interval (CI) of the estimate. The bias of the estimations is calculated as $\frac{1}{R}\sum(\hat{\theta_r}-\theta)$, where $R$ is the number of repetitions, $\theta$ represents a population parameter, and $\hat{\theta}_r$ a sample estimate in each simulation.
 
-```{r sim-ex1a}
+```{r sim-ex1a, show_code = TRUE, code_folding = FALSE}
 p <- 2 # number of predictors
 Sigma <- matrix(.5, p, p) # correlation matrix
 diag(Sigma) <- 1
@@ -137,7 +142,7 @@ tibble::tibble(
 
 ```
 
-```{r plot-ex1a, fig.cap="Sampling distributions of the regression coefficient for regressor X in the full model."}
+```{r plot-ex1a, fig.cap="Sampling distributions of the regression coefficient for regressor $x$ in the full model."}
 
 ggplot(data = coefs, aes(x = x)) +
   geom_histogram(color = "black", fill = "white", bins = 30) +
@@ -158,9 +163,9 @@ What would happen if by model selection we arrive at a model where $z$ is exclud
 (\#eq:ex11)
 \end{equation}
 
-Note that $\beta_{yx}$ is not the same as $\beta_{yx\cdot z}$. If we do not have a model specified prior to data collection and analysis, it is not clear which definition of regression parameter for $x$ we're trying to estimate, if $\beta_{yx\cdot z}$, as exemplified on equation \@ref(eq:beta12), or if $\beta_{yx}$. Therefore, the definition of $\hat{\beta}_1$ depends on the model in which it is placed.
+Note that $\beta_{yx}$ is not the same as $\beta_{yx\cdot z}$. If we do not have a model specified prior to data collection and analysis, it is not clear which definition of regression parameter for $x$ we're trying to estimate, if $\beta_{yx\cdot z}$, as exemplified on equation \@ref(eq:beta12), or if $\beta_{yx}$ from \@ref(eq:ex11). Therefore, the definition of $\hat{\beta}_1$ depends on the model in which it is placed.
 
-```{r sim-ex1b}
+```{r sim-ex1b, show_code = TRUE, code_folding = FALSE}
 p <- 2
 Sigma <- matrix(.5, p, p)
 diag(Sigma) <- 1
@@ -202,25 +207,24 @@ ggplot(data = coefs, aes(x = x)) +
   xlab( expression(paste("Values of ", beta[yx])))
 ```
 
-Notice how far off the model estimates the coefficient for $x$. Under these conditions, we should expect a coverage of the true coefficient value of $x$ of `r round(cover1b, 3)` and a bias of `r round(bias1b, 3)`. Under the correct model, bias is negligible and coverage follows the Type I error rate of 5% that we've set for this exercise.
+Notice how far off the model estimates the coefficient for $x$ when we fit our model as `y ~ x`. Under these conditions, we should expect a coverage of the true coefficient value of $x$ of `r round(cover1b, 3)` and a bias of `r round(bias1b, 3)`. Under the correct model, bias is negligible and coverage follows the Type I error rate of 5% that we've set for this exercise.
 
 This simple example help us understand why estimating model parameters in the same single random sample used to find an appropriate model isn't a good idea (at least not without taking this process into account prior to making inferences). Discarding $z$ from our model has distorted the sampling distribution of $x$. Thus, as @berkStatisticalInferenceModel2010 puts it: "when a single model is not specified before the analysis begins, it is not clear what population parameter is the subject of study. And without this clarity, the reasoning behind statistical inference becomes obscure".
 
 # Other issues
 
-We already know that if two predictors are moderately correlated and one is dropped from the model, our estimation will be biased. But what else should we consider? If we are selecting the variable every time, then there is not an issue. In the following sections we'll consider what can make things go "bad". Before that, please consider the equation for the standard error of the regression coefficient estimated in our first example that hasn't gone through model selection,
-
+We already know that if two predictors are moderately correlated and one is dropped from the model, our estimation will be biased. But what else should we consider? If we are selecting the variable every time, then there is not an issue. In the following sections we'll consider what can make things go "bad". Before that, please consider the equation for the standard error of the regression coefficient, estimated in the example model selection,
 
 \begin{equation}
 SE(\beta_{yx\cdot z}) = \frac{\hat{\sigma_{\varepsilon}}}{s_x \sqrt{n-1}}\sqrt{\frac{1}{1-r^2_{xy}}} 
 (\#eq:sebxy)
 \end{equation}
 
-We have that $\hat{\sigma_{\varepsilon}}$ is an estimate of the residual standard deviation, $s_x$ is the sample standard deviation of $x$, $r^2_{xy}$ is the square of the sample correlation between $x$ and $z$, and $n$ is the sample size. If the standard error for a regression coefficient is large, it means that its' distribution will be more dispersed. So, from this equation we identify as crucial parameters for wider sampling distribution: larger residual variance, less variance in $x$, small sample size, and, stronger correlation between regressors and the response variable.
+We have that $\hat{\sigma_{\varepsilon}}$ is an estimate of the residual standard deviation, $s_x$ is the sample standard deviation of $x$, $r^2_{xy}$ is the square of the sample correlation between $x$ and $z$, and $n$ is the sample size. If the standard error for a regression coefficient is large, it means that its distribution will be more dispersed. So, from this equation, we identify as crucial parameters for a wider sampling distribution: larger residual variance, less variance in $x$, small sample size, and, stronger correlation between regressors and the response variable.
 
 We'll use simulated data to aid our understanding. I have build a [ShinyApp](https://marwin.shinyapps.io/model-selection-app/) for that end. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set. Although I will be working with code in this post, most of it can also be reproduced with this app.
 
-For convenience purposes, I'll use the stepwise approach for model selection with AIC as model selection criterion. Some penalties are harsher than others, but the concerns raised here are irrespective of the chosen model selection method [@berkStatisticalInferenceModel2010]. In the app, I provide a few other selection methods to be chosen from. In addition to bias and coverage, we'll also estimate the average Mean Squared Error (MSE), calculated as $\frac{1}{R}\sum[(\hat{\theta_r}-\theta)^2]$.
+For convenience purposes, I'll use the stepwise approach for model selection with AIC as model selection criterion. Some penalties are harsher than others, but the concerns raised here are irrespective of the chosen model selection method [@berkStatisticalInferenceModel2010]. In the app, I also provide the option to choose BIC as selection method. In addition to bias and coverage, we'll also estimate the average Mean Squared Error (MSE), calculated as $\frac{1}{R}\sum[(\hat{\theta_r}-\theta)^2]$.
 
 ## Noise
 
@@ -231,7 +235,7 @@ To express variability we can use a signal-to-noise ratio (SNR), defined here as
 (\#eq:snr)
 \end{equation}
 
-where, $\textbf{b}$ is a (*p* + 1) vector of regression coefficients, $\Sigma$ is the covariance matrix of predictors and $\sigma^2$ is the error term variance. Note that "model selection bias also occurs when an explanatory variable has a weak relationship with the response variable. The relationship is real, but small. Therefore, it is rarely selected as significant" [@lukacsModelSelectionBias2009, p.118] We can experiment with a range of values for the $SNR$ to see how it affects the estimates. We'll use most values set in our first simulation exercise and $SNR$ values ranging from 0.1 to 2. One thousand (1,000) simulations will be run for each of those values.
+where, $\textbf{b}$ is a (*p* + 1) vector of regression coefficients, $\Sigma$ is the covariance matrix of predictors and $\sigma^2$ is the error term variance. Note that "model selection bias also occurs when an explanatory variable has a weak relationship with the response variable. The relationship is real, but small. Therefore, it is rarely selected as significant" [@lukacsModelSelectionBias2009, p.118]. We can experiment with a range of values for the $SNR$ to see how it affects the estimates. We'll use most values set in our first simulation exercise and $SNR$ values ranging from 0.1 to 2. One thousand (1,000) simulations will be run for each of those values.
 
 ```{r sim_bias function, warning=FALSE, show_code = TRUE, code_folding = FALSE}
 
@@ -305,7 +309,7 @@ As expected, with greater amount of noise in relation to signal, the selected mo
 Once we know \@ref(eq:sebxy) it is not difficult to suppose that larger samples produce smaller standard errors for the regression coefficients. We can confirm that using our `sim_bias` function again, but this time varying sample sizes.
 
 ```{r sim-ss}
-sim_ss <- purrr::pmap_dfr(list(reps = 1000, p = 2, n = c(10, 50, 100, 200, 500), SNR = 1, b = 1, corr = 0.5), sim_bias)
+sim_ss <- purrr::pmap_dfr(list(reps = 1000, p = 2, n = c(10, 50, 100, 200, 500), SNR = 0.5, b = 1, corr = 0.5), sim_bias)
 sim_ss|> 
   knitr::kable()
 ```
@@ -349,14 +353,19 @@ sim_bias_multi <- function(reps, p, n, SNR, b, corr) {
     rsq[i] <- s$r.squared
     cis <- confint(sel)[-1,]
     if (length(cis) < 3) {
-      cover[i,names(tval)] <- ifelse(cis[1] < beta[names(tval)] & cis[2] > beta[names(tval)], 1, 0)
+      cover[i,names(tval)] <- ifelse(cis[1] < beta[names(tval)] & 
+                                       cis[2] > beta[names(tval)], 1, 0)
     } else {
-      cover[i,names(tval)] <- ifelse(cis[names(tval),1] < beta[names(tval)] & cis[names(tval),2] > beta[names(tval)], 1, 0)
+      cover[i,names(tval)] <- ifelse(cis[names(tval),1] < beta[names(tval)] & 
+                                       cis[names(tval),2] > beta[names(tval)], 
+                                     1, 0)
     }
     
   }
   
-  res <- list(coefs = coefs, tvals = tvals, cover = cover, bias = coefs - beta, mse = (coefs - beta)^2, rsq = rsq, corr = corr, p = p)
+  res <- list(coefs = coefs, tvals = tvals, cover = cover, 
+              bias = coefs - beta, mse = (coefs - beta)^2, rsq = rsq, 
+              corr = corr, p = p)
   
   res
 
@@ -382,7 +391,7 @@ sim_summary <- function(l) {
 
 ```
 
-To keep the computing load at reasonable levels, we'll limit the length of vectors of $p$ and $\rho$ to 10 values each. Our grid for $\rho$ ranges from 0.1 to 0.9 and we'll increase $p$ from 2 to 10. We'll set $SNR$ = 0.5, $n$ = 100 and set all true coefficient values to 1. Again, we're using AIC to select the best model and performing 1,000 simulation replicates.
+To keep the computing load at reasonable levels, we'll limit the length of vectors of $p$ and $\rho$ to 10 values each. Our grid for $\rho$ ranges from 0.1 to 0.9 and we'll increase $p$ from 2 to 10. We'll set $SNR$ = 0.5, $n$ = 100 and set all true coefficient values to 1. Again, we're using AIC to select the best model, and performing 1,000 simulation replicates.
 
 ```{r eval=TRUE, include=FALSE}
 sims <- lapply(paste0("G:/Documentos/ProjetosR/marwincarmo.github.io/sims_model_bias/", list.files("G:/Documentos/ProjetosR/marwincarmo.github.io/sims_model_bias")), readRDS)
@@ -401,7 +410,11 @@ simdfplot <- simdf |>
 
 ```{r eval=FALSE, include=TRUE}
 future::plan(future::multisession)
-sims <- furrr::future_map(seq(2, 10), ~furrr::future_pmap(list(reps = 1000, p = .x, n = 100, SNR = 0.5, 1, corr = seq(0.1, 0.9, by = 0.1)),
+sims <- furrr::future_map(seq(2, 10), 
+                          ~furrr::future_pmap(
+                            list(
+                              reps = 1000, p = .x, n = 100, SNR = 0.5, 1, 
+                              corr = seq(0.1, 0.9, by = 0.1)),
                                 sim_bias_multi))
 
 simdf <- purrr::map_dfr(sims, sim_summary)
@@ -426,7 +439,6 @@ simdfplot |>
 ```
 
 
-
 ```{r pred-sims-table, layout="l-body-outset"}
 reactable(simdf, pageSizeOptions = c(5, 10, 15), defaultPageSize = 10, fullWidth = TRUE,
           columns = list(
@@ -441,13 +453,15 @@ reactable(simdf, pageSizeOptions = c(5, 10, 15), defaultPageSize = 10, fullWidth
   ))
 ```
 
+To keep all four plots in the same scale, I have standardized the x axis values. In this heat map, darker colors represent larger values (greater standard deviation). The pattern for Bias and MSE is similar: performing model selection with a great number of highly correlated predictors is likely to produced highly biased estimates. As expected, Coverage follows an inverted pattern from Bias and MSE: highly biased estimates fall off the 95% CI coverage.
+
 These plots make clear that our best case scenario is to have few, weakly correlated predictors. Of course, this is a setting rarely seen in empirical research -- whats the point of going through model selection if you have only a handful of variables? What should really get our attention here is that bias in estimates is likely to get bigger if model selection is naively performed with little prior information about the data generating system to filter out candidate models. We have seen that sample size, SNR, number of predictors, and correlation between parameters with themselves and with the response variable, are characteristics of the model that each in their own way contributes to producing biased estimates. I encourage you to use this companion [shinyapp](https://marwin.shinyapps.io/model-selection-app/) to play with different scenarios to practice what we've been discussing so far.
 
 # Visualizing distributions
 
-We've discussed earlier how dropping a predictor from the model can distort the coefficient sampling distribution of the remaining ones when they're not orthogonal. However even when the preferred (or "correct") model is selected, there is no guarantee about obtaining sound regression coefficient estimates. In this final example, we'll show that if by chance the "correct" model is achieved by model selection, the sampling distributions of the resulting regression coefficients might be different whether we condition on arriving at the correct model or on the correct model being known in advance.
+We've discussed earlier how dropping a predictor from the model can distort the coefficient sampling distribution of the remaining ones when they're not orthogonal. However, even when the preferred (or "correct") model is selected, there is no guarantee about obtaining sound regression coefficient estimates. In this final example, we'll show that if by chance the "correct" model is achieved by model selection, the sampling distributions of the resulting regression coefficients might be different whether we condition on arriving at the correct model or on the correct model being known in advance.
 
-Consider this example from @berkStatisticalInferenceModel2010. As with the other examples, we'll implement selection forward stepwise regression using the AIC as a fit criterion. The full regression model takes the form of
+Consider this example from @berkStatisticalInferenceModel2010. As with the other examples, we'll implement forward stepwise regression using the AIC as a fit criterion. The full regression model takes the form of
 
 \begin{equation}
 y_i = \beta_0 + \beta_1w_i + \beta_2x_i + \beta_3z_i + \varepsilon_i
@@ -456,11 +470,11 @@ y_i = \beta_0 + \beta_1w_i + \beta_2x_i + \beta_3z_i + \varepsilon_i
 
 where $\beta_0$ = 3.0, $\beta_1$ = 0.0, $\beta_2$ = 1.0, and $\beta_3$ = 2.0. The variances and covariance are set as: $\sigma^2_\varepsilon$ = 10.0, $\sigma^2_w$ = 5.0, $\sigma^2_x$ = 6.0, $\sigma^2_z$ = 7.0, $\sigma_{w,x}$ = 4.0, $\sigma_{w,z}$ = 5.0, and $\sigma_{x,z}$ = 5.0. The sample size is 200.
 
-Note that @berkStatisticalInferenceModel2010 uses the term *preferred* model instead of *correct* model. They do so because a model that excludes $W$ can also be called correct the same as one like \@ref(eq:b10), as long as $\beta_1$ = 0 is allowed. To be consistent with the original text, we'll use *preferred* to refer to the model with w excluded. This model is preferred because it generates the same conditional expectations for the response using up one less degree of freedom. The plots show the regression estimates *t*-values. "A distribution of t-values is more informative than a distribution of regression coefficients because it takes the regression coefficients and their standard errors into account" [@berkStatisticalInferenceModel2010, p. 266].
+Note that @berkStatisticalInferenceModel2010 uses the term *preferred* model instead of *correct* model. They do so because a model that excludes $W$ can also be called correct the same as one like \@ref(eq:b10), as long as $\beta_1$ = 0 is allowed. To be consistent with the original text, we'll use *preferred* to refer to the model with $W$ excluded. This model is preferred because it generates the same conditional expectations for the response using up one less degree of freedom. The plots show the regression estimates *t*-values. "A distribution of t-values is more informative than a distribution of regression coefficients because it takes the regression coefficients and their standard errors into account" [@berkStatisticalInferenceModel2010, p. 266].
 
 
-```{r sim2-model-selection}
-reps = 1000 # mudar p/ 10000 depois
+```{r sim2-model-selection, show_code = TRUE, code_folding = FALSE}
+reps = 1000
 p <- 3
 Sigma <- matrix(c(5,4,5,
                   4,6,5, 
@@ -507,7 +521,7 @@ for (i in seq(reps)) {
 ```
 
 
-```{r res-df}
+```{r res-df, show_code = TRUE, code_folding = FALSE}
 full_model <- tibble::as_tibble(coefs_pref)
 pref_selected <- tibble::as_tibble(coefs[!is.na(coefs[,"x"]  & coefs[,"z"]),])
 x_included <- tibble::as_tibble(coefs[!is.na(coefs[,"x"]),])
@@ -526,7 +540,7 @@ xplot <- res_df |>
   geom_density(adjust = 2, alpha = 0.4) +
   theme_minimal(12) +
   theme(legend.position = "top") +
-  scale_y_continuous(limits = c(0, 0.5)) +
+  scale_y_continuous(limits = c(0, 0.55)) +
   labs(x = "t-values for Regressor X", y = "Density") +
   scale_color_manual(name = "Conditional on",
                       labels = c("preferred model being known", "predictor being included in a model"),
@@ -538,12 +552,12 @@ xplot <- res_df |>
 zplot <- res_df |> 
   dplyr::filter(sim %in% c("full", "z_included")) |> 
   ggplot(aes(z, fill = sim, color = sim)) +
-  geom_density(adjust = 2, alpha = 0.5) +
+  geom_density(adjust = 2, alpha = 0.4) +
   theme_minimal(12) +
   theme(legend.position = "none",
         axis.title.y = element_blank(),
         axis.text.y = element_blank()) +
-  scale_y_continuous(limits = c(0, 0.5)) +
+  scale_y_continuous(limits = c(0, 0.55)) +
   labs(x = "t-values for Regressor Z", y = "Density") +
   scale_color_manual(values = c("red3", "dodgerblue3")) +
   scale_fill_manual(values = c("red3", "dodgerblue3")) +
@@ -562,7 +576,7 @@ xpref_plot <- res_df |>
   geom_density(adjust = 2, alpha = 0.4) +
   theme_minimal(12) +
   theme(legend.position = "top") +
-  scale_y_continuous(limits = c(0, 0.5)) +
+  scale_y_continuous(limits = c(0, 0.55)) +
   labs(x = "t-values for Regressor X", y = "Density") +
   scale_color_manual(name = "Conditional on",
                       labels = c("preferred model being known", "preferred model being selected"),
@@ -579,7 +593,7 @@ zpref_plot <- res_df |>
   theme(legend.position = "none",
         axis.title.y = element_blank(),
         axis.text.y = element_blank()) +
-  scale_y_continuous(limits = c(0, 0.5)) +
+  scale_y_continuous(limits = c(0, 0.55)) +
   scale_color_manual(values = c("red3", "dodgerblue3")) +
   scale_fill_manual(values = c("red3", "dodgerblue3")) +
   labs(x = "t-values for Regressor Z") +

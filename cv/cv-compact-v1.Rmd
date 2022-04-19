@@ -38,15 +38,19 @@ urlcolor: blue
 
 # EXPERIENCE
 
-*PsicoDados:*
-
+*PsicoDados*: 
+ 
  > Statistical Consulting \hfill 2022--
+ 
+> Provided services of statistical consulting, including: Descriptive Analysis, Regression Analysis, Analysis of Variance and Multivariate Statistics
  
 *Psychology of Human Development Laboratory - UERJ*
 
  > Research Assistant \hfill August 2019--August 2020
  
  > Funded by Rio de Janeiro Research Foundation (FAPERJ)
+ 
+ > 
  
 *Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ*
 

@@ -155,7 +155,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","creative_commons","bibliography","csl","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Simulating post selection inference"]},{"type":"character","attributes":{},"value":["Draft version."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["first_name","last_name","url","affiliation","affilitation_url"]}},"value":[{"type":"character","attributes":{},"value":["Marwin"]},{"type":"character","attributes":{},"value":["Carmo"]},{"type":"character","attributes":{},"value":["https://github.com/marwincarmo"]},{"type":"character","attributes":{},"value":["University of São Paulo"]},{"type":"character","attributes":{},"value":["https://www3.fm.usp.br/en/portal/"]}]}]},{"type":"character","attributes":{},"value":["2022-04-07"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","code_folding","highlight","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["rstudio"]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["references.bib"]},{"type":"character","attributes":{},"value":["apa.csl"]},{"type":"character","attributes":{},"value":["https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/"]},{"type":"character","attributes":{},"value":["https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output","creative_commons","bibliography","csl","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Simulating post selection inference"]},{"type":"character","attributes":{},"value":["Draft version."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["first_name","last_name","url","affiliation","affilitation_url"]}},"value":[{"type":"character","attributes":{},"value":["Marwin"]},{"type":"character","attributes":{},"value":["Carmo"]},{"type":"character","attributes":{},"value":["https://github.com/marwincarmo"]},{"type":"character","attributes":{},"value":["University of São Paulo"]},{"type":"character","attributes":{},"value":["https://www3.fm.usp.br/en/portal/"]}]}]},{"type":"character","attributes":{},"value":["2022-04-07"]},{"type":"character","attributes":{},"value":["simulation","regression","bias","model selection"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","code_folding","highlight","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["rstudio"]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["references.bib"]},{"type":"character","attributes":{},"value":["apa.csl"]},{"type":"character","attributes":{},"value":["https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/"]},{"type":"character","attributes":{},"value":["https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2551,6 +2551,12 @@ gtag('config', 'G-F6HLBQTD1Q');
 <div class="d-title">
 <h1>Simulating post selection inference</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../blog.html#category:simulation" class="dt-tag">simulation</a>
+  <a href="../../blog.html#category:regression" class="dt-tag">regression</a>
+  <a href="../../blog.html#category:bias" class="dt-tag">bias</a>
+  <a href="../../blog.html#category:model_selection" class="dt-tag">model selection</a>
+</div>
 <!--/radix_placeholder_categories-->
 <p><p>Draft version.</p></p>
 </div>
@@ -2612,12 +2618,12 @@ common solution is to resort to variable selection algorithms. The
 drawback is that whenever data-driven variable selection procedures are
 employed, classical inference guarantees are invalidated due to the
 model itself becoming <a
-href="https://en.wikipedia.org/wiki/Stochastic">stochastic</a>. It means
-that if the model selection method evaluates the stochastic component of
-the data, the model is also considered stochastic <span class="citation"
-data-cites="berkValidPostselectionInference2013">(<a
+href="https://en.wikipedia.org/wiki/Stochastic">stochastic</a> <span
+class="citation" data-cites="berkValidPostselectionInference2013">(<a
 href="#ref-berkValidPostselectionInference2013"
-role="doc-biblioref">Berk et al., 2013</a>)</span>.</p>
+role="doc-biblioref">Berk et al., 2013</a>)</span>. It means that if the
+model selection method evaluates the stochastic component of the data,
+the model is also considered stochastic.</p>
 <h1 id="why-is-it-a-problem">Why is it a problem?</h1>
 <p>Variable selection procedures aren’t in themselves problematic.
 Nevertheless, when the correct model is unknown prior to data analysis,
@@ -2633,17 +2639,20 @@ samples, so there is another source of uncertainty to the estimates.
 data-cites="berkStatisticalInferenceModel2010">(<a
 href="#ref-berkStatisticalInferenceModel2010" role="doc-biblioref">Berk
 et al., 2010</a>)</span>.</p>
-<p>Consider a well defined population with its’ unknown regression
+<p>Consider a well defined population with its unknown regression
 parameter values. We draw a random sample and apply a model selection
 procedure. The “best” model found by the variable selection is sample
 specific and isn’t guarantee to be the correct model (if we assume that
 such model in fact exists). Suppose we repeat the process of drawing a
-random sample and performing model selection countless times. In this
-example there are six possible candidate models, and only one correct
-model. As shown in the following table, even if the correct model (in
-this case, <span class="math inline">\(\hat{M}_2\)</span>) is three
-times more likely to be selected than the competing models, it will be
-chosen more frequently but not at the majority of the time.</p>
+random sample and performing model selection 10,000 times. In this
+example there are six possible candidates, and only one correct model.
+We can simulate the expected frequency in which each of these models is
+chosen given a probability of 1/3 for the correct model and 1/9
+otherwise. As shown in the following table, even if the correct model
+(in this case, <span class="math inline">\(\hat{M}_2\)</span>) is three
+times more likely to be selected than the competing models, it is
+expected to be chosen more frequently but not at the majority of the
+time. Therefore, the expected selected model is an incorrect one.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2672,27 +2681,27 @@ Show code
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">M1</td>
-<td style="text-align: right;">0.1240</td>
+<td style="text-align: right;">0.1228</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M2</td>
-<td style="text-align: right;">0.3808</td>
+<td style="text-align: right;">0.3773</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M3</td>
-<td style="text-align: right;">0.1246</td>
+<td style="text-align: right;">0.1277</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M4</td>
-<td style="text-align: right;">0.1267</td>
+<td style="text-align: right;">0.1257</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">M5</td>
-<td style="text-align: right;">0.1177</td>
+<td style="text-align: right;">0.1192</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">M6</td>
-<td style="text-align: right;">0.1262</td>
+<td style="text-align: right;">0.1273</td>
 </tr>
 </tbody>
 </table>
@@ -2726,11 +2735,12 @@ model intercept when <span class="math inline">\(X_1\)</span> and <span
 class="math inline">\(X_2\)</span> are held constant and <span
 class="math inline">\(\varepsilon\)</span> is the error term.</p>
 <p>The regression coefficient for <span
-class="math inline">\(X_i\)</span> (<span class="math inline">\(i = \{1,
-2\}\)</span>) is model dependent. To see why, let’s take a look at the
-equations for the regression coefficients for <span
-class="math inline">\(X_1\)</span> and <span
-class="math inline">\(X_2\)</span></p>
+class="math inline">\(X_i\)</span>, for <span class="math inline">\(i =
+\{1, 2\}\)</span>, is model dependent. To see why, let’s take a look at
+the equations for the regression coefficients for <span
+class="math inline">\(X_1\)</span> (<span class="math inline">\(_{Y1
+\cdot 2}\)</span>) and <span class="math inline">\(X_2\)</span> (<span
+class="math inline">\(B_{Y2 \cdot 1}\)</span>)</p>
 <p><span class="math display" id="eq:beta12">\[\begin{equation}
 B_{Y1 \cdot 2} = \frac{\rho_{Y1} - \rho_{Y2}\rho_{12}}{(1 -
 \rho_{12}^2)} \times \frac{\sigma_Y}{\sigma_1}
@@ -2741,10 +2751,10 @@ B_{Y2 \cdot 1} = \frac{\rho_{Y2} - \rho_{Y1}\rho_{21}}{(1 -
 \rho_{21}^2)} \times \frac{\sigma_Y}{\sigma_2}
 \tag{3}
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(\rho\)</span> stands for the
+<p>Here <span class="math inline">\(\rho\)</span> stands for the
 populational correlation coefficient and <span
 class="math inline">\(\sigma\)</span> for the populational standard
-deviation. So, unless we have uncorrelated predictors (i.e. <span
+deviation. Unless we have uncorrelated predictors (i.e. <span
 class="math inline">\(\rho_{12}\)</span> = 0 and/or <span
 class="math inline">\(\rho_{21}\)</span> = 0), the value for any of the
 regression coefficients is determined by which other predictors are in
@@ -2764,11 +2774,11 @@ href="#ref-berkStatisticalInferenceModel2010"
 role="doc-biblioref">2010</a>)</span> warns that the sampling
 distribution of the estimated regression parameters is distorted because
 estimates made from incorrect models will also be included, resulting in
-a mixture of distributions. Therefore the model selection process must
+a mixture of distributions. Therefore, the model selection process must
 be taken into account in the regression estimation whenever it is
 applied.</p>
 <h2 id="illustration">Illustration</h2>
-<p>To illustrate what we’ve just saw, let’s expand an analytic example
+<p>We can illustrate the discussion above expanding an analytic example
 given by <span class="citation"
 data-cites="berkStatisticalInferenceModel2010">Berk et al. (<a
 href="#ref-berkStatisticalInferenceModel2010"
@@ -2790,11 +2800,11 @@ class="math inline">\(\rho_{xz}\)</span> = 0.5, both <span
 class="math inline">\(\beta_1\)</span> and <span
 class="math inline">\(\beta_2\)</span> are set to 1 and <span
 class="math inline">\(\varepsilon \sim N(0, 10)\)</span>. We’ll use a
-sample size of 250 subjects, and 1000 random samples will be drawn from
-this population. We’ll calculate coverage and bias for each regressor.
-<em>Coverage</em> corresponds to the frequency in which the true
+sample size of 250 subjects, and 1,000 random samples will be drawn from
+this population. We’ll calculate <em>coverage</em> and <em>bias</em> for
+each regressor. Coverage informs the frequency in which the true
 coefficient value is captured by the 95% confidence interval (CI) of the
-estimate. The <em>bias</em> of the estimations is calculated as <span
+estimate. The bias of the estimations is calculated as <span
 class="math inline">\(\frac{1}{R}\sum(\hat{\theta_r}-\theta)\)</span>,
 where <span class="math inline">\(R\)</span> is the number of
 repetitions, <span class="math inline">\(\theta\)</span> represents a
@@ -2802,10 +2812,6 @@ population parameter, and <span
 class="math inline">\(\hat{\theta}_r\)</span> a sample estimate in each
 simulation.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fl'>2</span> <span class='co'># number of predictors</span>
 <span class='va'>Sigma</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>.5</span>, <span class='va'>p</span>, <span class='va'>p</span><span class='op'>)</span> <span class='co'># correlation matrix</span>
@@ -2842,7 +2848,6 @@ Show code
   <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <table>
 <thead>
 <tr class="header">
@@ -2854,13 +2859,13 @@ Show code
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">x</td>
-<td style="text-align: right;">0.950</td>
-<td style="text-align: right;">0.0086437</td>
+<td style="text-align: right;">0.952</td>
+<td style="text-align: right;">0.0059159</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">z</td>
-<td style="text-align: right;">0.958</td>
-<td style="text-align: right;">-0.0065696</td>
+<td style="text-align: right;">0.950</td>
+<td style="text-align: right;">0.0026838</td>
 </tr>
 </tbody>
 </table>
@@ -2883,10 +2888,10 @@ Show code
 </div>
 </details>
 <div class="figure"><span style="display:block;" id="fig:plot-ex1a"></span>
-<img src="model-selection-bias_files/figure-html5/plot-ex1a-1.png" alt="Sampling distributions of the regression coefficient for regressor X in the full model." width="624" />
+<img src="model-selection-bias_files/figure-html5/plot-ex1a-1.png" alt="Sampling distributions of the regression coefficient for regressor $x$ in the full model." width="624" />
 <p class="caption">
 Figure 1: Sampling distributions of the regression coefficient for
-regressor X in the full model.
+regressor <span class="math inline">\(x\)</span> in the full model.
 </p>
 </div>
 </div>
@@ -2911,14 +2916,10 @@ not clear which definition of regression parameter for <span
 class="math inline">\(x\)</span> we’re trying to estimate, if <span
 class="math inline">\(\beta_{yx\cdot z}\)</span>, as exemplified on
 equation <a href="#eq:beta12">(2)</a>, or if <span
-class="math inline">\(\beta_{yx}\)</span>. Therefore, the definition of
-<span class="math inline">\(\hat{\beta}_1\)</span> depends on the model
-in which it is placed.</p>
+class="math inline">\(\beta_{yx}\)</span> from <a href="#eq:ex11">(6)</a>. Therefore,
+the definition of <span class="math inline">\(\hat{\beta}_1\)</span>
+depends on the model in which it is placed.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fl'>2</span>
 <span class='va'>Sigma</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>.5</span>, <span class='va'>p</span>, <span class='va'>p</span><span class='op'>)</span>
@@ -2947,7 +2948,6 @@ Show code
 <span class='va'>bias1b</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>betas</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 </code></pre>
 </div>
-</details>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2975,11 +2975,12 @@ regressor X in a reduced model where Z is excluded.
 </div>
 </div>
 <p>Notice how far off the model estimates the coefficient for <span
-class="math inline">\(x\)</span>. Under these conditions, we should
-expect a coverage of the true coefficient value of <span
-class="math inline">\(x\)</span> of 0.306 and a bias of 0.299. Under the
-correct model, bias is negligible and coverage follows the Type I error
-rate of 5% that we’ve set for this exercise.</p>
+class="math inline">\(x\)</span> when we fit our model as
+<code>y ~ x</code>. Under these conditions, we should expect a coverage
+of the true coefficient value of <span class="math inline">\(x\)</span>
+of 0.301 and a bias of 0.303. Under the correct model, bias is
+negligible and coverage follows the Type I error rate of 5% that we’ve
+set for this exercise.</p>
 <p>This simple example help us understand why estimating model
 parameters in the same single random sample used to find an appropriate
 model isn’t a good idea (at least not without taking this process into
@@ -2999,8 +3000,8 @@ one is dropped from the model, our estimation will be biased. But what
 else should we consider? If we are selecting the variable every time,
 then there is not an issue. In the following sections we’ll consider
 what can make things go “bad”. Before that, please consider the equation
-for the standard error of the regression coefficient estimated in our
-first example that hasn’t gone through model selection,</p>
+for the standard error of the regression coefficient, estimated in the
+example model selection,</p>
 <p><span class="math display" id="eq:sebxy">\[\begin{equation}
 SE(\beta_{yx\cdot z}) = \frac{\hat{\sigma_{\varepsilon}}}{s_x
 \sqrt{n-1}}\sqrt{\frac{1}{1-r^2_{xy}}}
@@ -3015,9 +3016,9 @@ class="math inline">\(r^2_{xy}\)</span> is the square of the sample
 correlation between <span class="math inline">\(x\)</span> and <span
 class="math inline">\(z\)</span>, and <span
 class="math inline">\(n\)</span> is the sample size. If the standard
-error for a regression coefficient is large, it means that its’
-distribution will be more dispersed. So, from this equation we identify
-as crucial parameters for wider sampling distribution: larger residual
+error for a regression coefficient is large, it means that its
+distribution will be more dispersed. So, from this equation, we identify
+as crucial parameters for a wider sampling distribution: larger residual
 variance, less variance in <span class="math inline">\(x\)</span>, small
 sample size, and, stronger correlation between regressors and the
 response variable.</p>
@@ -3033,9 +3034,9 @@ harsher than others, but the concerns raised here are irrespective of
 the chosen model selection method <span class="citation"
 data-cites="berkStatisticalInferenceModel2010">(<a
 href="#ref-berkStatisticalInferenceModel2010" role="doc-biblioref">Berk
-et al., 2010</a>)</span>. In the app, I provide a few other selection
-methods to be chosen from. In addition to bias and coverage, we’ll also
-estimate the average Mean Squared Error (MSE), calculated as <span
+et al., 2010</a>)</span>. In the app, I also provide the option to
+choose BIC as selection method. In addition to bias and coverage, we’ll
+also estimate the average Mean Squared Error (MSE), calculated as <span
 class="math inline">\(\frac{1}{R}\sum[(\hat{\theta_r}-\theta)^2]\)</span>.</p>
 <h2 id="noise">Noise</h2>
 <p>To express variability we can use a signal-to-noise ratio (SNR),
@@ -3054,7 +3055,7 @@ The relationship is real, but small. Therefore, it is rarely selected as
 significant” <span class="citation"
 data-cites="lukacsModelSelectionBias2009">(<a
 href="#ref-lukacsModelSelectionBias2009" role="doc-biblioref">Lukacs et
-al., 2009, p. 118</a>)</span> We can experiment with a range of values
+al., 2009, p. 118</a>)</span>. We can experiment with a range of values
 for the <span class="math inline">\(SNR\)</span> to see how it affects
 the estimates. We’ll use most values set in our first simulation
 exercise and <span class="math inline">\(SNR\)</span> values ranging
@@ -3146,91 +3147,91 @@ Show code
 <td style="text-align: right;">0.01</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">2.2488167</td>
-<td style="text-align: right;">0.309</td>
-<td style="text-align: right;">1.2488167</td>
-<td style="text-align: right;">2.7426817</td>
+<td style="text-align: right;">2.3582837</td>
+<td style="text-align: right;">0.289</td>
+<td style="text-align: right;">1.3582837</td>
+<td style="text-align: right;">2.9806025</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.01</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">2.2580774</td>
-<td style="text-align: right;">0.313</td>
-<td style="text-align: right;">1.2580774</td>
-<td style="text-align: right;">2.7111711</td>
+<td style="text-align: right;">2.2619283</td>
+<td style="text-align: right;">0.297</td>
+<td style="text-align: right;">1.2619283</td>
+<td style="text-align: right;">2.7638712</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.10</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">1.1260949</td>
+<td style="text-align: right;">1.1303205</td>
 <td style="text-align: right;">0.806</td>
-<td style="text-align: right;">0.1260949</td>
-<td style="text-align: right;">0.1424445</td>
+<td style="text-align: right;">0.1303205</td>
+<td style="text-align: right;">0.1308439</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.10</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">1.1368414</td>
-<td style="text-align: right;">0.810</td>
-<td style="text-align: right;">0.1368414</td>
-<td style="text-align: right;">0.1393395</td>
+<td style="text-align: right;">1.1276685</td>
+<td style="text-align: right;">0.824</td>
+<td style="text-align: right;">0.1276685</td>
+<td style="text-align: right;">0.1324025</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">0.9930110</td>
-<td style="text-align: right;">0.961</td>
-<td style="text-align: right;">-0.0069890</td>
-<td style="text-align: right;">0.0299506</td>
+<td style="text-align: right;">0.9960138</td>
+<td style="text-align: right;">0.953</td>
+<td style="text-align: right;">-0.0039862</td>
+<td style="text-align: right;">0.0317922</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0.50</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">1.0104716</td>
-<td style="text-align: right;">0.959</td>
-<td style="text-align: right;">0.0104716</td>
-<td style="text-align: right;">0.0304108</td>
+<td style="text-align: right;">1.0010333</td>
+<td style="text-align: right;">0.953</td>
+<td style="text-align: right;">0.0010333</td>
+<td style="text-align: right;">0.0327139</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1.00</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">1.0004434</td>
-<td style="text-align: right;">0.940</td>
-<td style="text-align: right;">0.0004434</td>
-<td style="text-align: right;">0.0167726</td>
+<td style="text-align: right;">1.0049962</td>
+<td style="text-align: right;">0.946</td>
+<td style="text-align: right;">0.0049962</td>
+<td style="text-align: right;">0.0167896</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1.00</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">0.9993293</td>
-<td style="text-align: right;">0.942</td>
-<td style="text-align: right;">-0.0006707</td>
-<td style="text-align: right;">0.0152885</td>
+<td style="text-align: right;">0.9987934</td>
+<td style="text-align: right;">0.944</td>
+<td style="text-align: right;">-0.0012066</td>
+<td style="text-align: right;">0.0177073</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2.00</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">1.0003768</td>
-<td style="text-align: right;">0.943</td>
-<td style="text-align: right;">0.0003768</td>
-<td style="text-align: right;">0.0084234</td>
+<td style="text-align: right;">0.9977923</td>
+<td style="text-align: right;">0.945</td>
+<td style="text-align: right;">-0.0022077</td>
+<td style="text-align: right;">0.0079153</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2.00</td>
 <td style="text-align: right;">250</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">0.9967055</td>
-<td style="text-align: right;">0.948</td>
-<td style="text-align: right;">-0.0032945</td>
-<td style="text-align: right;">0.0083926</td>
+<td style="text-align: right;">1.0041267</td>
+<td style="text-align: right;">0.954</td>
+<td style="text-align: right;">0.0041267</td>
+<td style="text-align: right;">0.0081339</td>
 </tr>
 </tbody>
 </table>
@@ -3255,7 +3256,7 @@ function again, but this time varying sample sizes.</p>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sim_ss</span> <span class='op'>&lt;-</span> <span class='fu'>purrr</span><span class='fu'>::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/map2.html'>pmap_dfr</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>reps <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>2</span>, n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>50</span>, <span class='fl'>100</span>, <span class='fl'>200</span>, <span class='fl'>500</span><span class='op'>)</span>, SNR <span class='op'>=</span> <span class='fl'>1</span>, b <span class='op'>=</span> <span class='fl'>1</span>, corr <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>, <span class='va'>sim_bias</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sim_ss</span> <span class='op'>&lt;-</span> <span class='fu'>purrr</span><span class='fu'>::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/map2.html'>pmap_dfr</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>reps <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='fl'>2</span>, n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>50</span>, <span class='fl'>100</span>, <span class='fl'>200</span>, <span class='fl'>500</span><span class='op'>)</span>, SNR <span class='op'>=</span> <span class='fl'>0.5</span>, b <span class='op'>=</span> <span class='fl'>1</span>, corr <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>, <span class='va'>sim_bias</span><span class='op'>)</span>
 <span class='va'>sim_ss</span>|&gt; 
   <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
@@ -3275,94 +3276,94 @@ Show code
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">1.5099810</td>
-<td style="text-align: right;">0.514</td>
-<td style="text-align: right;">0.5099810</td>
-<td style="text-align: right;">0.6844347</td>
+<td style="text-align: right;">1.7908512</td>
+<td style="text-align: right;">0.407</td>
+<td style="text-align: right;">0.7908512</td>
+<td style="text-align: right;">1.7210197</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">1.5293496</td>
-<td style="text-align: right;">0.536</td>
-<td style="text-align: right;">0.5293496</td>
-<td style="text-align: right;">0.8184942</td>
+<td style="text-align: right;">1.7699299</td>
+<td style="text-align: right;">0.411</td>
+<td style="text-align: right;">0.7699299</td>
+<td style="text-align: right;">1.6792494</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">50</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">1.0212298</td>
-<td style="text-align: right;">0.934</td>
-<td style="text-align: right;">0.0212298</td>
-<td style="text-align: right;">0.0748904</td>
+<td style="text-align: right;">1.1418940</td>
+<td style="text-align: right;">0.781</td>
+<td style="text-align: right;">0.1418940</td>
+<td style="text-align: right;">0.1566067</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">50</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">1.0342456</td>
-<td style="text-align: right;">0.952</td>
-<td style="text-align: right;">0.0342456</td>
-<td style="text-align: right;">0.0773097</td>
+<td style="text-align: right;">1.1449410</td>
+<td style="text-align: right;">0.784</td>
+<td style="text-align: right;">0.1449410</td>
+<td style="text-align: right;">0.1624935</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">100</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">1.0004817</td>
-<td style="text-align: right;">0.954</td>
-<td style="text-align: right;">0.0004817</td>
-<td style="text-align: right;">0.0428165</td>
+<td style="text-align: right;">1.0249222</td>
+<td style="text-align: right;">0.944</td>
+<td style="text-align: right;">0.0249222</td>
+<td style="text-align: right;">0.0739484</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">100</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">1.0078985</td>
-<td style="text-align: right;">0.937</td>
-<td style="text-align: right;">0.0078985</td>
-<td style="text-align: right;">0.0420930</td>
+<td style="text-align: right;">1.0117811</td>
+<td style="text-align: right;">0.944</td>
+<td style="text-align: right;">0.0117811</td>
+<td style="text-align: right;">0.0750820</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">200</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">0.9999494</td>
-<td style="text-align: right;">0.947</td>
-<td style="text-align: right;">-0.0000506</td>
-<td style="text-align: right;">0.0205740</td>
+<td style="text-align: right;">0.9957271</td>
+<td style="text-align: right;">0.945</td>
+<td style="text-align: right;">-0.0042729</td>
+<td style="text-align: right;">0.0416976</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">200</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">1.0071599</td>
-<td style="text-align: right;">0.947</td>
-<td style="text-align: right;">0.0071599</td>
-<td style="text-align: right;">0.0210390</td>
+<td style="text-align: right;">1.0076678</td>
+<td style="text-align: right;">0.939</td>
+<td style="text-align: right;">0.0076678</td>
+<td style="text-align: right;">0.0428242</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">500</td>
 <td style="text-align: left;">x1</td>
-<td style="text-align: right;">0.9969393</td>
+<td style="text-align: right;">1.0021690</td>
 <td style="text-align: right;">0.952</td>
-<td style="text-align: right;">-0.0030607</td>
-<td style="text-align: right;">0.0077468</td>
+<td style="text-align: right;">0.0021690</td>
+<td style="text-align: right;">0.0159945</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
 <td style="text-align: right;">500</td>
 <td style="text-align: left;">x2</td>
-<td style="text-align: right;">1.0016581</td>
-<td style="text-align: right;">0.951</td>
-<td style="text-align: right;">0.0016581</td>
-<td style="text-align: right;">0.0081326</td>
+<td style="text-align: right;">0.9954873</td>
+<td style="text-align: right;">0.944</td>
+<td style="text-align: right;">-0.0045127</td>
+<td style="text-align: right;">0.0174652</td>
 </tr>
 </tbody>
 </table>
@@ -3420,14 +3421,19 @@ Show code
     <span class='va'>rsq</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='va'>s</span><span class='op'>$</span><span class='va'>r.squared</span>
     <span class='va'>cis</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>sel</span><span class='op'>)</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span>
     <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>{</span>
-      <span class='va'>cover</span><span class='op'>[</span><span class='va'>i</span>,<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&amp;</span> <span class='va'>cis</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&gt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>
+      <span class='va'>cover</span><span class='op'>[</span><span class='va'>i</span>,<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&amp;</span> 
+                                       <span class='va'>cis</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&gt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>
     <span class='op'>}</span> <span class='kw'>else</span> <span class='op'>{</span>
-      <span class='va'>cover</span><span class='op'>[</span><span class='va'>i</span>,<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span>,<span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&amp;</span> <span class='va'>cis</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span>,<span class='fl'>2</span><span class='op'>]</span> <span class='op'>&gt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>
+      <span class='va'>cover</span><span class='op'>[</span><span class='va'>i</span>,<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>cis</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span>,<span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span> <span class='op'>&amp;</span> 
+                                       <span class='va'>cis</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span>,<span class='fl'>2</span><span class='op'>]</span> <span class='op'>&gt;</span> <span class='va'>beta</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tval</span><span class='op'>)</span><span class='op'>]</span>, 
+                                     <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>
     <span class='op'>}</span>
     
   <span class='op'>}</span>
   
-  <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>coefs <span class='op'>=</span> <span class='va'>coefs</span>, tvals <span class='op'>=</span> <span class='va'>tvals</span>, cover <span class='op'>=</span> <span class='va'>cover</span>, bias <span class='op'>=</span> <span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>beta</span>, mse <span class='op'>=</span> <span class='op'>(</span><span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>beta</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span>, rsq <span class='op'>=</span> <span class='va'>rsq</span>, corr <span class='op'>=</span> <span class='va'>corr</span>, p <span class='op'>=</span> <span class='va'>p</span><span class='op'>)</span>
+  <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>coefs <span class='op'>=</span> <span class='va'>coefs</span>, tvals <span class='op'>=</span> <span class='va'>tvals</span>, cover <span class='op'>=</span> <span class='va'>cover</span>, 
+              bias <span class='op'>=</span> <span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>beta</span>, mse <span class='op'>=</span> <span class='op'>(</span><span class='va'>coefs</span> <span class='op'>-</span> <span class='va'>beta</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span>, rsq <span class='op'>=</span> <span class='va'>rsq</span>, 
+              corr <span class='op'>=</span> <span class='va'>corr</span>, p <span class='op'>=</span> <span class='va'>p</span><span class='op'>)</span>
   
   <span class='va'>res</span>
 
@@ -3461,7 +3467,7 @@ class="math inline">\(\rho\)</span> to 10 values each. Our grid for
 we’ll increase <span class="math inline">\(p\)</span> from 2 to 10.
 We’ll set <span class="math inline">\(SNR\)</span> = 0.5, <span
 class="math inline">\(n\)</span> = 100 and set all true coefficient
-values to 1. Again, we’re using AIC to select the best model and
+values to 1. Again, we’re using AIC to select the best model, and
 performing 1,000 simulation replicates.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -3470,7 +3476,11 @@ Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>future</span><span class='fu'>::</span><span class='fu'><a href='https://future.futureverse.org/reference/plan.html'>plan</a></span><span class='op'>(</span><span class='fu'>future</span><span class='fu'>::</span><span class='va'><a href='https://future.futureverse.org/reference/multisession.html'>multisession</a></span><span class='op'>)</span>
-<span class='va'>sims</span> <span class='op'>&lt;-</span> <span class='fu'>furrr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/furrr/man/future_map.html'>future_map</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span>, <span class='op'>~</span><span class='fu'>furrr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/furrr/man/future_map2.html'>future_pmap</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>reps <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='va'>.x</span>, n <span class='op'>=</span> <span class='fl'>100</span>, SNR <span class='op'>=</span> <span class='fl'>0.5</span>, <span class='fl'>1</span>, corr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.9</span>, by <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span>,
+<span class='va'>sims</span> <span class='op'>&lt;-</span> <span class='fu'>furrr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/furrr/man/future_map.html'>future_map</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span>, 
+                          <span class='op'>~</span><span class='fu'>furrr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/furrr/man/future_map2.html'>future_pmap</a></span><span class='op'>(</span>
+                            <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+                              reps <span class='op'>=</span> <span class='fl'>1000</span>, p <span class='op'>=</span> <span class='va'>.x</span>, n <span class='op'>=</span> <span class='fl'>100</span>, SNR <span class='op'>=</span> <span class='fl'>0.5</span>, <span class='fl'>1</span>, 
+                              corr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.9</span>, by <span class='op'>=</span> <span class='fl'>0.1</span><span class='op'>)</span><span class='op'>)</span>,
                                 <span class='va'>sim_bias_multi</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='va'>simdf</span> <span class='op'>&lt;-</span> <span class='fu'>purrr</span><span class='fu'>::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map_dfr</a></span><span class='op'>(</span><span class='va'>sims</span>, <span class='va'>sim_summary</span><span class='op'>)</span>
@@ -3529,9 +3539,16 @@ Show code
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-14df35e3153dd15abd11" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-14df35e3153dd15abd11">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"cor":[0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.2,0.2,0.3,0.3,0.4,0.4,0.5,0.5,0.6,0.6,0.7,0.7,0.8,0.8,0.9,0.9,0.1,0.1,0.1,0.2,0.2,0.2,0.3,0.3,0.3,0.4,0.4,0.4,0.5,0.5,0.5,0.6,0.6,0.6,0.7,0.7,0.7,0.8,0.8,0.8,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"npred":[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],"predictor":["x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9"],"coverage":[0.565,0.534,0.575,0.572,0.559,0.569,0.552,0.546,0.591,0.553,0.444,0.455,0.43,0.457,0.45,0.462,0.463,0.454,0.432,0.429,0.379,0.342,0.384,0.401,0.38,0.357,0.355,0.357,0.349,0.409,0.324,0.285,0.305,0.293,0.307,0.319,0.317,0.322,0.308,0.32,0.252,0.239,0.283,0.248,0.275,0.256,0.258,0.26,0.253,0.26,0.238,0.219,0.21,0.206,0.217,0.203,0.227,0.23,0.224,0.222,0.174,0.191,0.176,0.208,0.178,0.167,0.199,0.189,0.196,0.176,0.156,0.148,0.147,0.159,0.138,0.147,0.135,0.153,0.142,0.161,0.136,0.13,0.122,0.123,0.118,0.112,0.119,0.135,0.138,0.112,0.948,0.956,0.938,0.954,0.95,0.953,0.95,0.943,0.933,0.941,0.916,0.914,0.818,0.819,0.608,0.592,0.216,0.217,0.953,0.952,0.95,0.931,0.939,0.933,0.897,0.899,0.893,0.84,0.851,0.84,0.785,0.77,0.791,0.692,0.687,0.702,0.593,0.572,0.598,0.455,0.453,0.439,0.158,0.153,0.162,0.913,0.911,0.92,0.915,0.855,0.849,0.858,0.856,0.78,0.78,0.753,0.761,0.72,0.687,0.714,0.709,0.597,0.633,0.619,0.652,0.546,0.533,0.524,0.533,0.462,0.456,0.473,0.441,0.385,0.355,0.369,0.335,0.138,0.166,0.15,0.152,0.857,0.849,0.858,0.852,0.84,0.782,0.778,0.741,0.789,0.771,0.673,0.68,0.674,0.681,0.669,0.619,0.576,0.589,0.617,0.544,0.512,0.513,0.536,0.52,0.484,0.466,0.425,0.406,0.464,0.434,0.378,0.35,0.357,0.358,0.37,0.274,0.284,0.302,0.298,0.282,0.139,0.16,0.142,0.158,0.136,0.76,0.777,0.764,0.783,0.762,0.793,0.668,0.653,0.677,0.663,0.665,0.655,0.566,0.604,0.6,0.564,0.582,0.587,0.488,0.512,0.519,0.496,0.518,0.496,0.422,0.427,0.438,0.428,0.443,0.427,0.368,0.359,0.377,0.377,0.37,0.366,0.28,0.295,0.299,0.286,0.302,0.299,0.246,0.215,0.265,0.226,0.25,0.231,0.134,0.133,0.128,0.152,0.151,0.129,0.732,0.706,0.684,0.723,0.72,0.711,0.706,0.628,0.598,0.608,0.585,0.6,0.607,0.606,0.532,0.485,0.554,0.517,0.534,0.517,0.488,0.43,0.439,0.455,0.433,0.44,0.437,0.42,0.345,0.369,0.401,0.384,0.387,0.4,0.375,0.315,0.31,0.296,0.31,0.298,0.321,0.306,0.258,0.243,0.234,0.247,0.266,0.234,0.232,0.176,0.193,0.202,0.197,0.217,0.222,0.212,0.122,0.138,0.157,0.142,0.13,0.138,0.133,0.632,0.656,0.647,0.644,0.667,0.661,0.661,0.666,0.546,0.536,0.515,0.55,0.54,0.542,0.543,0.552,0.443,0.434,0.515,0.442,0.474,0.444,0.474,0.443,0.402,0.371,0.385,0.395,0.364,0.379,0.367,0.397,0.331,0.339,0.321,0.35,0.324,0.339,0.335,0.331,0.298,0.261,0.292,0.289,0.287,0.283,0.268,0.269,0.202,0.197,0.229,0.235,0.201,0.248,0.214,0.256,0.171,0.184,0.174,0.193,0.173,0.187,0.196,0.184,0.125,0.139,0.134,0.119,0.136,0.121,0.14,0.138,0.615,0.627,0.596,0.613,0.589,0.614,0.607,0.616,0.59,0.476,0.487,0.509,0.491,0.466,0.51,0.486,0.506,0.507,0.422,0.392,0.428,0.421,0.385,0.418,0.395,0.42,0.387,0.355,0.365,0.341,0.37,0.375,0.345,0.34,0.347,0.372,0.31,0.295,0.282,0.306,0.298,0.311,0.284,0.27,0.308,0.246,0.248,0.251,0.243,0.256,0.252,0.238,0.26,0.239,0.206,0.168,0.199,0.184,0.191,0.219,0.19,0.188,0.22,0.175,0.156,0.149,0.155,0.174,0.165,0.167,0.156,0.157,0.128,0.155,0.125,0.117,0.13,0.13,0.127,0.147,0.136],"estimate":[1.48212455427486,1.50320660781006,1.5270088560898,1.49374880165201,1.53159770593366,1.47138408431054,1.50399057598131,1.4755527287169,1.52601723355963,1.49245028335111,1.81832470153324,1.81459596759042,1.79983761507829,1.84643491519722,1.78529937151446,1.79054965857971,1.8342570462384,1.84261890943984,1.8272593646198,1.81665115781513,2.09061869824378,2.09112700690235,2.17816427657677,2.03686803053617,2.15321288550206,2.05884149763904,2.17103109551452,2.17062963690638,2.1219332704338,2.15493026118875,2.46381365343474,2.52098253777995,2.43572166448287,2.34669802638196,2.3848617740815,2.41047803601028,2.33134668488213,2.48699093571909,2.47422950402301,2.35757793895972,2.77778215150291,2.73159401060911,2.7427057742391,2.71988993250759,2.77109619956861,2.8027655394593,2.86544701588114,2.75218531994526,2.63999613561842,2.6362102085604,2.97392252323139,3.08520189995986,3.03543428690887,3.09514989702632,3.22040808458466,3.01974637213795,2.92425456806308,3.07278285018453,3.00770228168978,3.16595460447848,3.3333260013279,3.57749993257936,3.46679385405356,3.14783473941871,3.36211621436215,3.41624532813105,3.4334562707942,3.39648856423001,3.03720789823589,3.06823316022245,3.59525995639872,3.89257578785785,4.16223894083064,3.72302684341002,3.48254111162686,4.03039590211241,4.08688806468424,3.8822535712929,3.7494221093398,4.14243358497249,4.28972849176243,4.45127093452374,4.3331315629978,3.37439041818781,3.70064150591263,4.22809486058794,4.00984595347498,4.71545694821332,4.27954653525802,4.40101700549167,0.998955979087414,0.995651567127508,1.0155292846412,1.0060263731804,1.00245787850054,1.00352364521834,1.02590521283904,1.000845970185,1.02633933146977,1.02249228844805,1.02923321645913,1.05909700885107,1.09957097761326,1.08838442363864,1.26832385247327,1.24783712068624,1.69034611242944,1.67893308889572,1.00797205031942,1.00207447731957,1.01857119104388,1.0258883029142,1.04291982004656,1.02513926421552,1.05163714416595,1.06999760035871,1.0531020336063,1.10174552103938,1.12573100049686,1.10379893400293,1.18106279549119,1.17942438114313,1.18197624848623,1.29430942133806,1.30346144507843,1.2826162474353,1.46923929480506,1.47144539072214,1.45917571384367,1.67920679602758,1.68651678466982,1.74008653601704,2.29745688007437,2.37559156733446,2.34384180046032,1.03198400078583,1.04841537398914,1.04534531927074,1.04005517476997,1.08655980827515,1.08800378830443,1.11515464340565,1.08551847858937,1.19799473952189,1.18651055185555,1.20581224964332,1.18005672467611,1.28576070996194,1.26480742934755,1.26031522892932,1.29210719932981,1.43242079707903,1.42947994639985,1.41835397495731,1.39767519714205,1.59279061684422,1.60275235113342,1.56573130945463,1.57277148156962,1.74865856587974,1.84086687984678,1.81063473625152,1.79301214381657,2.07400109426012,2.12674869551222,2.15123475118906,2.14545087194402,2.83500530342777,2.77625509537222,2.78720691990953,2.80673376623189,1.09287486105257,1.11121357966494,1.09583968551689,1.11375971019436,1.11224870582257,1.20158818759542,1.20024468092302,1.18000539898067,1.19746781043601,1.17025889094839,1.32213686938317,1.31343386394659,1.32195224569511,1.35557648755012,1.33701106669048,1.46498855439401,1.4851396417869,1.47508001420863,1.46606743325001,1.46394207155754,1.62983134547105,1.64199066426574,1.63081390083353,1.67614022046235,1.67449883974187,1.86483822561698,1.84326313587829,1.83413216680221,1.88315792110983,1.8454875510744,2.10308487312571,2.17278088573762,2.12185228880731,2.16240132496171,2.16396926325517,2.57981568496157,2.39448889962597,2.60439450993895,2.50604286013268,2.47426219810181,3.24935184314678,3.21917889528684,3.18997388872789,3.28940752998317,3.2380604634483,1.17804290440987,1.18527220881449,1.17307692795988,1.16433193027898,1.18531106485852,1.20207183685895,1.34071293341661,1.3134137361608,1.34436032891575,1.3179129672886,1.29583044768833,1.36500866731109,1.49283435467487,1.49397194718387,1.49572468571876,1.49104439214846,1.51637136273188,1.47402120354716,1.69510780614146,1.65769387152724,1.66471446348103,1.66205743235578,1.67476001780899,1.71049675361809,1.90386283430667,1.92829805738064,1.8725289300239,1.94148184221793,1.89720253501024,1.89710508973531,2.15375016366168,2.16112170224363,2.09948765932845,2.0947906346537,2.17102942841632,2.10386337745291,2.50214802774141,2.48372887005636,2.40877386019216,2.4449529126078,2.44815656298357,2.55431987289708,2.89858370995159,2.92819166364052,2.79292123398954,2.8620775228508,2.71751396052019,2.81455501927544,3.38396994911477,3.68164130666388,3.77520919369007,3.46118241141237,3.73563734052136,3.20794760200186,1.23807137851785,1.2682353344487,1.24529818130218,1.25423329113493,1.27024131275053,1.2855283175639,1.25401726424403,1.45287880732018,1.4622004086283,1.45139463577462,1.43160702659893,1.41346809317981,1.43174164256234,1.45311161250955,1.61966178776019,1.67003017614537,1.64217127530595,1.6587686276461,1.67289626303521,1.62272113083396,1.65047645123956,1.92072667841916,1.87664191537492,1.8584263974247,1.87326131958946,1.87139441163752,1.93342760863269,1.86572690225312,2.19582481464415,2.0625529850076,2.05251283347779,2.09666947126394,2.04522949622242,2.06787443869793,2.14063707584643,2.34144328364175,2.48181770904682,2.43518943286509,2.41502408935784,2.38479601648464,2.40897120393144,2.42012872815368,2.73740502162979,2.68135887758383,2.80429417460617,2.81383781718837,2.81447144772185,2.7919859611466,2.67754192238441,2.95799612487178,3.21682813939888,3.10052479368004,2.89170966355565,3.29349095771793,3.0417499939894,3.27201916028459,3.76125988954029,3.4981088448812,3.68713240597488,3.58293395416182,4.25197671376895,3.95092343113325,3.62779763585242,1.35751881288198,1.33840245970606,1.33280845655283,1.36239824327212,1.35815090698548,1.32690459743538,1.32977537938847,1.31623494596466,1.53777587546169,1.59198141576652,1.56043462061466,1.57116359971706,1.58202706547258,1.56771798810806,1.58593480267787,1.59390959351365,1.81745380621153,1.78204855871338,1.76947620217352,1.7365914034002,1.85627192605239,1.85689517093945,1.84213473002408,1.8669111092374,2.02092278254266,2.10563552194197,2.07724757395866,2.08021703150755,2.08756920409867,2.08994968022983,2.06962595822674,2.04819320645007,2.27222750855438,2.32008143423894,2.30834622560021,2.27360909415914,2.37547902803255,2.35092111806614,2.36334540990778,2.33994254958159,2.57981292812756,2.77293780820901,2.5637428294524,2.57445735136478,2.62855488330793,2.67405564331816,2.56904157663771,2.62417268603821,2.98132677249317,2.94917658407456,2.98494852437822,2.83541372966815,3.01731256884464,2.89273499322282,2.89029769596545,2.97974479051442,3.13556681113226,3.3936449550296,3.42970755307329,3.33889515157842,3.24842589672753,3.3640354440791,3.34618496996536,3.45084227365087,4.23854924222766,3.76392042641595,3.72806149108082,4.35164009184971,3.8944474709212,3.68725579805565,3.62339071110078,4.09270777074313,1.44136521432235,1.41608226552714,1.42846285277145,1.4268598713506,1.43334867310854,1.41196602105966,1.40028472249881,1.41956285655713,1.43029375980501,1.7505205058795,1.69736724108544,1.74827134111502,1.70980306350538,1.68189902308393,1.69819319089933,1.68415997151857,1.68629577409108,1.6768331249891,1.91058846912935,2.006745704366,1.95988847820776,1.98065912201925,2.04265932035511,1.95522928185444,1.88535607365754,1.97925701049629,1.95216604193218,2.26395839941933,2.27798400788536,2.15586780444527,2.21388213228252,2.22573039197846,2.21246587443768,2.17142594186249,2.2927348657588,2.27156155058234,2.60940407924593,2.52067429332541,2.46134444619684,2.53007433556577,2.52638151759335,2.40642860631669,2.53084324032477,2.50626470898909,2.58047148245131,2.82489316688177,2.86152411387006,2.98285145128028,2.83638152965567,2.88572693494137,2.81547375376285,2.89601089013983,2.84831409942473,2.71290836890375,3.02238923667426,3.06484920674609,3.38229597348044,3.23635775888632,3.36167278834093,3.08014389791938,3.31106458109456,3.11141406117286,3.1153242438063,3.49882505756341,3.70755977763134,3.91338591011114,3.32048383927023,3.60961718693885,3.65367230278392,3.54832569437659,3.43898177587181,3.71952360596091,4.27571660104566,3.67345171151948,4.1313372097409,4.15862340572599,3.96416863023053,3.62759474264931,4.26698873235809,4.29905675985984,4.34568266938424],"bias":[0.482124554274857,0.503206607810065,0.527008856089799,0.493748801652011,0.531597705933658,0.47138408431054,0.503990575981306,0.475552728716897,0.526017233559626,0.49245028335111,0.81832470153324,0.814595967590418,0.799837615078289,0.846434915197221,0.785299371514465,0.790549658579706,0.834257046238403,0.842618909439836,0.827259364619796,0.816651157815131,1.09061869824378,1.09112700690235,1.17816427657677,1.03686803053617,1.15321288550206,1.05884149763904,1.17103109551452,1.17062963690638,1.1219332704338,1.15493026118875,1.46381365343474,1.52098253777995,1.43572166448287,1.34669802638196,1.3848617740815,1.41047803601028,1.33134668488213,1.48699093571909,1.47422950402301,1.35757793895972,1.77778215150291,1.73159401060911,1.7427057742391,1.71988993250759,1.77109619956861,1.8027655394593,1.86544701588114,1.75218531994526,1.63999613561842,1.6362102085604,1.97392252323139,2.08520189995986,2.03543428690887,2.09514989702632,2.22040808458466,2.01974637213795,1.92425456806308,2.07278285018453,2.00770228168978,2.16595460447848,2.3333260013279,2.57749993257936,2.46679385405356,2.14783473941871,2.36211621436215,2.41624532813105,2.4334562707942,2.39648856423001,2.03720789823589,2.06823316022245,2.59525995639872,2.89257578785785,3.16223894083064,2.72302684341002,2.48254111162686,3.03039590211241,3.08688806468424,2.8822535712929,2.7494221093398,3.14243358497249,3.28972849176243,3.45127093452374,3.3331315629978,2.37439041818781,2.70064150591263,3.22809486058794,3.00984595347498,3.71545694821332,3.27954653525802,3.40101700549167,-0.00104402091258643,-0.00434843287249175,0.0155292846411981,0.00602637318039541,0.00245787850054155,0.00352364521834418,0.025905212839045,0.000845970185004565,0.0263393314697708,0.0224922884480482,0.0292332164591318,0.0590970088510686,0.0995709776132558,0.0883844236386376,0.268323852473271,0.247837120686242,0.690346112429441,0.678933088895716,0.00797205031942146,0.00207447731957068,0.0185711910438782,0.0258883029142014,0.0429198200465553,0.0251392642155206,0.0516371441659517,0.0699976003587117,0.0531020336063003,0.101745521039385,0.125731000496859,0.103798934002932,0.181062795491187,0.179424381143126,0.181976248486234,0.294309421338055,0.303461445078431,0.282616247435301,0.469239294805058,0.471445390722142,0.459175713843672,0.679206796027584,0.686516784669818,0.740086536017044,1.29745688007437,1.37559156733446,1.34384180046032,0.0319840007858281,0.0484153739891383,0.0453453192707358,0.0400551747699738,0.0865598082751545,0.0880037883044261,0.115154643405652,0.0855184785893724,0.197994739521893,0.186510551855554,0.205812249643323,0.180056724676113,0.285760709961942,0.264807429347554,0.260315228929317,0.29210719932981,0.432420797079033,0.429479946399855,0.418353974957307,0.39767519714205,0.592790616844216,0.602752351133425,0.565731309454635,0.572771481569624,0.74865856587974,0.840866879846781,0.810634736251517,0.793012143816566,1.07400109426012,1.12674869551222,1.15123475118906,1.14545087194402,1.83500530342777,1.77625509537222,1.78720691990953,1.80673376623189,0.0928748610525693,0.11121357966494,0.0958396855168882,0.113759710194363,0.11224870582257,0.201588187595416,0.200244680923017,0.180005398980669,0.197467810436011,0.170258890948391,0.322136869383174,0.313433863946593,0.321952245695106,0.355576487550121,0.337011066690479,0.464988554394014,0.485139641786897,0.475080014208635,0.466067433250006,0.46394207155754,0.629831345471047,0.641990664265745,0.630813900833525,0.676140220462347,0.674498839741868,0.864838225616984,0.843263135878292,0.834132166802209,0.883157921109826,0.845487551074397,1.10308487312571,1.17278088573762,1.12185228880731,1.16240132496171,1.16396926325517,1.57981568496157,1.39448889962597,1.60439450993895,1.50604286013268,1.47426219810181,2.24935184314678,2.21917889528684,2.18997388872789,2.28940752998317,2.2380604634483,0.178042904409866,0.185272208814491,0.173076927959879,0.164331930278978,0.185311064858525,0.20207183685895,0.34071293341661,0.313413736160802,0.344360328915746,0.317912967288597,0.295830447688333,0.365008667311093,0.492834354674866,0.493971947183874,0.495724685718756,0.491044392148462,0.516371362731877,0.474021203547165,0.695107806141464,0.657693871527239,0.664714463481034,0.662057432355778,0.674760017808986,0.710496753618093,0.90386283430667,0.928298057380636,0.872528930023897,0.941481842217925,0.897202535010245,0.897105089735305,1.15375016366168,1.16112170224363,1.09948765932845,1.09479063465369,1.17102942841632,1.10386337745291,1.50214802774141,1.48372887005636,1.40877386019216,1.4449529126078,1.44815656298357,1.55431987289708,1.89858370995159,1.92819166364052,1.79292123398954,1.8620775228508,1.71751396052019,1.81455501927544,2.38396994911477,2.68164130666388,2.77520919369007,2.46118241141237,2.73563734052136,2.20794760200186,0.238071378517852,0.268235334448701,0.245298181302175,0.254233291134931,0.270241312750531,0.285528317563903,0.254017264244031,0.452878807320181,0.462200408628303,0.451394635774621,0.431607026598928,0.413468093179814,0.431741642562337,0.45311161250955,0.619661787760186,0.670030176145369,0.642171275305945,0.6587686276461,0.67289626303521,0.622721130833958,0.650476451239564,0.920726678419157,0.876641915374923,0.858426397424697,0.873261319589464,0.871394411637523,0.933427608632687,0.865726902253118,1.19582481464415,1.0625529850076,1.05251283347779,1.09666947126394,1.04522949622242,1.06787443869793,1.14063707584643,1.34144328364175,1.48181770904682,1.43518943286509,1.41502408935784,1.38479601648464,1.40897120393144,1.42012872815368,1.73740502162979,1.68135887758383,1.80429417460617,1.81383781718837,1.81447144772185,1.7919859611466,1.67754192238441,1.95799612487178,2.21682813939888,2.10052479368004,1.89170966355565,2.29349095771793,2.0417499939894,2.27201916028459,2.76125988954029,2.4981088448812,2.68713240597488,2.58293395416182,3.25197671376895,2.95092343113325,2.62779763585242,0.35751881288198,0.338402459706056,0.332808456552832,0.362398243272125,0.358150906985482,0.326904597435379,0.329775379388473,0.316234945964665,0.537775875461686,0.591981415766517,0.560434620614658,0.571163599717058,0.582027065472584,0.567717988108057,0.585934802677866,0.593909593513651,0.817453806211533,0.782048558713376,0.769476202173516,0.736591403400205,0.856271926052386,0.856895170939452,0.842134730024076,0.866911109237399,1.02092278254266,1.10563552194197,1.07724757395866,1.08021703150755,1.08756920409867,1.08994968022983,1.06962595822674,1.04819320645007,1.27222750855438,1.32008143423894,1.30834622560021,1.27360909415914,1.37547902803255,1.35092111806614,1.36334540990778,1.33994254958159,1.57981292812756,1.77293780820901,1.5637428294524,1.57445735136478,1.62855488330793,1.67405564331816,1.56904157663771,1.62417268603821,1.98132677249317,1.94917658407456,1.98494852437822,1.83541372966815,2.01731256884464,1.89273499322282,1.89029769596545,1.97974479051442,2.13556681113226,2.3936449550296,2.42970755307329,2.33889515157842,2.24842589672753,2.3640354440791,2.34618496996536,2.45084227365087,3.23854924222766,2.76392042641595,2.72806149108082,3.35164009184971,2.8944474709212,2.68725579805565,2.62339071110078,3.09270777074313,0.441365214322349,0.416082265527138,0.428462852771452,0.426859871350598,0.43334867310854,0.411966021059659,0.400284722498806,0.419562856557134,0.430293759805006,0.750520505879501,0.697367241085441,0.748271341115024,0.709803063505385,0.681899023083932,0.69819319089933,0.684159971518573,0.686295774091084,0.6768331249891,0.910588469129349,1.006745704366,0.959888478207755,0.980659122019248,1.04265932035511,0.955229281854442,0.885356073657543,0.979257010496288,0.952166041932185,1.26395839941933,1.27798400788536,1.15586780444527,1.21388213228252,1.22573039197846,1.21246587443768,1.17142594186249,1.2927348657588,1.27156155058234,1.60940407924593,1.52067429332541,1.46134444619684,1.53007433556577,1.52638151759335,1.40642860631669,1.53084324032477,1.50626470898909,1.58047148245131,1.82489316688177,1.86152411387006,1.98285145128028,1.83638152965567,1.88572693494137,1.81547375376285,1.89601089013983,1.84831409942473,1.71290836890375,2.02238923667426,2.06484920674609,2.38229597348044,2.23635775888632,2.36167278834093,2.08014389791938,2.31106458109456,2.11141406117286,2.1153242438063,2.49882505756341,2.70755977763134,2.91338591011114,2.32048383927023,2.60961718693885,2.65367230278392,2.54832569437659,2.43898177587181,2.71952360596091,3.27571660104566,2.67345171151948,3.1313372097409,3.15862340572599,2.96416863023053,2.62759474264931,3.26698873235809,3.29905675985984,3.34568266938424],"mse":[0.483609597161079,0.47311293123205,0.499844721447982,0.463830128072564,0.542678769490974,0.450135505745018,0.473145332860854,0.527597207663229,0.50795880424507,0.475360596447631,1.12225678309505,0.948538636514823,1.00273925888537,1.12578451971196,1.11593792111527,0.918245598765458,1.04117649551153,1.02987273312095,1.11538566028793,1.16245167644099,1.83776833762655,1.9131574991927,2.02649732866849,1.85725444612446,1.93218923029197,1.98049733836036,2.05934067768938,2.05490035683638,1.86167153680256,1.88398729890469,3.278361286942,3.44112983265994,3.29491166866565,3.06452158429882,3.13078309392043,3.04708873665315,3.14623976498913,3.16429949178046,3.17131769190241,3.19555217151217,4.87752933407601,5.48590529745113,4.91451913334066,5.36441163490556,5.11455714815312,5.10699622136618,5.10226857473783,5.1072550632951,4.99256199218998,4.96331576693586,7.26112196947102,7.76358819453774,7.85789902379355,7.6932059306748,7.44806472674615,8.20448011045782,7.32482129515943,7.37593593664412,7.19791974686567,8.12785236763795,12.4826898060112,11.9540404020288,12.2497529124393,12.2382503234896,12.899844334225,12.6523428330765,12.7235190215426,11.6221923758943,12.8693079952792,12.3885352326031,21.616411040718,22.0628314267032,21.8433902080944,20.2897754330305,22.4405856031799,21.199216428739,19.8264009645492,21.7359621027186,22.4509152978825,22.4556036887426,53.2055591303548,54.0682017879541,53.7484459240023,52.7706424414638,55.0271365654644,52.9012683701907,56.1026397020395,51.1894488848529,47.4380135668625,50.2214348240944,0.0438365388201666,0.0446167259204864,0.0540930813242653,0.050736026369279,0.0590975677359227,0.0601109996450251,0.069498961741416,0.0651199236751007,0.0741006316051195,0.0748425129065311,0.0888545187380685,0.0940978837248193,0.129095989389957,0.135026679501562,0.255980325272649,0.253509039058915,0.6931429119944,0.707471936368468,0.0712389543626044,0.0694822001500392,0.0712095757649367,0.0845229654574395,0.0856919835405342,0.0765692860592476,0.100825724804625,0.101350004160052,0.104113643046453,0.128645061616352,0.125053697183127,0.123393949012056,0.162614981363428,0.170655852224951,0.160269076191933,0.24554393037807,0.261702966352131,0.260366053756493,0.413858366954144,0.446629672492603,0.408223345048976,0.829440283528978,0.845105317247706,0.910431514246064,2.3513019413704,2.59731422291693,2.48488038336935,0.0946966547603108,0.096070062281674,0.0969664443701743,0.0877978380667571,0.116736550191964,0.118866917147583,0.122150742105318,0.11108414766286,0.172307874183,0.16948903556039,0.186111773914244,0.161896730468451,0.239179337890426,0.218993023118764,0.242970743857494,0.25416873649496,0.37870901389503,0.372053663246672,0.349257969433454,0.347714854254901,0.583204827293238,0.626039267263642,0.614348812259387,0.598519620572428,1.02934476156823,1.01951208839017,1.00770879474046,0.952614684450246,1.85120627061781,1.90182650039903,1.94259035176836,1.91949562453923,6.04313131555482,5.43964156233764,5.73421884600195,5.83253255598064,0.114286759146199,0.133273315327473,0.109996063675364,0.124490049715443,0.127385066070344,0.180130719281232,0.178256533109556,0.154273191599272,0.165872255647223,0.168821425885432,0.28186117835077,0.251270510536771,0.27931400138525,0.300771987820169,0.273103213991723,0.437566389003882,0.449538499959431,0.460879799586925,0.458089779764158,0.447260712628346,0.691434859165445,0.655741154622124,0.686366258055556,0.735413254064352,0.771843118236479,1.08104932737724,1.19991208031928,1.1601355479534,1.20143080597631,1.14481003344475,1.98388602976686,2.11604593313438,1.94052322346785,2.02082491233308,2.05951697563683,3.68759477529255,3.79498727603388,3.56580676986966,3.54482956852156,3.70174585638675,9.71398539947739,9.42432144742958,10.6178986862871,9.52147362760532,10.1334001274142,0.165531675443833,0.176223514850907,0.154938492126777,0.162830351254122,0.174280817435543,0.170861966569809,0.300135636340885,0.276247830338175,0.301195147175386,0.277083154139914,0.247759937319591,0.33427553410437,0.449076731978321,0.463779951449253,0.494294841430889,0.441909467708122,0.521664488996043,0.467286435059479,0.769235923683706,0.809445106566863,0.764605649835669,0.826925421758879,0.715240219031191,0.813275304843205,1.24253052545302,1.19062436681712,1.18399872633056,1.30946505625601,1.15524921634104,1.17888889739587,1.96933555511339,1.96680578041622,2.03294836981968,1.93714726612379,2.12512201830679,1.86016348531546,3.34677019608374,3.39796143416603,3.39637621729111,3.23934625196479,3.37867273445924,3.5660082191642,6.1630579917585,6.10149229863748,5.864625833094,6.16466966214501,5.2002199245877,6.13894614516554,15.8887481912655,16.3539948499809,15.6784425464229,15.4378193123852,15.0881844581665,15.7501755994877,0.200622322319755,0.219082697732329,0.209998945858248,0.233862715371426,0.229357569488302,0.230410079764084,0.213964128107104,0.415160266616706,0.433464549992116,0.374053149932916,0.40333680526584,0.358748865942164,0.386667267917199,0.401156539956126,0.673952315417782,0.781372871157207,0.644976903539819,0.681591363709768,0.689328377771561,0.768246994150954,0.752440163016473,1.2886638155977,1.23130451872683,1.19038350233539,1.14963354610635,1.17620105569289,1.24652856407813,1.15949229697792,2.12159779162162,1.91845056932369,1.74293464995463,1.78070928827409,1.88613651805215,1.8776338159033,1.97205669953731,3.11011123068219,3.13442938800058,3.10511746027831,3.1830856157106,2.86395067472783,2.73037752628084,2.93963738328758,4.77982644609245,5.13625700507947,5.40077655070057,5.12520273479609,4.57018869307573,4.92404364988384,5.13448870785747,9.29283377765119,9.83442832750025,9.92395632939967,9.25642689380388,9.08889380375398,8.58472898824726,8.94864075883516,23.6306044864239,22.2664262582234,20.262355963246,22.1044025683282,23.277284466908,22.6688769952163,24.5190756894092,0.307626601229683,0.298771593603054,0.301461122613569,0.313128724260093,0.306123374829326,0.278513459196692,0.270393767444513,0.269361300902575,0.539548123689399,0.581891539095062,0.596624907098301,0.590490702416323,0.603854887105194,0.554255835438952,0.590040522630652,0.628009828357167,1.08248384574214,0.952884669320623,0.908714615509474,0.995168510923815,1.08032042818616,1.10106186955292,1.05396459431956,1.12243591924428,1.52678870785067,1.86613861293071,1.78018727492272,1.73897347734617,1.76168692700673,1.7912357253961,1.72556822300971,1.66150165977337,2.42221185064496,2.71907551233336,2.71327219003125,2.47820847558168,2.91495152113999,2.74073411357742,2.87120222589464,2.73702298261566,4.15796032930333,4.44268279387044,4.04362807129299,4.3771068957823,4.63609676208412,4.18269994747188,4.01353389065128,4.75917058594225,7.09093764306099,7.26189428399154,7.04816537271152,7.22796232214058,7.77284605816768,6.66707164157173,7.23040886222896,6.84074758531548,11.979288022983,13.304459191472,12.9735163723366,12.4957645318739,12.8535274357677,11.9055317237522,12.4068817747269,12.5075710343652,31.8806974764591,30.8811928340967,32.0639341186529,31.9828030099171,32.7654520500942,32.7656685276798,32.9164675235846,32.2555427828065,0.382120752092017,0.382785003827698,0.391885760314957,0.375370084135015,0.396197105177704,0.384778827178787,0.349041765195565,0.371973898519803,0.393837701629543,0.830521839191275,0.740955843636142,0.839892355734135,0.812871904897165,0.752845763797635,0.803483960101702,0.777721342622635,0.812162319298602,0.702202311373871,1.34356619531955,1.54335380567254,1.40814892356012,1.38263784843146,1.59238302072786,1.43609817860949,1.38593468029258,1.37828168091378,1.49965552794514,2.39917576783927,2.25796241030013,2.35484809679609,2.11016013925478,2.09905799072783,2.23502236912448,2.35655296247112,2.40395076037346,2.31626926807736,3.80536756818433,3.5133521977437,4.0459457285602,3.7738685480507,3.74816629277688,3.64393211684503,3.78309982926531,3.82883832709154,3.67297003574001,5.97296417831207,6.42517605662863,5.52253531650955,5.82508428809037,5.57286656690741,5.78986513521429,5.95257484871143,5.92454336574649,5.14116693438063,9.19664563030902,9.47121121945072,9.60877396121836,9.56357353342505,10.0002138474084,9.42234491964042,10.4194147313874,9.14302552037171,8.93469621474552,17.7959807447815,17.3446855392194,17.7667058481535,17.3114622709163,17.3596771006433,16.629104458959,16.2803121321547,17.5587734737861,17.6723156897978,39.4251088716789,37.9839509674709,41.112509605264,39.7811503345625,40.2269022427912,40.3966705446532,39.5754426253879,38.2270874630387,36.2908974563112],"rsq":[0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.341046150707402,0.341046150707402,0.346318457208177,0.346318457208177,0.343861126044942,0.343861126044942,0.345047495601077,0.345047495601077,0.344467904548118,0.344467904548118,0.341587317058591,0.341587317058591,0.339004854456466,0.339004854456466,0.337192642202061,0.337192642202061,0.343753490465033,0.343753490465033,0.34810975786106,0.34810975786106,0.34810975786106,0.351745534976126,0.351745534976126,0.351745534976126,0.34758587140929,0.34758587140929,0.34758587140929,0.347387954911177,0.347387954911177,0.347387954911177,0.34494065066516,0.34494065066516,0.34494065066516,0.344120134085989,0.344120134085989,0.344120134085989,0.343072498186702,0.343072498186702,0.343072498186702,0.341013669865034,0.341013669865034,0.341013669865034,0.342245265829951,0.342245265829951,0.342245265829951,0.354756311791188,0.354756311791188,0.354756311791188,0.354756311791188,0.350725436005471,0.350725436005471,0.350725436005471,0.350725436005471,0.351549606473407,0.351549606473407,0.351549606473407,0.351549606473407,0.349090520106969,0.349090520106969,0.349090520106969,0.349090520106969,0.350384927153213,0.350384927153213,0.350384927153213,0.350384927153213,0.34987076258395,0.34987076258395,0.34987076258395,0.34987076258395,0.346497036234182,0.346497036234182,0.346497036234182,0.346497036234182,0.346136880197868,0.346136880197868,0.346136880197868,0.346136880197868,0.347835058607209,0.347835058607209,0.347835058607209,0.347835058607209,0.358661270388647,0.358661270388647,0.358661270388647,0.358661270388647,0.358661270388647,0.357940594417092,0.357940594417092,0.357940594417092,0.357940594417092,0.357940594417092,0.357096317858756,0.357096317858756,0.357096317858756,0.357096317858756,0.357096317858756,0.35642701686876,0.35642701686876,0.35642701686876,0.35642701686876,0.35642701686876,0.355825985587405,0.355825985587405,0.355825985587405,0.355825985587405,0.355825985587405,0.355486217844384,0.355486217844384,0.355486217844384,0.355486217844384,0.355486217844384,0.359063300156699,0.359063300156699,0.359063300156699,0.359063300156699,0.359063300156699,0.355026235323443,0.355026235323443,0.355026235323443,0.355026235323443,0.355026235323443,0.350790743038428,0.350790743038428,0.350790743038428,0.350790743038428,0.350790743038428,0.364899668072189,0.364899668072189,0.364899668072189,0.364899668072189,0.364899668072189,0.364899668072189,0.36121009008021,0.36121009008021,0.36121009008021,0.36121009008021,0.36121009008021,0.36121009008021,0.36364519148834,0.36364519148834,0.36364519148834,0.36364519148834,0.36364519148834,0.36364519148834,0.364571420472884,0.364571420472884,0.364571420472884,0.364571420472884,0.364571420472884,0.364571420472884,0.360909988774516,0.360909988774516,0.360909988774516,0.360909988774516,0.360909988774516,0.360909988774516,0.35798608389949,0.35798608389949,0.35798608389949,0.35798608389949,0.35798608389949,0.35798608389949,0.360415619173178,0.360415619173178,0.360415619173178,0.360415619173178,0.360415619173178,0.360415619173178,0.355534533968209,0.355534533968209,0.355534533968209,0.355534533968209,0.355534533968209,0.355534533968209,0.355589115202991,0.355589115202991,0.355589115202991,0.355589115202991,0.355589115202991,0.355589115202991,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694]},"columns":[{"accessor":"cor","name":"Correlation","type":"numeric","filterable":true},{"accessor":"npred","name":"p","type":"numeric","filterable":true},{"accessor":"predictor","name":"Predictor","type":"character"},{"accessor":"coverage","name":"Coverage","type":"numeric"},{"accessor":"estimate","name":"Estimate","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}},{"accessor":"bias","name":"Bias","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}},{"accessor":"mse","name":"MSE","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}},{"accessor":"rsq","name":"R2","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"4f1052fd0fe4bc15ee914c03752e229e","key":"4f1052fd0fe4bc15ee914c03752e229e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-297928cbf65fc2fb3677" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-297928cbf65fc2fb3677">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"cor":[0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.2,0.2,0.3,0.3,0.4,0.4,0.5,0.5,0.6,0.6,0.7,0.7,0.8,0.8,0.9,0.9,0.1,0.1,0.1,0.2,0.2,0.2,0.3,0.3,0.3,0.4,0.4,0.4,0.5,0.5,0.5,0.6,0.6,0.6,0.7,0.7,0.7,0.8,0.8,0.8,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.3,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.9],"npred":[10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9],"predictor":["x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x3","x4","x5","x6","x7","x8","x9","x10","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9","x1","x2","x3","x4","x5","x6","x7","x8","x9"],"coverage":[0.565,0.534,0.575,0.572,0.559,0.569,0.552,0.546,0.591,0.553,0.444,0.455,0.43,0.457,0.45,0.462,0.463,0.454,0.432,0.429,0.379,0.342,0.384,0.401,0.38,0.357,0.355,0.357,0.349,0.409,0.324,0.285,0.305,0.293,0.307,0.319,0.317,0.322,0.308,0.32,0.252,0.239,0.283,0.248,0.275,0.256,0.258,0.26,0.253,0.26,0.238,0.219,0.21,0.206,0.217,0.203,0.227,0.23,0.224,0.222,0.174,0.191,0.176,0.208,0.178,0.167,0.199,0.189,0.196,0.176,0.156,0.148,0.147,0.159,0.138,0.147,0.135,0.153,0.142,0.161,0.136,0.13,0.122,0.123,0.118,0.112,0.119,0.135,0.138,0.112,0.948,0.956,0.938,0.954,0.95,0.953,0.95,0.943,0.933,0.941,0.916,0.914,0.818,0.819,0.608,0.592,0.216,0.217,0.953,0.952,0.95,0.931,0.939,0.933,0.897,0.899,0.893,0.84,0.851,0.84,0.785,0.77,0.791,0.692,0.687,0.702,0.593,0.572,0.598,0.455,0.453,0.439,0.158,0.153,0.162,0.913,0.911,0.92,0.915,0.855,0.849,0.858,0.856,0.78,0.78,0.753,0.761,0.72,0.687,0.714,0.709,0.597,0.633,0.619,0.652,0.546,0.533,0.524,0.533,0.462,0.456,0.473,0.441,0.385,0.355,0.369,0.335,0.138,0.166,0.15,0.152,0.857,0.849,0.858,0.852,0.84,0.782,0.778,0.741,0.789,0.771,0.673,0.68,0.674,0.681,0.669,0.619,0.576,0.589,0.617,0.544,0.512,0.513,0.536,0.52,0.484,0.466,0.425,0.406,0.464,0.434,0.378,0.35,0.357,0.358,0.37,0.274,0.284,0.302,0.298,0.282,0.139,0.16,0.142,0.158,0.136,0.76,0.777,0.764,0.783,0.762,0.793,0.668,0.653,0.677,0.663,0.665,0.655,0.566,0.604,0.6,0.564,0.582,0.587,0.488,0.512,0.519,0.496,0.518,0.496,0.422,0.427,0.438,0.428,0.443,0.427,0.368,0.359,0.377,0.377,0.37,0.366,0.28,0.295,0.299,0.286,0.302,0.299,0.246,0.215,0.265,0.226,0.25,0.231,0.134,0.133,0.128,0.152,0.151,0.129,0.732,0.706,0.684,0.723,0.72,0.711,0.706,0.628,0.598,0.608,0.585,0.6,0.607,0.606,0.532,0.485,0.554,0.517,0.534,0.517,0.488,0.43,0.439,0.455,0.433,0.44,0.437,0.42,0.345,0.369,0.401,0.384,0.387,0.4,0.375,0.315,0.31,0.296,0.31,0.298,0.321,0.306,0.258,0.243,0.234,0.247,0.266,0.234,0.232,0.176,0.193,0.202,0.197,0.217,0.222,0.212,0.122,0.138,0.157,0.142,0.13,0.138,0.133,0.632,0.656,0.647,0.644,0.667,0.661,0.661,0.666,0.546,0.536,0.515,0.55,0.54,0.542,0.543,0.552,0.443,0.434,0.515,0.442,0.474,0.444,0.474,0.443,0.402,0.371,0.385,0.395,0.364,0.379,0.367,0.397,0.331,0.339,0.321,0.35,0.324,0.339,0.335,0.331,0.298,0.261,0.292,0.289,0.287,0.283,0.268,0.269,0.202,0.197,0.229,0.235,0.201,0.248,0.214,0.256,0.171,0.184,0.174,0.193,0.173,0.187,0.196,0.184,0.125,0.139,0.134,0.119,0.136,0.121,0.14,0.138,0.615,0.627,0.596,0.613,0.589,0.614,0.607,0.616,0.59,0.476,0.487,0.509,0.491,0.466,0.51,0.486,0.506,0.507,0.422,0.392,0.428,0.421,0.385,0.418,0.395,0.42,0.387,0.355,0.365,0.341,0.37,0.375,0.345,0.34,0.347,0.372,0.31,0.295,0.282,0.306,0.298,0.311,0.284,0.27,0.308,0.246,0.248,0.251,0.243,0.256,0.252,0.238,0.26,0.239,0.206,0.168,0.199,0.184,0.191,0.219,0.19,0.188,0.22,0.175,0.156,0.149,0.155,0.174,0.165,0.167,0.156,0.157,0.128,0.155,0.125,0.117,0.13,0.13,0.127,0.147,0.136],"estimate":[1.48212455427486,1.50320660781006,1.5270088560898,1.49374880165201,1.53159770593366,1.47138408431054,1.50399057598131,1.4755527287169,1.52601723355963,1.49245028335111,1.81832470153324,1.81459596759042,1.79983761507829,1.84643491519722,1.78529937151446,1.79054965857971,1.8342570462384,1.84261890943984,1.8272593646198,1.81665115781513,2.09061869824378,2.09112700690235,2.17816427657677,2.03686803053617,2.15321288550206,2.05884149763904,2.17103109551452,2.17062963690638,2.1219332704338,2.15493026118875,2.46381365343474,2.52098253777995,2.43572166448287,2.34669802638196,2.3848617740815,2.41047803601028,2.33134668488213,2.48699093571909,2.47422950402301,2.35757793895972,2.77778215150291,2.73159401060911,2.7427057742391,2.71988993250759,2.77109619956861,2.8027655394593,2.86544701588114,2.75218531994526,2.63999613561842,2.6362102085604,2.97392252323139,3.08520189995986,3.03543428690887,3.09514989702632,3.22040808458466,3.01974637213795,2.92425456806308,3.07278285018453,3.00770228168978,3.16595460447848,3.3333260013279,3.57749993257936,3.46679385405356,3.14783473941871,3.36211621436215,3.41624532813105,3.4334562707942,3.39648856423001,3.03720789823589,3.06823316022245,3.59525995639872,3.89257578785785,4.16223894083064,3.72302684341002,3.48254111162686,4.03039590211241,4.08688806468424,3.8822535712929,3.7494221093398,4.14243358497249,4.28972849176243,4.45127093452374,4.3331315629978,3.37439041818781,3.70064150591263,4.22809486058794,4.00984595347498,4.71545694821332,4.27954653525802,4.40101700549167,0.998955979087414,0.995651567127508,1.0155292846412,1.0060263731804,1.00245787850054,1.00352364521834,1.02590521283904,1.000845970185,1.02633933146977,1.02249228844805,1.02923321645913,1.05909700885107,1.09957097761326,1.08838442363864,1.26832385247327,1.24783712068624,1.69034611242944,1.67893308889572,1.00797205031942,1.00207447731957,1.01857119104388,1.0258883029142,1.04291982004656,1.02513926421552,1.05163714416595,1.06999760035871,1.0531020336063,1.10174552103938,1.12573100049686,1.10379893400293,1.18106279549119,1.17942438114313,1.18197624848623,1.29430942133806,1.30346144507843,1.2826162474353,1.46923929480506,1.47144539072214,1.45917571384367,1.67920679602758,1.68651678466982,1.74008653601704,2.29745688007437,2.37559156733446,2.34384180046032,1.03198400078583,1.04841537398914,1.04534531927074,1.04005517476997,1.08655980827515,1.08800378830443,1.11515464340565,1.08551847858937,1.19799473952189,1.18651055185555,1.20581224964332,1.18005672467611,1.28576070996194,1.26480742934755,1.26031522892932,1.29210719932981,1.43242079707903,1.42947994639985,1.41835397495731,1.39767519714205,1.59279061684422,1.60275235113342,1.56573130945463,1.57277148156962,1.74865856587974,1.84086687984678,1.81063473625152,1.79301214381657,2.07400109426012,2.12674869551222,2.15123475118906,2.14545087194402,2.83500530342777,2.77625509537222,2.78720691990953,2.80673376623189,1.09287486105257,1.11121357966494,1.09583968551689,1.11375971019436,1.11224870582257,1.20158818759542,1.20024468092302,1.18000539898067,1.19746781043601,1.17025889094839,1.32213686938317,1.31343386394659,1.32195224569511,1.35557648755012,1.33701106669048,1.46498855439401,1.4851396417869,1.47508001420863,1.46606743325001,1.46394207155754,1.62983134547105,1.64199066426574,1.63081390083353,1.67614022046235,1.67449883974187,1.86483822561698,1.84326313587829,1.83413216680221,1.88315792110983,1.8454875510744,2.10308487312571,2.17278088573762,2.12185228880731,2.16240132496171,2.16396926325517,2.57981568496157,2.39448889962597,2.60439450993895,2.50604286013268,2.47426219810181,3.24935184314678,3.21917889528684,3.18997388872789,3.28940752998317,3.2380604634483,1.17804290440987,1.18527220881449,1.17307692795988,1.16433193027898,1.18531106485852,1.20207183685895,1.34071293341661,1.3134137361608,1.34436032891575,1.3179129672886,1.29583044768833,1.36500866731109,1.49283435467487,1.49397194718387,1.49572468571876,1.49104439214846,1.51637136273188,1.47402120354716,1.69510780614146,1.65769387152724,1.66471446348103,1.66205743235578,1.67476001780899,1.71049675361809,1.90386283430667,1.92829805738064,1.8725289300239,1.94148184221793,1.89720253501024,1.89710508973531,2.15375016366168,2.16112170224363,2.09948765932845,2.0947906346537,2.17102942841632,2.10386337745291,2.50214802774141,2.48372887005636,2.40877386019216,2.4449529126078,2.44815656298357,2.55431987289708,2.89858370995159,2.92819166364052,2.79292123398954,2.8620775228508,2.71751396052019,2.81455501927544,3.38396994911477,3.68164130666388,3.77520919369007,3.46118241141237,3.73563734052136,3.20794760200186,1.23807137851785,1.2682353344487,1.24529818130218,1.25423329113493,1.27024131275053,1.2855283175639,1.25401726424403,1.45287880732018,1.4622004086283,1.45139463577462,1.43160702659893,1.41346809317981,1.43174164256234,1.45311161250955,1.61966178776019,1.67003017614537,1.64217127530595,1.6587686276461,1.67289626303521,1.62272113083396,1.65047645123956,1.92072667841916,1.87664191537492,1.8584263974247,1.87326131958946,1.87139441163752,1.93342760863269,1.86572690225312,2.19582481464415,2.0625529850076,2.05251283347779,2.09666947126394,2.04522949622242,2.06787443869793,2.14063707584643,2.34144328364175,2.48181770904682,2.43518943286509,2.41502408935784,2.38479601648464,2.40897120393144,2.42012872815368,2.73740502162979,2.68135887758383,2.80429417460617,2.81383781718837,2.81447144772185,2.7919859611466,2.67754192238441,2.95799612487178,3.21682813939888,3.10052479368004,2.89170966355565,3.29349095771793,3.0417499939894,3.27201916028459,3.76125988954029,3.4981088448812,3.68713240597488,3.58293395416182,4.25197671376895,3.95092343113325,3.62779763585242,1.35751881288198,1.33840245970606,1.33280845655283,1.36239824327212,1.35815090698548,1.32690459743538,1.32977537938847,1.31623494596466,1.53777587546169,1.59198141576652,1.56043462061466,1.57116359971706,1.58202706547258,1.56771798810806,1.58593480267787,1.59390959351365,1.81745380621153,1.78204855871338,1.76947620217352,1.7365914034002,1.85627192605239,1.85689517093945,1.84213473002408,1.8669111092374,2.02092278254266,2.10563552194197,2.07724757395866,2.08021703150755,2.08756920409867,2.08994968022983,2.06962595822674,2.04819320645007,2.27222750855438,2.32008143423894,2.30834622560021,2.27360909415914,2.37547902803255,2.35092111806614,2.36334540990778,2.33994254958159,2.57981292812756,2.77293780820901,2.5637428294524,2.57445735136478,2.62855488330793,2.67405564331816,2.56904157663771,2.62417268603821,2.98132677249317,2.94917658407456,2.98494852437822,2.83541372966815,3.01731256884464,2.89273499322282,2.89029769596545,2.97974479051442,3.13556681113226,3.3936449550296,3.42970755307329,3.33889515157842,3.24842589672753,3.3640354440791,3.34618496996536,3.45084227365087,4.23854924222766,3.76392042641595,3.72806149108082,4.35164009184971,3.8944474709212,3.68725579805565,3.62339071110078,4.09270777074313,1.44136521432235,1.41608226552714,1.42846285277145,1.4268598713506,1.43334867310854,1.41196602105966,1.40028472249881,1.41956285655713,1.43029375980501,1.7505205058795,1.69736724108544,1.74827134111502,1.70980306350538,1.68189902308393,1.69819319089933,1.68415997151857,1.68629577409108,1.6768331249891,1.91058846912935,2.006745704366,1.95988847820776,1.98065912201925,2.04265932035511,1.95522928185444,1.88535607365754,1.97925701049629,1.95216604193218,2.26395839941933,2.27798400788536,2.15586780444527,2.21388213228252,2.22573039197846,2.21246587443768,2.17142594186249,2.2927348657588,2.27156155058234,2.60940407924593,2.52067429332541,2.46134444619684,2.53007433556577,2.52638151759335,2.40642860631669,2.53084324032477,2.50626470898909,2.58047148245131,2.82489316688177,2.86152411387006,2.98285145128028,2.83638152965567,2.88572693494137,2.81547375376285,2.89601089013983,2.84831409942473,2.71290836890375,3.02238923667426,3.06484920674609,3.38229597348044,3.23635775888632,3.36167278834093,3.08014389791938,3.31106458109456,3.11141406117286,3.1153242438063,3.49882505756341,3.70755977763134,3.91338591011114,3.32048383927023,3.60961718693885,3.65367230278392,3.54832569437659,3.43898177587181,3.71952360596091,4.27571660104566,3.67345171151948,4.1313372097409,4.15862340572599,3.96416863023053,3.62759474264931,4.26698873235809,4.29905675985984,4.34568266938424],"bias":[0.482124554274857,0.503206607810065,0.527008856089799,0.493748801652011,0.531597705933658,0.47138408431054,0.503990575981306,0.475552728716897,0.526017233559626,0.49245028335111,0.81832470153324,0.814595967590418,0.799837615078289,0.846434915197221,0.785299371514465,0.790549658579706,0.834257046238403,0.842618909439836,0.827259364619796,0.816651157815131,1.09061869824378,1.09112700690235,1.17816427657677,1.03686803053617,1.15321288550206,1.05884149763904,1.17103109551452,1.17062963690638,1.1219332704338,1.15493026118875,1.46381365343474,1.52098253777995,1.43572166448287,1.34669802638196,1.3848617740815,1.41047803601028,1.33134668488213,1.48699093571909,1.47422950402301,1.35757793895972,1.77778215150291,1.73159401060911,1.7427057742391,1.71988993250759,1.77109619956861,1.8027655394593,1.86544701588114,1.75218531994526,1.63999613561842,1.6362102085604,1.97392252323139,2.08520189995986,2.03543428690887,2.09514989702632,2.22040808458466,2.01974637213795,1.92425456806308,2.07278285018453,2.00770228168978,2.16595460447848,2.3333260013279,2.57749993257936,2.46679385405356,2.14783473941871,2.36211621436215,2.41624532813105,2.4334562707942,2.39648856423001,2.03720789823589,2.06823316022245,2.59525995639872,2.89257578785785,3.16223894083064,2.72302684341002,2.48254111162686,3.03039590211241,3.08688806468424,2.8822535712929,2.7494221093398,3.14243358497249,3.28972849176243,3.45127093452374,3.3331315629978,2.37439041818781,2.70064150591263,3.22809486058794,3.00984595347498,3.71545694821332,3.27954653525802,3.40101700549167,-0.00104402091258643,-0.00434843287249175,0.0155292846411981,0.00602637318039541,0.00245787850054155,0.00352364521834418,0.025905212839045,0.000845970185004565,0.0263393314697708,0.0224922884480482,0.0292332164591318,0.0590970088510686,0.0995709776132558,0.0883844236386376,0.268323852473271,0.247837120686242,0.690346112429441,0.678933088895716,0.00797205031942146,0.00207447731957068,0.0185711910438782,0.0258883029142014,0.0429198200465553,0.0251392642155206,0.0516371441659517,0.0699976003587117,0.0531020336063003,0.101745521039385,0.125731000496859,0.103798934002932,0.181062795491187,0.179424381143126,0.181976248486234,0.294309421338055,0.303461445078431,0.282616247435301,0.469239294805058,0.471445390722142,0.459175713843672,0.679206796027584,0.686516784669818,0.740086536017044,1.29745688007437,1.37559156733446,1.34384180046032,0.0319840007858281,0.0484153739891383,0.0453453192707358,0.0400551747699738,0.0865598082751545,0.0880037883044261,0.115154643405652,0.0855184785893724,0.197994739521893,0.186510551855554,0.205812249643323,0.180056724676113,0.285760709961942,0.264807429347554,0.260315228929317,0.29210719932981,0.432420797079033,0.429479946399855,0.418353974957307,0.39767519714205,0.592790616844216,0.602752351133425,0.565731309454635,0.572771481569624,0.74865856587974,0.840866879846781,0.810634736251517,0.793012143816566,1.07400109426012,1.12674869551222,1.15123475118906,1.14545087194402,1.83500530342777,1.77625509537222,1.78720691990953,1.80673376623189,0.0928748610525693,0.11121357966494,0.0958396855168882,0.113759710194363,0.11224870582257,0.201588187595416,0.200244680923017,0.180005398980669,0.197467810436011,0.170258890948391,0.322136869383174,0.313433863946593,0.321952245695106,0.355576487550121,0.337011066690479,0.464988554394014,0.485139641786897,0.475080014208635,0.466067433250006,0.46394207155754,0.629831345471047,0.641990664265745,0.630813900833525,0.676140220462347,0.674498839741868,0.864838225616984,0.843263135878292,0.834132166802209,0.883157921109826,0.845487551074397,1.10308487312571,1.17278088573762,1.12185228880731,1.16240132496171,1.16396926325517,1.57981568496157,1.39448889962597,1.60439450993895,1.50604286013268,1.47426219810181,2.24935184314678,2.21917889528684,2.18997388872789,2.28940752998317,2.2380604634483,0.178042904409866,0.185272208814491,0.173076927959879,0.164331930278978,0.185311064858525,0.20207183685895,0.34071293341661,0.313413736160802,0.344360328915746,0.317912967288597,0.295830447688333,0.365008667311093,0.492834354674866,0.493971947183874,0.495724685718756,0.491044392148462,0.516371362731877,0.474021203547165,0.695107806141464,0.657693871527239,0.664714463481034,0.662057432355778,0.674760017808986,0.710496753618093,0.90386283430667,0.928298057380636,0.872528930023897,0.941481842217925,0.897202535010245,0.897105089735305,1.15375016366168,1.16112170224363,1.09948765932845,1.09479063465369,1.17102942841632,1.10386337745291,1.50214802774141,1.48372887005636,1.40877386019216,1.4449529126078,1.44815656298357,1.55431987289708,1.89858370995159,1.92819166364052,1.79292123398954,1.8620775228508,1.71751396052019,1.81455501927544,2.38396994911477,2.68164130666388,2.77520919369007,2.46118241141237,2.73563734052136,2.20794760200186,0.238071378517852,0.268235334448701,0.245298181302175,0.254233291134931,0.270241312750531,0.285528317563903,0.254017264244031,0.452878807320181,0.462200408628303,0.451394635774621,0.431607026598928,0.413468093179814,0.431741642562337,0.45311161250955,0.619661787760186,0.670030176145369,0.642171275305945,0.6587686276461,0.67289626303521,0.622721130833958,0.650476451239564,0.920726678419157,0.876641915374923,0.858426397424697,0.873261319589464,0.871394411637523,0.933427608632687,0.865726902253118,1.19582481464415,1.0625529850076,1.05251283347779,1.09666947126394,1.04522949622242,1.06787443869793,1.14063707584643,1.34144328364175,1.48181770904682,1.43518943286509,1.41502408935784,1.38479601648464,1.40897120393144,1.42012872815368,1.73740502162979,1.68135887758383,1.80429417460617,1.81383781718837,1.81447144772185,1.7919859611466,1.67754192238441,1.95799612487178,2.21682813939888,2.10052479368004,1.89170966355565,2.29349095771793,2.0417499939894,2.27201916028459,2.76125988954029,2.4981088448812,2.68713240597488,2.58293395416182,3.25197671376895,2.95092343113325,2.62779763585242,0.35751881288198,0.338402459706056,0.332808456552832,0.362398243272125,0.358150906985482,0.326904597435379,0.329775379388473,0.316234945964665,0.537775875461686,0.591981415766517,0.560434620614658,0.571163599717058,0.582027065472584,0.567717988108057,0.585934802677866,0.593909593513651,0.817453806211533,0.782048558713376,0.769476202173516,0.736591403400205,0.856271926052386,0.856895170939452,0.842134730024076,0.866911109237399,1.02092278254266,1.10563552194197,1.07724757395866,1.08021703150755,1.08756920409867,1.08994968022983,1.06962595822674,1.04819320645007,1.27222750855438,1.32008143423894,1.30834622560021,1.27360909415914,1.37547902803255,1.35092111806614,1.36334540990778,1.33994254958159,1.57981292812756,1.77293780820901,1.5637428294524,1.57445735136478,1.62855488330793,1.67405564331816,1.56904157663771,1.62417268603821,1.98132677249317,1.94917658407456,1.98494852437822,1.83541372966815,2.01731256884464,1.89273499322282,1.89029769596545,1.97974479051442,2.13556681113226,2.3936449550296,2.42970755307329,2.33889515157842,2.24842589672753,2.3640354440791,2.34618496996536,2.45084227365087,3.23854924222766,2.76392042641595,2.72806149108082,3.35164009184971,2.8944474709212,2.68725579805565,2.62339071110078,3.09270777074313,0.441365214322349,0.416082265527138,0.428462852771452,0.426859871350598,0.43334867310854,0.411966021059659,0.400284722498806,0.419562856557134,0.430293759805006,0.750520505879501,0.697367241085441,0.748271341115024,0.709803063505385,0.681899023083932,0.69819319089933,0.684159971518573,0.686295774091084,0.6768331249891,0.910588469129349,1.006745704366,0.959888478207755,0.980659122019248,1.04265932035511,0.955229281854442,0.885356073657543,0.979257010496288,0.952166041932185,1.26395839941933,1.27798400788536,1.15586780444527,1.21388213228252,1.22573039197846,1.21246587443768,1.17142594186249,1.2927348657588,1.27156155058234,1.60940407924593,1.52067429332541,1.46134444619684,1.53007433556577,1.52638151759335,1.40642860631669,1.53084324032477,1.50626470898909,1.58047148245131,1.82489316688177,1.86152411387006,1.98285145128028,1.83638152965567,1.88572693494137,1.81547375376285,1.89601089013983,1.84831409942473,1.71290836890375,2.02238923667426,2.06484920674609,2.38229597348044,2.23635775888632,2.36167278834093,2.08014389791938,2.31106458109456,2.11141406117286,2.1153242438063,2.49882505756341,2.70755977763134,2.91338591011114,2.32048383927023,2.60961718693885,2.65367230278392,2.54832569437659,2.43898177587181,2.71952360596091,3.27571660104566,2.67345171151948,3.1313372097409,3.15862340572599,2.96416863023053,2.62759474264931,3.26698873235809,3.29905675985984,3.34568266938424],"mse":[0.483609597161079,0.47311293123205,0.499844721447982,0.463830128072564,0.542678769490974,0.450135505745018,0.473145332860854,0.527597207663229,0.50795880424507,0.475360596447631,1.12225678309505,0.948538636514823,1.00273925888537,1.12578451971196,1.11593792111527,0.918245598765458,1.04117649551153,1.02987273312095,1.11538566028793,1.16245167644099,1.83776833762655,1.9131574991927,2.02649732866849,1.85725444612446,1.93218923029197,1.98049733836036,2.05934067768938,2.05490035683638,1.86167153680256,1.88398729890469,3.278361286942,3.44112983265994,3.29491166866565,3.06452158429882,3.13078309392043,3.04708873665315,3.14623976498913,3.16429949178046,3.17131769190241,3.19555217151217,4.87752933407601,5.48590529745113,4.91451913334066,5.36441163490556,5.11455714815312,5.10699622136618,5.10226857473783,5.1072550632951,4.99256199218998,4.96331576693586,7.26112196947102,7.76358819453774,7.85789902379355,7.6932059306748,7.44806472674615,8.20448011045782,7.32482129515943,7.37593593664412,7.19791974686567,8.12785236763795,12.4826898060112,11.9540404020288,12.2497529124393,12.2382503234896,12.899844334225,12.6523428330765,12.7235190215426,11.6221923758943,12.8693079952792,12.3885352326031,21.616411040718,22.0628314267032,21.8433902080944,20.2897754330305,22.4405856031799,21.199216428739,19.8264009645492,21.7359621027186,22.4509152978825,22.4556036887426,53.2055591303548,54.0682017879541,53.7484459240023,52.7706424414638,55.0271365654644,52.9012683701907,56.1026397020395,51.1894488848529,47.4380135668625,50.2214348240944,0.0438365388201666,0.0446167259204864,0.0540930813242653,0.050736026369279,0.0590975677359227,0.0601109996450251,0.069498961741416,0.0651199236751007,0.0741006316051195,0.0748425129065311,0.0888545187380685,0.0940978837248193,0.129095989389957,0.135026679501562,0.255980325272649,0.253509039058915,0.6931429119944,0.707471936368468,0.0712389543626044,0.0694822001500392,0.0712095757649367,0.0845229654574395,0.0856919835405342,0.0765692860592476,0.100825724804625,0.101350004160052,0.104113643046453,0.128645061616352,0.125053697183127,0.123393949012056,0.162614981363428,0.170655852224951,0.160269076191933,0.24554393037807,0.261702966352131,0.260366053756493,0.413858366954144,0.446629672492603,0.408223345048976,0.829440283528978,0.845105317247706,0.910431514246064,2.3513019413704,2.59731422291693,2.48488038336935,0.0946966547603108,0.096070062281674,0.0969664443701743,0.0877978380667571,0.116736550191964,0.118866917147583,0.122150742105318,0.11108414766286,0.172307874183,0.16948903556039,0.186111773914244,0.161896730468451,0.239179337890426,0.218993023118764,0.242970743857494,0.25416873649496,0.37870901389503,0.372053663246672,0.349257969433454,0.347714854254901,0.583204827293238,0.626039267263642,0.614348812259387,0.598519620572428,1.02934476156823,1.01951208839017,1.00770879474046,0.952614684450246,1.85120627061781,1.90182650039903,1.94259035176836,1.91949562453923,6.04313131555482,5.43964156233764,5.73421884600195,5.83253255598064,0.114286759146199,0.133273315327473,0.109996063675364,0.124490049715443,0.127385066070344,0.180130719281232,0.178256533109556,0.154273191599272,0.165872255647223,0.168821425885432,0.28186117835077,0.251270510536771,0.27931400138525,0.300771987820169,0.273103213991723,0.437566389003882,0.449538499959431,0.460879799586925,0.458089779764158,0.447260712628346,0.691434859165445,0.655741154622124,0.686366258055556,0.735413254064352,0.771843118236479,1.08104932737724,1.19991208031928,1.1601355479534,1.20143080597631,1.14481003344475,1.98388602976686,2.11604593313438,1.94052322346785,2.02082491233308,2.05951697563683,3.68759477529255,3.79498727603388,3.56580676986966,3.54482956852156,3.70174585638675,9.71398539947739,9.42432144742958,10.6178986862871,9.52147362760532,10.1334001274142,0.165531675443833,0.176223514850907,0.154938492126777,0.162830351254122,0.174280817435543,0.170861966569809,0.300135636340885,0.276247830338175,0.301195147175386,0.277083154139914,0.247759937319591,0.33427553410437,0.449076731978321,0.463779951449253,0.494294841430889,0.441909467708122,0.521664488996043,0.467286435059479,0.769235923683706,0.809445106566863,0.764605649835669,0.826925421758879,0.715240219031191,0.813275304843205,1.24253052545302,1.19062436681712,1.18399872633056,1.30946505625601,1.15524921634104,1.17888889739587,1.96933555511339,1.96680578041622,2.03294836981968,1.93714726612379,2.12512201830679,1.86016348531546,3.34677019608374,3.39796143416603,3.39637621729111,3.23934625196479,3.37867273445924,3.5660082191642,6.1630579917585,6.10149229863748,5.864625833094,6.16466966214501,5.2002199245877,6.13894614516554,15.8887481912655,16.3539948499809,15.6784425464229,15.4378193123852,15.0881844581665,15.7501755994877,0.200622322319755,0.219082697732329,0.209998945858248,0.233862715371426,0.229357569488302,0.230410079764084,0.213964128107104,0.415160266616706,0.433464549992116,0.374053149932916,0.40333680526584,0.358748865942164,0.386667267917199,0.401156539956126,0.673952315417782,0.781372871157207,0.644976903539819,0.681591363709768,0.689328377771561,0.768246994150954,0.752440163016473,1.2886638155977,1.23130451872683,1.19038350233539,1.14963354610635,1.17620105569289,1.24652856407813,1.15949229697792,2.12159779162162,1.91845056932369,1.74293464995463,1.78070928827409,1.88613651805215,1.8776338159033,1.97205669953731,3.11011123068219,3.13442938800058,3.10511746027831,3.1830856157106,2.86395067472783,2.73037752628084,2.93963738328758,4.77982644609245,5.13625700507947,5.40077655070057,5.12520273479609,4.57018869307573,4.92404364988384,5.13448870785747,9.29283377765119,9.83442832750025,9.92395632939967,9.25642689380388,9.08889380375398,8.58472898824726,8.94864075883516,23.6306044864239,22.2664262582234,20.262355963246,22.1044025683282,23.277284466908,22.6688769952163,24.5190756894092,0.307626601229683,0.298771593603054,0.301461122613569,0.313128724260093,0.306123374829326,0.278513459196692,0.270393767444513,0.269361300902575,0.539548123689399,0.581891539095062,0.596624907098301,0.590490702416323,0.603854887105194,0.554255835438952,0.590040522630652,0.628009828357167,1.08248384574214,0.952884669320623,0.908714615509474,0.995168510923815,1.08032042818616,1.10106186955292,1.05396459431956,1.12243591924428,1.52678870785067,1.86613861293071,1.78018727492272,1.73897347734617,1.76168692700673,1.7912357253961,1.72556822300971,1.66150165977337,2.42221185064496,2.71907551233336,2.71327219003125,2.47820847558168,2.91495152113999,2.74073411357742,2.87120222589464,2.73702298261566,4.15796032930333,4.44268279387044,4.04362807129299,4.3771068957823,4.63609676208412,4.18269994747188,4.01353389065128,4.75917058594225,7.09093764306099,7.26189428399154,7.04816537271152,7.22796232214058,7.77284605816768,6.66707164157173,7.23040886222896,6.84074758531548,11.979288022983,13.304459191472,12.9735163723366,12.4957645318739,12.8535274357677,11.9055317237522,12.4068817747269,12.5075710343652,31.8806974764591,30.8811928340967,32.0639341186529,31.9828030099171,32.7654520500942,32.7656685276798,32.9164675235846,32.2555427828065,0.382120752092017,0.382785003827698,0.391885760314957,0.375370084135015,0.396197105177704,0.384778827178787,0.349041765195565,0.371973898519803,0.393837701629543,0.830521839191275,0.740955843636142,0.839892355734135,0.812871904897165,0.752845763797635,0.803483960101702,0.777721342622635,0.812162319298602,0.702202311373871,1.34356619531955,1.54335380567254,1.40814892356012,1.38263784843146,1.59238302072786,1.43609817860949,1.38593468029258,1.37828168091378,1.49965552794514,2.39917576783927,2.25796241030013,2.35484809679609,2.11016013925478,2.09905799072783,2.23502236912448,2.35655296247112,2.40395076037346,2.31626926807736,3.80536756818433,3.5133521977437,4.0459457285602,3.7738685480507,3.74816629277688,3.64393211684503,3.78309982926531,3.82883832709154,3.67297003574001,5.97296417831207,6.42517605662863,5.52253531650955,5.82508428809037,5.57286656690741,5.78986513521429,5.95257484871143,5.92454336574649,5.14116693438063,9.19664563030902,9.47121121945072,9.60877396121836,9.56357353342505,10.0002138474084,9.42234491964042,10.4194147313874,9.14302552037171,8.93469621474552,17.7959807447815,17.3446855392194,17.7667058481535,17.3114622709163,17.3596771006433,16.629104458959,16.2803121321547,17.5587734737861,17.6723156897978,39.4251088716789,37.9839509674709,41.112509605264,39.7811503345625,40.2269022427912,40.3966705446532,39.5754426253879,38.2270874630387,36.2908974563112],"rsq":[0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.37553032135553,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.377163362922495,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.375035358588893,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377412998189026,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.377317133160201,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.376480335242765,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.375415726730873,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.378917832652995,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.373820672382339,0.341046150707402,0.341046150707402,0.346318457208177,0.346318457208177,0.343861126044942,0.343861126044942,0.345047495601077,0.345047495601077,0.344467904548118,0.344467904548118,0.341587317058591,0.341587317058591,0.339004854456466,0.339004854456466,0.337192642202061,0.337192642202061,0.343753490465033,0.343753490465033,0.34810975786106,0.34810975786106,0.34810975786106,0.351745534976126,0.351745534976126,0.351745534976126,0.34758587140929,0.34758587140929,0.34758587140929,0.347387954911177,0.347387954911177,0.347387954911177,0.34494065066516,0.34494065066516,0.34494065066516,0.344120134085989,0.344120134085989,0.344120134085989,0.343072498186702,0.343072498186702,0.343072498186702,0.341013669865034,0.341013669865034,0.341013669865034,0.342245265829951,0.342245265829951,0.342245265829951,0.354756311791188,0.354756311791188,0.354756311791188,0.354756311791188,0.350725436005471,0.350725436005471,0.350725436005471,0.350725436005471,0.351549606473407,0.351549606473407,0.351549606473407,0.351549606473407,0.349090520106969,0.349090520106969,0.349090520106969,0.349090520106969,0.350384927153213,0.350384927153213,0.350384927153213,0.350384927153213,0.34987076258395,0.34987076258395,0.34987076258395,0.34987076258395,0.346497036234182,0.346497036234182,0.346497036234182,0.346497036234182,0.346136880197868,0.346136880197868,0.346136880197868,0.346136880197868,0.347835058607209,0.347835058607209,0.347835058607209,0.347835058607209,0.358661270388647,0.358661270388647,0.358661270388647,0.358661270388647,0.358661270388647,0.357940594417092,0.357940594417092,0.357940594417092,0.357940594417092,0.357940594417092,0.357096317858756,0.357096317858756,0.357096317858756,0.357096317858756,0.357096317858756,0.35642701686876,0.35642701686876,0.35642701686876,0.35642701686876,0.35642701686876,0.355825985587405,0.355825985587405,0.355825985587405,0.355825985587405,0.355825985587405,0.355486217844384,0.355486217844384,0.355486217844384,0.355486217844384,0.355486217844384,0.359063300156699,0.359063300156699,0.359063300156699,0.359063300156699,0.359063300156699,0.355026235323443,0.355026235323443,0.355026235323443,0.355026235323443,0.355026235323443,0.350790743038428,0.350790743038428,0.350790743038428,0.350790743038428,0.350790743038428,0.364899668072189,0.364899668072189,0.364899668072189,0.364899668072189,0.364899668072189,0.364899668072189,0.36121009008021,0.36121009008021,0.36121009008021,0.36121009008021,0.36121009008021,0.36121009008021,0.36364519148834,0.36364519148834,0.36364519148834,0.36364519148834,0.36364519148834,0.36364519148834,0.364571420472884,0.364571420472884,0.364571420472884,0.364571420472884,0.364571420472884,0.364571420472884,0.360909988774516,0.360909988774516,0.360909988774516,0.360909988774516,0.360909988774516,0.360909988774516,0.35798608389949,0.35798608389949,0.35798608389949,0.35798608389949,0.35798608389949,0.35798608389949,0.360415619173178,0.360415619173178,0.360415619173178,0.360415619173178,0.360415619173178,0.360415619173178,0.355534533968209,0.355534533968209,0.355534533968209,0.355534533968209,0.355534533968209,0.355534533968209,0.355589115202991,0.355589115202991,0.355589115202991,0.355589115202991,0.355589115202991,0.355589115202991,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.368415072178648,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.358434909223188,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.366642880824469,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.363584629170849,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.3621538217172,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.36047123270955,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.360763411135306,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.363583927609312,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.366582117406818,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.370552689655383,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368273338098993,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.368935598833224,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.367649578568047,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.366903320410018,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.371224805314208,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.367681953360243,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.365412679361025,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.367048659116737,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.376222809931967,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.373780374118195,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372132376933152,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372829937827533,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.372215922449597,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.374524980558583,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.36890640927816,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368507488006661,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694,0.368585597886694]},"columns":[{"accessor":"cor","name":"Correlation","type":"numeric","filterable":true},{"accessor":"npred","name":"p","type":"numeric","filterable":true},{"accessor":"predictor","name":"Predictor","type":"character"},{"accessor":"coverage","name":"Coverage","type":"numeric"},{"accessor":"estimate","name":"Estimate","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}},{"accessor":"bias","name":"Bias","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}},{"accessor":"mse","name":"MSE","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}},{"accessor":"rsq","name":"R2","type":"numeric","format":{"cell":{"digits":3},"aggregated":{"digits":3}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"4f1052fd0fe4bc15ee914c03752e229e","key":"4f1052fd0fe4bc15ee914c03752e229e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
+<p>To keep all four plots in the same scale, I have standardized the x
+axis values. In this heat map, darker colors represent larger values
+(greater standard deviation). The pattern for Bias and MSE is similar:
+performing model selection with a great number of highly correlated
+predictors is likely to produced highly biased estimates. As expected,
+Coverage follows an inverted pattern from Bias and MSE: highly biased
+estimates fall off the 95% CI coverage.</p>
 <p>These plots make clear that our best case scenario is to have few,
 weakly correlated predictors. Of course, this is a setting rarely seen
 in empirical research – whats the point of going through model selection
@@ -3549,7 +3566,7 @@ far.</p>
 <h1 id="visualizing-distributions">Visualizing distributions</h1>
 <p>We’ve discussed earlier how dropping a predictor from the model can
 distort the coefficient sampling distribution of the remaining ones when
-they’re not orthogonal. However even when the preferred (or “correct”)
+they’re not orthogonal. However, even when the preferred (or “correct”)
 model is selected, there is no guarantee about obtaining sound
 regression coefficient estimates. In this final example, we’ll show that
 if by chance the “correct” model is achieved by model selection, the
@@ -3560,8 +3577,8 @@ the correct model being known in advance.</p>
 data-cites="berkStatisticalInferenceModel2010">Berk et al. (<a
 href="#ref-berkStatisticalInferenceModel2010"
 role="doc-biblioref">2010</a>)</span>. As with the other examples, we’ll
-implement selection forward stepwise regression using the AIC as a fit
-criterion. The full regression model takes the form of</p>
+implement forward stepwise regression using the AIC as a fit criterion.
+The full regression model takes the form of</p>
 <p><span class="math display" id="eq:b10">\[\begin{equation}
 y_i = \beta_0 + \beta_1w_i + \beta_2x_i + \beta_3z_i + \varepsilon_i
 \tag{9}
@@ -3588,22 +3605,19 @@ excludes <span class="math inline">\(W\)</span> can also be called
 correct the same as one like <a href="#eq:b10">(9)</a>, as long as <span
 class="math inline">\(\beta_1\)</span> = 0 is allowed. To be consistent
 with the original text, we’ll use <em>preferred</em> to refer to the
-model with w excluded. This model is preferred because it generates the
-same conditional expectations for the response using up one less degree
-of freedom. The plots show the regression estimates <em>t</em>-values.
-“A distribution of t-values is more informative than a distribution of
-regression coefficients because it takes the regression coefficients and
-their standard errors into account” <span class="citation"
+model with <span class="math inline">\(W\)</span> excluded. This model
+is preferred because it generates the same conditional expectations for
+the response using up one less degree of freedom. The plots show the
+regression estimates <em>t</em>-values. “A distribution of t-values is
+more informative than a distribution of regression coefficients because
+it takes the regression coefficients and their standard errors into
+account” <span class="citation"
 data-cites="berkStatisticalInferenceModel2010">(<a
 href="#ref-berkStatisticalInferenceModel2010" role="doc-biblioref">Berk
 et al., 2010, p. 266</a>)</span>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>reps</span> <span class='op'>=</span> <span class='fl'>1000</span> <span class='co'># mudar p/ 10000 depois</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>reps</span> <span class='op'>=</span> <span class='fl'>1000</span>
 <span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
 <span class='va'>Sigma</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>,<span class='fl'>4</span>,<span class='fl'>5</span>,
                   <span class='fl'>4</span>,<span class='fl'>6</span>,<span class='fl'>5</span>, 
@@ -3649,13 +3663,8 @@ Show code
 <span class='op'>}</span>
 </code></pre>
 </div>
-</details>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>full_model</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='va'>coefs_pref</span><span class='op'>)</span>
 <span class='va'>pref_selected</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='va'>coefs</span><span class='op'>[</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>coefs</span><span class='op'>[</span>,<span class='st'>"x"</span><span class='op'>]</span>  <span class='op'>&amp;</span> <span class='va'>coefs</span><span class='op'>[</span>,<span class='st'>"z"</span><span class='op'>]</span><span class='op'>)</span>,<span class='op'>]</span><span class='op'>)</span>
@@ -3666,7 +3675,6 @@ Show code
                           <span class='st'>"x_included"</span> <span class='op'>=</span> <span class='va'>x_included</span>, <span class='st'>"z_included"</span> <span class='op'>=</span> <span class='va'>z_included</span>, .id<span class='op'>=</span><span class='st'>"sim"</span><span class='op'>)</span> 
 </code></pre>
 </div>
-</details>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -3680,7 +3688,7 @@ Show code
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>geom_density</a></span><span class='op'>(</span>adjust <span class='op'>=</span> <span class='fl'>2</span>, alpha <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='fl'>12</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.55</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"t-values for Regressor X"</span>, y <span class='op'>=</span> <span class='st'>"Density"</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Conditional on"</span>,
                       labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"preferred model being known"</span>, <span class='st'>"predictor being included in a model"</span><span class='op'>)</span>,
@@ -3692,12 +3700,12 @@ Show code
 <span class='va'>zplot</span> <span class='op'>&lt;-</span> <span class='va'>res_df</span> |&gt; 
   <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>sim</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"full"</span>, <span class='st'>"z_included"</span><span class='op'>)</span><span class='op'>)</span> |&gt; 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>z</span>, fill <span class='op'>=</span> <span class='va'>sim</span>, color <span class='op'>=</span> <span class='va'>sim</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>geom_density</a></span><span class='op'>(</span>adjust <span class='op'>=</span> <span class='fl'>2</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>geom_density</a></span><span class='op'>(</span>adjust <span class='op'>=</span> <span class='fl'>2</span>, alpha <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='fl'>12</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span>,
         axis.title.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
         axis.text.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.55</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"t-values for Regressor Z"</span>, y <span class='op'>=</span> <span class='st'>"Density"</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red3"</span>, <span class='st'>"dodgerblue3"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red3"</span>, <span class='st'>"dodgerblue3"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3732,7 +3740,7 @@ Show code
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>geom_density</a></span><span class='op'>(</span>adjust <span class='op'>=</span> <span class='fl'>2</span>, alpha <span class='op'>=</span> <span class='fl'>0.4</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='fl'>12</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"top"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.55</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"t-values for Regressor X"</span>, y <span class='op'>=</span> <span class='st'>"Density"</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"Conditional on"</span>,
                       labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"preferred model being known"</span>, <span class='st'>"preferred model being selected"</span><span class='op'>)</span>,
@@ -3749,7 +3757,7 @@ Show code
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"none"</span>,
         axis.title.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
         axis.text.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_y_continuous</a></span><span class='op'>(</span>limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0.55</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_color_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red3"</span>, <span class='st'>"dodgerblue3"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red3"</span>, <span class='st'>"dodgerblue3"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"t-values for Regressor Z"</span><span class='op'>)</span> <span class='op'>+</span>
@@ -3830,31 +3838,31 @@ class="math inline">\(\sigma_z\)</span></th>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Full model</td>
-<td style="text-align: right;">2.170</td>
-<td style="text-align: right;">1.061</td>
-<td style="text-align: right;">4.778</td>
-<td style="text-align: right;">1.065</td>
+<td style="text-align: right;">2.215</td>
+<td style="text-align: right;">1.059</td>
+<td style="text-align: right;">4.747</td>
+<td style="text-align: right;">1.043</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Preferred model</td>
-<td style="text-align: right;">2.558</td>
-<td style="text-align: right;">0.759</td>
-<td style="text-align: right;">4.497</td>
-<td style="text-align: right;">0.917</td>
+<td style="text-align: right;">2.586</td>
+<td style="text-align: right;">0.785</td>
+<td style="text-align: right;">4.482</td>
+<td style="text-align: right;">0.987</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">X included</td>
-<td style="text-align: right;">2.568</td>
-<td style="text-align: right;">0.808</td>
-<td style="text-align: right;">4.497</td>
-<td style="text-align: right;">0.917</td>
+<td style="text-align: right;">2.599</td>
+<td style="text-align: right;">0.860</td>
+<td style="text-align: right;">4.482</td>
+<td style="text-align: right;">0.987</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Z included</td>
-<td style="text-align: right;">2.558</td>
-<td style="text-align: right;">0.759</td>
-<td style="text-align: right;">5.672</td>
-<td style="text-align: right;">2.487</td>
+<td style="text-align: right;">2.586</td>
+<td style="text-align: right;">0.785</td>
+<td style="text-align: right;">5.749</td>
+<td style="text-align: right;">2.589</td>
 </tr>
 </tbody>
 </table>

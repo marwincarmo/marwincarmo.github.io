@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.9)  10 APR 2022 19:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.9)  14 APR 2022 21:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -460,28 +460,28 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 [1
 
 {c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 234.
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 236.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 ) [2] 
 AED: lastpage setting LastPage
 [3] (./cv-compact-v1.aux)
 Package rerunfilecheck Info: File `cv-compact-v1.out' has not changed.
-(rerunfilecheck)             Checksum: 94BB13E1E7903ECF14898AA7B3750CD8;1232.
+(rerunfilecheck)             Checksum: 164FA27424226929C2E56D7D96707904;1376.
  ) 
 Here is how much of TeX's memory you used:
- 14300 strings out of 480228
- 225368 string characters out of 5893579
- 551282 words of memory out of 5000000
- 31786 multiletter control sequences out of 15000+600000
- 515020 words of font info for 237 fonts, out of 8000000 for 9000
+ 14309 strings out of 480228
+ 225477 string characters out of 5893579
+ 550326 words of memory out of 5000000
+ 31788 multiletter control sequences out of 15000+600000
+ 515301 words of font info for 241 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,11n,63p,1202b,403s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,12n,63p,1202b,403s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} <c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk>{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on cv-compact-v1.pdf (3 pages, 120289 bytes).
+Output written on cv-compact-v1.pdf (3 pages, 120593 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 69713 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 154 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 69721 words of extra memory for PDF output out of 74296 (max. 10000000)
 
