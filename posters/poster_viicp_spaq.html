@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Network Structure of Acceptance of Sleep Difficulties and Insomnia</title>
+
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=PT Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 14.29cm 25.40cm;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 14.29cm;
+height: 25.40cm;
+text-align: justify;
+font-size: 12pt;
+line-height: 1.02;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 0cm;
+margin-bottom: 0cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #C00000 1mm;
+border-radius: 0.5em;
+padding: 4mm;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #C0000024;
+color: #C00000;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 6pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #C0000020;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+
+}
+
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 6pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 8pt;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 14.29cm;
+height: calc(25.40cm *  (1 - 1.0e-2 - 7.0e-2 - 0.01) );
+-webkit-column-count: 2; /* Chrome, Safari, Opera */
+-moz-column-count: 2; /* Firefox */
+column-count: 2;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(25.40cm *  1.0e-2 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #C00000;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #C00000;
+}
+#title {
+font-size: 18pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color:#024F84;
+margin: 0;
+line-height: 85%;
+font-size: 12pt;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 10pt;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 8pt;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 12pt;
+}
+.author_extra {
+color: #C00000;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  font-size: 16pt;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #024F8475 33%,
+      #024F84 50%,
+      #024F8475 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 14.29cm;
+height: calc(25.40cm * 1.0e-2);
+position: absolute;
+background-color: #024F84;
+color: #ffffffcf;
+font-family: PT Sans;
+/*background-image: linear-gradient(#024F84 50%,#C00000); */
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffffcf;
+}
+
+#main-img-left {
+width: 25%;
+left: 0.5in;
+bottom: 0in;
+position: absolute;
+opacity: 80%;
+}
+#main-img-center {
+width: 10%;
+left: calc(14.29cm * 0.45);
+bottom: 0.05in;
+position: absolute;
+opacity: 80%;
+}
+#main-img-right {
+width: 15%;
+right: 0.5in;
+bottom: 0.04in;
+position: absolute;
+opacity: 80%;
+}
+.main p {
+font-size: 12pt;
+font-family: PT Sans;
+text-align: left;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 0.8em;
+}
+
+.fab {
+color: #00000060;
+font-size: 9pt;
+}
+.twitter, i {
+color: #00000060;
+font-size: 9pt;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000060;
+font-size: 9pt;
+}
+.envelope {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globe {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globetext {
+color: #00000060;
+font-size: 9pt;
+text-decoration: none;
+}
+.poster_wrap {
+width: 14.29cm;
+height: 25.40cm;
+padding: 0cm;
+}
+.main_bottom {
+width: 14.29cm;
+height: calc(25.40cm * 7.0e-2);
+margin-top: calc(25.40cm * (1 - 7.0e-2));
+position: absolute;
+background-color: #024F84;
+/*background-image: linear-gradient(#C00000 10%, #024F84);*/
+}
+.section {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>Network Structure of Acceptance of Sleep Difficulties and Insomnia</strong></h1><br>
+<h3 id="author" class="author">
+
+<strong>Marwin M. I. B. Carmo</strong><sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:marwin@usp.br" class="email">marwin@usp.br</a> <br>
+ Renatha El Rafihi Ferreira<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:rerafihi@usp.br" class="email">rerafihi@usp.br</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+ </h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> Department of Psychiatry, Faculty of Medicine, University of São Paulo, Brazil
+</p>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Theories of third-wave therapies for insomnia posits that insomnia arises from inability to disengage from information processing. Efforts of metacognitive control prevents the spontaneous processes of relaxation. Rather than controlling, management of insomnia can be made with acceptance of feelings and thoughts associated with insomnia through value-based actions. This work aims to explore which facets of acceptance are related to insomnia severity.</p>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<p>Data were collected from online surveys responded by 1376 adults, aged 18 to 59 years, both with and without insomnia symptoms. Participants completed online self-report questionnaires, including, Insomnia Severity Index (ISI) and Sleep Problem Acceptance Questionnaire (SPAQ). Gaussian Graphical Models were estimated using the GLASSO regularization and EBIC model selection. We estimated a network describing the associations among each of the individual items of SPAQ and overall insomnia severity. Node centrality was assessed by strength, closeness, and betweenness.
+<br></p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<p><img src="poster_viicp_spaq_files/figure-html/fig1-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:legend"></span>
+<img src="spaq_legend.png" alt="Regularized Partial-Correlation Networks for the ISI and SPAQ items. Blue edges represent positive relations, red edges represent negative relations." width="100%" />
+<p class="caption">
+Figure 1: Regularized Partial-Correlation Networks for the ISI and SPAQ items. Blue edges represent positive relations, red edges represent negative relations.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig2"></span>
+<img src="poster_viicp_spaq_files/figure-html/fig2-1.png" alt="Centrality indices." width="100%" />
+<p class="caption">
+Figure 2: Centrality indices.
+</p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>Three items of SPAQ were particularly strong on the estimated network, namely those concerning controlling sleep problems. This may provide valuable insights to guide third-wave therapies for insomnia.</p>
+</div>
+
+</div>
+<div class="main">
+<p></p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=img/fapesp-white.png>
+<img id="main-img-center" src=img/qrcodeL.svg>
+<img id="main-img-right" src=img/ipq-white3.png>
+</div>
+</div>
+
+
+
+</body>
+</html>

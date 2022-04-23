@@ -7,9 +7,9 @@ geometry: margin=1in
 
 title: "CV"
 author: Marwin Machay Indio do Brasil do Carmo
-#orcid: "orcid.org/0000-0002-9577-6885"
-#jobtitle: "Computer Scientist & United States Navy Rear Admiral"
-#address: "Address · Arlington · VA 22205"
+orcid: "orcid.org/0000-0002-9577-6885"
+jobtitle: "Computer Scientist & United States Navy Rear Admiral"
+address: "Address · Arlington · VA 22205"
 fontawesome: yes
 email: marwinbr@gmail.com
 github: marwincarmo
@@ -29,8 +29,6 @@ urlcolor: blue
 # EDUCATION
 
 *University of São Paulo*, M.Sc. Psychiatry \hfill 2021--
-  
-  > Funded by Sao Paulo Research Foundation (FAPESP)
 
 *Rio de Janeiro State University*, B.S. Psychology \hfill 2014--2019
 
@@ -80,7 +78,9 @@ Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo,
 
 Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. 
 
-# POSTER PRESENTATIONS AND PRIZES
+# SELECTED PRESENTATIONS AND PRIZES
+
+**Carmo, M. M. I. B.**. (2021). Understanding model selection bias via simulation. VI International Seminar on Statistics with R.
 
 **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2021). The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. \underline{Recipient of Top Mark Award} [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)]
 
@@ -98,17 +98,7 @@ Silva, J. P., Quiterio, P. L., **Carmo, M. M. I. B.**, & Souza, A. B. M. (2019) 
 
 **Carmo, M. M. I. B.**, Quiterio, P. L. (2019). Grupo de Orientação Familiar: uma abordagem integrativa de psicoeducação. *29ª UERJ Sem Muros*, Rio de Janeiro, Brazil.
 
-**Carmo, M. M. I. B.**, & Quiterio, P. L. (2019). Avaliação Psicológica de um Adolescente com Deficiência Intelectual em uma Clínica-Escola. VIII Mostra Carioca de Neuropsicologia Clínica, Rio de Janeiro, Brazil.
-
 **Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2018). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. 12ª Mostra Regional de Práticas em Psicologia, Rio de Janeiro, Brazil.
-
-**Carmo, M. M. I. B.**, & Quiterio, P. L. (2018). Grupo de Orientação Familiar: Uma abordagem integrativa de psicoeducação. 17ª Semana de Graduação UERJ, Rio de Janeiro, Brazil.
-
-Camelo, B. L., Gilla, C. G., Paz, G. R. A., Silva, J. P., Oliveira, M. V., **Carmo, M. M. I. B.**, & Quiterio, P. L. (2018). Grupo de Orientação Familiar: Programa de Promoção de Habilidades Sociais Educativas Parentais. XII Semana de Psicologia UERJ, Rio de Janeiro, Brazil.
-
-Quiterio, P. L., & **Carmo, M. M. I. B.**. (2018). PPHS - Programa de Promoção das Habilidades Sociais de alunos sem fala articulada tendo graduandos em Psicologia como interlocutores. 21ª Mostra de Extensão UERJ, Rio de Janeiro, Brazil.
-
-Quiterio, P. L., **Carmo, M. M. I. B.**, Barbosa, H. S., Falcone, J. F., Campello, F., Dias, R. (2018). Desenvolvimento de um grupo de orientação familiar por estudantes de Psicologia. 48ª Reunião Anual da Sociedade Brasileira de Psicologia, Rio de Janeiro, Brazil.
 
 **Carmo, M. M. I. B.**, Camelo, B. L., Silva, J. P., & Quiterio, P. L. (2018). Avaliação de um Grupo de Orientação Familiar. VII Congresso Brasileiro de Terapia Cognitiva da Infância e Adolescência, Bahia, Brazil. \underline{Recipient of 3rd place in Best Posters Award}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.9)  14 APR 2022 21:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.9)  20 APR 2022 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -411,74 +411,74 @@ LaTeX Info: Redefining \nameref on input line 98.
 \@outlinefile=\write3
 \openout3 = `cv-compact-v1.out'.
 
-LaTeX Font Info:    Trying to load font information for U+fontawesometwo on input line 111.
+LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 111.
+(c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ts1pplj.fd
+File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
+)
+LaTeX Font Info:    Trying to load font information for U+fontawesometwo on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 111.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    Trying to load font information for OT1+pplx on input line 111.
+LaTeX Font Info:    Trying to load font information for OT1+pplx on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 111.
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 111.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 111.
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 111.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 111.
+(Font)              scaled to size 10.42007pt on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 111.
+(Font)              scaled to size 7.91925pt on input line 112.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 111.
+(Font)              scaled to size 6.25204pt on input line 112.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 111.
+(Font)              scaled to size 10.42007pt on input line 112.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 111.
+(Font)              scaled to size 7.91925pt on input line 112.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 111.
+(Font)              scaled to size 6.25204pt on input line 112.
 [1
 
-{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 236.
-(c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ts1pplj.fd
-File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
-) [2] 
+{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] 
 AED: lastpage setting LastPage
 [3] (./cv-compact-v1.aux)
 Package rerunfilecheck Info: File `cv-compact-v1.out' has not changed.
 (rerunfilecheck)             Checksum: 164FA27424226929C2E56D7D96707904;1376.
  ) 
 Here is how much of TeX's memory you used:
- 14309 strings out of 480228
- 225477 string characters out of 5893579
- 550326 words of memory out of 5000000
- 31788 multiletter control sequences out of 15000+600000
- 515301 words of font info for 241 fonts, out of 8000000 for 9000
+ 14273 strings out of 480228
+ 225188 string characters out of 5893579
+ 550356 words of memory out of 5000000
+ 31792 multiletter control sequences out of 15000+600000
+ 513445 words of font info for 209 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,12n,63p,1202b,403s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} <c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk>{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on cv-compact-v1.pdf (3 pages, 120593 bytes).
+Output written on cv-compact-v1.pdf (3 pages, 119932 bytes).
 PDF statistics:
  154 PDF objects out of 1000 (max. 8388607)
  117 compressed objects within 2 object streams
