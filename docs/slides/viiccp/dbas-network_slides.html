@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Marwin M I B Carmo" />
+    <meta name="author" content="Renatha El Rafihi Ferreira" />
+    <script src="dbas-network_slides_files/header-attrs/header-attrs.js"></script>
+    <script src="dbas-network_slides_files/fabric/fabric.min.js"></script>
+    <link href="dbas-network_slides_files/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="dbas-network_slides_files/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep
+## VII Congresso Clínica Psiquiátrica 2022
+### Marwin M I B Carmo
+### Renatha El Rafihi Ferreira
+### Department of Psychiatry, Faculty of Medicine, University of São Paulo, Brazil
+### <img src ='img/fapesp-ipq.png' width = '30%'>
+
+---
+
+layout: true
+  
+&lt;div class="my-footer"&gt;&lt;span&gt;
+
+&lt;a href="https://marwincarmo.github.io"&gt;Marwin M I B Carmo&lt;/a&gt; (&lt;a href="mailto:marwin@usp.br"&gt;marwin@usp.br&lt;/a&gt;) -- A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep.
+&lt;/span&gt;&lt;/div&gt;
+
+
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 365px;
+height: 79px;
+z-index: 0;
+background-image: url(img/fapesp-ipq.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.my-title):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+---
+# Introduction
+.v-center[
+Negatively toned cognitive activity triggers arousal and distress, channeling attention and monitoring to sleep, and creating distorted perceptions ([Harvey, 2002](https://doi.org/fwxq35)).
+
+Challenging unhelpful beliefs about sleep is a crucial element of cognitive-behavioral therapy for insomnia.
+
+Understanding how this network of beliefs connects to insomnia severity may provide leads to help targeted interventions.
+]
+---
+
+# Introduction
+.pull-left[
+
+A **network** structure is represented by **nodes** (variables), connected by **edges** (strength of associations) ([Burger et al., 2022](https://doi.org/10.1037/met0000471)).
+
+Measures of centrality ([Borsboom et al., 2021](https://doi.org/10.1038/s43586-021-00055-w)):
+
+- **Node strenght**: sums the absolute edge weights of edges per node;  
+- **Closeness**: quantifies the distance between the node and all other nodes;  
+- **Betweenness**: quantifies how often a node lies on the shortest path connecting any two other nodes.
+
+]
+
+.pull-right[
+
+&lt;img src="dbas-network_slides_files/figure-html/unnamed-chunk-1-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+---
+# Objective
+.v-center[
+
+To use a network approach to explore interactions between dysfunctional beliefs and attitudes about sleep and insomnia severity.
+
+To identify specific nodes within dysfunctional beliefs and attitudes about sleep that may play a pivotal role in maintaining insomnia.
+]
+---
+
+# Method
+.v-center[
+**Participants**: 1166 adults, aged 18 to 59 years, both with and without insomnia symptoms.
+
+**Instruments**:
+
+- Insomnia Severity Scale (ISI);
+
+- Dysfunctional Beliefs and Attitudes about Sleep Scale (DBAS-16). 
+]
+---
+# Method
+.v-center[
+We fitted Gaussian graphical models using graphical LASSO regularization in combination with Extended Bayesian Information Criterion (EBIC) model selection, with a tuning hyperparameter set to 0.5.
+
+- A network describing the associations among overall insomnia severity and the four **factors** of DBAS-16
+
+- A network describing the associations among overall insomnia severity and each of the individual **items** of DBAS-16.
+
+The stability of node strength was estimated using a case dropping bootstrap procedure (1000 iterations). Node centrality was assessed by strength, closeness, and betweenness.
+]
+---
+
+# Sample Characteristics
+
+.pull-left[
+- **Mean Age (SD)**: 38.28 (9.76)
+
+- **Gender (Female)**: 927 (79.5%)
+
+- **Insomnia symptoms**: 935 (80.19%)
+
+- **Race/ethnicity**:
+  - Asian: 41 (3.52%)
+  - Black: 279 (23.93%)
+  - White: 835 (71.61%)
+  - Other/Not informed: 11 (0.94%)
+  
+]
+
+.pull-right[
+
+- **Education**:
+  - College degree or higher: 891 (76.42%)
+  - Less than 12th grade: 109 (9.35%)
+  - Some college: 166 (14.24%)
+
+- **Region of origin**:
+  - Central-West: 51 (4.37%)
+  - North: 24 (2.06%)
+  - Northeast: 85 (7.29%)
+  - South: 101 (8.66%)
+  - Southeast: 905 (77.62%)
+]
+---
+# Results
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="dbas-network_slides_files/figure-html/factors-plot-1.png" alt="isi = Insomnia Severity Index, worry = Worry about sleep, exp = Sleep expectations, cons = Consequences of insomnia, med = Medication." width="80%" /&gt;
+&lt;p class="caption"&gt;isi = Insomnia Severity Index, worry = Worry about sleep, exp = Sleep expectations, cons = Consequences of insomnia, med = Medication.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+# Results
+
+&lt;img src="dbas-network_slides_files/figure-html/centrality-factors-plot-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+# Results
+
+
+
+&lt;img src="dbas-network_slides_files/figure-html/plot-edge-estimates-factors-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Results
+
+&lt;img src="dbas-network_slides_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+---
+# Results
+
+&lt;img src="dbas-network_slides_files/figure-html/centrality-items-plot-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Results
+
+
+
+&lt;img src="dbas-network_slides_files/figure-html/plot-edge-estimates-items-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+# Conclusion
+
+- We used Network analysis as an exploratory technique to identifies patterns of conditional independence that may help interpreting empirical phenomena.
+
+- *Sleep expectations* is negatively associated with overall insomnia severity score.
+
+- **Worry about sleep** is the most central item in terms of strength, indicating its importance as possible target for cognitive-behavioral therapy for insomnia.
+
+- *Belief that a poor night of sleep would ruin functioning on the next day* and *feelings that insomnia is ruining ability to enjoy life*
+---
+# References
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
