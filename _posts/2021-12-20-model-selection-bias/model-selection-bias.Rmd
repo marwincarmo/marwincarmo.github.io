@@ -634,3 +634,7 @@ It is especially telling observing those plots that the assumed underlying distr
 # Conclusion
 
 Model selection methods are routine in research on the social and behavioral sciences, and commonly taught in applied statistics courses and textbooks. However, little is mentioned about the biased estimates obtained when such procedures are carried. With simulated data we have identified specific characteristics of the data generating model that can potentially increase the bias in estimates obtained through variable selection. Thus, we can conclude that post-model-selection sampling distribution can deviate greatly from the assumed underlying distribution, even when the best representative model of the data generation process has been selected.
+
+## Acknowledgments {.appendix}
+
+Special thanks to [Donald Williams](https://twitter.com/wdonald_1985) for mentoring me in this project. A huge thanks to [Rafael Bastos](https://twitter.com/rafavsbastos) for review and feedback.
