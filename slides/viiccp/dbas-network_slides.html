@@ -6,10 +6,6 @@
     <meta name="author" content="Marwin M I B Carmo" />
     <meta name="author" content="Renatha El Rafihi Ferreira" />
     <script src="dbas-network_slides_files/header-attrs/header-attrs.js"></script>
-    <script src="dbas-network_slides_files/fabric/fabric.min.js"></script>
-    <link href="dbas-network_slides_files/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
-    <script src="dbas-network_slides_files/xaringanExtra-scribble/scribble.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="css/custom.css" type="text/css" />
   </head>
@@ -79,8 +75,6 @@ top:1em;right:1em;
 
 
 
-
-
 ---
 # Introduction
 .v-center[
@@ -128,7 +122,7 @@ To identify specific nodes within dysfunctional beliefs and attitudes about slee
 
 **Instruments**:
 
-- Insomnia Severity Scale (ISI);
+- Insomnia Severity Index (ISI);
 
 - Dysfunctional Beliefs and Attitudes about Sleep Scale (DBAS-16). 
 ]
@@ -141,14 +135,14 @@ We fitted Gaussian graphical models using graphical LASSO regularization in comb
 
 - A network describing the associations among overall insomnia severity and each of the individual **items** of DBAS-16.
 
-The stability of node strength was estimated using a case dropping bootstrap procedure (1000 iterations). Node centrality was assessed by strength, closeness, and betweenness.
+The stability of the network structures was estimated using a case dropping bootstrap procedure (1000 iterations). Node centrality was assessed by strength, closeness, and betweenness.
 ]
 ---
 
 # Sample Characteristics
 
 .pull-left[
-- **Mean Age (SD)**: 38.28 (9.76)
+- **Age**: 38.28 (9.76)
 
 - **Gender (Female)**: 927 (79.5%)
 
@@ -166,15 +160,16 @@ The stability of node strength was estimated using a case dropping bootstrap pro
 
 - **Education**:
   - College degree or higher: 891 (76.42%)
-  - Less than 12th grade: 109 (9.35%)
   - Some college: 166 (14.24%)
+  - Less than 12th grade: 109 (9.35%)
 
 - **Region of origin**:
-  - Central-West: 51 (4.37%)
+
   - North: 24 (2.06%)
   - Northeast: 85 (7.29%)
-  - South: 101 (8.66%)
+  - Central-West: 51 (4.37%)
   - Southeast: 905 (77.62%)
+  - South: 101 (8.66%)
 ]
 ---
 # Results
@@ -201,7 +196,7 @@ The stability of node strength was estimated using a case dropping bootstrap pro
 
 # Results
 
-&lt;img src="dbas-network_slides_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="dbas-network_slides_files/figure-html/network-items-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ---
 # Results
 
@@ -217,18 +212,48 @@ The stability of node strength was estimated using a case dropping bootstrap pro
 
 ---
 # Conclusion
+.v-center[
+- We used Network analysis as an exploratory technique to identify patterns that may help interpreting empirical phenomena.
 
-- We used Network analysis as an exploratory technique to identifies patterns of conditional independence that may help interpreting empirical phenomena.
+- **Worry about sleep** is a factor that can directly influence other nodes.
 
-- *Sleep expectations* is negatively associated with overall insomnia severity score.
+- *Belief that a poor night of sleep would ruin functioning on the next day* and *feelings that insomnia is ruining ability to enjoy life* are possible targets to for improving CBT-I.
 
-- **Worry about sleep** is the most central item in terms of strength, indicating its importance as possible target for cognitive-behavioral therapy for insomnia.
-
-- *Belief that a poor night of sleep would ruin functioning on the next day* and *feelings that insomnia is ruining ability to enjoy life*
+- These findings may benefit the efficiency of future intervention studies by identifying priority symptoms for treatment.
+]
 ---
 # References
 
+Harvey, A. G. (2002). A cognitive model of insomnia. *Behaviour Research and Therapy, 40*(8), 869–893. https://doi.org/10/fwxq35
 
+Borsboom, D., Deserno, M. K., Rhemtulla, M., Epskamp, S., Fried, E. I., McNally, R. J., Robinaugh, D. J., Perugini, M., Dalege, J., Costantini, G., Isvoranu, A.-M., Wysocki, A. C., van Borkulo, C. D., van Bork, R., &amp; Waldorp, L. J. (2021). Network analysis of multivariate data in psychological science. *Nature Reviews Methods Primers, 1*(1). https://doi.org/10.1038/s43586-021-00055-w
+
+Burger, J., Isvoranu, A.-M., Lunansky, G., Haslbeck, J. M. B., Epskamp, S., Hoekstra, R. H. A., Fried, E. I., Borsboom, D., &amp; Blanken, T. F. (2022). Reporting standards for psychological network analyses in cross-sectional data. *Psychological Methods*. https://doi.org/10.1037/met0000471
+
+---
+# Thank you
+
+.pull-left[
+Contact:
+  - Email: [marwin@usp.br](mailto:marwin@usp.br)
+  - Webpage: [https://marwincarmo.github.io/](https://marwincarmo.github.io/)
+  - Github: [marwincarmo](https://github.com/marwincarmo)
+  - Twitter: [marwincarmo](https://twitter.com/marwincarmo)
+  - Linkedin: [Marwin Carmo](https://www.linkedin.com/in/marwin-carmo/)
+
+This presentation was created using `xaringanthemer` package for R. Code available at [bit.ly/viiccp-code](https://bit.ly/viiccp-code)
+]
+
+.pull-right[
+&lt;center&gt;
+Access the slides at
+
+&lt;img src="dbas-network_slides_files/figure-html/qr-code-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+&lt;a href="https://bit.ly/viicp-dbas"&gt;bit.ly/viicp-dbas&lt;/a&gt;
+
+&lt;/center&gt;
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -237,7 +262,7 @@ The stability of node strength was estimated using a case dropping bootstrap pro
 "highlightStyle": "github",
 "highlightLines": true,
 "ratio": "16:9",
-"countIncrementalSlides": true
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
