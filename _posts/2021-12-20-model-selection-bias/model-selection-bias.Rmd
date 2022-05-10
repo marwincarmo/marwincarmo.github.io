@@ -38,7 +38,6 @@ library(patchwork)
 library(reactable)
 ```
 
-
 # What is model selection
 
 Much of the current research questions on behavioral and social sciences are investigated using statistical models [@flora2017statistical]. Models are simplified translations of a reality to mathematical expressions; its' aim is to express how data were generated. Regression-based models are vastly employed in empirical research and often used to estimate causal effects [@berk2010]. However, to perform causal modeling, researchers must specify a "correct" model (i.e., an accurate model of the data generating process) prior to data collection and use the obtained data only to estimate regression coefficients (see @berk2010 for further discussion). In practice, researchers usually only have a vague idea of the right model to answer their research questions, or even if such model can be estimated. Often, what is framed as statistical inference or causal modeling is in fact a descriptive analysis; what @berk2010 name as *Level I Regression Analysis*.
