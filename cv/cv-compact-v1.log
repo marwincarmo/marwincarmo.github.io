@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.11)  12 MAY 2022 21:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.11)  13 MAY 2022 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -493,21 +493,21 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 AED: lastpage setting LastPage
 [3] (./cv-compact-v1.aux)
 Package rerunfilecheck Info: File `cv-compact-v1.out' has not changed.
-(rerunfilecheck)             Checksum: DFD61C8ABDB3B50C52AAC0C3B519C620;1660.
+(rerunfilecheck)             Checksum: EB46E0EA6C4C3036D84F3714B6329385;1551.
  ) 
 Here is how much of TeX's memory you used:
- 14228 strings out of 480260
- 226986 string characters out of 5892766
- 557889 words of memory out of 5000000
+ 14259 strings out of 480260
+ 227232 string characters out of 5892766
+ 557869 words of memory out of 5000000
  31807 multiletter control sequences out of 15000+600000
- 523096 words of font info for 108 fonts, out of 8000000 for 9000
+ 523858 words of font info for 117 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,12n,63p,1202b,437s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,11n,63p,1202b,430s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cv-compact-v1.pdf (3 pages, 202131 bytes).
+Output written on cv-compact-v1.pdf (3 pages, 204016 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
+ 187 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
+ 51 named destinations out of 1000 (max. 500000)
  32873 words of extra memory for PDF output out of 35830 (max. 10000000)
 
