@@ -1,7 +1,6 @@
 ---
 title: "Simulating post selection inference"
-description: |
-  Draft version.
+description: ""
 author:
   - first_name: Marwin
     last_name: Carmo
@@ -71,7 +70,7 @@ To understand why the regression parameters estimates might be biased, recall th
 
 where $B_{Y0 \cdot 12}$ is the model intercept when $X_1$ and $X_2$ are held constant and $\varepsilon$ is the error term.
 
-The regression coefficient for $X_i$, for $i = \{1, 2\}$, is model dependent. To see why, let's take a look at the equations for the regression coefficients for $X_1$ ($_{Y1 \cdot 2}$) and $X_2$ ($B_{Y2 \cdot 1}$)
+The regression coefficient for $X_i$, for $i = \{1, 2\}$, is model dependent. To see why, let's take a look at the equations for the regression coefficients for $X_1$ ($B_{Y1 \cdot 2}$) and $X_2$ ($B_{Y2 \cdot 1}$)
 
 \begin{equation}
 B_{Y1 \cdot 2} = \frac{\rho_{Y1} - \rho_{Y2}\rho_{12}}{(1 - \rho_{12}^2)} \times \frac{\sigma_Y}{\sigma_1}
@@ -83,7 +82,7 @@ B_{Y2 \cdot 1} = \frac{\rho_{Y2} - \rho_{Y1}\rho_{21}}{(1 - \rho_{21}^2)} \times
 (\#eq:beta21)
 \end{equation}
 
-Here $\rho$ stands for the populational correlation coefficient and $\sigma$ for the populational standard deviation. Unless we have uncorrelated predictors (i.e. $\rho_{12}$ = 0 and/or $\rho_{21}$ = 0), the value for any of the regression coefficients is determined by which other predictors are in the model. If either one is excluded from the model, a different regression coefficient will be estimated: excluding $X_2$, for example, would zero all the correlations involving this predictor, leaving,
+Here $\rho$ stands for the populational correlation coefficient and $\sigma$ for the populational standard deviation. Unless we have uncorrelated predictors (i.e. $\rho_{12}$ = 0), the value for any of the regression coefficients is determined by which other predictors are in the model. If either one is excluded from the model, a different regression coefficient will be estimated: excluding $X_2$, for example, would zero all the correlations involving this predictor, leaving,
 
 \begin{equation}
 B_{Y1 \cdot 2} = \frac{\rho_{Y1} - 0 \times 0}{(1 - 0^2)} \times \frac{\sigma_Y}{\sigma_1} = \rho_{Y1} \times \frac{\sigma_Y}{\sigma_1} = B_{Y1}
@@ -219,11 +218,11 @@ SE(\beta_{yx\cdot z}) = \frac{\hat{\sigma_{\varepsilon}}}{s_x \sqrt{n-1}}\sqrt{\
 (\#eq:sebxy)
 \end{equation}
 
-We have that $\hat{\sigma_{\varepsilon}}$ is an estimate of the residual standard deviation, $s_x$ is the sample standard deviation of $x$, $r^2_{xy}$ is the square of the sample correlation between $x$ and $z$, and $n$ is the sample size. If the standard error for a regression coefficient is large, it means that its distribution will be more dispersed. So, from this equation, we identify as crucial parameters for a wider sampling distribution: larger residual variance, less variance in $x$, small sample size, and, stronger correlation between regressors and the response variable.
+We have that $\hat{\sigma_{\varepsilon}}$ is an estimate of the residual standard deviation, $s_x$ is the sample standard deviation of $x$, $r^2_{xy}$ is the square of the sample correlation between $x$ and $z$, and $n$ is the sample size. If the standard error for a regression coefficient is large, it means that its distribution will be more dispersed. So, from this equation, we identify as crucial parameters for a wider sampling distribution: larger residual variance, less variance in $x$, smaller sample size, and, stronger correlation between regressors and the response variable.
 
 We'll use simulated data to aid our understanding. I have build a [ShinyApp](https://marwin.shinyapps.io/model-selection-app/) for that end. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set. Although I will be working with code in this post, most of it can also be reproduced with this app.
 
-For convenience purposes, I'll use the stepwise approach for model selection with AIC as model selection criterion. Some penalties are harsher than others, but the concerns raised here are irrespective of the chosen model selection method [@berkStatisticalInferenceModel2010]. In the app, I also provide the option to choose BIC as selection method. In addition to bias and coverage, we'll also estimate the average Mean Squared Error (MSE), calculated as $\frac{1}{R}\sum[(\hat{\theta_r}-\theta)^2]$.
+For convenience purposes, I'll use the stepwise approach for model selection with AIC as model selection criterion. Some penalties are harsher than others, but the concerns raised here are irrespective of the chosen model selection method [@berkStatisticalInferenceModel2010]. In the app, I also provide the option to choose BIC or Mallow's Cp as selection method. In addition to bias and coverage, we'll also estimate the average Mean Squared Error (MSE), calculated as $\frac{1}{R}\sum[(\hat{\theta_r}-\theta)^2]$.
 
 ## Noise
 
@@ -313,9 +312,9 @@ sim_ss|>
   knitr::kable()
 ```
 
-## Predictors
+## Candidate predictors
 
-OK, so far we've seen that with 2 predictors, each with true coefficient values of 1 and a correlation of 0.5, we get more precise estimates when $SNR \ge$ 0.5 and $n \ge$ 100. The number of predictors and its covariance matrix are two important aspects not addressed yet. To demonstrate their influence we can run simulations with varying values for each, where each case will have a different combination of number of predictors and correlation between them.
+OK, so far we've seen that with 2 predictors, each with true coefficient values of 1 and a correlation of 0.5, we get more precise estimates when $SNR \ge$ 0.5 and $n \ge$ 100. The number of candidate predictor variables and its covariance matrix are two important aspects not addressed yet. To demonstrate their influence we can run simulations with varying values for each, where each case will have a different combination of number of predictors and correlation between them.
 
 For simplicity, all the off-diagonal elements the correlation matrix of predictors will be equal, meaning the that every predictor in the full model is correlated with the others by the same degree. We'll need to do a slight modification on our previous function so we can then apply a new function for each combination and build a dataframe summarizing our results.
 
@@ -452,7 +451,7 @@ reactable(simdf, pageSizeOptions = c(5, 10, 15), defaultPageSize = 10, fullWidth
   ))
 ```
 
-To keep all four plots in the same scale, I have standardized the x axis values. In this heat map, darker colors represent larger values (greater standard deviation). The pattern for Bias and MSE is similar: performing model selection with a great number of highly correlated predictors is likely to produced highly biased estimates. As expected, Coverage follows an inverted pattern from Bias and MSE: highly biased estimates fall off the 95% CI coverage.
+To keep all four plots in the same scale, I have standardized the horizontal axis values. In this heat map, darker colors represent larger values (greater standard deviation). The pattern for Bias and MSE is similar: performing model selection with a great number of highly correlated predictors is likely to produced highly biased estimates. As expected, Coverage follows an inverted pattern from Bias and MSE: highly biased estimates fall out of the 95% CI coverage.
 
 These plots make clear that our best case scenario is to have few, weakly correlated predictors. Of course, this is a setting rarely seen in empirical research -- whats the point of going through model selection if you have only a handful of variables? What should really get our attention here is that bias in estimates is likely to get bigger if model selection is naively performed with little prior information about the data generating system to filter out candidate models. We have seen that sample size, SNR, number of predictors, and correlation between parameters with themselves and with the response variable, are characteristics of the model that each in their own way contributes to producing biased estimates. I encourage you to use this companion [shinyapp](https://marwin.shinyapps.io/model-selection-app/) to play with different scenarios to practice what we've been discussing so far.
 
@@ -636,4 +635,4 @@ Model selection methods are routine in research on the social and behavioral sci
 
 ## Acknowledgments {.appendix}
 
-Special thanks to [Donald Williams](https://twitter.com/wdonald_1985) for mentoring me in this project. A huge thanks to [Rafael Bastos](https://twitter.com/rafavsbastos) for review and feedback.
+Special thanks to [Donald Williams](https://twitter.com/wdonald_1985) for mentoring me in this project and [Rafael Bastos](https://twitter.com/rafavsbastos) for review and feedback.

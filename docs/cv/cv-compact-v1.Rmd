@@ -3,13 +3,13 @@ output:
   pdf_document:
     latex_engine: pdflatex
     template: rap-latex-cv.tex
-geometry: margin=1in
+geometry: margin=.75in
 
 title: "CV"
 author: Marwin Machay Indio do Brasil do Carmo
-orcid: "orcid.org/0000-0002-9577-6885"
-jobtitle: "Computer Scientist & United States Navy Rear Admiral"
-address: "Address · Arlington · VA 22205"
+#orcid: "orcid.org/0000-0002-9577-6885"
+#jobtitle: "Computer Scientist & United States Navy Rear Admiral"
+#address: "Address · Arlington · VA 22205"
 fontawesome: yes
 email: marwinbr@gmail.com
 github: marwincarmo
@@ -19,7 +19,7 @@ updated: yes
 
 keywords: RMarkdown, academic CV, template
 
-fontfamily: mathpazo
+#fontfamily: mathpazo
 fontfamilyoptions: sc, osf
 fontsize: 10pt
 linkcolor: blue
@@ -27,99 +27,149 @@ urlcolor: blue
 ---
 
 # EDUCATION
+\hrule
+**University of São Paulo**, M.Sc. Psychiatry \hfill 2021--current  
+*Area of Study*: Sleep-related cognitions, Quantitative Methods, Psychometrics  
+*Advisor*: Renatha El-Rafihi Ferreira, Ph.D.  
+*Research goal*: Cross-cultural adaptation of the *Dysfunctional Beliefs About Sleep* and *Sleep and Action Questionnaire*. Explore the psychometric properties of both measures utilizing factor analysis and item response theory. Explore associations between sleep related cognitions and insomnia with network analysis.
 
-*University of São Paulo*, M.Sc. Psychiatry \hfill 2021--
+**Rio de Janeiro State University**, B.S. Psychology  (with honours) \hfill 2014--2019
 
-*Rio de Janeiro State University*, B.S. Psychology \hfill 2014--2019
-
-*Federal Institute of Education, Science and Technology*, B.Tech. Chemical Processes \hfill 2008--2013
+**Federal Institute of Education, Science and Technology**, B.Tech. Chemical Processes \hfill 2008--2013
 
 # EXPERIENCE
+\hrule
+**Psicometria Online Academy** \hfill May 2022--current  
+*Teaching Assistant* \hfill Brazil  
 
-*PsicoDados*: 
- 
- > Statistical Consulting \hfill 2022--
- 
-> Provided services of statistical consulting, including: Descriptive Analysis, Regression Analysis, Analysis of Variance and Multivariate Statistics
- 
-*Psychology of Human Development Laboratory - UERJ*
+Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
 
- > Research Assistant \hfill August 2019--August 2020
- 
- > Funded by Rio de Janeiro Research Foundation (FAPERJ)
- 
- > 
- 
-*Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ*
+**PsicoDados**  \hfill January 2022--current  
+*Statistical Consultant* \hfill Brazil
 
- > Undergraduate Student Project \hfill July 2017--July 2019
+Provided statistical consultancy and wrote reports of results in addition to support with executing research and analyses.
  
- > Funded by Rio de Janeiro State University
+**Psychology of Human Development Laboratory - UERJ** \hfill August 2019--August 2020  
+*Research Assistant* \hfill Rio de Janeiro, Brazil
 
-*Biodegradable Polymer Research Laboratory - UFRJ*
+- Conducted a systematic review about Brazilian research on social skills training with people with disabilities. Paper submitted to a peer reviewed journal.
+- Performed statistical analysis on research data following a social skills training program with children with autism syndrome disorder. 
+- Wrote journal articles and conference presentations.
+- Delivered introductory statistics workshops to laboratory members.
+- Collected and maintained record of laboratory professors’ publications and students’ theses and dissertations to feed the laboratory webpage. 
 
- > Undergraduate Student Project \hfill June 2011--March 2013
- 
- > Funded by  National Council for Scientific and Technological Development (CNPq)
+**Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ** \hfill July 2017--July 2019  
+*Undergraduate Research Project* \hfill Rio de Janeiro, Brazil
 
-# Honors Awards and Funding
+- Conducted Parental Social Skills Training.
+- Provided support for data collection and management, analysis, and manuscript writing.
+- Teaching Assistant at Psychology and Disabilities class.
 
-# RESEARCH FUNDING
+**Biodegradable Polymer Research Laboratory - UFRJ** \hfill June 2011--March 2013  
+*Undergraduate Research Project* \hfill Rio de Janeiro, Brazil
+
+# FELLOWSHIPS AND FUNDING
+\hrule
+**Sao Paulo Research Foundation (FAPESP)** \hfill June 2021--current  
+*Master’s Fellowship* \hfill Department of Psychiatry, FMUSP
+
+- Adaptação Transcultural e Validação das Escalas Crenças e Atitudes Disfuncionais Sobre o Sono e Questionário de Aceitação dos Problemas de Sono: R$ 55,594.44
+
+**Rio de Janeiro Research Foundation (FAPERJ)** \hfill September 2019--September 2020  
+*Training and Technical Qualification* \hfill Department of Cognitive and Developmental Psychology, UERJ
+
+- Organização do Laboratório de Psicologia do Desenvolvimento Humano: R$ 10,500.00
+
+**UERJ's Department of Scholarships (CETREINA)** \hfill July 2017--July 2019  
+*Internship* \hfill Department of Cognitive and Developmental Psychology, UERJ
+
+- Grupo de Orientação Familiar -- uma abordagem integrativa de psicoeducação: R$ 9,600.00
 
 # PUBLICATIONS
-
+\hrule
 ## **Journal Articles**
 
-Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. 
+1. Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. https://doi.org/10.12957/epp.2021.61060
 
-Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. 
+2. Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. http://dx.doi.org/10.33208/PC1980-5438v0033n01A06 
 
-**Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. 
+3. **Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. http://dx.doi.org/10.5380/psi.v24i1.59972
 
-Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. 
+4. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. https://doi.org/10.1016/j.carbpol.2014.10.018
 
-# SELECTED PRESENTATIONS AND PRIZES
+# SELECTED PRESENTATIONS
+\hrule
+1. **Carmo, M. M. I. B.**. (2022). Understanding model selection bias via simulation. VI International Seminar on Statistics with R (Virtual). [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)]
 
-**Carmo, M. M. I. B.**. (2021). Understanding model selection bias via simulation. VI International Seminar on Statistics with R.
+2. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. VII Congresso Clínica Psiquiátrica, São Paulo, Brazil. [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
 
-**Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2021). The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. \underline{Recipient of Top Mark Award} [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)]
+3. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  Network structure of acceptance of sleep difficulties and insomnia. VII Congresso Clínica Psiquiátrica, São Paulo, Brazil. [[poster](https://marwincarmo.github.io/posters/poster_viicp_spaq)]
 
-Conway, B. A., **Carmo, M. M. I. B.**, Toscanini, A. C., Hasan, R., & Rafihi-Ferreira, R. (2021). Personality Traits in Adults with Chronic Insomnia. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. \underline{Recipient of Top Mark Award}
+4. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2021). The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)]
 
-Cunha, R. R. B. , Trigo, L. O., **Carmo, M. M. I. B.**, Rafihi-Ferreira, R., & Toscanini, A. C. (2021). Chronotype Influence on the Sleep Pattern and Physical/Academic Performance of Medical Students in the State of São Paulo, Brazil. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
+5. Conway, B. A., **Carmo, M. M. I. B.**, Toscanini, A. C., Hasan, R., & Rafihi-Ferreira, R. (2021). Personality Traits in Adults with Chronic Insomnia. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
 
-Trigo, L. O., Cunha, R. R. B. , **Carmo, M. M. I. B.**, Rafihi-Ferreira, R., & Toscanini, A. C. (2021). Sleep Pattern, Cellphone Use and Grade Point Average in São Paulo Medical Students. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
+6. Cunha, R. R. B. , Trigo, L. O., **Carmo, M. M. I. B.**, Rafihi-Ferreira, R., & Toscanini, A. C. (2021). Chronotype Influence on the Sleep Pattern and Physical/Academic Performance of Medical Students in the State of São Paulo, Brazil. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
 
-Silva, D. A., Souza, J. F., **Carmo, M. M. I. B.**, Quiterio, P. L. (2021). Programas de orientação familiar: intervenções com populações clínicas e não clínicas. 51ª Reunião Anual da Sociedade Brasileira de Psicologia, Rio de Janeiro, Brazil.
+7. Trigo, L. O., Cunha, R. R. B. , **Carmo, M. M. I. B.**, Rafihi-Ferreira, R., & Toscanini, A. C. (2021). Sleep Pattern, Cellphone Use and Grade Point Average in São Paulo Medical Students. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil.
 
-**Carmo, M. M. I. B.**, Quiterio, P. L., Silva, J. P., & Camelo, B. L. (2019) Efeitos de Uma Intervenção de Orientação Familiar em Contexto Preventivo e Remediativo. *VII Seminário Internacional de Habilidades Sociais*, Maranhão, Brazil. \underline{Recipient of 3rd place of the Almir Del Prette Award}
+8. Silva, D. A., Souza, J. F., **Carmo, M. M. I. B.**, Quiterio, P. L. (2021). Programas de orientação familiar: intervenções com populações clínicas e não clínicas. 51ª Reunião Anual da Sociedade Brasileira de Psicologia, Rio de Janeiro, Brazil.
 
-Silva, J. P., Quiterio, P. L., **Carmo, M. M. I. B.**, & Souza, A. B. M. (2019) A Importância do Desenvolvimento de Competências Socioemocionais em Pais e Crianças. *VII Seminário Internacional de Habilidades Sociais*, Maranhão, Brazil.
+9. **Carmo, M. M. I. B.**, Quiterio, P. L., Silva, J. P., & Camelo, B. L. (2019) Efeitos de Uma Intervenção de Orientação Familiar em Contexto Preventivo e Remediativo. *VII Seminário Internacional de Habilidades Sociais*, Maranhão, Brazil.
 
-**Carmo, M. M. I. B.**, Quiterio, P. L. (2019). Grupo de Orientação Familiar: uma abordagem integrativa de psicoeducação. *29ª UERJ Sem Muros*, Rio de Janeiro, Brazil.
+10. Silva, J. P., Quiterio, P. L., **Carmo, M. M. I. B.**, & Souza, A. B. M. (2019) A Importância do Desenvolvimento de Competências Socioemocionais em Pais e Crianças. *VII Seminário Internacional de Habilidades Sociais*, Maranhão, Brazil.
 
-**Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2018). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. 12ª Mostra Regional de Práticas em Psicologia, Rio de Janeiro, Brazil.
+11. **Carmo, M. M. I. B.**, Quiterio, P. L. (2019). Grupo de Orientação Familiar: uma abordagem integrativa de psicoeducação. *29ª UERJ Sem Muros*, Rio de Janeiro, Brazil.
 
-**Carmo, M. M. I. B.**, Camelo, B. L., Silva, J. P., & Quiterio, P. L. (2018). Avaliação de um Grupo de Orientação Familiar. VII Congresso Brasileiro de Terapia Cognitiva da Infância e Adolescência, Bahia, Brazil. \underline{Recipient of 3rd place in Best Posters Award}
+12. **Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2018). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. 12ª Mostra Regional de Práticas em Psicologia, Rio de Janeiro, Brazil.
+
+13. **Carmo, M. M. I. B.**, Camelo, B. L., Silva, J. P., & Quiterio, P. L. (2018). Avaliação de um Grupo de Orientação Familiar. VII Congresso Brasileiro de Terapia Cognitiva da Infância e Adolescência (CONCRIAD), Bahia, Brazil.
+
+# HONORS & AWARDS
+\hrule
+1. VII Congresso Clínica Psiquiátrica, Best Oral Presentation Award \hfill May 2022
+2. XVIII Congresso Brasileiro de Sono, Poster recipient of Top Mark Award \hfill December 2021
+3. VII Seminário Internacional de Habilidades Sociais, 3rd place for Best Poster Award \hfill December 2019
+4. VII CONCRIAD, 3rd place for Best Poster Award \hfill November 2018
 
 # SKILLS
+\hrule
+*Programming* 
 
-*Programming*: R (proficient), Python (familiar)
+- R: exploratory data analysis, data cleaning, data visualization, statistical data analyses, programmatic reporting (RMarkdown), webscraping, Shiny apps development, dashboards.
+- Python: exploratory data analysis, data cleaning, data visualization.
 
-*Tools*: Git, R Shiny, R markdown, LaTeX (familiar), SPSS, JASP, JAMOVI, Zotero
+*Tools*: 
 
-*Statistics Training*
+- Data collection and management: REDCap
+- Version control: Git
+- Reference management: Zotero
+- Statistical softwares: R, SPSS, JASP, JAMOVI
+- Reporting: RMarkdown, \LaTeX (familiar)
 
-# RELEVANT ACTIVITIES
+# LEADERSHIP
+\hrule
+[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/) \hfill February 2022--current  
+*Founder and facilitator*
 
-Organizer of [Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)
+- Organized meetings and led study sessions on measurement theory in psychology
+  - Orchestrated invited presentations by Dr. Derek C. Briggs, Dr. Laura F. Bringmann, and Dr. Markus I. Eronen
+  - Led article discussions of concepts such as measurement in science, nature of measurement, and theories of measurement
 
-# SOFTWARE DEVELOPMENT
+# RELEVANT COURSEWORK
+\hrule
+*Mathematics & Statistics*  
+Multivariable Calculus, Linear Algebra, Probability Theory, Machine Learning, Intermediate Statistical Methods, Structural Equation Modeling, Introduction to Bayesian Data Analysis.
 
-**Carmo, M. M. I. B.**, Williams, D. R. (2021). *Model selection app*. Retrievable from https://marwin.shinyapps.io/model-selection-app/
+*Research Methods*  
+Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scientific Writing.
 
 # BLOGS
-
+\hrule
 **Carmo, M. M. I. B.** (2022). Simulating post selection inference. Retrievable from https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/
 
 **Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). Retrievable from https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/
+
+# SOFTWARE DEVELOPMENT
+\hrule
+**Model selection app**. A Shiny app designed for performing simulations of statistical inferences after model selection procedures. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set. [[App](https://marwin.shinyapps.io/model-selection-app/)] [[code](https://github.com/marwincarmo/model-selection-app)]

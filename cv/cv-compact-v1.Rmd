@@ -28,9 +28,9 @@ urlcolor: blue
 
 # EDUCATION
 \hrule
-**University of São Paulo**, M.Sc. Psychiatry \hfill 2021-- current  
+**University of São Paulo**, M.Sc. Psychiatry \hfill 2021--current  
 *Area of Study*: Sleep-related cognitions, Quantitative Methods, Psychometrics  
-*Advisor*: Renatha El-Rafihi Ferreira, Ph.D  
+*Advisor*: Renatha El-Rafihi Ferreira, Ph.D.  
 *Research goal*: Cross-cultural adaptation of the *Dysfunctional Beliefs About Sleep* and *Sleep and Action Questionnaire*. Explore the psychometric properties of both measures utilizing factor analysis and item response theory. Explore associations between sleep related cognitions and insomnia with network analysis.
 
 **Rio de Janeiro State University**, B.S. Psychology  (with honours) \hfill 2014--2019
@@ -39,64 +39,71 @@ urlcolor: blue
 
 # EXPERIENCE
 \hrule
-**Psicometria Online Academy** \hfill May 2022 -- current  
-*Student support* \hfill Brazil  
+**Psicometria Online Academy** \hfill May 2022--current  
+*Teaching Assistant* \hfill Brazil  
 
-Answer students' questions to lectures videos related to univariate and multivariate data analysis, structural equation modeling, item response theory and research methods.
+Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
 
-**PsicoDados**  \hfill January 2022 -- current  
+**PsicoDados**  \hfill January 2022--current  
 *Statistical Consultant* \hfill Brazil
 
 Provided statistical consultancy and wrote reports of results in addition to support with executing research and analyses.
  
-**Psychology of Human Development Laboratory - UERJ** \hfill August 2019 -- August 2020  
+**Psychology of Human Development Laboratory - UERJ** \hfill August 2019--August 2020  
 *Research Assistant* \hfill Rio de Janeiro, Brazil
 
 - Conducted a systematic review about Brazilian research on social skills training with people with disabilities. Paper submitted to a peer reviewed journal.
-- Performed statistical analysis on research data following a social skills training program with children with autism. 
-- Led on data collection, management and analysis.
+- Performed statistical analysis on research data following a social skills training program with children with autism syndrome disorder. 
 - Wrote journal articles and conference presentations.
+- Delivered introductory statistics workshops to laboratory members.
 - Collected and maintained record of laboratory professors’ publications and students’ theses and dissertations to feed the laboratory webpage. 
 
 **Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ** \hfill July 2017--July 2019  
-*Undergraduate Student Project* \hfill Rio de Janeiro, Brazil
+*Undergraduate Research Project* \hfill Rio de Janeiro, Brazil
 
-- Conducted Parental Social Skills Training
+- Conducted Parental Social Skills Training.
 - Provided support for data collection and management, analysis, and manuscript writing.
+- Teaching Assistant at Psychology and Disabilities class.
 
 **Biodegradable Polymer Research Laboratory - UFRJ** \hfill June 2011--March 2013  
-*Undergraduate Student Project* \hfill Rio de Janeiro, Brazil
+*Undergraduate Research Project* \hfill Rio de Janeiro, Brazil
 
+# FELLOWSHIPS AND FUNDING
+\hrule
+**Sao Paulo Research Foundation (FAPESP)** \hfill June 2021--current  
+*Master’s Fellowship* \hfill Department of Psychiatry, FMUSP
 
-# Honors Awards and Funding
+- Adaptação Transcultural e Validação das Escalas Crenças e Atitudes Disfuncionais Sobre o Sono e Questionário de Aceitação dos Problemas de Sono: R$ 55,594.44
 
-# RESEARCH FUNDING
+**Rio de Janeiro Research Foundation (FAPERJ)** \hfill September 2019--September 2020  
+*Training and Technical Qualification* \hfill Department of Cognitive and Developmental Psychology, UERJ
 
-**Sao Paulo Research Foundation (FAPESP)** \hfill June 2021
+- Organização do Laboratório de Psicologia do Desenvolvimento Humano: R$ 10,500.00
 
-- Title: Adaptação Transcultural e Validação das Escalas Crenças e Atitudes Disfuncionais Sobre o Sono e Questionário de Aceitação dos Problemas de Sono
+**UERJ's Department of Scholarships (CETREINA)** \hfill July 2017--July 2019  
+*Internship* \hfill Department of Cognitive and Developmental Psychology, UERJ
 
-- Funding: R$ 55,594.44
+- Grupo de Orientação Familiar -- uma abordagem integrativa de psicoeducação: R$ 9,600.00
 
 # PUBLICATIONS
 \hrule
 ## **Journal Articles**
 
-1. Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. 
+1. Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. https://doi.org/10.12957/epp.2021.61060
 
-2. Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. 
+2. Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. http://dx.doi.org/10.33208/PC1980-5438v0033n01A06 
 
-3. **Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. 
+3. **Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. http://dx.doi.org/10.5380/psi.v24i1.59972
 
-4. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. 
+4. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. https://doi.org/10.1016/j.carbpol.2014.10.018
 
 # SELECTED PRESENTATIONS
 \hrule
-1. **Carmo, M. M. I. B.**. (2022). Understanding model selection bias via simulation. VI International Seminar on Statistics with R. [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)]
+1. **Carmo, M. M. I. B.**. (2022). Understanding model selection bias via simulation. VI International Seminar on Statistics with R (Virtual). [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)]
 
-2. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. VII Congresso Clínica Psiquiátrica. [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
+2. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. VII Congresso Clínica Psiquiátrica, São Paulo, Brazil. [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
 
-3. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  Network structure of acceptance of sleep difficulties and insomnia. VII Congresso Clínica Psiquiátrica. [[poster](https://marwincarmo.github.io/posters/poster_viicp_spaq)]
+3. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  Network structure of acceptance of sleep difficulties and insomnia. VII Congresso Clínica Psiquiátrica, São Paulo, Brazil. [[poster](https://marwincarmo.github.io/posters/poster_viicp_spaq)]
 
 4. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2021). The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)]
 
@@ -116,17 +123,17 @@ Provided statistical consultancy and wrote reports of results in addition to sup
 
 12. **Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2018). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. 12ª Mostra Regional de Práticas em Psicologia, Rio de Janeiro, Brazil.
 
-13. **Carmo, M. M. I. B.**, Camelo, B. L., Silva, J. P., & Quiterio, P. L. (2018). Avaliação de um Grupo de Orientação Familiar. VII Congresso Brasileiro de Terapia Cognitiva da Infância e Adolescência, Bahia, Brazil.
+13. **Carmo, M. M. I. B.**, Camelo, B. L., Silva, J. P., & Quiterio, P. L. (2018). Avaliação de um Grupo de Orientação Familiar. VII Congresso Brasileiro de Terapia Cognitiva da Infância e Adolescência (CONCRIAD), Bahia, Brazil.
 
 # HONORS & AWARDS
-
+\hrule
 1. VII Congresso Clínica Psiquiátrica, Best Oral Presentation Award \hfill May 2022
 2. XVIII Congresso Brasileiro de Sono, Poster recipient of Top Mark Award \hfill December 2021
 3. VII Seminário Internacional de Habilidades Sociais, 3rd place for Best Poster Award \hfill December 2019
 4. VII CONCRIAD, 3rd place for Best Poster Award \hfill November 2018
 
 # SKILLS
-
+\hrule
 *Programming* 
 
 - R: exploratory data analysis, data cleaning, data visualization, statistical data analyses, programmatic reporting (RMarkdown), webscraping, Shiny apps development, dashboards.
@@ -140,28 +147,29 @@ Provided statistical consultancy and wrote reports of results in addition to sup
 - Statistical softwares: R, SPSS, JASP, JAMOVI
 - Reporting: RMarkdown, \LaTeX (familiar)
 
-*Statistics Training*
-
 # LEADERSHIP
-
-[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/) \hfill February 2022 --  
-*Founder and organizer*
+\hrule
+[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/) \hfill February 2022--current  
+*Founder and facilitator*
 
 - Organized meetings and led study sessions on measurement theory in psychology
-  - Orchestrated invited presentations by Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen
+  - Orchestrated invited presentations by Dr. Derek C. Briggs, Dr. Laura F. Bringmann, and Dr. Markus I. Eronen
   - Led article discussions of concepts such as measurement in science, nature of measurement, and theories of measurement
-
-# SOFTWARE DEVELOPMENT
-
-**Carmo, M. M. I. B.**, Williams, D. R. (2021). *Model selection app*. Retrievable from https://marwin.shinyapps.io/model-selection-app/
 
 # RELEVANT COURSEWORK
 \hrule
-*Mathematics, Statistics & Computer Science*  
-Multivariable Calculus, Linear Algebra, Statistical Modeling, Machine Learning, Probability Theory, Introduction to Bayesian Data Analysis.
+*Mathematics & Statistics*  
+Multivariable Calculus, Linear Algebra, Probability Theory, Machine Learning, Intermediate Statistical Methods, Structural Equation Modeling, Introduction to Bayesian Data Analysis.
+
+*Research Methods*  
+Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scientific Writing.
 
 # BLOGS
-
+\hrule
 **Carmo, M. M. I. B.** (2022). Simulating post selection inference. Retrievable from https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/
 
 **Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). Retrievable from https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/
+
+# SOFTWARE DEVELOPMENT
+\hrule
+**Model selection app**. A Shiny app designed for performing simulations of statistical inferences after model selection procedures. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set. [[App](https://marwin.shinyapps.io/model-selection-app/)] [[code](https://github.com/marwincarmo/model-selection-app)]
