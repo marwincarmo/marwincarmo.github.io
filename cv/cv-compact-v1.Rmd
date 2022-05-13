@@ -3,13 +3,13 @@ output:
   pdf_document:
     latex_engine: pdflatex
     template: rap-latex-cv.tex
-geometry: margin=1in
+geometry: margin=.75in
 
 title: "CV"
 author: Marwin Machay Indio do Brasil do Carmo
-orcid: "orcid.org/0000-0002-9577-6885"
-jobtitle: "Computer Scientist & United States Navy Rear Admiral"
-address: "Address · Arlington · VA 22205"
+#orcid: "orcid.org/0000-0002-9577-6885"
+#jobtitle: "Computer Scientist & United States Navy Rear Admiral"
+#address: "Address · Arlington · VA 22205"
 fontawesome: yes
 email: marwinbr@gmail.com
 github: marwincarmo
@@ -19,7 +19,7 @@ updated: yes
 
 keywords: RMarkdown, academic CV, template
 
-fontfamily: mathpazo
+#fontfamily: mathpazo
 fontfamilyoptions: sc, osf
 fontsize: 10pt
 linkcolor: blue
@@ -27,60 +27,74 @@ urlcolor: blue
 ---
 
 # EDUCATION
+\hrule
+**University of São Paulo**, M.Sc. Psychiatry \hfill 2021-- current  
+*Area of Study*: Sleep-related cognitions, Quantitative Methods, Psychometrics  
+*Advisor*: Renatha El-Rafihi Ferreira, Ph.D  
+*Research goal*: Cross-cultural adaptation of the *Dysfunctional Beliefs About Sleep* and *Sleep and Action Questionnaire*. Explore the psychometric properties of both measures utilizing factor analysis and item response theory. Explore associations between sleep related cognitions and insomnia with network analysis.
 
-*University of São Paulo*, M.Sc. Psychiatry \hfill 2021--
+**Rio de Janeiro State University**, B.S. Psychology  (with honours) \hfill 2014--2019
 
-*Rio de Janeiro State University*, B.S. Psychology \hfill 2014--2019
-
-*Federal Institute of Education, Science and Technology*, B.Tech. Chemical Processes \hfill 2008--2013
+**Federal Institute of Education, Science and Technology**, B.Tech. Chemical Processes \hfill 2008--2013
 
 # EXPERIENCE
+\hrule
+**Psicometria Online Academy** \hfill May 2022 -- current  
+*Student support* \hfill Brazil  
 
-*PsicoDados*: 
- 
- > Statistical Consulting \hfill 2022--
- 
-> Provided services of statistical consulting, including: Descriptive Analysis, Regression Analysis, Analysis of Variance and Multivariate Statistics
- 
-*Psychology of Human Development Laboratory - UERJ*
+Answer students' questions to lectures videos related to univariate and multivariate data analysis, structural equation modeling, item response theory and research methods.
 
- > Research Assistant \hfill August 2019--August 2020
- 
- > Funded by Rio de Janeiro Research Foundation (FAPERJ)
- 
- > 
- 
-*Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ*
+**PsicoDados**  \hfill January 2022 -- current  
+*Statistical Consultant* \hfill Brazil
 
- > Undergraduate Student Project \hfill July 2017--July 2019
+Provided statistical consultancy and wrote reports of results in addition to support with executing research and analyses.
  
- > Funded by Rio de Janeiro State University
-
-*Biodegradable Polymer Research Laboratory - UFRJ*
-
- > Undergraduate Student Project \hfill June 2011--March 2013
+**Psychology of Human Development Laboratory - UERJ** \hfill August 2019 -- August 2020  
+*Research Assistant* \hfill Rio de Janeiro, Brazil
  
- > Funded by  National Council for Scientific and Technological Development (CNPq)
+- Led on data collection, management and analysis.
+- Wrote journal articles and conference presentations.
+- Maintained lab website feeding it with information about scientific production.
+
+**Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ** \hfill July 2017--July 2019  
+*Undergraduate Student Project* \hfill Rio de Janeiro, Brazil
+
+- Conducted Parental Social Skills Training
+- Provided support for data collection and management, analysis, and manuscript writing.
+
+**Biodegradable Polymer Research Laboratory - UFRJ** \hfill June 2011--March 2013  
+*Undergraduate Student Project* \hfill Rio de Janeiro, Brazil
+
 
 # Honors Awards and Funding
 
 # RESEARCH FUNDING
 
-# PUBLICATIONS
+**Sao Paulo Research Foundation (FAPESP)** \hfill June 2021
 
+- Title: Adaptação Transcultural e Validação das Escalas Crenças e Atitudes Disfuncionais Sobre o Sono e Questionário de Aceitação dos Problemas de Sono
+
+- Funding: R$ 55,594.44
+
+# PUBLICATIONS
+\hrule
 ## **Journal Articles**
 
-Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. 
+1. Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoção das Habilidades Sociais de Futuros Professores com foco na Educação Inclusiva. *Estudos e Pesquisa em Psicologia*. 
 
-Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. 
+2. Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Programa de orientação familiar desenvolvido no serviço de psicologia aplicada de uma universidade pública. *Psicologia Clínica*. 
 
-**Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. 
+3. **Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). Um estudo sobre a inclusão de pessoas com deficiência no mercado de trabalho brasileiro. *Interação em Psicologia*. 
 
-Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. 
+4. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. 
 
-# SELECTED PRESENTATIONS AND PRIZES
+# SELECTED PRESENTATIONS
+\hrule
+**Carmo, M. M. I. B.**. (2022). Understanding model selection bias via simulation. VI International Seminar on Statistics with R. [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)]
 
-**Carmo, M. M. I. B.**. (2021). Understanding model selection bias via simulation. VI International Seminar on Statistics with R.
+**Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. VII Congresso Clínica Psiquiátrica. [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
+
+**Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  Network structure of acceptance of sleep difficulties and insomnia. VII Congresso Clínica Psiquiátrica. [[poster](https://marwincarmo.github.io/posters/poster_viicp_spaq)]
 
 **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2021). The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. XVIII Congresso Brasileiro de Sono, São Paulo, Brazil. \underline{Recipient of Top Mark Award} [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)]
 
@@ -102,11 +116,18 @@ Silva, J. P., Quiterio, P. L., **Carmo, M. M. I. B.**, & Souza, A. B. M. (2019) 
 
 **Carmo, M. M. I. B.**, Camelo, B. L., Silva, J. P., & Quiterio, P. L. (2018). Avaliação de um Grupo de Orientação Familiar. VII Congresso Brasileiro de Terapia Cognitiva da Infância e Adolescência, Bahia, Brazil. \underline{Recipient of 3rd place in Best Posters Award}
 
+# HONORS & AWARDS
+
+1. VII Congresso Clínica Psiquiátrica, Best Oral Presentation Award \hfill May 2022
+2. Congresso Brasileiro de Sono, Poster recipient of Top Mark Award \hfill December 2021
+3. VII Seminário Internacional de Habilidades Sociais, 3rd place for Best Poster Award \hfill December 2019
+4. VII CONCRIAD, 3rd place for Best Poster Award \hfill November 2018
+
 # SKILLS
 
 *Programming*: R (proficient), Python (familiar)
 
-*Tools*: Git, R Shiny, R markdown, LaTeX (familiar), SPSS, JASP, JAMOVI, Zotero
+*Tools*: Git, R Shiny, R markdown, LaTeX (familiar), SPSS, JASP, JAMOVI, Zotero, REDCap
 
 *Statistics Training*
 
@@ -117,6 +138,11 @@ Organizer of [Measuring Psychology Study Goup and Community](https://measuringps
 # SOFTWARE DEVELOPMENT
 
 **Carmo, M. M. I. B.**, Williams, D. R. (2021). *Model selection app*. Retrievable from https://marwin.shinyapps.io/model-selection-app/
+
+# RELEVANT COURSEWORK
+\hrule
+*Mathematics, Statistics & Computer Science*  
+Multivariable Calculus, Linear Algebra, Statistical Modeling, Probability Theory, Introduction to Bayesian Data Analysis.
 
 # BLOGS
 
