@@ -13,6 +13,7 @@ author: Marwin Machay Indio do Brasil do Carmo
 fontawesome: yes
 email: marwinbr@gmail.com
 github: marwincarmo
+twitter: marwincarmo
 #phone: "+55 21 96525 6044"
 web: 'marwincarmo.github.io'
 updated: yes
