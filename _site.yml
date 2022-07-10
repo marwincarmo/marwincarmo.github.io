@@ -15,7 +15,7 @@ navbar:
     - text: "About"
       href: index.html
     - text: "CV"
-      href: cv/cv-compact-v1.pdf
+      href: cv/cv-compact-v2.pdf
     - text: "Blog"
       href: blog.html
     - text: "Projects"

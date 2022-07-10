@@ -41,20 +41,22 @@ urlcolor: blue
 # EXPERIENCE
 \hrule
 **Psicometria Online Academy** \hfill May 2022--current  
-*Teaching Assistant* \hfill Brazil  
+*Teaching Assistant* \hfill Rio de Janeiro, Brazil (*remote*)  
 
-Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
+- Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
 
 **[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)** \hfill February 2022--current  
-*Founder and facilitator*
+*Founder and facilitator* \hfill Online
 
 - Organized meetings and led study sessions on measurement theory in psychology with worldwide researchers
-- Orchestrated invited presentations by Dr. Derek C. Briggs, Dr. Laura F. Bringmann, and Dr. Markus I. Eronen
+- Orchestrated invited presentations by Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, and Dr. Elina Vessonen.
 
 **PsicoDados**  \hfill January 2022--current  
-*Statistical Consultant* \hfill Brazil
+*Statistical Consultant* \hfill Rio de Janeiro, Brazil (*remote*)
 
-Provided statistical consultancy and wrote reports of results in addition to support with executing research and analyses.
+- Provided statistical consultancy and wrote reports of results 
+- Provided support with executing research and analyses 
+- Delivered teaching sessions on applied statistics for academic researchers
  
 **Psychology of Human Development Laboratory - UERJ** \hfill August 2019--August 2020  
 *Research Assistant* \hfill Rio de Janeiro, Brazil
@@ -132,7 +134,7 @@ Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scient
 
 # SELECTED PRESENTATIONS
 \hrule
-1. **Carmo, M. M. I. B.**. (2022). Understanding model selection bias via simulation. VI International Seminar on Statistics with R (Virtual). [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)][[video](https://www.youtube.com/watch?v=eyd1VCAX864&t=910s)]
+1. **Carmo, M. M. I. B.**. (2022). Understanding model selection bias via simulation. VI International Seminar on Statistics with R (Online Conference). [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)][[video](https://www.youtube.com/watch?v=eyd1VCAX864&t=910s)]
 
 2. **Carmo, M. M. I. B.**, & Rafihi-Ferreira, R. (2022).  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. VII Congresso Clínica Psiquiátrica, São Paulo, Brazil. [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
 
@@ -161,8 +163,8 @@ Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scient
 # FELLOWSHIPS AND FUNDING
 \hrule
 
-1. Master’s Fellowship, Sao Paulo Research Foundation (FAPESP): US$ 11,750.00 \hfill 2021
+1. Master’s Fellowship, Sao Paulo Research Foundation (FAPESP): US$ 11,750.00 \hfill 2021--2023
 
-2. Training and Technical Qualification, Rio de Janeiro Research Foundation (FAPERJ): US$ 2,200.00 \hfill 2020
+2. Training and Technical Qualification, Rio de Janeiro Research Foundation (FAPERJ): US$ 2,200.00 \hfill 2019--2020
 
-3. UERJ's Department of Scholarships funding for undergraduate research project: US$ 2,000.00 \hfill 2017
+3. UERJ's Department of Scholarships funding for undergraduate research project: US$ 2,000.00 \hfill 2017--2019

@@ -29,35 +29,36 @@ urlcolor: blue
 
 # EDUCATION
 \hrule
-**University of São Paulo**, M.Sc. Psychiatry \hfill 2021--current  
-*Area of Study*: Sleep-related cognitions, Quantitative Methods, Psychometrics  
+**University of São Paulo**, M.Sc. Psychiatry \hfill 2021--Present  
+*Thesis Title*: Cross-cultural adaptation and psychometric analysis of the *Dysfunctional Beliefs About Sleep* and *Sleep and Action Questionnaire*.  
 *Advisor*: [Renatha El-Rafihi Ferreira, Ph.D.](https://scholar.google.com.br/citations?hl=pt-BR&user=sLWIwcoAAAAJ)  
-*Research goal*: Cross-cultural adaptation of the *Dysfunctional Beliefs About Sleep* and *Sleep and Action Questionnaire*. Explore the psychometric properties of both measures utilizing factor analysis and item response theory. Explore associations between sleep related cognitions and insomnia with network analysis.
 
-**Rio de Janeiro State University**, B.S. Psychology  (with honours) \hfill 2014--2019
+**Rio de Janeiro State University**, B.S. Psychology  \hfill 2014--2019  
+*Capstone Title:* Pathways to the validity of a social skills inventory for people with speech impediments.
 
 **Federal Institute of Education, Science and Technology**, B.Tech. Chemical Processes \hfill 2008--2013
 
 # EXPERIENCE
 \hrule
-**Psicometria Online Academy** \hfill May 2022--current  
+**Psicometria Online Academy** \hfill May 2022--Present  
 *Teaching Assistant* \hfill Rio de Janeiro, Brazil (*remote*)  
 
 - Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
 
-**[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)** \hfill February 2022--current  
+**[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)** \hfill February 2022--Present  
 *Founder and facilitator* \hfill Online
 
-- Organized meetings and led study sessions on measurement theory in psychology with worldwide researchers
-- Orchestrated invited presentations by Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, and Dr. Elina Vessonen.
+- Created a community with more than 170 members on social media that is promoting discussions, collaborations, and networking with the aim to improve measurement in the social and behavioral sciences,
+- Organized meetings and led study sessions on measurement theory in psychology with worldwide researchers,
+- Orchestrated invited presentations by renowed researchers like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Elina Vessonen, and others.
 
-**PsicoDados**  \hfill January 2022--current  
+**PsicoDados**  \hfill January 2022--Present  
 *Statistical Consultant* \hfill Rio de Janeiro, Brazil (*remote*)
 
 - Provided statistical consultancy and wrote reports of results 
 - Provided support with executing research and analyses 
 - Delivered teaching sessions on applied statistics for academic researchers
- 
+
 **Psychology of Human Development Laboratory - UERJ** \hfill August 2019--August 2020  
 *Research Assistant* \hfill Rio de Janeiro, Brazil
 
@@ -77,7 +78,7 @@ urlcolor: blue
 
 # PUBLICATIONS
 \hrule
-## **Journal Articles**  
+## **Peer-reviwed publications**  
  \* *denotes manuscript in Portuguese*
 
 1. \*Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoting the social skills of future teachers focusing on inclusive
@@ -88,6 +89,10 @@ education. *Estudos e Pesquisa em Psicologia*. https://doi.org/10.12957/epp.2021
 3. \***Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). A study about the inclusion of people with disabilities in the brazilian labour market. *Interação em Psicologia*. http://dx.doi.org/10.5380/psi.v24i1.59972
 
 4. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. https://doi.org/10.1016/j.carbpol.2014.10.018
+
+## **Submitted Manuscripts**
+
+1. Rafihi-Ferreira, R., **Carmo, M. M. I. B.**, Bassoli, L., Hassa, R., Aizawa, I. M. I., & Toscanini, A. C. (revisions in progress). Cognitive and Psychological Factors Associated With Severe Insomnia in Brazilian Women. *Psicologia: Reflexão e Crítica*.
 
 ## **Blogs**
 

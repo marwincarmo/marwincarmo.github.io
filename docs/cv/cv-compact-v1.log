@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  21 JUN 2022 18:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  7 JUL 2022 08:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -494,7 +494,7 @@ LaTeX Font Info:    Trying to load font information for U+fontawesomethree on in
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesomethree.fd
 File: ufontawesomethree.fd 2016/05/22 Font definitions for U/fontawesomethree.
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 161.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 153.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
@@ -506,15 +506,15 @@ Package rerunfilecheck Info: File `cv-compact-v1.out' has not changed.
 (rerunfilecheck)             Checksum: 6A547E644708569B67EE0EFC9B097EAA;1326.
  ) 
 Here is how much of TeX's memory you used:
- 14309 strings out of 480000
- 228741 string characters out of 5886762
+ 14311 strings out of 480000
+ 228763 string characters out of 5886762
  569825 words of memory out of 5000000
  32121 multiletter control sequences out of 15000+600000
- 523386 words of font info for 111 fonts, out of 8000000 for 9000
+ 523469 words of font info for 112 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,11n,67p,1202b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomethree.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cv-compact-v1.pdf (3 pages, 205722 bytes).
+Output written on cv-compact-v1.pdf (3 pages, 206285 bytes).
 PDF statistics:
  199 PDF objects out of 1000 (max. 8388607)
  173 compressed objects within 2 object streams

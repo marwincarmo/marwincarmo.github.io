@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  7 JUL 2022 08:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  9 JUL 2022 21:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**cv-compact-v1.tex
-(./cv-compact-v1.tex
+**cv-compact-v2.tex
+(./cv-compact-v2.tex
 LaTeX2e <2022-06-01> pre-release-0 (develop 2022-6-18 branch)
 L3 programming layer <2022-06-02> (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -354,8 +354,8 @@ Package hyperref Warning: Option `bookmarks' has already been used,
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count288
 \l__pdf_internal_box=\box55
-) (./cv-compact-v1.aux)
-\openout1 = `cv-compact-v1.aux'.
+) (./cv-compact-v2.aux)
+\openout1 = `cv-compact-v2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
 LaTeX Font Info:    ... okay on input line 98.
@@ -444,9 +444,9 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 ) (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 98.
-(./cv-compact-v1.out) (./cv-compact-v1.out)
+(./cv-compact-v2.out) (./cv-compact-v2.out)
 \@outlinefile=\write3
-\openout3 = `cv-compact-v1.out'.
+\openout3 = `cv-compact-v2.out'.
 
 LaTeX Font Info:    Trying to load font information for U+fontawesometwo on input line 111.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesometwo.fd
@@ -494,30 +494,30 @@ LaTeX Font Info:    Trying to load font information for U+fontawesomethree on in
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesomethree.fd
 File: ufontawesomethree.fd 2016/05/22 Font definitions for U/fontawesomethree.
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 153.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 151.
 (c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
 {c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] 
 AED: lastpage setting LastPage
-[3] (./cv-compact-v1.aux)
-Package rerunfilecheck Info: File `cv-compact-v1.out' has not changed.
-(rerunfilecheck)             Checksum: 6A547E644708569B67EE0EFC9B097EAA;1326.
+[3] (./cv-compact-v2.aux)
+Package rerunfilecheck Info: File `cv-compact-v2.out' has not changed.
+(rerunfilecheck)             Checksum: D3DF5B3A6190D79A05B23119442E6AA5;1538.
  ) 
 Here is how much of TeX's memory you used:
- 14311 strings out of 480000
- 228763 string characters out of 5886762
- 569825 words of memory out of 5000000
- 32121 multiletter control sequences out of 15000+600000
- 523469 words of font info for 112 fonts, out of 8000000 for 9000
+ 14318 strings out of 480000
+ 228886 string characters out of 5886762
+ 570920 words of memory out of 5000000
+ 32123 multiletter control sequences out of 15000+600000
+ 523599 words of font info for 113 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,11n,67p,1202b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomethree.enc}{c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Marwin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cv-compact-v1.pdf (3 pages, 206285 bytes).
+Output written on cv-compact-v2.pdf (3 pages, 208953 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
- 52 named destinations out of 1000 (max. 500000)
- 32857 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 32865 words of extra memory for PDF output out of 35830 (max. 10000000)
 
