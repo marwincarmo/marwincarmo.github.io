@@ -33,7 +33,7 @@ urlcolor: blue
 Recipient of a Master’s Fellowship from Sao Paulo Research Foundation (FAPESP)  
 *Thesis title*: Cross-cultural adaptation and psychometric analysis of the Dysfunctional Beliefs About Sleep and Sleep and Action Questionnaire.  
 *Advisor*: [Renatha El-Rafihi Ferreira, Ph.D.](https://scholar.google.com.br/citations?hl=pt-BR&user=sLWIwcoAAAAJ)  
-**Research goal**: Explore the psychometric properties of two psychological measures utilizing factor analysis and Item Response Theory. In addition to exploring associations between sleep-related cognitions and insomnia with network analysis.
+*Research goal*: Explore the psychometric properties of two psychological measures utilizing factor analysis and Item Response Theory. In addition to exploring associations between sleep-related cognitions and insomnia with network analysis.
 
 **Rio de Janeiro State University**, Bachelor in Psychology  \hfill 2014--2019  
 *Undergraduate thesis title:* Strategies to the validate a social skills inventory for people with speech impediments.
@@ -80,7 +80,7 @@ Recipient of UERJ’s Department of Scholarships funding for undergraduate resea
 
 - Created an international community with more than 170 members on social media that is promoting discussions, collaborations, and networking in the field of measurement in the social and behavioral sciences;
 - Organized bi-weekly meetings and led study sessions on measurement theory;
-- Orchestrated invited presentations by renowed scholars like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Elina Vessonen, and others.
+- Orchestrated invited presentations by renowned scholars like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Elina Vessonen, and others.
 
 # PUBLICATIONS
 \hrule
@@ -139,7 +139,7 @@ Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scient
 # SELECTED PRESENTATIONS
 \hrule
 
-1. 2022 -- Oral presentation: Understanding model selection bias via simulation. VI *International Seminar on Statistics with R*, Online. [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)][[video](https://www.youtube.com/watch?v=eyd1VCAX864&t=910s)]
+1. 2022 -- Oral presentation: Understanding model selection bias via simulation. *VI International Seminar on Statistics with R*, Online. [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)][[video](https://www.youtube.com/watch?v=eyd1VCAX864&t=910s)]
 
 2. 2022 -- Oral presentation:  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. *VII Psychiatric Clinic Congress*, São Paulo, Brazil. **Recipient of Best Oral Presentation Award** [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
 
