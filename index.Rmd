@@ -23,7 +23,7 @@ site: distill::distill_website
 
 I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying psychometric models to validate and investigate sleep-related cognition scales with a Brazilian sample.
 
-I have plans to apply to PhD programs in Quantitative Psychology or related areas for Fall 2023. If you believe I could be a good fit for your lab or anyone's you know, please feel free to reach out. Contact for collaboration on research or just chatting are also very welcome (preferably via twitter or email). You can acess my CV [here](https://marwincarmo.github.io/cv/cv-compact-v1.pdf)
+I have plans to apply to PhD programs in Quantitative Psychology or related areas for Fall 2023. If you believe I could be a good fit for your lab or anyone's you know, please feel free to reach out. Contact for collaboration on research or just chatting are also very welcome (preferably via twitter or email). You can acess my CV [here](https://marwincarmo.github.io/cv/cv-compact-v3.pdf)
 
 <br>
 

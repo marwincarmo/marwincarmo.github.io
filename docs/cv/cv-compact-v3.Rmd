@@ -11,7 +11,7 @@ author: Marwin Machay Indio do Brasil do Carmo
 #jobtitle: "Computer Scientist & United States Navy Rear Admiral"
 #address: "Address · Arlington · VA 22205"
 fontawesome: yes
-email: marwinbr@gmail.com
+email: marwin@usp.br
 github: marwincarmo
 twitter: marwincarmo
 #phone: "+55 21 96525 6044"
@@ -78,7 +78,7 @@ Recipient of UERJ’s Department of Scholarships funding for undergraduate resea
 **[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)** \hfill February 2022--Present  
 *Founder and facilitator* \hfill Online
 
-- Created an international community with more than 170 members on social media that is promoting discussions, collaborations, and networking in the field of measurement in the social and behavioral sciences;
+- Created an international community with more than 180 members on social media that is promoting discussions, collaborations, and networking in the field of measurement in the social and behavioral sciences;
 - Organized bi-weekly meetings and led study sessions on measurement theory;
 - Orchestrated invited presentations by renowned scholars like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Elina Vessonen, and others.
 
@@ -102,9 +102,9 @@ education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
 
 ## **Blogs**
 
-1. **Carmo, M. M. I. B.** (2022). Simulating post selection inference. [[link](https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/)]
+1. **Carmo, M. M. I. B.** (2022). Simulating post selection inference. [[post](https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/)]
 
-2. **Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). [[link](https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/)]
+2. **Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). [[post](https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/)]
 
 # SOFTWARE DEVELOPMENT
 \hrule
@@ -124,7 +124,7 @@ education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
 
 - Statistical softwares: R, SPSS, JASP, JAMOVI
 - Reporting: RMarkdown, \LaTeX (familiar)
-- Version control: Git
+- Version control: Git and Github
 - Reference management: Zotero
 - Data collection and management: REDCap
 
