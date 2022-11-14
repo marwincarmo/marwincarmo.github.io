@@ -78,7 +78,7 @@ Recipient of UERJ’s Department of Scholarships funding for undergraduate resea
 **[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)** \hfill February 2022--Present  
 *Founder and facilitator* \hfill Online
 
-- Created an international community with more than 180 members on social media that is promoting discussions, collaborations, and networking in the field of measurement in the social and behavioral sciences;
+- Created  a global community of 200+ members interested in discussions, collaborations, and networking in the field of measurement in the human sciences;
 - Organized bi-weekly meetings and led study sessions on measurement theory;
 - Orchestrated invited presentations by renowned scholars like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Elina Vessonen, and others.
 
@@ -138,6 +138,8 @@ Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scient
 
 # SELECTED PRESENTATIONS
 \hrule
+
+1. 2022 -- Poster presentation: Development of the Sleep Acceptance Scale (SAS). *XIX Brazilian Congress of Sleep*, Goiania, Brazil.
 
 1. 2022 -- Oral presentation: Understanding model selection bias via simulation. *VI International Seminar on Statistics with R*, Online. [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)][[video](https://www.youtube.com/watch?v=eyd1VCAX864&t=910s)]
 
