@@ -47,7 +47,7 @@ Recipient of a Master’s Fellowship from Sao Paulo Research Foundation (FAPESP)
 
 - Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
 
-**PsicoDados**  \hfill January 2022--Present  
+**PsicoDados**  \hfill January 2022--December 2022  
 *Statistical Consultant* \hfill Rio de Janeiro, Brazil (*remote*)
 
 - Provided statistical consultancy and wrote reports of results; 
