@@ -1,6 +1,6 @@
 ---
 title: "Marwin Carmo"
-image: "img/me3.png"
+image: "/home/mcarmo/Pictures/me/2f7c4288-c522-44f3-98bd-224720b0eede-modified.png"
 links:
   - label: '<i class="fab fa-linkedin fa-3x"></i>'
     url: "https://www.linkedin.com/in/marwin-carmo/"
@@ -76,10 +76,12 @@ A few years ago, I founded a study group focused on measurement theory in the so
 <!-- ::: -->
 <!-- :::: -->
 
+## Education
+
 <ul>
  
  <li class = "grad-item">   Ph.D. student in Quantitative Psychology, 2023 -- current <br> <p class = "grad-location"> University of California, Davis </p> </li>
-<li class = "grad-item">   M.Sc. student in Psychiatry, 2021 -- 2023 <br> <p class = "grad-location"> University of São Paulo, Brazil </p> </li>
+<li class = "grad-item">   M.Sc. Psychiatry, 2021 -- 2023 <br> <p class = "grad-location"> University of São Paulo, Brazil </p> </li>
 <li class = "grad-item">   Bachelor's degree in in Psychology, 2014 -- 2019 <br>
 <p class = "grad-location"> Rio de Janeiro State University, Brazil </p> </li>
 <li class = "grad-item">   Bachelor of Technology's degree in Chemical Processes, 2008 -- 2013 <br> <p class = "grad-location"> Rio de Janeiro Federal Institute of Education, Science and Technology, Brazil </p> 
