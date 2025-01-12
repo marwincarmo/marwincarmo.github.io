@@ -11,10 +11,10 @@ author: Marwin Machay Indio do Brasil do Carmo
 #jobtitle: "Computer Scientist & United States Navy Rear Admiral"
 #address: "Address · Arlington · VA 22205"
 fontawesome: yes
-email: marwin@usp.br
+email: mmcarmo@ucdavis.edu
 github: marwincarmo
-twitter: marwincarmo
-#phone: "+55 21 96525 6044"
+#twitter: marwincarmo
+#phone: "+1 530 760-8026"
 web: 'marwincarmo.github.io'
 updated: yes
 
@@ -29,76 +29,89 @@ urlcolor: blue
 
 # EDUCATION
 \hrule
-**University of São Paulo**, M.Sc. Psychiatry \hfill 2021--Present  
+**University of California, Davis**, Ph.D. Quantitative Psychology \hfill 2023--Present  
+*Advisor*: [Philippe Rast, Ph.D.](https://rastlab.ucdavis.edu/)  
+*Research topics*: Intra-individual variability, Mixed-effects location scale models, Bayesian inference, Gaussian graphical models  
+**University of São Paulo**, M.Sc. Psychiatry \hfill 2021--2023  
 Recipient of a Master’s Fellowship from Sao Paulo Research Foundation (FAPESP)  
-*Thesis title*: Cross-cultural adaptation and psychometric analysis of the Dysfunctional Beliefs About Sleep and Sleep and Action Questionnaire.  
+<!-- *Thesis title*: The network of dysfunctional beliefs about sleep: a structural re-analysis of DBAS-16.   -->
 *Advisor*: [Renatha El-Rafihi Ferreira, Ph.D.](https://scholar.google.com.br/citations?hl=pt-BR&user=sLWIwcoAAAAJ)  
-*Research goal*: Explore the psychometric properties of two psychological measures utilizing factor analysis and Item Response Theory. In addition to exploring associations between sleep-related cognitions and insomnia with network analysis.
-
+<!-- *Research goal*: Explore the psychometric properties of two psychological measures utilizing factor analysis and Item Response Theory. In addition to exploring associations between sleep-related cognitions and insomnia with network analysis. -->
 **Rio de Janeiro State University**, Bachelor in Psychology  \hfill 2014--2019  
-*Undergraduate thesis title:* Strategies to the validate a social skills inventory for people with speech impediments.
-
+<!-- *Undergraduate thesis title:* Strategies to the validate a social skills inventory for people with speech impediments. -->
 **Federal Institute of Education, Science and Technology**, B.Tech. Chemical Processes \hfill 2008--2013
 
 # RESEARCH AND WORK EXPERIENCE
 \hrule
-**Psicometria Online Academy** \hfill May 2022--Present  
-*Teaching Assistant* \hfill Rio de Janeiro, Brazil (*remote*)  
+**Psicometria Online Academy** \hfill May 2022--October 2024  
+*Teaching Assistant (Psychometrics)* \hfill Rio de Janeiro, Brazil (*remote*)  
 
-- Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
+<!-- - Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods. -->
 
 **PsicoDados**  \hfill January 2022--December 2022  
 *Statistical Consultant* \hfill Rio de Janeiro, Brazil (*remote*)
 
-- Provided statistical consultancy and wrote reports of results; 
-- Provided support with executing research and analyses; 
-- Delivered teaching sessions on applied statistics for academic researchers
+<!-- - Provided statistical consultancy and wrote reports of results;  -->
+<!-- - Provided support with executing research and analyses;  -->
+<!-- - Delivered teaching sessions on applied statistics for academic researchers -->
 
 **Psychology of Human Development Laboratory - UERJ** \hfill August 2019--August 2020  
 *Research Assistant* \hfill Rio de Janeiro, Brazil  
 Recipient of FAPERJ's Training and Technical Qualification fellowship 
 
-- Conducted a systematic review about Brazilian research on social skills training with people with disabilities;
-- Performed statistical analysis on research data;
-- Delivered introductory statistics workshops to laboratory members;
-- Wrote journal articles and gave conference presentations.
+<!-- - Conducted a systematic review about Brazilian research on social skills training with people with disabilities; -->
+<!-- - Performed statistical analysis on research data; -->
+<!-- - Delivered introductory statistics workshops to laboratory members; -->
+<!-- - Wrote journal articles and gave conference presentations. -->
 
 **Socio-Emotional Development, Inclusion and Social Skills Laboratory - UERJ** \hfill July 2017--July 2019  
 *Undergraduate Research Project* \hfill Rio de Janeiro, Brazil  
 Recipient of UERJ’s Department of Scholarships funding for undergraduate research project
 
-- Provided support for data collection and management, analysis, and manuscript writing;
-- Teaching Assistant at Psychology and Disabilities class.
+<!-- - Provided support for data collection and management, analysis, and manuscript writing; -->
+<!-- - Teaching Assistant at Psychology and Disabilities class. -->
 
 **Biodegradable Polymer Research Laboratory - UFRJ** \hfill June 2011--March 2013  
 *Undergraduate Research Project* \hfill Rio de Janeiro, Brazil
 
 # OTHER RELEVANT EXPERIENCE
 \hrule
-**[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)** \hfill February 2022--Present  
+**[Measuring Psychology Study Goup and Community](https://measuringpsychology.netlify.app/)** \hfill February 2022--October 2023  
 *Founder and facilitator* \hfill Online
 
 - Created  a global community of 200+ members interested in discussions, collaborations, and networking in the field of measurement in the human sciences;
 - Organized bi-weekly meetings and led study sessions on measurement theory;
-- Orchestrated invited presentations by renowned scholars like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Elina Vessonen, and others.
+- Orchestrated invited presentations by renowned scholars like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Alexander Christensen, Dr. James Grice, and others.
 
 # PUBLICATIONS
 \hrule
-## **Peer-reviwed publications**  
+## **Peer-reviewed**  
  \* *denotes manuscript in Portuguese*
+ 
+1. Rafihi-Ferreira, R., Hasan, R., Toscanini, A. C., Linares, I. M. P., Borges, D. S., Brasil, I. P., **Carmo, M.**, Neto, F. L., Morin, C. (2024). Acceptance and commitment therapy versus cognitive behavioral therapy for insomnia: A randomized controlled trial. *Journal of Consulting and Clinical Psychology*. https://doi.org/10.1037/ccp0000881
 
-1. \*Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoting the social skills of future teachers focusing on inclusive
+2. **Carmo, M. M. I. B.**, Leme, V. B. R., Quiterio, P. L. (2024). Social skills and people with disabilities: overview of brazilian research. *Psicologia Escolar e Educacional*. https://doi.org/10.1590/2175-35392024-246235-T
+ 
+3. Rafihi-Ferreira, R., **Carmo, M. M. I. B.**, Bassoli, L., Hasan, R., Aizawa, I. M. I., & Toscanini, A. C. (2022). Cognitive and psychological factors associated with severe insomnia in Brazilian women: A cross-sectional study. *Psicologia: Reflexão e Crítica*. https://doi.org/10.1186/s41155-022-00243-x
+
+4. \*Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoting the social skills of future teachers focusing on inclusive
 education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
 
-2. \*Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Family guidance program developed in the applied psychology service of a public university. *Psicologia Clínica*.
+5. \*Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Family guidance program developed in the applied psychology service of a public university. *Psicologia Clínica*.
 
-3. \***Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). A study about the inclusion of people with disabilities in the Brazilian labour market. *Interação em Psicologia*. https://doi.org/h43q
+6. \***Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). A study about the inclusion of people with disabilities in the Brazilian labour market. *Interação em Psicologia*. https://doi.org/h43q
 
-4. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. https://doi.org/f6w475
+7. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. https://doi.org/f6w475
 
-## **Submitted Manuscripts**
+## **Under Review**
 
-1. Rafihi-Ferreira, R., **Carmo, M. M. I. B.**, Bassoli, L., Hassan, R., Aizawa, I. M. I., & Toscanini, A. C. (revisions in progress). Cognitive and Psychological Factors Associated With Severe Insomnia in Brazilian Women.
+1. **Carmo, M.**, Williams, D. R., & Rast, P. Beyond Average Scores: Identification of Consistent and Inconsistent Academic Achievement in Grouping Units. Under review at *Journal of Educational and Behavioral Statistics*. [preprint](https://doi.org/10.31234/osf.io/sh6ne).
+
+2. Conway, B. A., **Carmo, M. M. I. B.**, Filho, H. S. L. S., Alves, M. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. Personality traits and insomnia: direct and anxiety-mediated associations. Under review at *Journal of Sleep Research*.
+
+## **Working Papers**
+
+1. **Carmo, M.**, Morin, C. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. *The network of dysfunctional beliefs about sleep: a structural re-analysis of the DBAS-16*. [preprint](https://osf.io/preprints/psyarxiv/6vuf3).
 
 ## **Blogs**
 
@@ -117,13 +130,13 @@ education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
 \hrule
 *Programming* 
 
-- R: exploratory data analysis, data cleaning, data visualization, statistical data analyses, programmatic reporting (RMarkdown), web scraping, Shiny apps development, dashboards.
+- R: exploratory data analysis, data cleaning, data visualization, statistical data analyses, programmatic reporting, web scraping, Shiny apps development, dashboards.
 - Python: exploratory data analysis, data cleaning, data visualization.
 
 *Tools* 
 
 - Statistical softwares: R, SPSS, JASP, JAMOVI
-- Reporting: RMarkdown, \LaTeX (familiar)
+- Reporting: RMarkdown, Quarto, \LaTeX
 - Version control: Git and Github
 - Reference management: Zotero
 - Data collection and management: REDCap
@@ -131,26 +144,32 @@ education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
 # RELEVANT COURSEWORK
 \hrule
 *Mathematics & Statistics*  
-Multivariable Calculus, Linear Algebra, Probability Theory, Machine Learning, Intermediate Statistical Methods, Structural Equation Modeling, Introduction to Bayesian Data Analysis.
+Multivariable Calculus, Linear Algebra, Probability Theory, Machine Learning, Structural Equation Modeling, Applied Bayesian Statistics.
 
-*Research Methods*  
-Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scientific Writing.
+*Programming*  
+Monte Carlo Simulations, Data Visualization, Data Cleaning and Management.
 
-# SELECTED PRESENTATIONS
+<!-- *Research Methods*   -->
+<!-- Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scientific Writing. -->
+
+# SELECTED FIRST-AUTHOR PRESENTATIONS
 \hrule
 
-1. 2022 -- Poster presentation: Development of the Sleep Acceptance Scale (SAS). *XIX Brazilian Congress of Sleep*, Goiania, Brazil.
+1. 2024 -- Poster presentation:A holistic view of academic performance: beyond averages with MELSM and spike-
+and-slab. *89th Annual Meeting of the Psychometric Societ*, Prague, Czech Republic.
 
-1. 2022 -- Oral presentation: Understanding model selection bias via simulation. *VI International Seminar on Statistics with R*, Online. [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)][[video](https://www.youtube.com/watch?v=eyd1VCAX864&t=910s)]
+2. 2022 -- Poster presentation: Development of the Sleep Acceptance Scale (SAS). *XIX Brazilian Congress of Sleep*, Goiania, Brazil.
 
-2. 2022 -- Oral presentation:  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. *VII Psychiatric Clinic Congress*, São Paulo, Brazil. **Recipient of Best Oral Presentation Award** [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
+3. 2022 -- Oral presentation: Understanding model selection bias via simulation. *VI International Seminar on Statistics with R*, Online. [[slides](https://marwincarmo.github.io/slides/vi-ser/selection-bias)][[video](https://www.youtube.com/watch?v=eyd1VCAX864&t=910s)]
 
-3. 2022 -- Poster presentation: Network structure of acceptance of sleep difficulties and insomnia. *VII Psychiatric Clinic Congress*, São Paulo, Brazil. [[poster](https://marwincarmo.github.io/posters/poster_viicp_spaq)]
+4. 2022 -- Oral presentation:  A network approach of Insomnia and Dysfunctional Beliefs and Attitudes About Sleep. *VII Psychiatric Clinic Congress*, São Paulo, Brazil. **Recipient of Best Oral Presentation Award** [[slides](https://marwincarmo.github.io/slides/viiccp/dbas-network_slides)]
 
-4. 2021 -- Poster presentation: The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. *XVIII Brazilian Congress of Sleep*, São Paulo, Brazil. **Recipient of Top Posters Award** [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)] [[abstract](https://sono2021.com.br/evento/sono2021/trabalhosaprovados/naintegra/1047)]
+5. 2022 -- Poster presentation: Network structure of acceptance of sleep difficulties and insomnia. *VII Psychiatric Clinic Congress*, São Paulo, Brazil. [[poster](https://marwincarmo.github.io/posters/poster_viicp_spaq)]
 
-5. 2019 -- Poster presentation: Effects of a parent training program to clinical and non-clinical samples. *VII International Seminar on Social Skills*, Maranhão, Brazil. **Recipient of 3rd place for Best Poster Award**
+6. 2021 -- Poster presentation: The association between sleep-related cognitions, psychological flexibility, and insomnia symptoms. *XVIII Brazilian Congress of Sleep*, São Paulo, Brazil. **Recipient of Top Posters Award** [[poster](https://marwincarmo.github.io/posters/cb_sono_poster)] [[abstract](https://sono2021.com.br/evento/sono2021/trabalhosaprovados/naintegra/1047)]
 
-6. 2018 -- Poster presentation: A study on the inclusion of people with disabilities in the Brazilian labor market. *12th Regional Exhibition of Practices in Psychology*, Rio de Janeiro, Brazil.
+7. 2019 -- Poster presentation: Effects of a parent training program to clinical and non-clinical samples. *VII International Seminar on Social Skills*, Maranhão, Brazil. **Recipient of 3rd place for Best Poster Award**
 
-7. 2018 -- Poster presentation: Assessment of the effects of a parent training program. *VII Brazilian Congress of Cognitive Therapy for Children and Adolescents*, Bahia, Brazil. **Recipient of 3rd place for Best Poster Award**
+8. 2018 -- Poster presentation: A study on the inclusion of people with disabilities in the Brazilian labor market. *12th Regional Exhibition of Practices in Psychology*, Rio de Janeiro, Brazil.
+
+9. 2018 -- Poster presentation: Assessment of the effects of a parent training program. *VII Brazilian Congress of Cognitive Therapy for Children and Adolescents*, Bahia, Brazil. **Recipient of 3rd place for Best Poster Award**
