@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.10)  11 JAN 2025 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.10)  11 JAN 2025 21:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -450,16 +450,18 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 111.
 (/home/mcarmo/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 179.
+
+[1
+
+{/home/mcarmo/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/mcarmo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/mcarmo/.TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 243.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 310.
 (/home/mcarmo/.TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-[1
-
-{/home/mcarmo/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/mcarmo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/mcarmo/.TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}{/home/mcarmo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-
-[2]
+[2{/home/mcarmo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [3] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -469,21 +471,21 @@ LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
 Package rerunfilecheck Info: File `cv-compact-v3.out' has not changed.
-(rerunfilecheck)             Checksum: 6EFB458BFC51C48E3566C41C567DBB66;1609.
+(rerunfilecheck)             Checksum: E1C3D832168FFADF4CEE0E4F753F67F8;1561.
  ) 
 Here is how much of TeX's memory you used:
- 12624 strings out of 475178
- 192404 string characters out of 5766119
- 602394 words of memory out of 5000000
- 35395 multiletter control sequences out of 15000+600000
- 607610 words of font info for 66 fonts, out of 8000000 for 9000
+ 12628 strings out of 475178
+ 192440 string characters out of 5766119
+ 605376 words of memory out of 5000000
+ 35397 multiletter control sequences out of 15000+600000
+ 607928 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,11n,79p,1202b,528s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cv-compact-v3.pdf (3 pages, 205607 bytes).
+ 69i,11n,79p,1202b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></home/mcarmo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on cv-compact-v3.pdf (3 pages, 229229 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 186 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 

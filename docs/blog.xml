@@ -7,7 +7,7 @@
     <description>Marwin's posts
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>2022-04-07</lastBuildDate>
+    <lastBuildDate>Thu, 07 Apr 2022 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Simulating post selection inference</title>
       <dc:creator>Marwin Carmo</dc:creator>
@@ -18,7 +18,7 @@
       <category>bias</category>
       <category>model selection</category>
       <guid>https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias</guid>
-      <pubDate>2022-04-07</pubDate>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
       <media:content url="https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/model-selection-bias_files/figure-html5/predinc-1.png" medium="image" type="image/png" width="3900" height="2400"/>
     </item>
     <item>
@@ -29,7 +29,7 @@
       <category>simulation</category>
       <category>regression</category>
       <guid>https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact</guid>
-      <pubDate>2021-11-04</pubDate>
+      <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
       <media:content url="https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/simulating-regression-artifact_files/figure-html5/sim-plot-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
   </channel>

@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://marwincarmo.github.io/blog.html</loc>
-    <lastmod>2021-11-14T18:55:52-03:00</lastmod>
+    <lastmod>2021-11-14T13:55:52-08:00</lastmod>
   </url>
   <url>
     <loc>https://marwincarmo.github.io/</loc>
-    <lastmod>2022-07-17T16:58:13-03:00</lastmod>
+    <lastmod>2025-01-11T22:01:48-08:00</lastmod>
   </url>
   <url>
     <loc>https://marwincarmo.github.io/projects.html</loc>
-    <lastmod>2022-04-29T20:34:00-03:00</lastmod>
+    <lastmod>2022-04-29T16:34:00-07:00</lastmod>
   </url>
   <url>
     <loc>https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/</loc>
-    <lastmod>2022-07-21T17:04:49-03:00</lastmod>
+    <lastmod>2022-07-21T13:04:49-07:00</lastmod>
   </url>
   <url>
     <loc>https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/</loc>
-    <lastmod>2022-04-03T17:34:15-03:00</lastmod>
+    <lastmod>2022-04-03T13:34:15-07:00</lastmod>
   </url>
 </urlset>

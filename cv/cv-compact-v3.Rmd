@@ -41,10 +41,64 @@ Recipient of a Master’s Fellowship from Sao Paulo Research Foundation (FAPESP)
 <!-- *Undergraduate thesis title:* Strategies to the validate a social skills inventory for people with speech impediments. -->
 **Federal Institute of Education, Science and Technology**, B.Tech. Chemical Processes \hfill 2008--2013
 
+# PUBLICATIONS
+\hrule
+## **Peer-reviewed**  
+ \* *denotes manuscript in Portuguese*
+ 
+1. Rafihi-Ferreira, R., Hasan, R., Toscanini, A. C., Linares, I. M. P., Borges, D. S., Brasil, I. P., **Carmo, M.**, Neto, F. L., Morin, C. (2024). Acceptance and commitment therapy versus cognitive behavioral therapy for insomnia: A randomized controlled trial. *Journal of Consulting and Clinical Psychology*. https://doi.org/10.1037/ccp0000881
+
+2. **Carmo, M. M. I. B.**, Leme, V. B. R., Quiterio, P. L. (2024). Social skills and people with disabilities: overview of Brazilian research. *Psicologia Escolar e Educacional*. https://doi.org/10.1590/2175-35392024-246235-T
+ 
+3. Rafihi-Ferreira, R., **Carmo, M. M. I. B.**, Bassoli, L., Hasan, R., Aizawa, I. M. I., & Toscanini, A. C. (2022). Cognitive and psychological factors associated with severe insomnia in Brazilian women: A cross-sectional study. *Psicologia: Reflexão e Crítica*. https://doi.org/10.1186/s41155-022-00243-x
+
+4. \*Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoting the social skills of future teachers focusing on inclusive
+education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
+
+5. \*Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Family guidance program developed in the applied psychology service of a public university. *Psicologia Clínica*.
+
+6. \***Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). A study about the inclusion of people with disabilities in the Brazilian labour market. *Interação em Psicologia*. https://doi.org/h43q
+
+7. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. https://doi.org/f6w475
+
+## **Under Review**
+
+1. **Carmo, M.**, Williams, D. R., & Rast, P. Beyond Average Scores: Identification of Consistent and Inconsistent Academic Achievement in Grouping Units. Under review at *Journal of Educational and Behavioral Statistics*. [[preprint](https://doi.org/10.31234/osf.io/sh6ne)]
+
+2. **Carmo, M.**, Rafihi-Ferreira, R., Paulos-Guarnieri, L., & Pires, M. L. N. The Sleep Acceptance Scale (SAS): Development, Psychometric Properties, and Applications. Under review at *Behavioral Sleep Medicine.*.
+
+2. Conway, B. A., **Carmo, M. M. I. B.**, Filho, H. S. L. S., Alves, M. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. Personality traits and insomnia: direct and anxiety-mediated associations. Under review at *Journal of Sleep Research*.
+
+## **Working Papers**
+
+1. **Carmo, M.**, Morin, C. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. *The network of dysfunctional beliefs about sleep: a structural re-analysis of the DBAS-16*. [[preprint](https://osf.io/preprints/psyarxiv/6vuf3)]
+
+## **Blogs**
+
+1. **Carmo, M. M. I. B.** (2022). Simulating post selection inference. [[post](https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/)]
+
+2. **Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). [[post](https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/)]
+
+# SOFTWARE DEVELOPMENT
+\hrule
+
+**`ivd`**. An R package for random effects selection in the scale part of Mixed Effects Location Scale Models using a spike-and-slab prior on the random effects of the scale. [[Github repo](https://github.com/consistentlyBetter/ivd)
+
+**Model selection app**. A Shiny app designed for performing simulations of statistical inferences after model selection procedures. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set. [[App](https://marwin.shinyapps.io/model-selection-app/)] [[Github repo](https://github.com/marwincarmo/model-selection-app)]
+
+**Brazilian Research Funding app**. In this app I explore the open database of the National Council for Scientific and Technological Development (CNPq), a Brazilian Government research funding agency. 
+[[App](https://marwin.shinyapps.io/bolsas-cnpq/)] [[Github repo](https://github.com/marwincarmo/shiny-bolsas)]
+
 # RESEARCH AND WORK EXPERIENCE
 \hrule
+**University of California, Davis** \hfill September 2023--Present  
+*Graduate Student Teaching Assistant*  \hfill Davis, CA  
+- Statistical Analysis of Psychological Data II (3 quarters)  
+- Data Visualization in the Social Sciences (1 quarter)  
+- General Psychology (1 quarter) 
+
 **Psicometria Online Academy** \hfill May 2022--October 2024  
-*Teaching Assistant (Psychometrics)* \hfill Rio de Janeiro, Brazil (*remote*)  
+*Virtual Teaching Assistant* (Psychometrics) \hfill Rio de Janeiro, Brazil (*remote*)  
 
 <!-- - Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods. -->
 
@@ -83,54 +137,11 @@ Recipient of UERJ’s Department of Scholarships funding for undergraduate resea
 - Organized bi-weekly meetings and led study sessions on measurement theory;
 - Orchestrated invited presentations by renowned scholars like Dr. Derek C. Briggs, Dr. Laura F. Bringmann, Dr. Markus I. Eronen, Dr. Alexander Christensen, Dr. James Grice, and others.
 
-# PUBLICATIONS
-\hrule
-## **Peer-reviewed**  
- \* *denotes manuscript in Portuguese*
- 
-1. Rafihi-Ferreira, R., Hasan, R., Toscanini, A. C., Linares, I. M. P., Borges, D. S., Brasil, I. P., **Carmo, M.**, Neto, F. L., Morin, C. (2024). Acceptance and commitment therapy versus cognitive behavioral therapy for insomnia: A randomized controlled trial. *Journal of Consulting and Clinical Psychology*. https://doi.org/10.1037/ccp0000881
-
-2. **Carmo, M. M. I. B.**, Leme, V. B. R., Quiterio, P. L. (2024). Social skills and people with disabilities: overview of brazilian research. *Psicologia Escolar e Educacional*. https://doi.org/10.1590/2175-35392024-246235-T
- 
-3. Rafihi-Ferreira, R., **Carmo, M. M. I. B.**, Bassoli, L., Hasan, R., Aizawa, I. M. I., & Toscanini, A. C. (2022). Cognitive and psychological factors associated with severe insomnia in Brazilian women: A cross-sectional study. *Psicologia: Reflexão e Crítica*. https://doi.org/10.1186/s41155-022-00243-x
-
-4. \*Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoting the social skills of future teachers focusing on inclusive
-education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
-
-5. \*Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Family guidance program developed in the applied psychology service of a public university. *Psicologia Clínica*.
-
-6. \***Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). A study about the inclusion of people with disabilities in the Brazilian labour market. *Interação em Psicologia*. https://doi.org/h43q
-
-7. Ferreira, W. H., **Carmo, M. M. I. B.**, Silva, A. L. N., & Andrade, C. T. (2014). Effect of structure and viscosity of the components on some properties of starch-rich hybrid blends. *Carbohydrate polymers*. https://doi.org/f6w475
-
-## **Under Review**
-
-1. **Carmo, M.**, Williams, D. R., & Rast, P. Beyond Average Scores: Identification of Consistent and Inconsistent Academic Achievement in Grouping Units. Under review at *Journal of Educational and Behavioral Statistics*. [preprint](https://doi.org/10.31234/osf.io/sh6ne).
-
-2. Conway, B. A., **Carmo, M. M. I. B.**, Filho, H. S. L. S., Alves, M. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. Personality traits and insomnia: direct and anxiety-mediated associations. Under review at *Journal of Sleep Research*.
-
-## **Working Papers**
-
-1. **Carmo, M.**, Morin, C. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. *The network of dysfunctional beliefs about sleep: a structural re-analysis of the DBAS-16*. [preprint](https://osf.io/preprints/psyarxiv/6vuf3).
-
-## **Blogs**
-
-1. **Carmo, M. M. I. B.** (2022). Simulating post selection inference. [[post](https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/)]
-
-2. **Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). [[post](https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/)]
-
-# SOFTWARE DEVELOPMENT
-\hrule
-**Model selection app**. A Shiny app designed for performing simulations of statistical inferences after model selection procedures. Its purpose is to illustrate the problems that arise when model selection, parameters estimation and statistical inferences are undertaken with the same data set. [[App](https://marwin.shinyapps.io/model-selection-app/)] [[code](https://github.com/marwincarmo/model-selection-app)]
-
-**Brazilian Research Funding app**. In this app I explore the open database of the National Council for Scientific and Technological Development (CNPq), a Brazilian Government research funding agency. 
-[[App](https://marwin.shinyapps.io/bolsas-cnpq/)] [[code](https://github.com/marwincarmo/shiny-bolsas)]
-
 # SKILLS
 \hrule
 *Programming* 
 
-- R: exploratory data analysis, data cleaning, data visualization, statistical data analyses, programmatic reporting, web scraping, Shiny apps development, dashboards.
+- R: exploratory data analysis, data cleaning, data visualization, statistical data analyses, programmatic reporting (R Markdown/ Quarto), web scraping, dashboards, packages development, Shiny apps development. 
 - Python: exploratory data analysis, data cleaning, data visualization.
 
 *Tools* 
@@ -152,10 +163,10 @@ Monte Carlo Simulations, Data Visualization, Data Cleaning and Management.
 <!-- *Research Methods*   -->
 <!-- Research Methods in Psychotherapy, Epidemiological Methods in Psychiatry, Scientific Writing. -->
 
-# SELECTED FIRST-AUTHOR PRESENTATIONS
+# FIRST-AUTHOR PRESENTATIONS
 \hrule
 
-1. 2024 -- Poster presentation:A holistic view of academic performance: beyond averages with MELSM and spike-
+1. 2024 -- Poster presentation: A holistic view of academic performance: beyond averages with MELSM and spike-
 and-slab. *89th Annual Meeting of the Psychometric Societ*, Prague, Czech Republic.
 
 2. 2022 -- Poster presentation: Development of the Sleep Acceptance Scale (SAS). *XIX Brazilian Congress of Sleep*, Goiania, Brazil.

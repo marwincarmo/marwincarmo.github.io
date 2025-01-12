@@ -13,7 +13,7 @@ links:
   - label: '<i class="ai ai-osf ai-3x"></i>'
     url: "https://osf.io/tm6d3"
   - label: '<i class="fas fa-envelope-open fa-3x"></i>'
-    url: "mailto:marwin@usp.br"
+    url: "mailto:mmcarmo@ucdavis.edu"
 output:
   postcards::trestles
 site: distill::distill_website
@@ -21,9 +21,9 @@ site: distill::distill_website
 
 ## Bio
 
-I am a first year Psychiatry MSc student at University of São Paulo, Brazil. My research is centered around cognitive facets of insomnia. For my thesis project I am applying psychometric models to validate and investigate sleep-related cognition scales with a Brazilian sample.
+I am a second-year PhD student at the University of California, Davis. My research is centered around intra-individual variability and detection of heterogeneous variance components using Bayesian methods of inference and regularization. I am also interested in developing and refining tools for Bayesian Gaussian Graphical Models. You can access my CV [here](https://marwincarmo.github.io/cv/cv-compact-v3.pdf)
 
-I have plans to apply to PhD programs in Quantitative Psychology or related areas for Fall 2023. If you believe I could be a good fit for your lab or anyone's you know, please feel free to reach out. Contact for collaboration on research or just chatting are also very welcome (preferably via twitter or email). You can acess my CV [here](https://marwincarmo.github.io/cv/cv-compact-v3.pdf)
+A few years ago, I founded a study group focused on measurement theory in the social and behavioral sciences called [Measuring Psychology](https://measuringpsychology.netlify.app/). The group gained international attention and attracted around 250 members. As the organizer, I was in charge of facilitating our bi-weekly meetings and inviting scholars to give talks. We hosted numerous talks featuring distinguished academics in the field. Unfortunately, the group is no longer active, primarily due to my lack of time to manage it since starting my PhD. However, you can check out what we discussed [here](https://docs.google.com/spreadsheets/d/1SOlgVUkUCKVM9kD9AvtMvqsG6lbsh0Nqj9Kom5eESXw/edit?gid=0#gid=0).
 
 <br>
 
@@ -47,31 +47,42 @@ I have plans to apply to PhD programs in Quantitative Psychology or related area
 }
 ```
 
-:::: {style="display: grid; grid-template-columns: 40% 50%; grid-column-gap: 30px; line-height: 1.5rem;"}
+<!-- :::: {style="display: grid; grid-template-columns: 40% 50%; grid-column-gap: 30px; line-height: 1.5rem;"} -->
 
-::: {}
-<span class = "columnname"> Interests </span>
+<!-- ::: {} -->
+<!-- <span class = "columnname"> Interests </span> -->
 
-* Measurement
+<!-- * Measurement -->
 
-* Quantitative Methods
+<!-- * Quantitative Methods -->
 
-* Open Science
+<!-- * Open Science -->
 
-* R programming
-:::
+<!-- * R programming -->
+<!-- ::: -->
 
-::: {}
-<span class = "columnname"> Education </span>
+<!-- ::: {} -->
+<!-- <span class = "columnname"> Education </span> -->
+
+<!-- <ul> -->
+
+<!-- <li class = "grad-item">   M.Sc. student in Psychiatry, 2021 -- current <br> <p class = "grad-location"> University of São Paulo, Brazil </p> </li> -->
+<!-- <li class = "grad-item">   Bachelor's degree in in Psychology, 2014 -- 2019 <br> -->
+<!-- <p class = "grad-location"> Rio de Janeiro State University, Brazil </p> </li> -->
+<!-- <li class = "grad-item">   Bachelor of Technology's degree in Chemical Processes, 2008 -- 2013 <br> <p class = "grad-location"> Rio de Janeiro Federal Institute of Education, Science and Technology, Brazil </p>  -->
+<!-- </li> -->
+
+<!-- </ul> -->
+<!-- ::: -->
+<!-- :::: -->
 
 <ul>
  
-<li class = "grad-item">   M.Sc. student in Psychiatry, 2021 -- current <br> <p class = "grad-location"> University of São Paulo, Brazil </p> </li>
+ <li class = "grad-item">   Ph.D. student in Quantitative Psychology, 2023 -- current <br> <p class = "grad-location"> University of California, Davis </p> </li>
+<li class = "grad-item">   M.Sc. student in Psychiatry, 2021 -- 2023 <br> <p class = "grad-location"> University of São Paulo, Brazil </p> </li>
 <li class = "grad-item">   Bachelor's degree in in Psychology, 2014 -- 2019 <br>
 <p class = "grad-location"> Rio de Janeiro State University, Brazil </p> </li>
 <li class = "grad-item">   Bachelor of Technology's degree in Chemical Processes, 2008 -- 2013 <br> <p class = "grad-location"> Rio de Janeiro Federal Institute of Education, Science and Technology, Brazil </p> 
 </li>
 
 </ul>
-:::
-::::
