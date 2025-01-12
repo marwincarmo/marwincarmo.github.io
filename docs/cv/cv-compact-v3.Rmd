@@ -167,7 +167,7 @@ Monte Carlo Simulations, Data Visualization, Data Cleaning and Management.
 \hrule
 
 1. 2024 -- Poster presentation: A holistic view of academic performance: beyond averages with MELSM and spike-
-and-slab. *89th Annual Meeting of the Psychometric Society*, Prague, Czech Republic.
+and-slab. *89th Annual Meeting of the Psychometric Society*, Prague, Czech Republic. [[poster](https://marwincarmo.github.io/posters/imps24)]
 
 2. 2022 -- Poster presentation: Development of the Sleep Acceptance Scale (SAS). *XIX Brazilian Congress of Sleep*, Goiania, Brazil.
 

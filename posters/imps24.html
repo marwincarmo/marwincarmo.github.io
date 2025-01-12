@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>A holistic view of academic performance: Beyond Averages with MELSM and Spike-and-Slab</title>
+
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=PT Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 84.1cm 118.9cm;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 84.1cm;
+height: 118.9cm;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #00524C 1mm;
+border-radius: 0.5em;
+padding: 4mm;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 20pt;
+font-family: monospace;
+background-color: #00524C24;
+color: #00524C;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 32px;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00524C20;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 32px;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 28px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 84.1cm;
+height: calc(118.9cm *  (1 - 0.1 - 7.5e-2 - 0.01) );
+-webkit-column-count: 2; /* Chrome, Safari, Opera */
+-moz-column-count: 2; /* Firefox */
+column-count: 2;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(118.9cm *  0.1 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #00524C;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #00524C;
+}
+#title {
+font-size: 110px;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color:#022851;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 32px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #00524C;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #02285175 33%,
+      #022851 50%,
+      #02285175 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 84.1cm;
+height: calc(118.9cm * 0.1);
+position: absolute;
+background-color: #022851;
+color: #ffffffcf;
+font-family: PT Sans;
+/*background-image: linear-gradient(#022851 50%,#00524C); */
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffffcf;
+}
+#main-img-left {
+width: 25%;
+left: 0.5in;
+bottom: 0.4in;
+position: absolute;
+opacity: 80%;
+}
+#main-img-center {
+width: 10.0%;
+left: calc(84.1cm * 0.45);
+bottom: 0.1in;
+position: absolute;
+opacity: 80%;
+}
+#main-img-right {
+width: 25%;
+right: 0.5in;
+bottom: 0.55in;
+position: absolute;
+opacity: 80%;
+}
+.main p {
+font-size: 170px;
+font-family: PT Sans;
+text-align: left;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 0.8em;
+}
+.fab {
+color: #00000060;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000060;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000060;
+font-size: 35px;
+}
+.envelope {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globe {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globetext {
+color: #00000060;
+font-size: 35px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 84.1cm;
+height: 118.9cm;
+padding: 0cm;
+}
+.main_bottom {
+width: 84.1cm;
+height: calc(118.9cm * 7.5e-2);
+margin-top: calc(118.9cm * (1 - 7.5e-2));
+position: absolute;
+background-color: #022851;
+/*background-image: linear-gradient(#00524C 10%, #022851);*/
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>A holistic view of academic performance: Beyond Averages with MELSM and Spike-and-Slab</strong></h1><br>
+<h3 id="author" class="author">
+
+<strong>Marwin Carmo</strong><sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:mmcarmo@ucdavis.edu" class="email">mmcarmo@ucdavis.edu</a> <br>
+ Donald R. Williams<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:drwwilliams@ucdavis.edu" class="email">drwwilliams@ucdavis.edu</a> <br>
+ Philippe Rast<sup> 1</sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:prast@ucdavis.edu" class="email">prast@ucdavis.edu</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+  </h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> University of California, Daviss
+</p>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>To get a more complete picture of academic achievement of a student or a school, it’s important to look at both average performance and variability within a cluster. We adapted the mixed-effects location scale model
+(MELSM) using the Spike and Slab regularization technique to shrink the <em>scale</em> random effects to their fixed effect. This allows us to identify clusters with unusually (in)consistent academic achievement.</p>
+<div id="model-formulation" class="section level3">
+<h3>Model formulation</h3>
+<p>The random effects from the scale and location can be modeled as, <span class="math inline">\(\textbf{u}\sim\mathcal{N}(\textbf{0}, \boldsymbol{\Sigma})\)</span>. The covariance matrix of the random effects can be decomposed into <span class="math inline">\(\boldsymbol\Sigma = \boldsymbol{\tau}\boldsymbol{\Omega\tau}&#39;\)</span> to specify independent priors for each element of <span class="math inline">\(\boldsymbol{\tau}\)</span> (random-effects standard deviations) and <span class="math inline">\(\boldsymbol{\Omega}\)</span> (correlation matrix among all random effects).</p>
+<p><span class="math inline">\(\boldsymbol\Omega\)</span> can be factorized via the Cholesky <span class="math inline">\(\textbf{L}\)</span> of <span class="math inline">\(\boldsymbol\Omega = \textbf{L}&#39;\textbf{L}\)</span>. Then, <span class="math inline">\(\textbf{u}\)</span> can be recovered multiplying <span class="math inline">\(\textbf{L}\)</span> by the random effect standard deviations, <span class="math inline">\(\boldsymbol{\tau}\)</span>, and scaling it with a standard normally distributed <span class="math inline">\(\boldsymbol{z}\)</span>.</p>
+<p>An indicator variable (<span class="math inline">\(\delta\)</span>) is included in the prior for the scale random effect to allow switching between the spike and slab throughout the MCMC sampling process. For each school <span class="math inline">\(j\)</span>, we obtain a probabilistic measure on whether the scale random effect is to be included or not:</p>
+<p><span class="math display">\[\textbf{u}_j = \boldsymbol{\tau}\textbf{L}\color{red}{\boldsymbol{\delta}}_j\textbf{z}_j\]</span>
+For a random intercept only model,</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:mm_delta}
+\alpha_{0j} = \begin{cases}
+\eta_{0}, &amp; \text{if }\delta_j = 0 , \\
+\eta_{0} + u_{0j}, &amp; \text{if }\delta_j = 1
+\end{cases}.
+\end{equation}\]</span></p>
+<p>The posterior inclusion probabilities (PIP) can then be computed as</p>
+<p><span class="math display">\[\begin{align}
+Pr(\alpha_{0j} = \eta_{0} | \textbf{Y}) = 1 - \frac{1}{S} \sum_{s = 1}^S \delta_{js},
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(S = \{1,...,s\}\)</span> denotes the posterior samples and <span class="math inline">\(\eta_{0}\)</span> is the average within-person variability.</p>
+<p>The methods have been implemented in the R package <a href="https://github.com/consistentlyBetter/ivd"><code>ivd</code></a>:</p>
+<pre class="r"><code>devtools::install_github(&quot;consistentlybetter/ivd&quot;)</code></pre>
+</div>
+</div>
+<div id="illustrative-example" class="section level1">
+<h1>Illustrative example</h1>
+<p>The data comes from The Basic Education Evaluation System (Saeb) conducted by Brazil’s National Institute for Educational Studies and Research (Inep) in 2021. It is also available as the <code>saeb</code> dataset in the <code>ivd</code> package. The outcome variable is <code>math_proficiency</code> at the end of grade 12. Location and scale are modeled as a function of student and school SES.</p>
+<pre class="r"><code>out &lt;- ivd(location_formula = math_proficiency ~ student_ses * school_ses + (1|school_id),
+           scale_formula =  ~ student_ses * school_ses + (1|school_id),
+           data = saeb,
+           niter = 5000, nburnin = 5000, WAIC = TRUE, workers = 4)</code></pre>
+<p><br></p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:funnel-plot"></span>
+<img src="main_files/figure-html/funnel-plot-1.png" alt="Funnel plot of posterior inclusion probabilities and school's standard deviations. Higher PIP values express more evidence for the random effect of a given school to be included in the model." width="100%" />
+<p class="caption">
+Figure 1: Funnel plot of posterior inclusion probabilities and school’s standard deviations. Higher PIP values express more evidence for the random effect of a given school to be included in the model.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:y-plot"></span>
+<img src="main_files/figure-html/y-plot-1.png" alt="Posterior inclusion probabilities plotted against school's average math achievement in standardized units. Point size represents within-school standard deviation." width="100%" />
+<p class="caption">
+Figure 2: Posterior inclusion probabilities plotted against school’s average math achievement in standardized units. Point size represents within-school standard deviation.
+</p>
+</div>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<ul>
+<li><p>Individual variance detection analysis suggests that some schools have students consistently performing above the average, while others have an average mean score but with greater-than-average variability. Inconsistent performance may reflect unaccounted factors influencing learning.</p></li>
+<li><p>The IVD method could also be used to assess academic performance throughout the year and uncover information relevant to providing more specific school or student support.</p></li>
+<li><p>The <code>ivd</code> package is an accessible tool for applying the spike-and-slab prior to the scale random effects in mixed-effects models for individual differences research. It aids researchers in identifying units that deviate from the average variance effect.</p></li>
+</ul>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-rodriguez2021" class="csl-entry">
+Rodriguez, J. E., Williams, D. R., &amp; Rast, P. (2024). Who is and is not" average’"? Random effects selection with spike-and-slab priors. <em>Psychological Methods</em>. <a href="https://doi.org/10.1037/met0000535">https://doi.org/10.1037/met0000535</a>
+</div>
+<div id="ref-williams2022" class="csl-entry">
+Williams, D. R., Martin, S. R., &amp; Rast, P. (2022). Putting the individual into reliability: Bayesian testing of homogeneous within-person variance in hierarchical models. <em>Behavior Research Methods</em>, <em>54</em>(3), 1272–1290. <a href="https://doi.org/10.3758/s13428-021-01646-x">https://doi.org/10.3758/s13428-021-01646-x</a>
+</div>
+</div>
+</div>
+
+</div>
+<div class="main">
+<p><strong>ivd</strong>: an R package for individual variance detection</p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=img/imps_logo.png>
+<img id="main-img-center" src=img/qrcode.svg>
+<img id="main-img-right" src=img/expanded_logo_white-gold.png>
+</div>
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+
+
+</body>
+</html>
