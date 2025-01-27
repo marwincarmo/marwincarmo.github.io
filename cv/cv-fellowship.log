@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.27)  27 JAN 2025 15:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.27)  27 JAN 2025 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -480,7 +480,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  69i,11n,79p,1202b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/marwin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on cv-fellowship.pdf (3 pages, 205550 bytes).
+Output written on cv-fellowship.pdf (3 pages, 205578 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  147 compressed objects within 2 object streams

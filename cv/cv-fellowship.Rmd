@@ -108,11 +108,11 @@ and-slab. *89th Annual Meeting of the Psychometric Society*, Prague, Czech Repub
 **University of California, Davis** \hfill September 2023--Present  
 *Graduate Student Teaching Assistant*  \hfill Davis, CA  
 
-- PSC103B: Statistical Analysis of Psychological Data (**3 quarters**)  
+- PSC103B: Statistical Analysis of Psychological Data -- **3 quarters** (Winter 24, Spring 24, and Winter 25)  
   - Led laboratory sessions, graded assignments and exams, and held office hours. 
-- PSC012Y: Data Visualization in the Social Sciences (**1 quarter**) 
+- PSC012Y: Data Visualization in the Social Sciences -- **1 quarter** (Fall 24) 
   - Led laboratory sessions, graded assignments, and held office hours. 
-- PSC001: General Psychology (**1 quarter**) 
+- PSC001: General Psychology -- **1 quarter** (Fall 23)
   - Graded assignments and held office hours.
 
 **Psicometria Online Academy** \hfill May 2022--October 2024  
