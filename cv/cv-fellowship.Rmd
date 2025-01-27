@@ -1,0 +1,149 @@
+---
+output: 
+  pdf_document:
+    latex_engine: pdflatex
+    template: rap-latex-cv.tex
+geometry: margin=.75in
+
+title: "CV"
+author: Marwin Machay Indio do Brasil do Carmo
+#orcid: "orcid.org/0000-0002-9577-6885"
+#jobtitle: "Computer Scientist & United States Navy Rear Admiral"
+#address: "Address · Arlington · VA 22205"
+fontawesome: yes
+email: mmcarmo@ucdavis.edu
+github: marwincarmo
+#twitter: marwincarmo
+#phone: "+1 530 760-8026"
+web: 'marwincarmo.github.io'
+updated: yes
+
+keywords: RMarkdown, academic CV, template
+
+#fontfamily: mathpazo
+fontfamilyoptions: sc, osf
+fontsize: 10pt
+linkcolor: blue
+urlcolor: blue
+---
+
+<!-- Your CV should include the following information: publications, preprints, presentations, methods established, data collected, service committees, mentorship roles, the number of quarters you have been a teaching assistant, and any other substantial activities engaged in during graduate school (including activities related to diversity, equity and inclusion). -->
+
+# EDUCATION
+\hrule
+**University of California, Davis**, Ph.D. Quantitative Psychology \hfill 2023--Present  
+*Advisor*: [Philippe Rast, Ph.D.](https://rastlab.ucdavis.edu/)  
+*Research topics*: Intra-individual variability, Mixed-effects location scale models, Bayesian inference, Gaussian graphical models  
+**University of São Paulo**, M.Sc. Psychiatry \hfill 2021--2023  
+Recipient of a Master’s Fellowship from Sao Paulo Research Foundation (FAPESP)  
+<!-- *Thesis title*: The network of dysfunctional beliefs about sleep: a structural re-analysis of DBAS-16.   -->
+*Advisor*: [Renatha El-Rafihi Ferreira, Ph.D.](https://scholar.google.com.br/citations?hl=pt-BR&user=sLWIwcoAAAAJ)  
+<!-- *Research goal*: Explore the psychometric properties of two psychological measures utilizing factor analysis and Item Response Theory. In addition to exploring associations between sleep-related cognitions and insomnia with network analysis. -->
+**Rio de Janeiro State University**, Bachelor in Psychology  \hfill 2014--2019  
+
+# PUBLICATIONS
+\hrule
+## **Peer-Reviewed Journal Articles**  
+ \* *denotes manuscript in Portuguese*
+ 
+1. Rafihi-Ferreira, R., Hasan, R., Toscanini, A. C., Linares, I. M. P., Borges, D. S., Brasil, I. P., **Carmo, M.**, Neto, F. L., Morin, C. (2024). Acceptance and commitment therapy versus cognitive behavioral therapy for insomnia: A randomized controlled trial. *Journal of Consulting and Clinical Psychology*. https://doi.org/10.1037/ccp0000881
+
+2. **Carmo, M. M. I. B.**, Leme, V. B. R., Quiterio, P. L. (2024). Social skills and people with disabilities: overview of Brazilian research. *Psicologia Escolar e Educacional*. https://doi.org/10.1590/2175-35392024-246235-T
+ 
+3. Rafihi-Ferreira, R., **Carmo, M. M. I. B.**, Bassoli, L., Hasan, R., Aizawa, I. M. I., & Toscanini, A. C. (2022). Cognitive and psychological factors associated with severe insomnia in Brazilian women: A cross-sectional study. *Psicologia: Reflexão e Crítica*. https://doi.org/10.1186/s41155-022-00243-x
+
+4. \*Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., & **Carmo, M. M. I. B.** (2021). Promoting the social skills of future teachers focusing on inclusive
+education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
+
+5. \*Quiterio, P. L., Leme, V. B. R., **Carmo, M. M. I. B.**, Silva, J. P., & Camelo, B. L. (2021). Family guidance program developed in the applied psychology service of a public university. *Psicologia Clínica*.
+
+6. \***Carmo, M. M. I. B.**, Gilla, C. G., & Quiterio, P. L. (2020). A study about the inclusion of people with disabilities in the Brazilian labour market. *Interação em Psicologia*. https://doi.org/h43q
+
+## **Under Review**
+
+1. **Carmo, M.**, Williams, D. R., & Rast, P. Beyond Average Scores: Identification of Consistent and Inconsistent Academic Achievement in Grouping Units. Under review at *Journal of Educational and Behavioral Statistics*. [[preprint](https://doi.org/10.31234/osf.io/sh6ne)]
+
+2. **Carmo, M.**, Rafihi-Ferreira, R., Paulos-Guarnieri, L., & Pires, M. L. N. The Sleep Acceptance Scale (SAS): Development, Psychometric Properties, and Applications. Under review at *Behavioral Sleep Medicine.*.
+
+2. Conway, B. A., **Carmo, M. M. I. B.**, Filho, H. S. L. S., Alves, M. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. Personality traits and insomnia: direct and anxiety-mediated associations. Under review at *Journal of Sleep Research*.
+
+## **Manuscripts in Preparation**
+
+1. **Carmo, M.**, Morin, C. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. *The network of dysfunctional beliefs about sleep: a structural re-analysis of the DBAS-16*. [[preprint](https://osf.io/preprints/psyarxiv/6vuf3)]
+
+2. Ingram, E. O., **Carmo, M.**, Manderino, L., Rast, P., & Karr, J. E. *A Network Approach to Concussion-like Symptoms: Comparing Central Symptoms between Young Adults with and without Concussion History*. [In preparation for submission]
+
+## **Blogs**
+
+1. **Carmo, M. M. I. B.** (2022). Simulating post selection inference. [[post](https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/)]
+
+2. **Carmo, M. M. I. B.** (2021). Regression Artifact - Re-running Farmus et. al (2019). [[post](https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/)]
+
+# PRESENTATIONS
+\hrule
+
+## **Selected Conference Presentations**
+
+1. **Carmo, M.**, Williams, D. R., & Rast, P. (2024, July). A holistic view of academic performance: beyond averages with MELSM and spike-
+and-slab. *89th Annual Meeting of the Psychometric Society*, Prague, Czech Republic. [[poster](https://marwincarmo.github.io/posters/imps24)]
+
+2. Ingram, E. O., **Carmo, M.**, Manderino, L., Rast, P., Karr, J. E. (2025, February). Network centrality of post-concussion symptoms in young adults with and without a remote history of concussion. *Annual Rehabilitation Psychology Conference*, Louisville, Kentucky, USA.
+
+3. Ingram, E. O., **Carmo, M.**, Manderino, L., Rast, P., Karr, J. E. (2025, March). A network approach to post-concussion symptoms: Comparing central symptoms between young adults with and without concussion history. *World Congress on Brain Injury by the International Brain Injury Association*, Montreal, Canada.
+
+## **Departmental Presentations**
+
+1. Beyond Average Scores: Identification of Consistent and Inconsistent Academic Achievement in Grouping Units (Winter 2025). *UC Davis Quantitative Research Seminar*. 
+
+2. A holistic view of academic performance: Beyond Averages with MELSM and Spike-and-Slab (Spring 2024). *UC Davis Quantitative Research Seminar*. 
+
+
+# METHODS ESTABLISHED
+\hrule
+
+**Spike-and-Slab Mixed-Effects Location Scale Model (SS-MELSM)**: The SS-MELSM is a for simultaneously modeling location and scale parameters while incorporating a spike-and-slab prior to select or shrink random effects. It involves identifying clusters with unusually large or small within-cluster variance in academic achievement, which can indicate inconsistent or consistent performance. This method was implemented in the R package [`ivd`](https://github.com/consistentlyBetter/ivd).
+
+# TEACHING EXPERIENCE
+\hrule
+**University of California, Davis** \hfill September 2023--Present  
+*Graduate Student Teaching Assistant*  \hfill Davis, CA  
+
+- PSC103B: Statistical Analysis of Psychological Data (**3 quarters**)  
+  - Led laboratory sessions, graded assignments and exams, and held office hours. 
+- PSC012Y: Data Visualization in the Social Sciences (**1 quarter**) 
+  - Led laboratory sessions, graded assignments, and held office hours. 
+- PSC001: General Psychology (**1 quarter**) 
+  - Graded assignments and held office hours.
+
+**Psicometria Online Academy** \hfill May 2022--October 2024  
+*Virtual Teaching Assistant* (Psychometrics) \hfill Remote 
+
+- Provided support to students' questions in topics such as general linear models, multivariate statistics, structural equation modeling, factor analysis, item response theory and research methods.
+
+# MENTORSHIP ROLES
+\hrule
+**Undergraduate Research Mentor**  
+Max Vo, UC Davis \hfill Winter 2025--Present
+
+- Mentored an undergraduate student in developing an interactive Shiny app using R to visualize and analyze intra-cluster variance. This app will work as a user-friendly interface for the `ivd` R package, enabling researchers to explore and analyze complex datasets interactively, enhancing accessibility for non-technical users.
+
+# SUBSTANTIAL ACTIVITIES DURING GRADUATE SCHOOL
+\hrule
+
+- Participated leading a break-out room for international students in the virtual event *Pathways to Graduate School in Quantitative Methods* held in the Fall of 2023. This event seeks to instruct prospective students interested in pursuing Quantitative methods graduate degrees.
+
+# SKILLS
+\hrule
+*Programming* 
+
+- R: exploratory data analysis, data cleaning, data visualization, statistical data analyses, programmatic reporting (R Markdown/ Quarto), web scraping, dashboards, packages development, Shiny apps development. 
+- Python: exploratory data analysis, data cleaning, data visualization.
+
+*Tools* 
+
+- Statistical softwares: R, Stan, SPSS, JASP, JAMOVI
+- Reporting: RMarkdown, Quarto, \LaTeX
+- Version control: Git and Github
+- Reference management: Zotero
+- Data collection and management: REDCap
+
