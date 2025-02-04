@@ -1,0 +1,408 @@
+\documentclass[10pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=.75in]{geometry}
+
+
+
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% Now begins the stuff that I added.
+% ----------------------------------
+
+% Custom section fonts
+\usepackage{sectsty}
+\sectionfont{\rmfamily\mdseries\large\bf}
+\subsectionfont{\rmfamily\mdseries\normalsize\itshape}
+
+
+% Make lists without bullets
+%\renewenvironment{itemize}{
+%  \begin{list}{}{
+%    \setlength{\leftmargin}{1.5em}
+%  }
+%}{
+%  \end{list}
+%}
+
+
+% Make parskips rather than indent with lists.
+\usepackage{parskip}
+\usepackage{titlesec}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+
+% Use fontawesome. Note: you'll need TeXLive 2015. Update.
+\usepackage{fontawesome}
+
+% Fancyhdr, as I tend to do with these personal documents.
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{
+\cfoot{\scriptsize  Marwin Machay Indio do Brasil do Carmo - CV -  }}
+\rfoot{\scriptsize \thepage/{\hypersetup{linkcolor=black}\pageref{LastPage}}}
+
+% Always load hyperref last.
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+
+\hypersetup{unicode=true,
+            pdftitle={Marwin Machay Indio do Brasil do Carmo:  CV (Curriculum Vitae)},
+            pdfauthor={Marwin Machay Indio do Brasil do Carmo},
+            pdfkeywords={RMarkdown, academic CV, template},
+            colorlinks=true,
+            linkcolor=blue,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true, bookmarks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+\begin{document}
+
+
+\centerline{\huge \bf Marwin Machay Indio do Brasil do Carmo}
+
+\vspace{2 mm}
+
+\hrule
+
+\vspace{2 mm}
+
+
+
+\moveleft.5\hoffset\centerline{ \faEnvelopeO \hspace{1 mm} \href{mailto:}{\tt \href{mailto:mmcarmo@ucdavis.edu}{\nolinkurl{mmcarmo@ucdavis.edu}}} \hspace{1 mm}  \faGlobe \hspace{1 mm} \href{http://marwincarmo.github.io}{\tt marwincarmo.github.io} \hspace{1 mm}   \faGithub \hspace{1 mm} \href{http://github.com/marwincarmo}{\tt marwincarmo}   | \emph{Updated:} \today} 
+
+\vspace{2 mm}
+
+\hrule
+
+
+\section{EDUCATION}\label{education}
+
+\hrule
+
+\textbf{University of California, Davis}, Ph.D.~Quantitative Psychology
+\hfill 2023--Present\\
+\emph{Advisor}: \href{https://rastlab.ucdavis.edu/}{Philippe Rast,
+Ph.D.}\\
+\emph{Research topics}: Intra-individual variability, Mixed-effects
+location scale models, Bayesian inference, Gaussian graphical models\\
+\textbf{University of São Paulo}, M.Sc. Psychiatry \hfill 2021--2023\\
+Recipient of a Master's Fellowship from Sao Paulo Research Foundation
+(FAPESP)\\
+\emph{Advisor}:
+\href{https://scholar.google.com.br/citations?hl=pt-BR&user=sLWIwcoAAAAJ}{Renatha
+El-Rafihi Ferreira, Ph.D.}\\
+\textbf{Rio de Janeiro State University}, Bachelor in Psychology
+\hfill 2014--2019
+
+\section{PUBLICATIONS}\label{publications}
+
+\hrule
+
+\subsection{\texorpdfstring{\textbf{Peer-Reviewed Journal
+Articles}}{Peer-Reviewed Journal Articles}}\label{peer-reviewed-journal-articles}
+
+* \emph{denotes manuscript in Portuguese}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Rafihi-Ferreira, R., Hasan, R., Toscanini, A. C., Linares, I. M. P.,
+  Borges, D. S., Brasil, I. P., \textbf{Carmo, M.}, Neto, F. L., Morin,
+  C. (2024). Acceptance and commitment therapy versus cognitive
+  behavioral therapy for insomnia: A randomized controlled trial.
+  \emph{Journal of Consulting and Clinical Psychology}.
+  \url{https://doi.org/10.1037/ccp0000881}
+\item
+  \textbf{Carmo, M. M. I. B.}, Leme, V. B. R., Quiterio, P. L. (2024).
+  Social skills and people with disabilities: overview of Brazilian
+  research. \emph{Psicologia Escolar e Educacional}.
+  \url{https://doi.org/10.1590/2175-35392024-246235-T}
+\item
+  Rafihi-Ferreira, R., \textbf{Carmo, M. M. I. B.}, Bassoli, L., Hasan,
+  R., Aizawa, I. M. I., \& Toscanini, A. C. (2022). Cognitive and
+  psychological factors associated with severe insomnia in Brazilian
+  women: A cross-sectional study. \emph{Psicologia: Reflexão e Crítica}.
+  \url{https://doi.org/10.1186/s41155-022-00243-x}
+\item
+  *Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., \&
+  \textbf{Carmo, M. M. I. B.} (2021). Promoting the social skills of
+  future teachers focusing on inclusive education. \emph{Estudos e
+  Pesquisa em Psicologia}. \url{https://doi.org/h43p}
+\item
+  *Quiterio, P. L., Leme, V. B. R., \textbf{Carmo, M. M. I. B.}, Silva,
+  J. P., \& Camelo, B. L. (2021). Family guidance program developed in
+  the applied psychology service of a public university.
+  \emph{Psicologia Clínica}.
+\item
+  *\textbf{Carmo, M. M. I. B.}, Gilla, C. G., \& Quiterio, P. L. (2020).
+  A study about the inclusion of people with disabilities in the
+  Brazilian labour market. \emph{Interação em Psicologia}.
+  \url{https://doi.org/h43q}
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{Under
+Review}}{Under Review}}\label{under-review}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Carmo, M.}, Williams, D. R., \& Rast, P. Beyond Average
+  Scores: Identification of Consistent and Inconsistent Academic
+  Achievement in Grouping Units. Under review at \emph{Journal of
+  Educational and Behavioral Statistics}.
+  {[}\href{https://doi.org/10.31234/osf.io/sh6ne}{preprint}{]}
+\item
+  \textbf{Carmo, M.}, Rafihi-Ferreira, R., Paulos-Guarnieri, L., \&
+  Pires, M. L. N. The Sleep Acceptance Scale (SAS): Development,
+  Psychometric Properties, and Applications. Under review at
+  \emph{Behavioral Sleep Medicine.}.
+\item
+  Conway, B. A., \textbf{Carmo, M. M. I. B.}, Filho, H. S. L. S., Alves,
+  M. M., Hasan, R., Toscanini, A. C., \& Rafihi-Ferreira, R. Personality
+  traits and insomnia: direct and anxiety-mediated associations. Under
+  review at \emph{Journal of Sleep Research}.
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{Manuscripts in
+Preparation}}{Manuscripts in Preparation}}\label{manuscripts-in-preparation}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Carmo, M.}, Morin, C. M., Hasan, R., Toscanini, A. C., \&
+  Rafihi-Ferreira, R. \emph{The network of dysfunctional beliefs about
+  sleep: a structural re-analysis of the DBAS-16}.
+  {[}\href{https://osf.io/preprints/psyarxiv/6vuf3}{preprint}{]}
+\item
+  Ingram, E. O., \textbf{Carmo, M.}, Manderino, L., Rast, P., \& Karr,
+  J. E. \emph{Exploratory Analysis of Post-Concussion-Like Symptom
+  Networks in College Students with and Without a Remote History of
+  Concussion}. {[}In preparation for submission{]}
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{Blogs}}{Blogs}}\label{blogs}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Carmo, M. M. I. B.} (2022). Simulating post selection
+  inference.
+  {[}\href{https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/}{post}{]}
+\item
+  \textbf{Carmo, M. M. I. B.} (2021). Regression Artifact - Re-running
+  Farmus et. al (2019).
+  {[}\href{https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/}{post}{]}
+\end{enumerate}
+
+\section{PRESENTATIONS}\label{presentations}
+
+\hrule
+
+\subsection{\texorpdfstring{\textbf{Selected Conference
+Presentations}}{Selected Conference Presentations}}\label{selected-conference-presentations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Carmo, M.}, Williams, D. R., \& Rast, P. (2024, July). A
+  holistic view of academic performance: beyond averages with MELSM and
+  spike- and-slab. \emph{89th Annual Meeting of the Psychometric
+  Society}, Prague, Czech Republic.
+  {[}\href{https://marwincarmo.github.io/posters/imps24}{poster}{]}
+\item
+  Ingram, E. O., \textbf{Carmo, M.}, Manderino, L., Rast, P., Karr, J.
+  E. (2025, February). Network centrality of post-concussion symptoms in
+  young adults with and without a remote history of concussion.
+  \emph{Annual Rehabilitation Psychology Conference}, Louisville,
+  Kentucky, USA.
+\item
+  Ingram, E. O., \textbf{Carmo, M.}, Manderino, L., Rast, P., Karr, J.
+  E. (2025, March). A network approach to post-concussion symptoms:
+  Comparing central symptoms between young adults with and without
+  concussion history. \emph{World Congress on Brain Injury by the
+  International Brain Injury Association}, Montreal, Canada.
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{Departmental
+Presentations}}{Departmental Presentations}}\label{departmental-presentations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Beyond Average Scores: Identification of Consistent and Inconsistent
+  Academic Achievement in Grouping Units (Winter 2025). \emph{UC Davis
+  Quantitative Research Seminar}.
+\item
+  A holistic view of academic performance: Beyond Averages with MELSM
+  and Spike-and-Slab (Spring 2024). \emph{UC Davis Quantitative Research
+  Seminar}.
+\end{enumerate}
+
+\section{METHODS ESTABLISHED}\label{methods-established}
+
+\hrule
+
+\textbf{Spike-and-Slab Mixed-Effects Location Scale Model (SS-MELSM)}:
+The SS-MELSM is a technique for simultaneously modeling location and
+scale parameters while incorporating a spike-and-slab prior to select or
+shrink random effects. It involves identifying clusters with unusually
+large or small within-cluster variance in academic achievement, which
+can indicate inconsistent or consistent performance. This method is
+implemented in the R package
+\href{https://github.com/consistentlyBetter/ivd}{\texttt{ivd}}.
+
+\section{TEACHING EXPERIENCE}\label{teaching-experience}
+
+\hrule
+
+\textbf{University of California, Davis} \hfill September
+2023--Present\\
+\emph{Graduate Student Teaching Assistant} \hfill Davis, CA
+
+\begin{itemize}
+\tightlist
+\item
+  PSC103B: Statistical Analysis of Psychological Data -- \textbf{3
+  quarters} (Winter 24, Spring 24, and Winter 25)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Led laboratory sessions, graded assignments and exams, and held
+    office hours.
+  \end{itemize}
+\item
+  PSC012Y: Data Visualization in the Social Sciences -- \textbf{1
+  quarter} (Fall 24)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Led laboratory sessions, graded assignments, and held office hours.
+  \end{itemize}
+\item
+  PSC001: General Psychology -- \textbf{1 quarter} (Fall 23)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Graded assignments and held office hours.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Psicometria Online Academy} \hfill May 2022--October 2024\\
+\emph{Virtual Teaching Assistant} (Psychometrics) \hfill Remote
+
+\begin{itemize}
+\tightlist
+\item
+  Provided support to students' questions in topics such as general
+  linear models, multivariate statistics, structural equation modeling,
+  factor analysis, item response theory and research methods.
+\end{itemize}
+
+\section{MENTORSHIP ROLES}\label{mentorship-roles}
+
+\hrule
+
+\textbf{Undergraduate Research Mentor}\\
+Max Vo, UC Davis \hfill Winter 2025--Present
+
+\begin{itemize}
+\tightlist
+\item
+  Mentored an undergraduate student in developing an interactive Shiny
+  app using R to visualize and analyze intra-cluster variance. This app
+  will work as a user-friendly interface for the \texttt{ivd} R package,
+  enabling researchers to explore and analyze complex datasets
+  interactively, enhancing accessibility for non-technical users.
+\end{itemize}
+
+\section{SUBSTANTIAL ACTIVITIES DURING GRADUATE
+SCHOOL}\label{substantial-activities-during-graduate-school}
+
+\hrule
+
+\begin{itemize}
+\tightlist
+\item
+  Led a break-out room for international students in the virtual event
+  \emph{Pathways to Graduate School in Quantitative Methods} held in the
+  Fall of 2023. This event seeks to instruct prospective students
+  interested in pursuing Quantitative methods graduate degrees.
+\end{itemize}
+
+\section{SKILLS}\label{skills}
+
+\hrule
+
+\emph{Programming}
+
+\begin{itemize}
+\tightlist
+\item
+  R: exploratory data analysis, data cleaning, data visualization,
+  statistical data analyses, programmatic reporting (R Markdown/
+  Quarto), web scraping, dashboards, packages development, Shiny apps
+  development.
+\item
+  Python: exploratory data analysis, data cleaning, data visualization.
+\end{itemize}
+
+\emph{Tools}
+
+\begin{itemize}
+\tightlist
+\item
+  Statistical softwares: R, Stan, SPSS, JASP, JAMOVI
+\item
+  Reporting: RMarkdown, Quarto, \LaTeX
+\item
+  Version control: Git and Github
+\item
+  Reference management: Zotero
+\item
+  Data collection and management: REDCap
+\end{itemize}
+
+\end{document}

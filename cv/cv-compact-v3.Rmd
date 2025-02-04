@@ -3,6 +3,7 @@ output:
   pdf_document:
     latex_engine: pdflatex
     template: rap-latex-cv.tex
+    keep_tex: yes
 geometry: margin=.75in
 
 title: "CV"

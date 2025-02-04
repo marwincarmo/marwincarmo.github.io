@@ -1,0 +1,420 @@
+\documentclass[10pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=.75in]{geometry}
+
+
+
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% Now begins the stuff that I added.
+% ----------------------------------
+
+% Custom section fonts
+\usepackage{sectsty}
+\sectionfont{\rmfamily\mdseries\large\bf}
+\subsectionfont{\rmfamily\mdseries\normalsize\itshape}
+
+
+% Make lists without bullets
+%\renewenvironment{itemize}{
+%  \begin{list}{}{
+%    \setlength{\leftmargin}{1.5em}
+%  }
+%}{
+%  \end{list}
+%}
+
+
+% Make parskips rather than indent with lists.
+\usepackage{parskip}
+\usepackage{titlesec}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+
+% Use fontawesome. Note: you'll need TeXLive 2015. Update.
+\usepackage{fontawesome}
+
+% Fancyhdr, as I tend to do with these personal documents.
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{
+\cfoot{\scriptsize  Marwin Machay Indio do Brasil do Carmo - CV -  }}
+\rfoot{\scriptsize \thepage/{\hypersetup{linkcolor=black}\pageref{LastPage}}}
+
+% Always load hyperref last.
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+
+\hypersetup{unicode=true,
+            pdftitle={Marwin Machay Indio do Brasil do Carmo:  CV (Curriculum Vitae)},
+            pdfauthor={Marwin Machay Indio do Brasil do Carmo},
+            pdfkeywords={RMarkdown, academic CV, template},
+            colorlinks=true,
+            linkcolor=blue,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true, bookmarks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+\begin{document}
+
+
+\centerline{\huge \bf Marwin Machay Indio do Brasil do Carmo}
+
+\vspace{2 mm}
+
+\hrule
+
+\vspace{2 mm}
+
+
+
+\moveleft.5\hoffset\centerline{ \faEnvelopeO \hspace{1 mm} \href{mailto:}{\tt \href{mailto:mmcarmo@ucdavis.edu}{\nolinkurl{mmcarmo@ucdavis.edu}}} \hspace{1 mm}  \faGlobe \hspace{1 mm} \href{http://marwincarmo.github.io}{\tt marwincarmo.github.io} \hspace{1 mm}   \faGithub \hspace{1 mm} \href{http://github.com/marwincarmo}{\tt marwincarmo}   | \emph{Updated:} \today} 
+
+\vspace{2 mm}
+
+\hrule
+
+
+\section{EDUCATION}\label{education}
+
+\hrule
+
+\textbf{University of California, Davis}, Ph.D.~Quantitative Psychology
+\hfill 2023--Present\\
+\emph{Advisor}: \href{https://rastlab.ucdavis.edu/}{Philippe Rast,
+Ph.D.}\\
+\emph{Research topics}: Intra-individual variability, Mixed-effects
+location scale models, Bayesian inference, Gaussian graphical models\\
+\textbf{University of São Paulo}, M.Sc. Psychiatry \hfill 2021--2023\\
+Recipient of a Master's Fellowship from Sao Paulo Research Foundation
+(FAPESP)\\
+\emph{Advisor}:
+\href{https://scholar.google.com.br/citations?hl=pt-BR&user=sLWIwcoAAAAJ}{Renatha
+El-Rafihi Ferreira, Ph.D.}\\
+\textbf{Rio de Janeiro State University}, Bachelor in Psychology
+\hfill 2014--2019\\
+\textbf{Federal Institute of Education, Science and Technology}, B.Tech.
+Chemical Processes \hfill 2008--2013
+
+\section{PUBLICATIONS}\label{publications}
+
+\hrule
+
+\subsection{\texorpdfstring{\textbf{Peer-reviewed}}{Peer-reviewed}}\label{peer-reviewed}
+
+* \emph{denotes manuscript in Portuguese}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Rafihi-Ferreira, R., Hasan, R., Toscanini, A. C., Linares, I. M. P.,
+  Borges, D. S., Brasil, I. P., \textbf{Carmo, M.}, Neto, F. L., Morin,
+  C. (2024). Acceptance and commitment therapy versus cognitive
+  behavioral therapy for insomnia: A randomized controlled trial.
+  \emph{Journal of Consulting and Clinical Psychology}.
+  \url{https://doi.org/10.1037/ccp0000881}
+\item
+  \textbf{Carmo, M. M. I. B.}, Leme, V. B. R., Quiterio, P. L. (2024).
+  Social skills and people with disabilities: overview of Brazilian
+  research. \emph{Psicologia Escolar e Educacional}.
+  \url{https://doi.org/10.1590/2175-35392024-246235-T}
+\item
+  Rafihi-Ferreira, R., \textbf{Carmo, M. M. I. B.}, Bassoli, L., Hasan,
+  R., Aizawa, I. M. I., \& Toscanini, A. C. (2022). Cognitive and
+  psychological factors associated with severe insomnia in Brazilian
+  women: A cross-sectional study. \emph{Psicologia: Reflexão e Crítica}.
+  \url{https://doi.org/10.1186/s41155-022-00243-x}
+\item
+  *Quiterio, P. L., Nunes, L. R. O. P., Camelo, B. L., Silva, J. P., \&
+  \textbf{Carmo, M. M. I. B.} (2021). Promoting the social skills of
+  future teachers focusing on inclusive education. \emph{Estudos e
+  Pesquisa em Psicologia}. \url{https://doi.org/h43p}
+\item
+  *Quiterio, P. L., Leme, V. B. R., \textbf{Carmo, M. M. I. B.}, Silva,
+  J. P., \& Camelo, B. L. (2021). Family guidance program developed in
+  the applied psychology service of a public university.
+  \emph{Psicologia Clínica}.
+\item
+  *\textbf{Carmo, M. M. I. B.}, Gilla, C. G., \& Quiterio, P. L. (2020).
+  A study about the inclusion of people with disabilities in the
+  Brazilian labour market. \emph{Interação em Psicologia}.
+  \url{https://doi.org/h43q}
+\item
+  Ferreira, W. H., \textbf{Carmo, M. M. I. B.}, Silva, A. L. N., \&
+  Andrade, C. T. (2014). Effect of structure and viscosity of the
+  components on some properties of starch-rich hybrid blends.
+  \emph{Carbohydrate polymers}. \url{https://doi.org/f6w475}
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{Under
+Review}}{Under Review}}\label{under-review}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Carmo, M.}, Williams, D. R., \& Rast, P. Beyond Average
+  Scores: Identification of Consistent and Inconsistent Academic
+  Achievement in Grouping Units. Under review at \emph{Journal of
+  Educational and Behavioral Statistics}.
+  {[}\href{https://doi.org/10.31234/osf.io/sh6ne}{preprint}{]}
+\item
+  \textbf{Carmo, M.}, Rafihi-Ferreira, R., Paulos-Guarnieri, L., \&
+  Pires, M. L. N. The Sleep Acceptance Scale (SAS): Development,
+  Psychometric Properties, and Applications. Under review at
+  \emph{Behavioral Sleep Medicine.}.
+\item
+  Conway, B. A., \textbf{Carmo, M. M. I. B.}, Filho, H. S. L. S., Alves,
+  M. M., Hasan, R., Toscanini, A. C., \& Rafihi-Ferreira, R. Personality
+  traits and insomnia: direct and anxiety-mediated associations. Under
+  review at \emph{Journal of Sleep Research}.
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{Working
+Papers}}{Working Papers}}\label{working-papers}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Carmo, M.}, Morin, C. M., Hasan, R., Toscanini, A. C., \&
+  Rafihi-Ferreira, R. \emph{The network of dysfunctional beliefs about
+  sleep: a structural re-analysis of the DBAS-16}.
+  {[}\href{https://osf.io/preprints/psyarxiv/6vuf3}{preprint}{]}
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{Blogs}}{Blogs}}\label{blogs}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Carmo, M. M. I. B.} (2022). Simulating post selection
+  inference.
+  {[}\href{https://marwincarmo.github.io/posts/2021-12-20-model-selection-bias/}{post}{]}
+\item
+  \textbf{Carmo, M. M. I. B.} (2021). Regression Artifact - Re-running
+  Farmus et. al (2019).
+  {[}\href{https://marwincarmo.github.io/posts/2021-11-04-simulating-regression-artifact/}{post}{]}
+\end{enumerate}
+
+\section{SOFTWARE DEVELOPMENT}\label{software-development}
+
+\hrule
+
+\textbf{\texttt{ivd}}. An R package for random effects selection in the
+scale part of Mixed Effects Location Scale Models using a spike-and-slab
+prior on the random effects of the scale.
+{[}\href{https://github.com/consistentlyBetter/ivd}{Github repo}
+
+\textbf{Model selection app}. A Shiny app designed for performing
+simulations of statistical inferences after model selection procedures.
+Its purpose is to illustrate the problems that arise when model
+selection, parameters estimation and statistical inferences are
+undertaken with the same data set.
+{[}\href{https://marwin.shinyapps.io/model-selection-app/}{App}{]}
+{[}\href{https://github.com/marwincarmo/model-selection-app}{Github
+repo}{]}
+
+\textbf{Brazilian Research Funding app}. In this app I explore the open
+database of the National Council for Scientific and Technological
+Development (CNPq), a Brazilian Government research funding agency.
+{[}\href{https://marwin.shinyapps.io/bolsas-cnpq/}{App}{]}
+{[}\href{https://github.com/marwincarmo/shiny-bolsas}{Github repo}{]}
+
+\section{RESEARCH AND WORK
+EXPERIENCE}\label{research-and-work-experience}
+
+\hrule
+
+\textbf{University of California, Davis} \hfill September
+2023--Present\\
+\emph{Graduate Student Teaching Assistant} \hfill Davis, CA\\
+- Statistical Analysis of Psychological Data II (3 quarters)\\
+- Data Visualization in the Social Sciences (1 quarter)\\
+- General Psychology (1 quarter)
+
+\textbf{Psicometria Online Academy} \hfill May 2022--October 2024\\
+\emph{Virtual Teaching Assistant} (Psychometrics) \hfill Rio de Janeiro,
+Brazil (\emph{remote})
+
+\textbf{PsicoDados} \hfill January 2022--December 2022\\
+\emph{Statistical Consultant} \hfill Rio de Janeiro, Brazil
+(\emph{remote})
+
+\textbf{Psychology of Human Development Laboratory - UERJ} \hfill August
+2019--August 2020\\
+\emph{Research Assistant} \hfill Rio de Janeiro, Brazil\\
+Recipient of FAPERJ's Training and Technical Qualification fellowship
+
+\textbf{Socio-Emotional Development, Inclusion and Social Skills
+Laboratory - UERJ} \hfill July 2017--July 2019\\
+\emph{Undergraduate Research Project} \hfill Rio de Janeiro, Brazil\\
+Recipient of UERJ's Department of Scholarships funding for undergraduate
+research project
+
+\textbf{Biodegradable Polymer Research Laboratory - UFRJ} \hfill June
+2011--March 2013\\
+\emph{Undergraduate Research Project} \hfill Rio de Janeiro, Brazil
+
+\section{OTHER RELEVANT EXPERIENCE}\label{other-relevant-experience}
+
+\hrule
+
+\textbf{\href{https://measuringpsychology.netlify.app/}{Measuring
+Psychology Study Goup and Community}} \hfill February 2022--October
+2023\\
+\emph{Founder and facilitator} \hfill Online
+
+\begin{itemize}
+\tightlist
+\item
+  Created a global community of 200+ members interested in discussions,
+  collaborations, and networking in the field of measurement in the
+  human sciences;
+\item
+  Organized bi-weekly meetings and led study sessions on measurement
+  theory;
+\item
+  Orchestrated invited presentations by renowned scholars like Dr.~Derek
+  C. Briggs, Dr.~Laura F. Bringmann, Dr.~Markus I. Eronen, Dr.~Alexander
+  Christensen, Dr.~James Grice, and others.
+\end{itemize}
+
+\section{SKILLS}\label{skills}
+
+\hrule
+
+\emph{Programming}
+
+\begin{itemize}
+\tightlist
+\item
+  R: exploratory data analysis, data cleaning, data visualization,
+  statistical data analyses, programmatic reporting (R Markdown/
+  Quarto), web scraping, dashboards, packages development, Shiny apps
+  development.
+\item
+  Python: exploratory data analysis, data cleaning, data visualization.
+\end{itemize}
+
+\emph{Tools}
+
+\begin{itemize}
+\tightlist
+\item
+  Statistical softwares: R, SPSS, JASP, JAMOVI
+\item
+  Reporting: RMarkdown, Quarto, \LaTeX
+\item
+  Version control: Git and Github
+\item
+  Reference management: Zotero
+\item
+  Data collection and management: REDCap
+\end{itemize}
+
+\section{RELEVANT COURSEWORK}\label{relevant-coursework}
+
+\hrule
+
+\emph{Mathematics \& Statistics}\\
+Multivariable Calculus, Linear Algebra, Probability Theory, Machine
+Learning, Structural Equation Modeling, Applied Bayesian Statistics.
+
+\emph{Programming}\\
+Monte Carlo Simulations, Data Visualization, Data Cleaning and
+Management.
+
+\section{FIRST-AUTHOR PRESENTATIONS}\label{first-author-presentations}
+
+\hrule
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  2024 -- Poster presentation: A holistic view of academic performance:
+  beyond averages with MELSM and spike- and-slab. \emph{89th Annual
+  Meeting of the Psychometric Society}, Prague, Czech Republic.
+  {[}\href{https://marwincarmo.github.io/posters/imps24}{poster}{]}
+\item
+  2022 -- Poster presentation: Development of the Sleep Acceptance Scale
+  (SAS). \emph{XIX Brazilian Congress of Sleep}, Goiania, Brazil.
+\item
+  2022 -- Oral presentation: Understanding model selection bias via
+  simulation. \emph{VI International Seminar on Statistics with R},
+  Online.
+  {[}\href{https://marwincarmo.github.io/slides/vi-ser/selection-bias}{slides}{]}{[}\href{https://www.youtube.com/watch?v=eyd1VCAX864&t=910s}{video}{]}
+\item
+  2022 -- Oral presentation: A network approach of Insomnia and
+  Dysfunctional Beliefs and Attitudes About Sleep. \emph{VII Psychiatric
+  Clinic Congress}, São Paulo, Brazil. \textbf{Recipient of Best Oral
+  Presentation Award}
+  {[}\href{https://marwincarmo.github.io/slides/viiccp/dbas-network_slides}{slides}{]}
+\item
+  2022 -- Poster presentation: Network structure of acceptance of sleep
+  difficulties and insomnia. \emph{VII Psychiatric Clinic Congress}, São
+  Paulo, Brazil.
+  {[}\href{https://marwincarmo.github.io/posters/poster_viicp_spaq}{poster}{]}
+\item
+  2021 -- Poster presentation: The association between sleep-related
+  cognitions, psychological flexibility, and insomnia symptoms.
+  \emph{XVIII Brazilian Congress of Sleep}, São Paulo, Brazil.
+  \textbf{Recipient of Top Posters Award}
+  {[}\href{https://marwincarmo.github.io/posters/cb_sono_poster}{poster}{]}
+  {[}\href{https://sono2021.com.br/evento/sono2021/trabalhosaprovados/naintegra/1047}{abstract}{]}
+\item
+  2019 -- Poster presentation: Effects of a parent training program to
+  clinical and non-clinical samples. \emph{VII International Seminar on
+  Social Skills}, Maranhão, Brazil. \textbf{Recipient of 3rd place for
+  Best Poster Award}
+\item
+  2018 -- Poster presentation: A study on the inclusion of people with
+  disabilities in the Brazilian labor market. \emph{12th Regional
+  Exhibition of Practices in Psychology}, Rio de Janeiro, Brazil.
+\item
+  2018 -- Poster presentation: Assessment of the effects of a parent
+  training program. \emph{VII Brazilian Congress of Cognitive Therapy
+  for Children and Adolescents}, Bahia, Brazil. \textbf{Recipient of 3rd
+  place for Best Poster Award}
+\end{enumerate}
+
+\end{document}

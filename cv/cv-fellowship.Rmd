@@ -3,6 +3,7 @@ output:
   pdf_document:
     latex_engine: pdflatex
     template: rap-latex-cv.tex
+    keep_tex: yes
 geometry: margin=.75in
 
 title: "CV"
@@ -71,7 +72,7 @@ education. *Estudos e Pesquisa em Psicologia*. https://doi.org/h43p
 
 1. **Carmo, M.**, Morin, C. M., Hasan, R., Toscanini, A. C., & Rafihi-Ferreira, R. *The network of dysfunctional beliefs about sleep: a structural re-analysis of the DBAS-16*. [[preprint](https://osf.io/preprints/psyarxiv/6vuf3)]
 
-2. Ingram, E. O., **Carmo, M.**, Manderino, L., Rast, P., & Karr, J. E. *A Network Approach to Concussion-like Symptoms: Comparing Central Symptoms between Young Adults with and without Concussion History*. [In preparation for submission]
+2. Ingram, E. O., **Carmo, M.**, Manderino, L., Rast, P., & Karr, J. E. *Exploratory Analysis of Post-Concussion-Like Symptom Networks in College Students with and Without a Remote History of Concussion*. [In preparation for submission]
 
 ## **Blogs**
 
@@ -101,7 +102,7 @@ and-slab. *89th Annual Meeting of the Psychometric Society*, Prague, Czech Repub
 # METHODS ESTABLISHED
 \hrule
 
-**Spike-and-Slab Mixed-Effects Location Scale Model (SS-MELSM)**: The SS-MELSM is a for simultaneously modeling location and scale parameters while incorporating a spike-and-slab prior to select or shrink random effects. It involves identifying clusters with unusually large or small within-cluster variance in academic achievement, which can indicate inconsistent or consistent performance. This method was implemented in the R package [`ivd`](https://github.com/consistentlyBetter/ivd).
+**Spike-and-Slab Mixed-Effects Location Scale Model (SS-MELSM)**: The SS-MELSM is a technique for simultaneously modeling location and scale parameters while incorporating a spike-and-slab prior to select or shrink random effects. It involves identifying clusters with unusually large or small within-cluster variance in academic achievement, which can indicate inconsistent or consistent performance. This method is implemented in the R package [`ivd`](https://github.com/consistentlyBetter/ivd).
 
 # TEACHING EXPERIENCE
 \hrule
@@ -130,7 +131,7 @@ Max Vo, UC Davis \hfill Winter 2025--Present
 # SUBSTANTIAL ACTIVITIES DURING GRADUATE SCHOOL
 \hrule
 
-- Participated leading a break-out room for international students in the virtual event *Pathways to Graduate School in Quantitative Methods* held in the Fall of 2023. This event seeks to instruct prospective students interested in pursuing Quantitative methods graduate degrees.
+- Led a break-out room for international students in the virtual event *Pathways to Graduate School in Quantitative Methods* held in the Fall of 2023. This event seeks to instruct prospective students interested in pursuing Quantitative methods graduate degrees.
 
 # SKILLS
 \hrule
